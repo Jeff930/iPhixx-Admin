@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+$dialog-position-top: 10%;
+$width: 30%;
+
+@import "~ngx-smart-modal/ngx-smart-modal";
+@import "app/app.component";
+
+.cancel{
+	margin-left:2vw;
+	background-color:#FF3333;
+	border-color:#FF3333;
+}
+
+.cancel:hover{
+	background-color:red;
+	border-color:red;
+}
+

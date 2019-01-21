@@ -1,0 +1,137 @@
+
+<app-navbar > </app-navbar>
+<app-sidebar > </app-sidebar>
+<app-footer > </app-footer>
+<ngx-spinner
+	bdColor = "rgba(51, 51, 51, 0.8)"
+	size = "medium"
+	color = "#fff"
+	type = "pacman"
+></ngx-spinner>
+<div class="main">
+	<div class="main-content">
+		<div class="container-fluid">
+			<div class="col-lg-12">
+							<!-- TABLE HOVER -->
+							<div class="panel panel-headline">
+								<div class="panel-heading">
+									<h3 class="panel-title">Bookings</h3>
+								</div>
+								<div class="panel-body">
+								<!-- 	<table class="table table-hover">
+										<thead>
+											<tr>
+												<th>Lead Name</th>
+												<th>Created</th>
+												<th>Email</th>
+												<th>Issue</th>
+												<th>Status</th>
+											</tr>
+										</thead>
+										<tbody>
+										
+											<tr *ngFor="let lead of leads" >
+												<td>{{ lead.first_name + ' ' + lead.last_name }}</td>
+												<td>{{ lead.created_at }}</td>
+												<td>{{ lead.email }}</td>
+												<td>{{ lead.ticket_subject }}</td>
+												<td>{{ lead.status }}</td>
+											</tr>
+											
+										</tbody>
+									</table> -->
+									<div class="table-responsive">
+									<table class="table table-hover ">
+									    <thead>
+									    <tr>
+									    	<th>
+									            Booking ID
+									        </th>
+									        <th >
+									            Device Owner
+									        </th>
+									        <th>
+									            Created by
+									        </th>
+									        <th>
+									            Date Created
+									        </th>
+									        <th>
+									            Repair Status
+									        </th>									     
+									        <th>
+									            
+									        </th>
+
+									    </tr>
+									    </thead>
+									    <tbody>
+									    <tr *ngFor="let lead of leads; let i = index" >
+									       <!--  <td>{{item.name}}</td>
+									        <td>{{item.email}}</td>
+									        <td class="text-right">{{item.age}}</td>
+									        <td>{{item.city | uppercase}}</td>
+									        <td>{{item.city | uppercase}}</td> -->
+									        <td>{{ lead.bookings_id }}</td>
+									        <td>{{ lead.owner_name }}</td>
+									        <td>{{ lead.fullname}}</td>
+												<td>{{ lead.created_at }}</td>
+												<td>{{ lead.rep_status }}</td>
+												<td>
+
+													<button  [satPopoverAnchorFor]="contactPopover" (click)="contactPopover.toggle()" class="btn btn-default btn-sm">
+		          										<span class="glyphicon glyphicon-option-horizontal"></span>
+		        									</button>
+
+
+													<sat-popover #contactPopover hasBackdrop verticalAlign="below">
+													  <div class="list-group">
+													  	<!-- <a (click)="updatePaymentStatus(lead.id, i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-ok"></span>   Mark as Paid</a> -->
+														<a (click)="checkStatus(lead.bookings_id, lead.rep_status)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-flag"></span>  Update Status</a>
+														<a (click)="viewRepair(lead.bookings_id, i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-eye-open"></span>  View Repair</a>
+														<a (click)="editBooking(lead.bookings_id, i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-pencil"></span>  Device Owner</a>
+														<a (click)="cancelBooking(lead.bookings_id)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-remove"></span>   Cancel Booking</a>
+														 
+														 
+														  </div>
+
+													</sat-popover>
+															        								
+												</td>
+												<!-- <td><button (click) = "updateBooking(lead.id)" class="btn btn-primary">Update Status</button></td> -->
+									    </tr>
+									    </tbody>
+									    <tfoot>
+									    <tr>
+									        <td colspan="5">
+									        	<ul class="pagination center">
+
+									        		<li (click) = "PreviosPage()"  class="page-item {{ pageActive == 1 ? 'disabled' : ''}}"><a class="page-link" style="cursor: pointer">«</a>
+									        		</li>
+									        		<li *ngFor="let page of pages ; let i = index" (click)="goToPage(i+1)" class="page-item {{ i+1 == pageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">{{i+1}}</a>
+									        		</li>
+									        		<!-- <li class="page-item"><a class="page-link" style="cursor: pointer">2</a></li>
+									        		 -->
+									        		<li (click) = "NextPage()" class="page-item"><a class="page-link" style="cursor: pointer">»</a>
+									        		</li>
+
+									        	</ul>
+									         <!--    <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator> -->
+									        </td>
+									    </tr>
+									    </tfoot>
+									</table>
+										
+									</div>
+								</div>
+							</div>
+							<!-- END TABLE HOVER -->
+						</div>
+						
+
+		</div>
+	</div>
+</div>
+
+
+
