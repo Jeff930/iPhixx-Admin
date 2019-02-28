@@ -21,18 +21,17 @@ export class EditCustomerComponent implements OnInit {
    }
 
   customer = { 
-  	fullname: '',
-  	business_name :'',
+  	customer_fname: '',
+  	customer_lname :'',
   	email : '',
   	phone : '',
-  	address :'',
-  	address_2 : '',
-  	city : '',
-  	state : '',
-  	zip : '',
+  	phone2 :'',
+  	birthdate : '',
+  	// city : '',
+  	// state : '',
+  	// zip : '',
   	id : 0,
-  	password : '',
-
+  	// password : '',
   };
 
   id ;
@@ -97,7 +96,7 @@ export class EditCustomerComponent implements OnInit {
   }
 
   newCustomer(){
-	console.log(this.customer.fullname);
+	console.log(this.customer.customer_fname);
 	  this.spinner.show();
 	  this.adminService.addCustomer(this.customer).subscribe(res => {
 		console.log("this" + res)
