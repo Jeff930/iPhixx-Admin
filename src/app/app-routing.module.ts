@@ -23,6 +23,8 @@ import { FilterByTypeComponent } from './filter-by-type/filter-by-type.component
 import { NotificationsComponent } from './notifications/notifications.component';
 import { TicketsComponent } from './tickets/tickets.component';
 import { InventoryComponent } from './inventory/inventory.component';
+import { AgentsComponent } from './agents/agents.component';
+import { EditAgentComponent } from './edit-agent/edit-agent.component';
 
 
 const routes: Routes = [
@@ -43,6 +45,9 @@ const routes: Routes = [
   { path: 'filter-by-date', component: FilterByDateComponent },
   { path: 'tickets', component: TicketsComponent },
   { path: 'inventory', component: InventoryComponent },
+  { path: 'agents', component: AgentsComponent },
+  { path: 'edit-agent/:id', component: EditAgentComponent },
+  { path: 'edit-agent', component: EditAgentComponent },
   // { path: 'admin', component: DashboardComponent },
 
 
@@ -85,4 +90,6 @@ export const routingComponents = [
                                   FilterByTypeComponent,
                                   InventoryComponent,
                                   TicketsComponent,
+                                  AgentsComponent,
+                                  EditAgentComponent,
                                  ]
