@@ -1,0 +1,103 @@
+<ngx-spinner
+	bdColor = "rgba(51, 51, 51, 0.8)"
+	size = "medium"
+	color = "#fff"
+	type = "pacman"
+></ngx-spinner>
+<app-navbar > </app-navbar>
+<app-sidebar > </app-sidebar>
+<app-footer > </app-footer>
+
+
+<div class="main">
+	<div class="main-content">
+		<div class="container-fluid">
+			<div class="col-lg-12">
+							<!-- TABLE HOVER -->
+							<div class="panel panel-headline">
+								<div class="panel-heading">
+							
+									<div class=" col-lg-3">
+										<h3 class="panel-title">Agents</h3>
+										
+									</div>
+									<div class="col-lg-offset-6 col-lg-3">
+										<button class="new-customer" (click)="newAgent()">+ New Agent</button>
+									</div>
+
+
+								</div>
+								<div class="panel-body">
+									<div class="table-responsive">
+									<table class="table table-hover">
+										<thead>
+											<tr>
+												<th>Full Name</th>
+												<th>Username</th>
+												<th>Store Assigned</th>
+												<th>PIN</th>
+												<th></th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr *ngFor="let agent of agents ; let i = index">
+												
+												<td>{{ agent.agent_fname }} {{ agent.agent_mname }} {{ agent.agent_lname }}</td>
+												<td>{{ agent.agent_username }}</td>
+												<td>{{ agent.store_assigned }}</td>
+												<td>{{ agent.agent_pin}}</td>
+												<td>
+
+													<button  [satPopoverAnchorFor]="contactPopover" (click)="contactPopover.toggle()" class="btn btn-default btn-sm">
+		          										<span class="glyphicon glyphicon-option-horizontal"></span>
+		        									</button>
+
+
+													<sat-popover #contactPopover hasBackdrop verticalAlign="below">
+													  <div class="list-group">
+														
+														  <a (click)="editAgent(agent.agent_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-pencil"></span>Edit</a>
+														  <a (click)="deleteCustomer(customer.customer_id )" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-remove"></span>Delete</a>
+														 
+														 
+														  </div>
+
+													</sat-popover>
+															        								
+												</td>
+					    
+											
+											</tr>
+											
+										</tbody>
+										  <tfoot>
+									    <tr>
+									        <td colspan="5">
+									        	<ul class="pagination center">
+
+									        		<li (click) = "PreviosPage()"  class="page-item {{ agentspageActive == 1 ? 'disabled' : ''}}"><a class="page-link" style="cursor: pointer">«</a>
+									        		</li>
+									        		<li *ngFor="let page of agentspages ; let i = index" (click)="goToPage(i+1)" class="page-item {{ i+1 == agentspageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">{{i+1}}</a>
+									        		</li>
+									        		<!-- <li class="page-item"><a class="page-link" style="cursor: pointer">2</a></li>
+									        		 -->
+									        		<li (click) = "NextPage()" class="page-item"><a class="page-link" style="cursor: pointer">»</a>
+									        		</li>
+
+									        	</ul>
+									         <!--    <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator> -->
+									        </td>
+									    </tr>
+									    </tfoot>
+									</table>
+								</div>
+								</div>
+							</div>
+							<!-- END TABLE HOVER -->
+						</div>
+		</div>
+	</div>
+</div>
+
+
+
