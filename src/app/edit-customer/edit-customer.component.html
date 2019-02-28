@@ -23,8 +23,12 @@
 									<div class="col-lg-6 ">
 									
 										  <div class="form-group">
-										    <label for="exampleInputEmail1">Full Name</label>
-										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] = "customer.fullname"  type="text" class="form-control" id="fullname" aria-describedby="emailHelp" placeholder="Full Name">
+										    <label for="exampleInputEmail1">Customer First Name</label>
+										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] = "customer.customer_fname"  type="text" class="form-control" id="firstname" aria-describedby="emailHelp" placeholder="Customer First Name">
+										  </div>
+										  <div class="form-group">
+										    <label for="exampleInputEmail1">Customer Last Name</label>
+										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] = "customer.customer_lname"  type="text" class="form-control" id="lastname" aria-describedby="emailHelp" placeholder="Customer Last Name">
 										  </div>
 										  <!-- <div class="form-group">
 										    <label for="exampleInputPassword1">Last Name</label>
@@ -36,25 +40,26 @@
 										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] ="customer.email" type="email" class="form-control" id="exampleInputEmail13" aria-describedby="emailHelp" placeholder="Email Address">
 										  </div>
 
-
-										    <div  class="form-group">
-										    <label for="exampleInputPassword1">Pasword</label>
-										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] ="customer.password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Last Name">
-										  	</div>
-
-										    <div class="form-group">
-										    <label for="exampleInputEmail1">Phone</label>
-										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] ="customer.phone" type="tel" class="form-control" id="exampleInputEmail8" aria-describedby="emailHelp" placeholder="Phone">
-										  </div>
+										  
 										
 									</div>
 									<div class="col-lg-6 ">
-									
-										  <div class="form-group">
-										    <label for="exampleInputEmail1">Address</label>
-										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] ="customer.address" type="text" class="form-control" id="exampleInputEmail9" aria-describedby="emailHelp" placeholder="Address">
+
+										 <div class="form-group">
+										    <label for="exampleInputEmail1">Phone</label>
+										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] ="customer.phone" type="tel" class="form-control" id="exampleInputEmail8" aria-describedby="emailHelp" placeholder="Phone">
 										  </div>
-										  <div class="form-group">
+										  
+										<div class="form-group">
+										    <label for="exampleInputEmail1">Alternative Phone</label>
+										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] ="customer.phone2" type="tel" class="form-control" id="exampleInputEmail8" aria-describedby="emailHelp" placeholder="Phone">
+										  </div>
+									
+										   <div class="form-group">
+										    <label for="exampleInputEmail1">Birthdate</label>
+										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] ="customer.birthdate" type="text" class="form-control" id="exampleInputEmail9" aria-describedby="emailHelp" placeholder="Address">
+										  </div>
+										 <!-- <div class="form-group">
 										    <label for="exampleInputPassword1">City</label>
 										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] ="customer.city" type="text" class="form-control" id="exampleInputPassworda" placeholder="City">
 										  </div>
@@ -66,7 +71,7 @@
 										    <div class="form-group">
 										    <label for="exampleInputEmail1">Zip/Postal Code</label>
 										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] ="customer.zip" type="tel" class="form-control" id="exampleInputEmailk" aria-describedby="emailHelp" placeholder="Zip/Postal Code">
-										  </div>
+										  </div> -->
 									
 										
 									</div>
