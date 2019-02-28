@@ -12,7 +12,13 @@ export interface Customers {
   customers : Array<any>;
   total_page : any;
   page: any;
-}  
+} 
+
+export interface Agents {
+  agents : Array<any>;
+  total_page : any;
+  page: any;
+} 
 
 export interface Invoices {
   invoices : Array<any>;
@@ -65,6 +71,11 @@ export class AdminService implements CanActivate  {
   customerspageActive : number;
   customersAction : string;
 
+  agentspages : any;
+  agentsPage  = new Object();  
+  agentspageActive : number;
+  agentsAction : string;
+
   invoicespages : any;
   invoicesPage  = new Object();  
   invoicePageActive : number;
@@ -93,6 +104,7 @@ export class AdminService implements CanActivate  {
     owners : [],
     owner : [],
     inventory:[],
+    agents:[],
   }
 
   notif="";
@@ -127,6 +139,11 @@ export class AdminService implements CanActivate  {
    return this.http.get<Customers>('http://admin.iphixx.com/api/v1/customers/?page='+page);
  
   }
+
+  getAgents(page =  1){
+    return this.http.get<Agents>('http://admin.iphixx.com/api/v1/customers/agents/?page='+page);
+  
+   }
 
   getInvoices(page =  1){
     return this.http.get<Invoices>('http://admin.iphixx.com/api/v1/bookings/invoices/?page='+page);
@@ -172,7 +189,6 @@ export class AdminService implements CanActivate  {
     .set('password', customer.password)
     .set('phone', customer.phone)
     .set('address', customer.address)
-    .set('address_2', customer.address2)
     .set('city', customer.city)
     .set('state', customer.state)
     .set('zip', customer.zip)
@@ -180,26 +196,71 @@ export class AdminService implements CanActivate  {
      body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
  }
 
+ addAgent(agent){
+  console.log(agent);
+  let body = new HttpParams()
+   .set('agent_fname', agent.agent_fname)
+   .set('agent_lname', agent.agent_lname)
+   .set('agent_username', agent.username)
+   .set('password', agent.password)
+   .set('phone', agent.phone)
+   .set('address', agent.address)
+   .set('pin', agent.pin)
+   .set('store_assigned', agent.store_assigned)
+  //  .set('city', customer.city)
+  //  .set('state', customer.state)
+  //  .set('zip', customer.zip)
+   return this.http.post('http://admin.iphixx.com/api/v1/customers/agents/add',
+    body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
+}
+
  deleteCustomer(id){
    console.log(id);
    return this.http.delete('http://admin.iphixx.com/api/v1/customers/'+id);
  }
 
+ deleteAgent(id){
+  console.log(id);
+  return this.http.delete('http://admin.iphixx.com/api/v1/customers/agents/'+id);
+}
+
  updateCustomer(customer){
   console.log(customer);
 
   let body = new HttpParams()
-   .set('fullname', customer.fullname)
-   .set('business_name', customer.business_name)
+   .set('customer_fname', customer.customer_fname)
+   .set('customer_lname', customer.customer_lname)
    .set('email', customer.email)
    .set('phone', customer.phone)
-   .set('address', customer.address)
-   .set('address_2', customer.address2)
-   .set('city', customer.city)
-   .set('state', customer.state)
-   .set('zip', customer.zip)
+   .set('phone2', customer.phone2)
+   .set('birthdate', customer.birthdate)
+  //  .set('address', customer.address)
+  //  .set('address_2', customer.address2)
+  //  .set('city', customer.city)
+  //  .set('state', customer.state)
+  //  .set('zip', customer.zip)
 
   return this.http.put('http://admin.iphixx.com/api/v1/customers/'+customer.customer_id,
+    body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
+}
+
+updateAgent(agent){
+  console.log(agent);
+
+  let body = new HttpParams()
+   .set('customer_fname', agent.agent_fname)
+   .set('customer_lname', agent.agent_lname)
+   .set('email', agent.email)
+   .set('phone', agent.phone)
+   .set('phone2',agent.phone2)
+  // .set('birthdate', customer.birthdate)
+  //  .set('address', customer.address)
+  //  .set('address_2', customer.address2)
+  //  .set('city', customer.city)
+  //  .set('state', customer.state)
+  //  .set('zip', customer.zip)
+
+  return this.http.put('http://admin.iphixx.com/api/v1/customers/'+agent.agent_id,
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
 
@@ -221,7 +282,7 @@ editOwner(owner){
  updateBookingStatus(id){
    //this.sendMail(id);
    console.log("called "+id);
-   return this.http.put('http://admin.iphixx.com/api/v1/bookings/status/'+id , {});
+   return this.http.put('http://admin.iphixx.com/api/v1/bookings/status/'+id , {responseType: 'text' as 'text'});
    //return this.http.put('http://admin.iphixx.com/api/v1/bookings/'+id , {});
  }
 
