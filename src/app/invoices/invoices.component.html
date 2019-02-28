@@ -114,9 +114,9 @@
 									        <td colspan="5">
 									        	<ul class="pagination center">
 
-									        		<li (click) = "PreviosPage()"  class="page-item {{ pageActive == 1 ? 'disabled' : ''}}"><a class="page-link" style="cursor: pointer">«</a>
+									        		<li (click) = "PreviosPage()"  class="page-item {{ invoicePageActive == 1 ? 'disabled' : ''}}"><a class="page-link" style="cursor: pointer">«</a>
 									        		</li>
-									        		<li *ngFor="let page of pages ; let i = index" (click)="goToPage(i+1)" class="page-item {{ i+1 == pageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">{{i+1}}</a>
+									        		<li *ngFor="let page of invoicespages ; let i = index" (click)="goToPage(i+1)" class="page-item {{ i+1 == invoicePageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">{{i+1}}</a>
 									        		</li>
 									        		<!-- <li class="page-item"><a class="page-link" style="cursor: pointer">2</a></li>
 									        		 -->
