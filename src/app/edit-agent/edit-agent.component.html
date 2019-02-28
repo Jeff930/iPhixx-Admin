@@ -1,0 +1,97 @@
+<app-navbar > </app-navbar>
+<app-sidebar > </app-sidebar>
+<app-footer > </app-footer>
+<ngx-spinner
+	bdColor = "rgba(51, 51, 51, 0.8)"
+	size = "medium"
+	color = "#fff"
+	type = "pacman"
+></ngx-spinner>
+
+
+
+	<div class="main">
+
+			<div class="main-content">
+
+					<div class="panel">
+								<div class="panel-heading">
+									<h3 class="panel-title">Edit Agent</h3>
+								</div>
+								<div class="panel-body">
+								<form>
+									<div class="col-lg-6 ">
+									
+										  <div class="form-group">
+										    <label for="exampleInputEmail1">Agent First Name</label>
+										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] = "agent.agent_fname"  type="text" class="form-control" id="fullname" aria-describedby="emailHelp" placeholder="First Name">
+										  </div>
+
+										  <div class="form-group">
+										    <label for="exampleInputEmail1">Agent Last Name</label>
+										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] = "agent.agent_lname"  type="text" class="form-control" id="fullname" aria-describedby="emailHelp" placeholder="Last Name">
+										  </div>
+										  <div class="form-group">
+										    <label for="exampleInputEmail1">Agent Username</label>
+										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] = "agent.agent_username"  type="text" class="form-control" id="fullname" aria-describedby="emailHelp" placeholder="Username">
+										  </div>
+
+										  <div  class="form-group">
+										    <label for="exampleInputPassword1">Pasword</label>
+										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] ="agent.password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+										  	</div>
+
+										  
+										
+									</div>
+									<div class="col-lg-6 ">
+
+										<div class="form-group">
+										    <label for="exampleInputEmail13">Email</label>
+										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] ="agent.email" type="email" class="form-control" id="exampleInputEmail13" aria-describedby="emailHelp" placeholder="Email Address">
+										  </div>
+									
+										  <div class="form-group">
+										    <label for="exampleInputEmail1">Address</label>
+										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] ="agent.address" type="text" class="form-control" id="exampleInputEmail9" aria-describedby="emailHelp" placeholder="Address">
+										  </div>
+
+										   <div  class="form-group">
+										    <label for="exampleInputPassword1">PIN</label>
+										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] ="agent.pin" type="password" class="form-control" id="exampleInputPassword1" placeholder="PIN">
+										  	</div>
+
+										    <div class="form-group">
+										    <label for="exampleInputEmail1">Phone</label>
+										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] ="agent.phone" type="tel" class="form-control" id="exampleInputEmail8" aria-describedby="emailHelp" placeholder="Phone">
+										  </div>
+
+										  <div class="form-group">
+										    <label for="exampleInputEmail1">Store Assigned to</label>
+										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] ="agent.store_assigned" type="tel" class="form-control" id="exampleInputEmail8" aria-describedby="emailHelp" placeholder="Store">
+										  </div>
+										 <!--  <div class="form-group">
+										    <label for="exampleInputPassword1">City</label>
+										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] ="customer.city" type="text" class="form-control" id="exampleInputPassworda" placeholder="City">
+										  </div>
+
+										  <div class="form-group">
+										    <label for="exampleInputEmail1">State</label>
+										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] ="customer.state" type="text" class="form-control" id="exampleInputEmailg" aria-describedby="emailHelp" placeholder="State">
+										  </div>
+										    <div class="form-group">
+										    <label for="exampleInputEmail1">Zip/Postal Code</label>
+										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] ="customer.zip" type="tel" class="form-control" id="exampleInputEmailk" aria-describedby="emailHelp" placeholder="Zip/Postal Code">
+										  </div> -->
+									
+										
+									</div>
+									<div class="col ">
+										<button (click)="actionAgent()" type="submit" class="btn btn-lg btn-primary update">Save Changes</button>
+										<button (click)="goToAgent()" type="submit" class="btn btn-lg btn-primary update cancel">Cancel</button>
+									</div>
+								</form>
+								</div>
+					</div>
+			</div>
+	</div>
