@@ -46,13 +46,7 @@ export class LeadsComponent implements OnInit {
 
   	})
   	}
-
-
   }
-
-	ngAfterViewInit(){
-
-	}
 
 	goToPage(number){
 		console.log(number);
@@ -75,9 +69,6 @@ export class LeadsComponent implements OnInit {
 	}
 
   NextPage(){
-
-
-
   	if(this.pageActive !== this.pages.length){
   		this.pageActive = this.pageActive+1;
 		this.adminService.pageActive = this.pageActive;
@@ -122,11 +113,13 @@ export class LeadsComponent implements OnInit {
   updateStatus(id){
 	this.spinner.show();
     this.adminService.updateBookingStatus(id).subscribe(res=>{
-      console.log(res);
+	  console.log(res);
+	  console.log("worked")
       location.reload();
     },
     err => {
-      console.log(err);
+	  console.log(err);
+	  console.log("notworked")
       location.reload();
     }
     )
@@ -163,18 +156,17 @@ export class LeadsComponent implements OnInit {
 	 location.reload();
   },
   err =>{
-	alert('Error! Please Try again.')
+	console.log(err);
 	this.spinner.hide();
-
   }
   )}
 
-editBooking(id , index){
+editBooking(id,index){
 	console.log(index);
 	this.router.navigate(['/edit-booking' , index]);
 }
 
-viewRepair(id , index){
+viewRepair(id,index){
 	console.log(index);
 	this.router.navigate(['/view-repair' , index]);
 }
