@@ -41,3 +41,5 @@ Thumbs.db
 e2e/
 
 src/assets/
+
+node_moduless/\.bin/
