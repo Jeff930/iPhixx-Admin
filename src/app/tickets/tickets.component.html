@@ -49,7 +49,7 @@
 									           Ticket No
 									        </th>
 									        <th>
-									           Device Owner
+									           Customer Name
 									        </th>
 									        <!-- <th style="width: 20%">
 									           Device Model
@@ -76,7 +76,7 @@
 									        <td>{{item.city | uppercase}}</td>
 									        <td>{{item.city | uppercase}}</td> -->
 									        	<td>{{ ticket.ticket_no }}</td>
-												<td>{{ ticket.owner_name }}</td>
+												<td>{{ ticket.customer_fname }} {{ ticket.customer_lname }}</td>
 												<!-- <td></td> -->
 												<td>{{ ticket.email }}</td>
 												<td>{{ ticket.phone }}</td>
