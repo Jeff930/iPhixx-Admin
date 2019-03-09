@@ -161,9 +161,9 @@ export class LeadsComponent implements OnInit {
   }
   )}
 
-editBooking(id,index){
+viewCustomer(id,index){
 	console.log(index);
-	this.router.navigate(['/edit-booking' , index]);
+	this.router.navigate(['/view-customer' , index]);
 }
 
 viewRepair(id,index){

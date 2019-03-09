@@ -48,10 +48,10 @@
 									            Booking ID
 									        </th>
 									        <th >
-									            Device Owner
+									            Customer Name
 									        </th>
 									        <th>
-									            Created by
+									            Agent Name
 									        </th>
 									        <th>
 									            Date Created
@@ -73,8 +73,8 @@
 									        <td>{{item.city | uppercase}}</td>
 									        <td>{{item.city | uppercase}}</td> -->
 									        <td>{{ lead.bookings_id }}</td>
-									        <td>{{ lead.owner_name }}</td>
-									        <td>{{ lead.fullname}}</td>
+									        <td>{{ lead.customer_fname }} {{ lead.customer_lname }}</td>
+									        <td>{{ lead.agent_fname }} {{ lead.agent_lname }}</td>
 												<td>{{ lead.created_at }}</td>
 												<td>{{ lead.rep_status }}</td>
 												<td>
@@ -89,7 +89,7 @@
 													  	<!-- <a (click)="updatePaymentStatus(lead.id, i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-ok"></span>   Mark as Paid</a> -->
 														<a (click)="checkStatus(lead.bookings_id, lead.rep_status)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-flag"></span>  Update Status</a>
 														<a (click)="viewRepair(lead.bookings_id, i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-eye-open"></span>  View Repair</a>
-														<a (click)="editBooking(lead.bookings_id, i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-pencil"></span>  Device Owner</a>
+														<a (click)="viewCustomer(lead.bookings_id, i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-user"></span>  View Customer</a>
 														<a (click)="cancelBooking(lead.bookings_id)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-remove"></span>   Cancel Booking</a>
 														 
 														 
