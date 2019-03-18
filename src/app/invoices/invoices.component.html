@@ -8,7 +8,7 @@
 	color = "#fff"
 	type = "pacman"
 ></ngx-spinner>
-<view-invoice></view-invoice>
+<!-- <app-compare-payment></app-compare-payment> -->
 
 <div class="main">
 	<div class="main-content">
@@ -50,7 +50,7 @@
 									           Invoice No.
 									        </th>
 									        <th>
-									           Device Owner
+									           Customer Name
 									        </th>
 									        <th>
 									           Payment Date
@@ -75,7 +75,7 @@
 									        <td>{{item.city | uppercase}}</td>
 									        <td>{{item.city | uppercase}}</td> -->
 									        	<td>{{ invoice.invoice_no }}</td>
-									        	<td>{{ invoice.owner_name }}</td>
+									        	<td>{{ invoice.customer_fname }} {{ invoice.customer_lname }}</td>
 												<td>{{ invoice.payment_Timestamp }}</td>
 												<td>{{ invoice.pstatus_name }}</td>
 												<td>€{{ invoice.total_price }}</td>
@@ -97,7 +97,8 @@
 
 													<sat-popover #contactPopover hasBackdrop verticalAlign="below">
 													  <div class="list-group">
-													  	<a (click)="updatePaymentStatus(invoice.invoice_no)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-ok"></span>   Mark as Paid</a>
+													  	<a (click)="NgxSmartModalService.getModal('confirmPayment').open()" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-ok"></span>   Mark as Paid</a>
+													  	<!-- <a (click)="updatePaymentStatus(invoice.invoice_no)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-ok"></span>   Mark as Paid</a> -->
 														
 														 
 														 
