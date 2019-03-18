@@ -16,10 +16,10 @@
 
 					<div class="panel">
 								<div class="panel-heading">
-									<h3 class="panel-title">Edit Agent</h3>
+									<h3 class="panel-title">{{title}}</h3>
 								</div>
 								<div class="panel-body">
-								<form>
+								
 									<div class="col-lg-6 ">
 									
 										  <div class="form-group">
@@ -49,11 +49,6 @@
 										<div class="form-group">
 										    <label for="exampleInputEmail13">Email</label>
 										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] ="agent.email" type="email" class="form-control" id="exampleInputEmail13" aria-describedby="emailHelp" placeholder="Email Address">
-										  </div>
-									
-										  <div class="form-group">
-										    <label for="exampleInputEmail1">Address</label>
-										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] ="agent.address" type="text" class="form-control" id="exampleInputEmail9" aria-describedby="emailHelp" placeholder="Address">
 										  </div>
 
 										   <div  class="form-group">
@@ -90,7 +85,7 @@
 										<button (click)="actionAgent()" type="submit" class="btn btn-lg btn-primary update">Save Changes</button>
 										<button (click)="goToAgent()" type="submit" class="btn btn-lg btn-primary update cancel">Cancel</button>
 									</div>
-								</form>
+								
 								</div>
 					</div>
 			</div>

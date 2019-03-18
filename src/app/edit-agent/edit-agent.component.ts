@@ -12,6 +12,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class EditAgentComponent implements OnInit {
 
+	title;
 	
   constructor(  private route: ActivatedRoute,
   private router: Router , public adminService : AdminService,
@@ -40,16 +41,20 @@ export class EditAgentComponent implements OnInit {
   id ;
 
   ngOnInit() {
-  	if(this.adminService.customersAction == 'update'){
+  	if(this.adminService.agentsAction == 'update'){
+			this.title="Edit Agent"
   	this.route.paramMap.subscribe((params: ParamMap) => {
       this.id = parseInt(params.get('id'));
- 		console.log(this.adminService.customersPage['page'+this.adminService.customerspageActive ][this.id])
- 		this.agent = this.adminService.customersPage['page'+this.adminService.customerspageActive ][this.id];
+ 		console.log(this.adminService.agentsPage['page'+this.adminService.agentspageActive ][this.id])
+ 		this.agent = this.adminService.agentsPage['page'+this.adminService.agentspageActive ][this.id];
     });
-   }
+   }else{
+		 this.title="New Agent"
+	 }
   } 
   
   updateAgent(){
+		this.title="Edit Agent";
 	this.agent.id
   	this.spinner.show();
  //  	$.ajax({
@@ -100,7 +105,7 @@ export class EditAgentComponent implements OnInit {
 
   newAgent(){
 	console.log("called");
-	console.log(this.agent.agent_fname);
+	console.log(this.agent);
 	  this.spinner.show();
 	  this.adminService.addAgent(this.agent).subscribe(res => {
 		console.log("this" + res)
@@ -190,9 +195,13 @@ export class EditAgentComponent implements OnInit {
 
   actionAgent(){
   	if(this.adminService.customersAction == 'update'){
+			this.title="Edit Agent";
+			console.log(this.title);
   		this.updateAgent();
   	}
   	else{
+			this.title="New Agent";
+			console.log(this.title);
   		this.newAgent();
   	}
   }
