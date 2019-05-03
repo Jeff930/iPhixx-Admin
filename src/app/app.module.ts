@@ -9,6 +9,7 @@ import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { SatPopoverModule } from '@ncstate/sat-popover';
 import { NgxSmartModalModule,NgxSmartModalService } from 'ngx-smart-modal';
+import { ModalDialogModule } from 'ngx-modal-dialog';
 import { DataTableModule } from "angular-6-datatable";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -20,11 +21,14 @@ import { ViewInvoiceComponent } from './view-invoice/view-invoice.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { FilterComponent } from './filter/filter.component';
+import { ConfirmPaymentComponent } from './confirm-payment/confirm-payment.component';
 import { FilterByInvoiceComponent } from './filter-by-invoice/filter-by-invoice.component';
 import { FilterByDateComponent } from './filter-by-date/filter-by-date.component';
 import { FilterByTypeComponent } from './filter-by-type/filter-by-type.component';
 import { TicketsComponent } from './tickets/tickets.component';
 import { InventoryComponent } from './inventory/inventory.component';
+import { ViewCustomerComponent } from './view-customer/view-customer.component';
+import { NotificationComponent } from './notification/notification.component';
 
 
 
@@ -43,6 +47,9 @@ import { InventoryComponent } from './inventory/inventory.component';
     FilterByTypeComponent,
     TicketsComponent,
     InventoryComponent,
+    ViewCustomerComponent,
+    ConfirmPaymentComponent,
+    NotificationComponent
 
   ],
   imports: [
@@ -55,6 +62,7 @@ import { InventoryComponent } from './inventory/inventory.component';
     BrowserAnimationsModule,
     SatPopoverModule,
     NgxSmartModalModule.forRoot(),
+    ModalDialogModule.forRoot(),
     
 
   ],
