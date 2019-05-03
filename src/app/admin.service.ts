@@ -38,8 +38,9 @@ export interface Inventory {
   page: any;
 }	
 
-export interface Owner {
-  owner_name : any;
+export interface Customer {
+  customer_fname : any;
+  customer_lname : any;
   email : any;
   birthdate : any;
   phone : any;
@@ -159,7 +160,7 @@ export class AdminService implements CanActivate  {
   }
 
   getOwner(id){
-    return this.http.get<Owner>('http://admin.iphixx.com/api/v1/bookings/owner/'+id);
+    return this.http.get<Customer>('http://admin.iphixx.com/api/v1/bookings/owner/'+id);
   }
 
   getRepair(id){
@@ -201,10 +202,10 @@ export class AdminService implements CanActivate  {
   let body = new HttpParams()
    .set('agent_fname', agent.agent_fname)
    .set('agent_lname', agent.agent_lname)
-   .set('agent_username', agent.username)
+   .set('agent_username', agent.agent_username)
+   .set('email', agent.email)
    .set('password', agent.password)
    .set('phone', agent.phone)
-   .set('address', agent.address)
    .set('pin', agent.pin)
    .set('store_assigned', agent.store_assigned)
   //  .set('city', customer.city)
@@ -248,11 +249,15 @@ updateAgent(agent){
   console.log(agent);
 
   let body = new HttpParams()
-   .set('customer_fname', agent.agent_fname)
-   .set('customer_lname', agent.agent_lname)
-   .set('email', agent.email)
-   .set('phone', agent.phone)
-   .set('phone2',agent.phone2)
+   .set('agent_fname', agent.agent_fname)
+   .set('agent_lname', agent.agent_lname)
+   .set('agent_username', agent.agent_username)
+   .set('agent_email', agent.agent_email)
+   .set('agent_phone', agent.agent_phone)
+   .set('agent_phone2',agent.agent_phone2)
+   .set('agent_pin',agent.agent_pin)
+   .set('agent_password',agent.agent_password)
+   .set('store_assigned',agent.store_assigned)
   // .set('birthdate', customer.birthdate)
   //  .set('address', customer.address)
   //  .set('address_2', customer.address2)
@@ -260,7 +265,7 @@ updateAgent(agent){
   //  .set('state', customer.state)
   //  .set('zip', customer.zip)
 
-  return this.http.put('http://admin.iphixx.com/api/v1/customers/'+agent.agent_id,
+  return this.http.put('http://admin.iphixx.com/api/v1/customers/agents/'+agent.agent_id,
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
 
