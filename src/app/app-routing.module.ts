@@ -25,6 +25,7 @@ import { TicketsComponent } from './tickets/tickets.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { AgentsComponent } from './agents/agents.component';
 import { EditAgentComponent } from './edit-agent/edit-agent.component';
+import { ViewCustomerComponent } from './view-customer/view-customer.component';
 
 
 const routes: Routes = [
@@ -48,6 +49,7 @@ const routes: Routes = [
   { path: 'agents', component: AgentsComponent },
   { path: 'edit-agent/:id', component: EditAgentComponent },
   { path: 'edit-agent', component: EditAgentComponent },
+  { path: 'view-customer/:id', component: ViewCustomerComponent },
   // { path: 'admin', component: DashboardComponent },
 
 
@@ -92,4 +94,5 @@ export const routingComponents = [
                                   TicketsComponent,
                                   AgentsComponent,
                                   EditAgentComponent,
+                                  ViewCustomerComponent
                                  ]
