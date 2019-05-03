@@ -40,7 +40,7 @@
 							<div class="panel"> 
 								<div class="panel-heading">
 							
-									<div class="col-lg-3">
+									<!-- <div class="col-lg-3">
 										<h3 class="panel-title">Notification Details</h3>
 									</div>
 
@@ -60,12 +60,12 @@
   											<option value="Resolved">Show Resolved Notifications Only</option>
   											<option value="Paid">Show Payment Notifications Only</option>
 										</select>
-									</div>
+									</div> -->
 									
 
-									<div class="col-lg-3  hidden-xs">
+									<!-- <div class="col-lg-3  hidden-xs">
 										<button class="new-customer" (click)="ngxSmartModalService2.getModal('myModal2').open()"><span class="margin-icon glyphicon glyphicon-filter"></span>Advanced Filter</button>
-									</div>
+									</div> -->
 
 
 								</div>
@@ -102,13 +102,16 @@
 									    <thead>
 									    <tr>
 									        <th style="width: 15%">
-									            Invoice No.
-									        </th>
-									        <th style="width: 70%">
-									           Notification
+									           Booking No.
 									        </th>
 									        <th style="width: 15%">
-									           Repair Status
+									           Invoice No.
+									        </th>
+									         <th style="width: 15%">
+									           Ticket No.
+									        </th>
+									        <th style="width: 70%">
+									           Notification Message
 									        </th>
 									    </tr>
 									    </thead>
@@ -119,9 +122,9 @@
 									        <td class="text-right">{{item.age}}</td>
 									        <td>{{item.city | uppercase}}</td>
 									        <td>{{item.city | uppercase}}</td> -->
-									        <td>{{ invoice}}</td>
+									    <!--     <td>{{ invoice}}</td>
 											<td>{{ notif }}</td>
-											<td>{{ status }}</td>
+											<td>{{ status }}</td> -->
 											<!-- 	<td><button (click) = "updateBooking(lead.id)" class="btn btn-primary">Update Status</button></td> -->
 									    </tr>
 									    </tbody>
