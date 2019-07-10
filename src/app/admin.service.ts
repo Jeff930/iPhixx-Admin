@@ -6,53 +6,53 @@ export interface Leads {
 	bookings : Array<any>;
   total_page : any;
   page: any;
-}	
+}
 
 export interface Customers {
   customers : Array<any>;
   total_page : any;
   page: any;
-} 
+}
 
 export interface Agents {
-  agents : Array<any>;
-  total_page : any;
+  agents: Array<any>;
+  total_page: any;
   page: any;
-} 
+}
 
 export interface Invoices {
-  invoices : Array<any>;
-  total_page : any;
-  page : any;
-}  
+  invoices: Array<any>;
+  total_page: any;
+  page: any;
+}
 
 export interface Tickets {
-  tickets : Array<any>;
-  total_page : any;
-  page : any;
-}  
+  tickets: Array<any>;
+  total_page: any;
+  page: any;
+}
 
 export interface Inventory {
-	inventory : Array<any>;
-  total_page : any;
+	inventory: Array<any>;
+  total_page: any;
   page: any;
-}	
+}
 
 export interface Customer {
-  customer_fname : any;
-  customer_lname : any;
-  email : any;
-  birthdate : any;
-  phone : any;
-  phone2 : any;
-}  
+  customer_fname: any;
+  customer_lname: any;
+  email: any;
+  birthdate: any;
+  phone: any;
+  phone2: any;
+}
 
 export interface Repair {
-  dev_type : any;
-  dev_model : any;
-  color : any;
-  carrier : any;
-  selectedRepair : any;
+  dev_type: any;
+  dev_model: any;
+  color: any;
+  carrier: any;
+  selectedRepair: any;
 }
 
 
@@ -60,42 +60,44 @@ export interface Repair {
   providedIn: 'root'
 })
 export class AdminService implements CanActivate  {
+// User
+    user: any;
 
-//leads rquirements
-  pages : any;
-  leadsPage  = new Object();  
-  pageActive : number;
+// leads rquirements
+  pages: any;
+  leadsPage  = new Object();
+  pageActive: number;
 
-//customers rquirements
-  customerspages : any;
-  customersPage  = new Object();  
-  customerspageActive : number;
-  customersAction : string;
+// customers rquirements
+  customerspages: any;
+  customersPage  = new Object();
+  customerspageActive: number;
+  customersAction: string;
 
-  agentspages : any;
-  agentsPage  = new Object();  
-  agentspageActive : number;
-  agentsAction : string;
+  agentspages: any;
+  agentsPage  = new Object();
+  agentspageActive: number;
+  agentsAction: string;
 
-  invoicespages : any;
-  invoicesPage  = new Object();  
-  invoicePageActive : number;
+  invoicespages: any;
+  invoicesPage  = new Object();
+  invoicePageActive: number;
 
-  ticketPages : any;
-  ticketsPage  = new Object();  
-  ticketPageActive : number;
+  ticketPages: any;
+  ticketsPage  = new Object();
+  ticketPageActive: number;
 
-  inventoryPages : any;
-  inventoryPage  = new Object();  
-  inventoryPageActive : number;
+  inventoryPages: any;
+  inventoryPage  = new Object();
+  inventoryPageActive: number;
 
-  notifs=["Repair with Invoice No.10566 has been marked as paid on 2018-12-11 03:04:24",
-  "Repair with Invoice No.10566 has been marked as resolved on 2018-12-10 11:21:20",
-  "Repair with Invoice No.10566 has been marked as ongoing on 2018-12-10 11:20:50",
-  "Repair with Invoice No.10566 has been created on 2018-12-07 08:04:32",
+  notifs = ['Repair with Invoice No.10566 has been marked as paid on 2018-12-11 03:04:24',
+  'Repair with Invoice No.10566 has been marked as resolved on 2018-12-10 11:21:20',
+  'Repair with Invoice No.10566 has been marked as ongoing on 2018-12-10 11:20:50',
+  'Repair with Invoice No.10566 has been created on 2018-12-07 08:04:32',
   ];
-  
-  type="";
+
+  type = '';
 
   global = {
     leads : [],
@@ -104,46 +106,41 @@ export class AdminService implements CanActivate  {
     tickets : [],
     owners : [],
     owner : [],
-    inventory:[],
-    agents:[],
-  }
+    inventory: [],
+    agents: [],
+  };
+  notif = '';
 
-  notif="";
-   	
-  constructor(private router: Router , public http : HttpClient) { }
+  constructor(private router: Router , public http: HttpClient) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
-  	if(localStorage.getItem('authenticated')){
-  			
-  				
-  		 	return true;
-  		// location.href = './admin';
+    if (localStorage.getItem('authenticated')) {
+        return true;
+        // location.href = './admin';
 
-  	}
-  	else{
-		  	this.router.navigate(['/login'], {
-		        queryParams: {
-		          return: state.url
-		        }
-		    });
-		   
-  		 	return false;
-  	}
+} else {
+    this.router.navigate(['/login'], {
+    queryParams: {
+    return: state.url
+    }
+        });
+
+return false;
+}
   }
 
-  getLeads(page =  1){
-  	return this.http.get<Leads>('http://admin.iphixx.com/api/v1/bookings/?page='+page);
-  
+  getLeads(page =  1) {
+      return this.http.get<Leads>('http://admin.iphixx.com/api/v1/bookings/?page=' + page);
   }
 
   getCustomers(page =  1){
-   return this.http.get<Customers>('http://admin.iphixx.com/api/v1/customers/?page='+page);
- 
+   return this.http.get<Customers>('http://admin.iphixx.com/api/v1/customers/?page=' + page);
+
   }
 
   getAgents(page =  1){
     return this.http.get<Agents>('http://admin.iphixx.com/api/v1/customers/agents/?page='+page);
-  
+
    }
 
   getInvoices(page =  1){
@@ -156,7 +153,7 @@ export class AdminService implements CanActivate  {
 
   getInventory(page =  1){
   	return this.http.get<Inventory>('http://admin.iphixx.com/api/v1/bookings/inventory/?page='+page);
-  
+
   }
 
   getOwner(id){
@@ -274,7 +271,7 @@ editOwner(owner){
 
   let body = new HttpParams()
    .set('owner_name', owner.owner_name)
-   
+
    .set('email', owner.email)
    .set('phone', owner.phone)
    .set('phone2', owner.phone2)

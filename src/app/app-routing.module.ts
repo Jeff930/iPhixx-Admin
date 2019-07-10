@@ -51,9 +51,7 @@ const routes: Routes = [
   { path: 'edit-agent', component: EditAgentComponent },
   { path: 'view-customer/:id', component: ViewCustomerComponent },
   // { path: 'admin', component: DashboardComponent },
-
-
-  // {  
+  // {
   //   path: 'device',
   //   component: HomeComponent,
   //   data: { title: 'Device' }
@@ -63,7 +61,6 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   { path: '**', component: DashboardComponent }
-  
 ];
 
 @NgModule({

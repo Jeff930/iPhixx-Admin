@@ -1,11 +1,33 @@
 .header{
 	.logo{
 		img{
-			height : 60px;
+			height : 90px;
 		}
 	}
 }
 
 .vertical-align-middle{
 	padding-top : 5%;
+}
+html, 
+body {
+    height: 100%;
+}
+.coverBackground {
+    background-image: url("../../assets/img/login-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.overlayBg { background: rgba(99, 156, 185, 0.3); }
+.btn {
+	border-radius: 5px !important;
+	width: 80% !important;
+	margin: 0 auto !important;
+}
+.lineBelow {
+	width: 20%;
+	margin: 0 auto;
+	height: 2px;
+	background-color: rgb(158, 157, 157);
+	border-radius: 10px;
 }

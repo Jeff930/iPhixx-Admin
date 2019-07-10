@@ -3,14 +3,22 @@ import * as $ from 'jquery';
 import { Component, OnInit } from '@angular/core';
 import { Router , ActivatedRoute  } from '@angular/router';
 
+import { Agents, AdminService } from '../admin.service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-
-  constructor( public router : Router ) { }
+  user;
+  userCreds =  {
+    email: '',
+    password : '',
+  };
+  isChecked;
+  constructor( public router: Router, private adminservice: AdminService) {
+    this.user = localStorage.getItem('user');
+   }
 
   ngOnInit() {
       $('.btn-toggle-fullwidth').on('click', function() {
@@ -34,9 +42,19 @@ export class NavbarComponent implements OnInit {
   });
   }
 
-  logout(){
-  	localStorage.clear();
-  	this.router.navigate(['/login']);
+  logout() {
+    if (localStorage.getItem('isChecked')) {
+      this.userCreds = JSON.parse(localStorage.getItem('remeberCreds'));
+      console.log(this.userCreds);
+    }
+  localStorage.clear();
+  console.log(this.userCreds);
+  if (this.userCreds.email !== '') {
+    console.log('checking');
+    localStorage.setItem('isChecked', 't');
+    localStorage.setItem('remeberCreds', JSON.stringify(this.userCreds));
+  }
+  this.router.navigate(['/login']);
   }
 
 }

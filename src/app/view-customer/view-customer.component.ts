@@ -12,22 +12,20 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class ViewCustomerComponent implements OnInit {
 
   constructor( private route: ActivatedRoute,
-    private router: Router , public adminService : AdminService,
-    public spinner : NgxSpinnerService) { }
+    private router: Router , public adminService: AdminService,
+    public spinner: NgxSpinnerService) { }
 
-    lead = { 
+    lead = {
       bookings_id: ''
-    };
-
+    }
     customer: any;
-  
     id ;
 
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.id = parseInt(params.get('id'));
-      console.log(this.adminService.leadsPage['page'+this.adminService.pageActive ][this.id])
-      this.lead = this.adminService.leadsPage['page'+this.adminService.pageActive ][this.id];
+      console.log(this.adminService.leadsPage['page' + this.adminService.pageActive ][this.id])
+      this.lead = this.adminService.leadsPage['page' + this.adminService.pageActive ][this.id];
       console.log(this.lead.bookings_id);
       this.adminService.getOwner(this.lead.bookings_id);
       });

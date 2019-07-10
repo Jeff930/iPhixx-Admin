@@ -3,14 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AdminService } from './admin.service';
 
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { SatPopoverModule } from '@ncstate/sat-popover';
-import { NgxSmartModalModule,NgxSmartModalService } from 'ngx-smart-modal';
+import { NgxSmartModalModule, NgxSmartModalService } from 'ngx-smart-modal';
 import { ModalDialogModule } from 'ngx-modal-dialog';
-import { DataTableModule } from "angular-6-datatable";
+import { DataTableModule } from 'angular-6-datatable';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -28,7 +28,7 @@ import { FilterByTypeComponent } from './filter-by-type/filter-by-type.component
 import { TicketsComponent } from './tickets/tickets.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { ViewCustomerComponent } from './view-customer/view-customer.component';
-import { NotificationComponent } from './notification/notification.component';
+// import { NotificationComponent } from './notification/notification.component';
 
 
 
@@ -49,7 +49,7 @@ import { NotificationComponent } from './notification/notification.component';
     InventoryComponent,
     ViewCustomerComponent,
     ConfirmPaymentComponent,
-    NotificationComponent
+    // NotificationComponent
 
   ],
   imports: [
@@ -63,10 +63,9 @@ import { NotificationComponent } from './notification/notification.component';
     SatPopoverModule,
     NgxSmartModalModule.forRoot(),
     ModalDialogModule.forRoot(),
-    
 
   ],
-  providers: [AdminService,NgxSmartModalService],
+  providers: [AdminService, NgxSmartModalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
