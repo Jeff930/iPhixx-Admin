@@ -12,10 +12,11 @@
 					<div class="panel panel-headline">
 						<div class="panel-heading">
 							<h3 class="panel-title">iPhixx Electronics Limited</h3>
+							<hr class="lines">
 							<p class="panel-subtitle large">Overview</p>
 						</div>
 						<div class="panel-body">
-							<div class="row">
+							<!-- <div class="row">
 								<div class="col-md-1">
 									<label class="panel-subtitle"> Period: </label>
 								</div>
@@ -25,7 +26,7 @@
 								<div class="col-md-3">
 									<input  type="date" class="form-control" id="exampleInputEmail13" aria-describedby="emailHelp" placeholder="Device Model">
 								</div>
-							</div>
+							</div> -->
 						</div>
 						<br>
 						<div class="panel-body">
@@ -33,42 +34,34 @@
 								<div class="col-md-3">
 									<div class="metric">
 										<p>
-											<span class="title green">Total Sales</span>
-											<span class="number">€0.00</span>
-										</p>
-									</div>
-								</div>
-								<div class="col-md-2">
-									<div class="metric">
-										<p>
-											<span class="title small">Tax</span>
-											<span class="number">€0.00</span>
+											<span class="title green">Customers</span>
+											<span class="number">{{ overview.totalSales }}</span>
 										</p>
 									</div>
 								</div>
 								
 								
-								<div class="col-md-2">
+								<div class="col-md-3">
 									<div class="metric">
 										<p>
-											<span class="title small">Discounts</span>
-											<span class="number">€0.00</span>
-										</p>
-									</div>
-								</div>
-								<div class="col-md-2">
-									<div class="metric">
-										<p>
-											<span class="title small">COGS</span>
-											<span class="number">€0.00</span>
+											<span class="title small">Invoices</span>
+											<span class="number">{{ overview.discounts }}</span>
 										</p>
 									</div>
 								</div>
 								<div class="col-md-3">
 									<div class="metric">
 										<p>
-											<span class="title green">Net Profit</span>
-											<span class="number">€0.00</span>
+											<span class="title small">Inventory</span>
+											<span class="number">{{ overview.cogs }}</span>
+										</p>
+									</div>
+								</div>
+								<div class="col-md-3">
+									<div class="metric">
+										<p>
+											<span class="title green">Tickets</span>
+											<span class="number">{{ overview.netProfit }}</span>
 										</p>
 									</div>
 								</div>
@@ -93,13 +86,13 @@
 										<span class="info-label">Total Income</span>
 									</div>
 								</div>
-							</div>
+							</div> -->
 						</div>
 					</div>
-					<!!-- END OVERVIEW
+					<!-- END OVERVIEW -->
 					<div class="row">
-						<div class="col-md-6">
-							<!!-- RECENT PURCHASES
+						<!-- <div class="col-md-5">
+							RECENT PURCHASES
 							<div class="panel">
 								<div class="panel-heading">
 									<h3 class="panel-title">Recent Purchases</h3>
@@ -165,10 +158,10 @@
 									</div>
 								</div>
 							</div>
-							<!!-- END RECENT PURCHASES
-						</div>
-						<div class="col-md-6">
-							<!!-- MULTI CHARTS
+							END RECENT PURCHASES
+						</div> -->
+						<!-- <div class="col-md-6">
+							MULTI CHARTS
 							<div class="panel">
 								<div class="panel-heading">
 									<h3 class="panel-title">Projection vs. Realization</h3>
@@ -181,25 +174,34 @@
 									<div id="visits-trends-chart" class="ct-chart"></div>
 								</div>
 							</div>
-							<!!-- END MULTI CHARTS
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-7">
-							<!!-- TODO LIST 
+							END MULTI CHARTS
+						</div> -->
+						<div class="col-md-9">
+							<!-- TODO LIST -->
 							<div class="panel">
 								<div class="panel-heading">
-									<h3 class="panel-title">To-Do List</h3>
+									<h3 class="panel-title">Reminders</h3>
+									<div class="left">
+											<button type="button" class="btn">
+												<i class="lnr lnr-plus-circle"></i>
+												Add Reminder
+											</button>
+									</div>
 									<div class="right">
-										<button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
-										<button type="button" class="btn-remove"><i class="lnr lnr-cross"></i></button>
+										<button type="button" class="btn-toggle-collapse">
+											<i class="lnr lnr-chevron-up"></i>
+										</button>
+										<button type="button" class="btn-remove">
+											<i class="lnr lnr-cross"></i>
+										</button>
 									</div>
 								</div>
 								<div class="panel-body">
 									<ul class="list-unstyled todo-list">
 										<li>
 											<label class="control-inline fancy-checkbox">
-												<input type="checkbox"><span></span>
+												<input type="checkbox">
+												<span></span>
 											</label>
 											<p>
 												<span class="title">Restart Server</span>
@@ -207,12 +209,18 @@
 												<span class="date">Oct 9, 2016</span>
 											</p>
 											<div class="controls">
-												<a href="#"><i class="icon-software icon-software-pencil"></i></a> <a href="#"><i class="icon-arrows icon-arrows-circle-remove"></i></a>
+												<a href="#">
+													<i class="icon-software icon-software-pencil"></i>
+												</a>
+												<a href="#">
+													<i class="icon-arrows icon-arrows-circle-remove"></i>
+												</a>
 											</div>
 										</li>
 										<li>
 											<label class="control-inline fancy-checkbox">
-												<input type="checkbox"><span></span>
+												<input type="checkbox">
+												<span></span>
 											</label>
 											<p>
 												<span class="title">Retest Upload Scenario</span>
@@ -220,12 +228,18 @@
 												<span class="date">Oct 23, 2016</span>
 											</p>
 											<div class="controls">
-												<a href="#"><i class="icon-software icon-software-pencil"></i></a> <a href="#"><i class="icon-arrows icon-arrows-circle-remove"></i></a>
+												<a href="#">
+													<i class="icon-software icon-software-pencil"></i>
+												</a>
+												<a href="#">
+													<i class="icon-arrows icon-arrows-circle-remove"></i>
+												</a>
 											</div>
 										</li>
 										<li>
 											<label class="control-inline fancy-checkbox">
-												<input type="checkbox"><span></span>
+												<input type="checkbox">
+												<span></span>
 											</label>
 											<p>
 												<strong>Functional Spec Meeting</strong>
@@ -233,16 +247,46 @@
 												<span class="date">Oct 11, 2016</span>
 											</p>
 											<div class="controls">
-												<a href="#"><i class="icon-software icon-software-pencil"></i></a> <a href="#"><i class="icon-arrows icon-arrows-circle-remove"></i></a>
+												<a href="#">
+													<i class="icon-software icon-software-pencil"></i>
+												</a>
+												<a href="#">
+													<i class="icon-arrows icon-arrows-circle-remove"></i>
+												</a>
 											</div>
 										</li>
 									</ul>
 								</div>
 							</div>
-							<!!-- END TODO LIST 
+							<!-- END TODO LIST -->
 						</div>
+
+						<div class="col-md-3">
+							<div class="panel">
+								<div class="panel-heading">
+									<h3 class="panel-title">Quick Access</h3>
+									<div class="right">
+										<button type="button" class="btn-toggle-collapse">
+											<i class="lnr lnr-chevron-up"></i>
+										</button>
+										<!-- <button type="button" class="btn-remove">
+											<i class="lnr lnr-plus-circle"></i>
+										</button> -->
+									</div>
+								</div>
+								<div class="panel-body">
+									<div class="col-md-2"></div>
+									<div class="btn-cover col-md-12">
+										<button type="button" class="bbttns" *ngFor="let buttons of quickAccess"> {{buttons.name}} </button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- <div class="row">
+						
 						<div class="col-md-5">
-							<!!-- TIMELINE 
+							TIMELINE
 							<div class="panel panel-scrolling">
 								<div class="panel-heading">
 									<h3 class="panel-title">Recent User Activity</h3>
@@ -277,12 +321,12 @@
 									<button type="button" class="btn btn-primary btn-bottom center-block">Load More</button>
 								</div>
 							</div>
-							<!!-- END TIMELINE
+							END TIMELINE
 						</div>
-					</div>
-					<div class="row">
+					</div> -->
+					<!-- <div class="row">
 						<div class="col-md-4">
-							<!!-- TASKS
+							TASKS
 							<div class="panel">
 								<div class="panel-heading">
 									<h3 class="panel-title">My Tasks</h3>
@@ -336,10 +380,10 @@
 									</ul>
 								</div>
 							</div>
-							<!!-- END TASKS
-						</div>
-						<div class="col-md-4">
-							<!!-- VISIT CHART
+							END TASKS
+						</div> -->
+						<!-- <div class="col-md-4">
+							VISIT CHART
 							<div class="panel">
 								<div class="panel-heading">
 									<h3 class="panel-title">Website Visits</h3>
@@ -352,10 +396,10 @@
 									<div id="visits-chart" class="ct-chart"></div>
 								</div>
 							</div>
-							<!!-- END VISIT CHART
+							END VISIT CHART
 						</div>
 						<div class="col-md-4">
-							<!!-- REALTIME CHART 
+							REALTIME CHART
 							<div class="panel">
 								<div class="panel-heading">
 									<h3 class="panel-title">System Load</h3>
@@ -378,12 +422,9 @@
 									</ul>
 								</div>
 							</div>
-							<!!-- END REALTIME CHART 
-						</div>
-					</div>-->
+							END REALTIME CHART
+						</div> -->
+					</div>
 				</div> 
 			</div>
 			<!-- END MAIN CONTENT -->
-		</div>
-	</div>
-</div>

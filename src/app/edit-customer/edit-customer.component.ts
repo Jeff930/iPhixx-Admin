@@ -12,7 +12,8 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class EditCustomerComponent implements OnInit {
 
-	
+	title;
+	buttonName;
   constructor(  private route: ActivatedRoute,
   private router: Router , public adminService : AdminService,
   public spinner : NgxSpinnerService) { 
@@ -38,11 +39,16 @@ export class EditCustomerComponent implements OnInit {
 
   ngOnInit() {
   	if(this.adminService.customersAction == 'update'){
+	this.title = 'Edit Customer';
+	this.buttonName = 'Save Changes';
   	this.route.paramMap.subscribe((params: ParamMap) => {
       this.id = parseInt(params.get('id'));
  		console.log(this.adminService.customersPage['page'+this.adminService.customerspageActive ][this.id])
  		this.customer = this.adminService.customersPage['page'+this.adminService.customerspageActive ][this.id];
     });
+   } else {
+		this.buttonName = 'Save New Customer';
+		this.title = 'New Customer';
    }
   } 
   

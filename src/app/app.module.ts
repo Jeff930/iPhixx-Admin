@@ -13,7 +13,6 @@ import { ModalDialogModule } from 'ngx-modal-dialog';
 import { DataTableModule } from 'angular-6-datatable';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
 import { AppComponent } from './app.component';
 import { EditBookingComponent } from './edit-booking/edit-booking.component';
 import { ViewRepairComponent } from './view-repair/view-repair.component';
@@ -29,7 +28,6 @@ import { TicketsComponent } from './tickets/tickets.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { ViewCustomerComponent } from './view-customer/view-customer.component';
 // import { NotificationComponent } from './notification/notification.component';
-
 
 
 @NgModule({
@@ -62,8 +60,7 @@ import { ViewCustomerComponent } from './view-customer/view-customer.component';
     BrowserAnimationsModule,
     SatPopoverModule,
     NgxSmartModalModule.forRoot(),
-    ModalDialogModule.forRoot(),
-
+    ModalDialogModule.forRoot()
   ],
   providers: [AdminService, NgxSmartModalService],
   bootstrap: [AppComponent]

@@ -44,7 +44,7 @@ export interface Customer {
   email: any;
   birthdate: any;
   phone: any;
-  phone2: any;
+  location: any;
 }
 
 export interface Repair {
@@ -60,9 +60,10 @@ export interface Repair {
   providedIn: 'root'
 })
 export class AdminService implements CanActivate  {
+  //
+  totalCustomers;
 // User
     user: any;
-
 // leads rquirements
   pages: any;
   leadsPage  = new Object();
@@ -129,39 +130,50 @@ return false;
 }
   }
 
+  getTotalCustomers() {
+    for (let index = 0; index !== 1 ;) {
+      this.getCustomers(1).subscribe( res => {
+        if (!res) {index = 1; }
+        this.totalCustomers += res.customers.length;
+      }, err => {
+        index = 1;
+      });
+    }
+    return this.totalCustomers;
+  }
+
   getLeads(page =  1) {
       return this.http.get<Leads>('http://admin.iphixx.com/api/v1/bookings/?page=' + page);
   }
 
-  getCustomers(page =  1){
+  getCustomers(page =  1) {
    return this.http.get<Customers>('http://admin.iphixx.com/api/v1/customers/?page=' + page);
 
   }
 
-  getAgents(page =  1){
-    return this.http.get<Agents>('http://admin.iphixx.com/api/v1/customers/agents/?page='+page);
-
+  getAgents(page) {
+    return this.http.get<Agents>('http://admin.iphixx.com/api/v1/customers/agents/?page=' + page);
    }
 
-  getInvoices(page =  1){
-    return this.http.get<Invoices>('http://admin.iphixx.com/api/v1/bookings/invoices/?page='+page);
+  getInvoices(page =  1) {
+    return this.http.get<Invoices>('http://admin.iphixx.com/api/v1/bookings/invoices/?page=' + page);
   }
 
-  getTickets(page =  1){
-    return this.http.get<Tickets>('http://admin.iphixx.com/api/v1/bookings/tickets/?page='+page);
+  getTickets(page =  1) {
+    return this.http.get<Tickets>('http://admin.iphixx.com/api/v1/bookings/tickets/?page=' + page);
   }
 
-  getInventory(page =  1){
-  	return this.http.get<Inventory>('http://admin.iphixx.com/api/v1/bookings/inventory/?page='+page);
+  getInventory(page =  1) {
+  	return this.http.get<Inventory>('http://admin.iphixx.com/api/v1/bookings/inventory/?page=' + page);
 
   }
 
-  getOwner(id){
-    return this.http.get<Customer>('http://admin.iphixx.com/api/v1/bookings/owner/'+id);
+  getOwner(id) {
+    return this.http.get<Customer>('http://admin.iphixx.com/api/v1/bookings/owner/' + id);
   }
 
-  getRepair(id){
-    return this.http.get<Repair>('http://admin.iphixx.com/api/v1/bookings/repair/'+id);
+  getRepair(id) {
+    return this.http.get<Repair>('http://admin.iphixx.com/api/v1/bookings/repair/' + id);
   }
 
 //  updateBooking(lead){
@@ -171,16 +183,16 @@ return false;
 //     .set('fullname', lead.fullname)
 //     .set('email', lead.email)
 //     .set('phone', lead.phone)
-//     .set('phone2', lead.phone2)
+//     .set('location', lead.location)
 //     .set('birthdate', lead.birthdate)
 
 //    return this.http.put('http://admin.iphixx.com/api/v1/bookings/'+lead.id,
 //      body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 //  }
 
- addCustomer(customer){
+ addCustomer(customer) {
    console.log(customer);
-   let body = new HttpParams()
+   const body = new HttpParams()
     .set('fullname', customer.fullname)
     .set('business_name', customer.business_name)
     .set('email', customer.email)
@@ -194,9 +206,9 @@ return false;
      body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
  }
 
- addAgent(agent){
+ addAgent(agent) {
   console.log(agent);
-  let body = new HttpParams()
+  const body = new HttpParams()
    .set('agent_fname', agent.agent_fname)
    .set('agent_lname', agent.agent_lname)
    .set('agent_username', agent.agent_username)
@@ -212,12 +224,12 @@ return false;
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
 
- deleteCustomer(id){
+ deleteCustomer(id) {
    console.log(id);
    return this.http.delete('http://admin.iphixx.com/api/v1/customers/'+id);
  }
 
- deleteAgent(id){
+ deleteAgent(id) {
   console.log(id);
   return this.http.delete('http://admin.iphixx.com/api/v1/customers/agents/'+id);
 }
@@ -225,12 +237,12 @@ return false;
  updateCustomer(customer){
   console.log(customer);
 
-  let body = new HttpParams()
+  const body = new HttpParams()
    .set('customer_fname', customer.customer_fname)
    .set('customer_lname', customer.customer_lname)
    .set('email', customer.email)
    .set('phone', customer.phone)
-   .set('phone2', customer.phone2)
+   .set('location', customer.location)
    .set('birthdate', customer.birthdate)
   //  .set('address', customer.address)
   //  .set('address_2', customer.address2)
@@ -242,16 +254,16 @@ return false;
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
 
-updateAgent(agent){
+updateAgent(agent) {
   console.log(agent);
 
-  let body = new HttpParams()
+  const body = new HttpParams()
    .set('agent_fname', agent.agent_fname)
    .set('agent_lname', agent.agent_lname)
    .set('agent_username', agent.agent_username)
    .set('agent_email', agent.agent_email)
    .set('agent_phone', agent.agent_phone)
-   .set('agent_phone2',agent.agent_phone2)
+   .set('agent_location',agent.agent_location)
    .set('agent_pin',agent.agent_pin)
    .set('agent_password',agent.agent_password)
    .set('store_assigned',agent.store_assigned)
@@ -266,25 +278,25 @@ updateAgent(agent){
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
 
-editOwner(owner){
+editOwner(owner) {
   console.log(owner);
 
-  let body = new HttpParams()
+  const body = new HttpParams()
    .set('owner_name', owner.owner_name)
 
    .set('email', owner.email)
    .set('phone', owner.phone)
-   .set('phone2', owner.phone2)
+   .set('location', owner.location)
    .set('birthdate', owner.birthdate)
 
   return this.http.put('http://admin.iphixx.com/api/v1/bookings/edit-owner/'+ owner.owner_id,
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
 
- updateBookingStatus(id){
+ updateBookingStatus(id) {
    //this.sendMail(id);
-   console.log("called "+id);
-   return this.http.put('http://admin.iphixx.com/api/v1/bookings/status/'+id , {responseType: 'text' as 'text'});
+   console.log('called ' + id);
+   return this.http.put('http://admin.iphixx.com/api/v1/bookings/status/' + id , {responseType: 'text' as 'text'});
    //return this.http.put('http://admin.iphixx.com/api/v1/bookings/'+id , {});
  }
 

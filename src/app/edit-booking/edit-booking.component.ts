@@ -14,11 +14,16 @@ import { getComponentViewDefinitionFactory } from '@angular/core/src/view';
 })
 export class EditBookingComponent implements OnInit {
 
+  customerName;
+  checkPage;
+  title;
+  buttonName;
+  checkFrom;
   constructor(  private route: ActivatedRoute,
     private router: Router , public adminService : AdminService,
     public spinner : NgxSpinnerService) { 
       // this.adminService.updateCustomer().subscribe( res => console.log(res))
-   
+      
      }
 
     lead = { 
@@ -26,22 +31,44 @@ export class EditBookingComponent implements OnInit {
     };
 
     owner: any;
-  
     id ;
 
     ngOnInit() {
       this.route.paramMap.subscribe((params: ParamMap) => {
-      this.id = parseInt(params.get('id'));
-      console.log(this.adminService.leadsPage['page'+this.adminService.pageActive ][this.id])
-      this.lead = this.adminService.leadsPage['page'+this.adminService.pageActive ][this.id];
-      console.log(this.lead.bookings_id);
-      this.adminService.getOwner(this.lead.bookings_id);
+      const num = params.get('id');
+      this.checkFrom = num;
+      this.checkPage = params.get('page');
+      console.log(this.title);
+      this.id = parseInt(num, 10);
+      // console.log(this.adminService.leadsPage['page' + page ][this.id]);
+      //   this.lead = this.adminService.leadsPage['page' + page ];
+      // console.log(this.lead.bookings_id);
+        this.adminService.getOwner(this.id).subscribe(res => {
+          if (res) {
+          this.owner = res;
+          console.log(this.owner);
+          this.customerName = this.owner.customer_fname + ' ' + this.owner.customer_lname;
+          console.log(this.customerName);
+          }
+        }, err => {
+          this.owner = {
+            customer_id: '',
+            email: '',
+            birthdate: '',
+            phone: '',
+            phone2: ''
+          };
+          console.log(this.owner);
+        });
+
       });
-      this.adminService.getOwner(this.lead.bookings_id).subscribe(res => {
-        
-        this.owner = res;
- 
-        })
+      if (this.checkFrom !== '') {
+        this.title = 'Edit Booking';
+        this.buttonName = 'Save Changes';
+      } else {
+        this.title = 'Add  Booking';
+        this.buttonName = 'Save New Booking';
+      }
     } 
   
     editBooking(){
@@ -80,7 +107,12 @@ export class EditBookingComponent implements OnInit {
       console.log(res)
       this.spinner.hide();
       this.adminService.leadsPage  = new Object(); 
-      this.router.navigate(['/leads']);
+
+      if (this.checkPage) {
+        this.router.navigate(['/tickets']);
+      } else {
+        this.router.navigate(['/leads']);
+      }
     },
      (err)=>{
        console.log(err);
@@ -92,8 +124,12 @@ export class EditBookingComponent implements OnInit {
     )
     }
 
-    goToBooking(){
+    goToBooking() {
+      if (this.checkPage) {
+      this.router.navigate(['/tickets']);
+      } else {
       this.router.navigate(['/leads']);
+      }
     }
 
 }

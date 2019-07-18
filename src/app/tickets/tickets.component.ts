@@ -148,10 +148,11 @@ export class TicketsComponent implements OnInit {
 
   editBooking(id , index){
 	console.log(index);
-	this.router.navigate(['/edit-booking' , index]);
+   
+	  this.router.navigate(['/edit-booking', index, this.ticketPageActive]);
 }
 
-viewRepair(id , index){
+viewRepair(index){
 	console.log(index);
 	this.router.navigate(['/view-repair' , index]);
 }

@@ -10,7 +10,7 @@ import { Router , ActivatedRoute  } from '@angular/router';
   styleUrls: ['./customers.component.scss']
 })
 export class CustomersComponent implements OnInit {
-
+	pager = 'customers';
   customers = []; 	
   customersPage  = new Object();	
   customerspages : any;
@@ -69,6 +69,17 @@ export class CustomersComponent implements OnInit {
   	})}
 	}
 
+	openPager(page) {
+		switch (page) {
+			case 'customers':
+				this.pager = 'customers';
+				break;
+			default:
+				this.pager = 'manages';
+				break;
+		}
+	}
+
   NextPage(){
 
 
@@ -114,13 +125,13 @@ export class CustomersComponent implements OnInit {
   	}	
   }
 
-  editCustomer(id , index){
+  editCustomer(id , index) {
   	console.log(index);
 	  this.adminService.customersAction = 'update';
   	this.router.navigate(['/edit-customer' , index]);
   }
 
-  newCustomer(){
+  newCustomer() {
   	this.adminService.customersAction = 'new';
   	this.router.navigate(['/edit-customer']);
   }

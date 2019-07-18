@@ -17,27 +17,33 @@
 							<div class="panel panel-headline">
 								<div class="panel-heading">
 							
-									<div class=" col-lg-3">
-										<h3 class="panel-title">Customers</h3>
-										
+									<div class="sub-menu col-lg-12">
+										<h3 (click)= "openPager('customers')" [ngStyle]="{'color':pager === 'customers' ? '#2980b9' : 'black', 'border-bottom': pager === 'customers' ? '2px solid #2980b9' : 'none'}">Customers/Users</h3>
+										<h3 (click)= "openPager('manages')" [ngStyle]="{'color': pager === 'manages' ? '#2980b9' : 'black', 'border-bottom': pager === 'manages' ? '2px solid #2980b9' : 'none'}" class="panel-title">Manage Rolls</h3>
 									</div>
 									<!-- <div class="col-lg-offset-6 col-lg-3">
 										<button class="new-customer" (click)="newCustomer()">+ New Customer</button>
 									</div> -->
-
-
+									<div class="addCustomer  align-items-end">
+										<button type="button" class="btn" (click)="newCustomer()" >
+											<i class="lnr lnr-plus-circle"></i>
+												Add Customer
+										</button>
+									</div>
+									
 								</div>
+								<!-- <hr> -->
 								<div class="panel-body">
 									<div class="table-responsive">
-									<table class="table table-hover">
+									<table class="table table-hover" *ngIf="pager==='customers'">
 										<thead>
 											<tr>
 												<th>Customer Name</th>
 												<th>Email</th>
 												<th>Phone</th>
-												<th>Alt. Phone</th>
+												<th>location</th>
 												<th>Birthdate</th>
-												<th> </th>
+												<th>Action</th>
 												
 											</tr>
 										</thead>
@@ -47,7 +53,7 @@
 												<td>{{ customer.customer_fname }} {{ customer.customer_lname }}</td>
 												<td>{{ customer.email }}</td>
 												<td>{{ customer.phone }}</td>
-												<td>{{ customer.phone2 }}</td>
+												<td>{{ customer.location }}</td>
 												<td>{{ customer.birthdate }}</td>
 												<td>
 
@@ -60,7 +66,7 @@
 													  <div class="list-group">
 														
 														  <a (click)="editCustomer(customer.customer_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-pencil"></span>Edit</a>
-														 <!--  <a (click)="deleteCustomer(customer.customer_id )" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-remove"></span>Delete</a> -->
+														  <a (click)="deleteCustomer(customer.customer_id )" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-remove"></span>Delete</a>
 														 
 														 
 														  </div>
@@ -92,6 +98,9 @@
 									        </td>
 									    </tr>
 									    </tfoot>
+									</table>
+									<table class="table table-hover" *ngIf="pager==='customers'">
+										
 									</table>
 								</div>
 								</div>

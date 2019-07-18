@@ -17,7 +17,7 @@ export class InvoicesComponent implements OnInit {
   invoicesPage  = new Object();	
   invoicespages : any;
   invoicePageActive : number;
-	
+	pager: any = 'invoices';
   closeResult: string;
   constructor( public adminService : AdminService , private spinner: NgxSpinnerService,public router : Router ) { 
   		
@@ -159,6 +159,20 @@ updatePaymentStatus(id){
 
 // }
 // )}
+
+  openPager(page) {
+    switch (page) {
+      case 'invoices':
+        this.pager = 'invoices';
+        break;
+      case 'tax':
+        this.pager = 'tax';
+        break;
+      default:
+        this.pager = 'reports';
+        break;
+    }
+  }
 
 editBooking(id , index){
 console.log(index);

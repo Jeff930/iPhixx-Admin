@@ -17,8 +17,13 @@
 							<!-- TABLE HOVER -->
 							<div class="panel panel-headline">
 								<div class="panel-heading">
-									<h3 class="panel-title">Invoices</h3>
+									<div class="sub-menu">
+										<h3 (click)="openPager('invoices')" [ngStyle]="{'color':pager === 'invoices' ? '#2980b9' : 'black', 'border-bottom': pager === 'invoices' ? '2px solid #2980b9' : 'none'}">Invoices</h3>
+										<h3 (click)="openPager('tax')" [ngStyle]="{'color': pager === 'tax' ? '#2980b9' : 'black', 'border-bottom': pager === 'tax' ? '2px solid #2980b9' : 'none'}" class="panel-title">Tax Rates</h3>	
+										<h3 (click)="openPager('reports')" [ngStyle]="{'color': pager === 'reports' ? '#2980b9' : 'black', 'border-bottom': pager === 'reports' ? '2px solid #2980b9' : 'none'}" class="panel-title">Custom Reports</h3>
+									</div>
 								</div>
+								
 								<div class="panel-body">
 								<!-- 	<table class="table table-hover">
 										<thead>
@@ -43,7 +48,7 @@
 										</tbody>
 									</table> -->
 									<div class="table-responsive">
-									<table class="table table-hover ">
+									<table class="table table-hover" *ngIf="pager== 'invoices'">
 									    <thead>
 									    <tr>
 									    	<th>
@@ -130,7 +135,14 @@
 									    </tr>
 									    </tfoot>
 									</table>
+									<!--Tax Rates-->
+									<table class="table table-hover " *ngIf="pager=== 'tax'" >
 										
+									</table>
+									<!--Custom Reports-->
+									<table class="table table-hover " *ngIf="pager=== 'reports'" >
+										
+									</table>
 									</div>
 								</div>
 							</div>

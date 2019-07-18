@@ -8,7 +8,7 @@ import { Agents, AdminService } from '../admin.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
+  message: any;
   user = {
     email : '',
     password : '',
@@ -16,8 +16,9 @@ export class LoginComponent implements OnInit {
   return ;
   isChecked: Boolean;
 
-  constructor(public router: Router, private route: ActivatedRoute, private adminservice: AdminService ) {
-    // localStorage.clear();
+  constructor(public router: Router, private route: ActivatedRoute, private adminservice: AdminService) {
+  
+          // localStorage.clear();
     console.log(this.isChecked);
     if (localStorage.getItem('isChecked')) {
       this.isChecked = true;
@@ -34,19 +35,26 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit() {
-
+    this.adminservice.getAgents(1).subscribe(
+      (res) => {
+        console.log(res);
+        this.message = res.agents;
+      },
+      (err) => console.log(err));
      this.route.queryParams
       .subscribe(params => this.return = params['return'] || '/admin');
   }
 
   login() {
     console.log(this.user);
-    if (this.user.email === 'admin' && this.user.password === 'admin') {
+    console.log(this.message);
+    for (let agent = 0; agent < this.message.length; agent++) {
+      if (this.user.email === this.message[agent].agent_email && this.user.password === this.message[agent].agent_password ) {
       console.log(this.isChecked);
       localStorage.setItem('authenticated' , 'true');
       this.router.navigateByUrl(this.return);
-      this.adminservice.user = this.user.email;
-      localStorage.setItem('user', this.user.email);
+        this.adminservice.user = this.message[agent].agent_username;
+        localStorage.setItem('user', this.message[agent].agent_username);
       if (this.isChecked) {
         localStorage.setItem('isChecked', 't');
         localStorage.setItem('remeberCreds', JSON.stringify(this.user));
@@ -54,8 +62,23 @@ export class LoginComponent implements OnInit {
         localStorage.removeItem('isChecked');
         localStorage.removeItem('remeberCreds');
       }
-    } else {
+    }
+      console.log(this.message[agent].agent_password);
+    }
+    // if (this.user.email === 'admin' && this.user.password === 'admin') {
+    //   console.log(this.isChecked);
+    //   localStorage.setItem('authenticated' , 'true');
+    //   this.router.navigateByUrl(this.return);
+    //   this.adminservice.user = this.user.email;
+    //   localStorage.setItem('user', this.user.email);
+    //   if (this.isChecked) {
+    //     localStorage.setItem('isChecked', 't');
+    //     localStorage.setItem('remeberCreds', JSON.stringify(this.user));
+    //   } else {
+    //     localStorage.removeItem('isChecked');
+    //     localStorage.removeItem('remeberCreds');
+    //   }
+    // } else {
 
     }
-  }
 }

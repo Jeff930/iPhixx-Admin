@@ -16,7 +16,21 @@
 							<!-- TABLE HOVER -->
 							<div class="panel panel-headline">
 								<div class="panel-heading">
-									<h3 class="panel-title">Tickets</h3>
+										<h3 class="panel-title">Tickets</h3>
+									<div class="form-group col-lg-8">
+										<label for="selections">Select Location:</label>
+										<select class="form-control" id="selections">
+											<option> </option>
+											<option>Iphixx Booking</option>
+											<option>Joyce of Wexford</option>
+										</select>
+									</div>
+									<div class="addCustomer  align-items-end">
+										<button type="button" class="btn" (click)="editBooking('','')">
+											<i class="lnr lnr-plus-circle"></i>
+											New Booking
+										</button>
+									</div>
 								</div>
 								<div class="panel-body">
 								<!-- 	<table class="table table-hover">
@@ -60,11 +74,15 @@
 									        <th>
 									           Phone
 									        </th>
-									        <th>
+									        <!-- <th>
 									           Alternative
+											</th> -->
+											<th>
+												Location
+											</th>
+									        <th>
+												Action
 									        </th>
-									       <!--  <th style="width: 5%">
-									        </th> -->
 
 									    </tr>
 									    </thead>
@@ -80,25 +98,25 @@
 												<!-- <td></td> -->
 												<td>{{ ticket.email }}</td>
 												<td>{{ ticket.phone }}</td>
-												<td>{{ ticket.phone2 }}</td>
-												<!-- <td>
+												<!-- <td>{{ ticket.phone2 }}</td> -->
+												<td>{{ ticket.location }}</td>
+												<td>
 
-													<button (click)="ngxSmartModalService.getModal('myModal').open()" class="btn btn-default btn-sm">
-		          										<span class="glyphicon glyphicon-option-horizontal"></span>
-		        									</button>
+														<button [satPopoverAnchorFor]="contactPopover" (click)="contactPopover.toggle()" class="btn btn-default btn-sm">
+															<span class="glyphicon glyphicon-option-horizontal"></span>
+														</button>
+
 
 
 													<sat-popover #contactPopover hasBackdrop verticalAlign="below">
 													  <div class="list-group">
-														<a (click)="viewInvoice(lead.id, i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-eye-open"></span>View</a>
-														
-														 
-														 
+														  <a (click)="editBooking('1', ticket.ticket_no )" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-pencil"></span>  Edit</a>
+														<!-- <a (click)="viewInvoice(i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-eye-open"></span> View</a> -->
 														  </div>
 
 													</sat-popover>
 															        								
-												</td> -->
+												</td>
 												<!-- <td><button (click) = "updateBooking(lead.id)" class="btn btn-primary">Update Status</button></td> -->
 									    </tr>
 									    </tbody>

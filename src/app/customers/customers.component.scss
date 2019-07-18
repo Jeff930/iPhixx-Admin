@@ -30,3 +30,43 @@ th{
 .center{
 	margin-left:40%;
 }
+.table tr:nth-child(even) {
+	background-color: rgba(128, 128, 128, 0.1);
+}
+.addCustomer {
+	position: relative;
+	font-family: Helvetica;
+	button {
+			position: absolute;
+			right: 10px;
+			top: -5px;
+			color: white;
+			box-shadow: inset 0px 0px 5px 1px rgba(37, 44, 53, 0.2);
+			padding: 10px;
+			border-radius: 10px;
+			background-color: #2980b9;
+		}
+		button:hover,  {  
+			transition-timing-function: ease-in-out;
+			transition: 0.2s;
+			transform: scale(1.02);
+		}
+}
+.sub-menu {
+	text-align: center;
+	h3 {
+		cursor: pointer;
+		display: inline-block;
+	}
+	h3:last-child {
+		margin: 0px 50px;
+	}
+}
+.panel {
+	hr {
+		width: 50%;
+		height: 2px;
+		background-color: rgba(5, 142, 221, 0.5);
+		border-radius: 25px;
+	}
+}
