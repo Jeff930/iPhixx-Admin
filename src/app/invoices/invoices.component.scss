@@ -1,17 +1,29 @@
+
+
 th{
-	color : #337ab7;
+  color : #337ab7;
+  font-family: Helvetica;  
+}
+.panel-heading {
+   background: rgba(128, 128, 128, 0.5) !important; 
+   padding-bottom: 0px !important;
 }
 .sub-menu {
-	text-align: center;
-	h3 {
+  font-family: Helvetica;  
+	h4 {
+    font-weight: bold !important;
+    font-size: 2rem !important;
 		cursor: pointer;
-		display: inline-block;
+    display: inline-block;
+    margin-bottom: -5px !important;
+    padding: 10px;
+    border-radius: 5px 5px  0px 0px;
   }
-  h3:first-child {
-    margin: 0px 50px 0px 0px;
+  h4:first-child {
+    margin: 0px 30px 0px 0px;
   }
-	h3:last-child {
-		margin: 0px 50px;
+	h4:last-child {
+		margin: 0px 30px;
 	}
 }
 page-modal {
@@ -64,5 +76,74 @@ modal_content {
   }
 
 .center{
-  margin-left:45%;
+  margin: 0 auto;
+}
+
+.addCustomer {
+	font-family: Helvetica;
+	button {
+			float: right;
+			margin-top: -48px;
+			right: 10px;
+			top: -5px;
+			color: white;
+			box-shadow: inset 0px 0px 5px 1px rgba(37, 44, 53, 0.2);
+			padding: 10px;
+			border-radius: 10px;
+			background-color: #2980b9;
+		}
+		button:hover,  {  
+			transition-timing-function: ease-in-out;
+			transition: 0.2s;
+			transform: scale(1.02);
+		}
+}
+.table {
+  font-family: Helvetica;   
+  text-align: center; 
+  thead {
+    th {
+      text-align: center; 
+    }
+  }
+  tr:nth-child(even) {
+	background-color: rgba(128, 128, 128, 0.1) !important; 
+} 
+}
+.list-group {
+  a { cursor: pointer; }
+}
+.reports-sections {
+  
+  height: 50px;
+  width: 200px;
+  margin: 0 auto;
+  button {
+    font-size: 1.5rem;
+    width: 20% !important;
+    border-radius: 5px;
+    margin: 0 auto;
+  }
+}
+.textArea {
+    color: black;
+    font-size: 1.5rem;
+    min-width: 1240px;
+    max-width: 1240px;
+    min-height: 500px;
+    max-height: 500px;
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+	  -moz-box-shadow: 0 10px 6px -6px #777;
+	  box-shadow: 0 10px 6px -6px #777;
+}
+.form-group{
+  label { 
+    width: 100%;  
+    text-align: left;
+  }
+  .input-subject { 
+    border: none;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.7);
+    width: 500px;
+  }
 }

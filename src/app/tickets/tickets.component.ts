@@ -16,7 +16,7 @@ export class TicketsComponent implements OnInit {
   ticketsPage  = new Object();	
   ticketPages : any;
   ticketPageActive : number;
-
+	location;
   constructor( public adminService : AdminService , private spinner: NgxSpinnerService,public router : Router ) { 
   		
   		this.ticketPageActive = this.adminService.ticketPageActive;
@@ -41,7 +41,7 @@ export class TicketsComponent implements OnInit {
   		console.log(this.tickets)
   		this.spinner.hide();
   		this.adminService.global.tickets = this.tickets;	
-
+		console.log(this.location);
   	})
   	}
 

@@ -3,7 +3,7 @@
 <app-navbar > </app-navbar>
 <app-sidebar > </app-sidebar>
 <app-footer > </app-footer>
-
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="#fff" type="pacman"></ngx-spinner>
 	<div class="main">
 
 			<div class="main-content">
@@ -31,21 +31,21 @@
 						<br>
 						<div class="panel-body">
 							<div class="row">
-								<div class="col-md-3">
+								<div class="col-md-3" *ngFor="let count of counter; let i = index" [ngStyle]="{'color': i%2===0 ? 'rgba(41,128,185 ,1)' : 'green'}">
 									<div class="metric">
 										<p>
-											<span class="title green">Customers</span>
-											<span class="number">{{ overview.totalSales }}</span>
+											<span class="title "> {{count.name }}</span>
+											<span class="number"> Count: {{count.value}} </span>
 										</p>
 									</div>
 								</div>
 								
-								
+<!-- 								
 								<div class="col-md-3">
 									<div class="metric">
 										<p>
 											<span class="title small">Invoices</span>
-											<span class="number">{{ overview.discounts }}</span>
+											<span class="number"></span>
 										</p>
 									</div>
 								</div>
@@ -53,18 +53,18 @@
 									<div class="metric">
 										<p>
 											<span class="title small">Inventory</span>
-											<span class="number">{{ overview.cogs }}</span>
+											<span class="number"></span>
 										</p>
 									</div>
 								</div>
 								<div class="col-md-3">
 									<div class="metric">
 										<p>
-											<span class="title green">Tickets</span>
-											<span class="number">{{ overview.netProfit }}</span>
+											<span class="title ">Tickets</span>
+											<span class="number"></span>
 										</p>
 									</div>
-								</div>
+								</div> -->
 							</div>
 							
 
@@ -277,7 +277,9 @@
 								<div class="panel-body">
 									<div class="col-md-2"></div>
 									<div class="btn-cover col-md-12">
-										<button type="button" class="bbttns" *ngFor="let buttons of quickAccess"> {{buttons.name}} </button>
+										<button type="button" (click)="newCustomer()" class="bbttns"> Add Customer </button>
+										<button type="button" (click)="editBooking()" class="bbttns"> New Booking </button>
+										<button type="button" (click)="goToTax()" class="bbttns"> Add Tax </button>
 									</div>
 								</div>
 							</div>

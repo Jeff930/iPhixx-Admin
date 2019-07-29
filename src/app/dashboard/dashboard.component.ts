@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
+
+import { NgxSpinnerService } from 'ngx-spinner';
 import { AdminService } from '../admin.service';
 import * as $ from 'jquery';
+import { Router, ActivatedRoute } from '@angular/router';
 
 declare var Chartist: any ;
 declare var easyPieChart: any;
@@ -21,19 +24,41 @@ export class DashboardComponent implements OnInit {
         cogs: 0,
         netProfit: 0
     };
-
+    counter = [];
     quickAccess = [
-        {name: 'Add Customer', component: 'CustomersPage'},
-        {name: 'New Ticket', component: ''},
-        {name: 'Add Agent', component: ''}
+        {name: 'Add Customer', funct: 'newCustomer()'},
+        { name: 'New Ticket', funct: 'editBooking()'},
+        { name: 'Add Tax', funct: 'goToTax'}
     ];
 
 
-  constructor(private adminservice: AdminService) {
-   
+    constructor(private adminservice: AdminService,
+        private spinner: NgxSpinnerService,
+        public router: Router,
+        private adminService: AdminService) {
   }
 
-  ngOnInit() {
+    ngOnInit() {
+        this.spinner.show();
+        this.adminservice.getCustomersCount().subscribe(res => {
+          console.log(res);
+          this.counter.push({ name: 'Customer', value: res });
+      });
+      this.adminservice.getInventoryCount().subscribe(res => {
+          console.log(res);
+          this.counter.push({ name: 'Inventory', value: res });
+      });
+      this.adminservice.getInvoicesCount().subscribe(res => {
+          console.log(res);
+          this.counter.push({ name: 'Invoices', value: res });
+      });
+      this.adminservice.getTicketsCount().subscribe(res => {
+          console.log(res);
+          this.counter.push({ name: 'Tickets', value: res });
+          console.log(this.counter);
+          this.spinner.hide();
+      });
+
     //   this.customerspageActive = this.adminService.customerspageActive;
     //   this.adminService.customersPage['page' + this.customerspageActive] ? this.customers = this.adminService.customersPage['page' + this.customerspageActive] : '';
     //   this.adminService.customerspages ? this.customerspages = this.adminService.customerspages : '';
@@ -57,7 +82,6 @@ export class DashboardComponent implements OnInit {
 
     //       })
     //   }
-
       for (let i = 1; i <= 5; i++) {
           switch (i) {
               case 1:
@@ -91,7 +115,6 @@ export class DashboardComponent implements OnInit {
     // this.visitTrendCharts();
     // this.visitsChart();
     // this.realTimePieChart();
-
   }
 
   headLineCharts() {
@@ -212,5 +235,14 @@ export class DashboardComponent implements OnInit {
   getRandomInt(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
   }
-
+    goToTax() {
+        this.router.navigate(['/edit-tax', '']);
+    }
+    editBooking() {
+        this.router.navigate(['/edit-booking', '']);
+    }
+    newCustomer() {
+        this.adminService.customersAction = 'new';
+        this.router.navigate(['/edit-customer']);
+    }
 }

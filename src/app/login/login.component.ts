@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router , ActivatedRoute  } from '@angular/router';
 import { Agents, AdminService } from '../admin.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-login',
@@ -8,6 +10,8 @@ import { Agents, AdminService } from '../admin.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+
+  getStartedForm: FormGroup;
   message: any;
   user = {
     email : '',
@@ -15,9 +19,12 @@ export class LoginComponent implements OnInit {
   };
   return ;
   isChecked: Boolean;
-
+  validation= false;
   constructor(public router: Router, private route: ActivatedRoute, private adminservice: AdminService) {
-  
+    this.getStartedForm = new FormGroup({
+      'email': new FormControl('', [Validators.required, Validators.email]),
+      'password': new FormControl('', Validators.required),
+    });
           // localStorage.clear();
     console.log(this.isChecked);
     if (localStorage.getItem('isChecked')) {
@@ -46,10 +53,11 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    console.log(this.user);
+    console.log(this.getStartedForm.get('email').value);
     console.log(this.message);
     for (let agent = 0; agent < this.message.length; agent++) {
-      if (this.user.email === this.message[agent].agent_email && this.user.password === this.message[agent].agent_password ) {
+      if (this.getStartedForm.get('email').value === this.message[agent].agent_email 
+      && this.getStartedForm.get('password').value === this.message[agent].agent_password ) {
       console.log(this.isChecked);
       localStorage.setItem('authenticated' , 'true');
       this.router.navigateByUrl(this.return);
@@ -65,6 +73,7 @@ export class LoginComponent implements OnInit {
     }
       console.log(this.message[agent].agent_password);
     }
+    this.validation = true;
     // if (this.user.email === 'admin' && this.user.password === 'admin') {
     //   console.log(this.isChecked);
     //   localStorage.setItem('authenticated' , 'true');

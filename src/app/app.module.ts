@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AdminService } from './admin.service';
 
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { SatPopoverModule } from '@ncstate/sat-popover';
@@ -27,6 +27,10 @@ import { FilterByTypeComponent } from './filter-by-type/filter-by-type.component
 import { TicketsComponent } from './tickets/tickets.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { ViewCustomerComponent } from './view-customer/view-customer.component';
+import { EditTaxComponent } from './edit-tax/edit-tax.component';
+import { LogisticsComponent } from './logistics/logistics.component';
+import { SettingsComponent } from './settings/settings.component';
+import { ProcessLeadsComponent } from './process-leads/process-leads.component';
 // import { NotificationComponent } from './notification/notification.component';
 
 
@@ -47,12 +51,17 @@ import { ViewCustomerComponent } from './view-customer/view-customer.component';
     InventoryComponent,
     ViewCustomerComponent,
     ConfirmPaymentComponent,
+    EditTaxComponent,
+    LogisticsComponent,
+    SettingsComponent,
+    ProcessLeadsComponent,
     // NotificationComponent
 
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     NgxSpinnerModule,

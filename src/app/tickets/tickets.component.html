@@ -19,7 +19,7 @@
 										<h3 class="panel-title">Tickets</h3>
 									<div class="form-group col-lg-8">
 										<label for="selections">Select Location:</label>
-										<select class="form-control" id="selections">
+										<select class="form-control" [(ngModel)]="location" id="selections">
 											<option> </option>
 											<option>Iphixx Booking</option>
 											<option>Joyce of Wexford</option>
@@ -87,7 +87,7 @@
 									    </tr>
 									    </thead>
 									    <tbody>
-									    <tr *ngFor="let ticket of tickets; let i = index" >
+										<tr *ngFor="let ticket of tickets; let i = index" [hidden]="location !== ticket.location && location" [ngStyle] = "{'background-color': !location ? '' : 'white'} " >
 									       <!--  <td>{{item.name}}</td>
 									        <td>{{item.email}}</td>
 									        <td class="text-right">{{item.age}}</td>
@@ -122,16 +122,16 @@
 									    </tbody>
 									    <tfoot>
 									    <tr>
-									        <td colspan="5">
+									        <td colspan="6" >
 									        	<ul class="pagination center">
 
-									        		<li (click) = "PreviosPage()"  class="page-item {{ ticketPageActive == 1 ? 'disabled' : ''}}"><a class="page-link" style="cursor: pointer">«</a>
+									        		<li (click) = "PreviosPage()"  class="page-item {{ ticketPageActive == 1 ? 'disabled' : ''}}"><a class="no-border page-link" style="cursor: pointer">«</a>
 									        		</li>
 									        		<li *ngFor="let page of ticketPages ; let i = index" (click)="goToPage(i+1)" class="page-item {{ i+1 == ticketPageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">{{i+1}}</a>
 									        		</li>
 									        		<!-- <li class="page-item"><a class="page-link" style="cursor: pointer">2</a></li>
 									        		 -->
-									        		<li (click) = "NextPage()" class="page-item"><a class="page-link" style="cursor: pointer">»</a>
+									        		<li (click) = "NextPage()" class="page-item"><a class="no-border page-link" style="cursor: pointer">»</a>
 									        		</li>
 
 									        	</ul>

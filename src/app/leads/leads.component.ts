@@ -15,7 +15,7 @@ import { Router , ActivatedRoute  } from '@angular/router';
 export class LeadsComponent implements OnInit {
 
   leads = [] ;
-  leadsPage  = new Object();	
+  leadsPage  = new Object();
   pages : any;
   pageActive : number;
 
@@ -53,9 +53,9 @@ export class LeadsComponent implements OnInit {
 		this.pageActive = number;
 		this.adminService.pageActive = this.pageActive;
 		this.spinner.show();
-		if(this.adminService.leadsPage['page'+number ]){
+		if(this.adminService.leadsPage['page' + number ]) {
 
-	  		this.leads = this.adminService.leadsPage['page'+number ];
+	  		this.leads = this.adminService.leadsPage['page' + number ];
 	  		this.spinner.hide();
 		}
 		else{
@@ -171,5 +171,9 @@ viewRepair(id,index){
 	this.router.navigate(['/view-repair' , index]);
 }
 
+processLeads(id, index) {
+	console.log(index);
+	this.router.navigate(['/process-leads', index]);
 
+}
 }

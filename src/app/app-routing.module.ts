@@ -26,7 +26,10 @@ import { InventoryComponent } from './inventory/inventory.component';
 import { AgentsComponent } from './agents/agents.component';
 import { EditAgentComponent } from './edit-agent/edit-agent.component';
 import { ViewCustomerComponent } from './view-customer/view-customer.component';
-
+import { EditTaxComponent } from './edit-tax/edit-tax.component';
+import { LogisticsComponent } from './logistics/logistics.component';
+import { SettingsComponent } from './settings/settings.component';
+import { ProcessLeadsComponent } from './process-leads/process-leads.component';
 
 const routes: Routes = [
 
@@ -45,11 +48,15 @@ const routes: Routes = [
   { path: 'filter-by-invoice', component: FilterByInvoiceComponent },
   { path: 'filter-by-date', component: FilterByDateComponent },
   { path: 'tickets', component: TicketsComponent },
-  { path: 'inventory', component: InventoryComponent },
+  { path: 'inventory/:page', component: InventoryComponent },
   { path: 'agents', component: AgentsComponent },
   { path: 'edit-agent/:id', component: EditAgentComponent },
   { path: 'edit-agent', component: EditAgentComponent },
   { path: 'view-customer/:id', component: ViewCustomerComponent },
+  { path: 'edit-tax/:id', component: EditTaxComponent },
+  { path: 'logistics', component: LogisticsComponent },
+  { path: 'settings', component: SettingsComponent },
+  { path: 'process-leads/:id', component: ProcessLeadsComponent },
   // { path: 'admin', component: DashboardComponent },
   // {
   //   path: 'device',

@@ -17,7 +17,18 @@
 							<!-- TABLE HOVER -->
 							<div class="panel panel-headline">
 								<div class="panel-heading">
-									<h3 class="panel-title">Inventory</h3>
+									<div class="sub-menu">
+										<h4 (click)="openPager('products')" [ngStyle]="{'color': pager === 'products' ? '#2980b9' : 'black', 'background': pager === 'products' ? '#ffffff' : 'none'}"class="panel-title">Products</h4>
+										<h4 (click)="openPager('sales')" [ngStyle]="{'color': pager === 'sales' ? '#2980b9' : 'black', 'background': pager === 'sales' ? '#ffffff' : 'none'}" class="panel-title">Product Sales</h4>
+										<h4 (click)="openPager('categories')" [ngStyle]="{'color': pager === 'categories' ? '#2980b9' : 'black', 'background': pager === 'categories' ? '#ffffff' : 'none'}"
+										 class="panel-title">Categories</h4>
+									</div>
+									<!-- <div class="addCustomer  align-items-end" *ngIf="pager=== 'tax'">
+										<button type="button" class="btn" (click)="goToTax()">
+											<i class="lnr lnr-plus-circle"></i>
+											Add Tax
+										</button>
+									</div> -->
 								</div>
 								<div class="panel-body">
 								<!-- 	<table class="table table-hover">
@@ -43,17 +54,17 @@
 										</tbody>
 									</table> -->
 									<div class="table-responsive">
-									<table class="table table-hover ">
+									<table class="table table-hover" *ngIf="pager === 'products'">
 									    <thead>
 									    <tr>
 									        <th>
-									           Item No
+											 SKU
 									        </th>
 									        <th>
 									           Device Model
 									        </th>
 									        <th>
-									           Repair Part
+									           Repair Part/Description
 									        </th>
 									        <th>
 									           Quantity
@@ -62,6 +73,7 @@
 									           Date Last Restocked
 									        </th>
 									         <th> 
+												Cost
 									        </th>
 									    </tr>
 									    </thead>
@@ -77,6 +89,7 @@
 												<td>{{ item.part_name }}</td>
 												<td>{{ item.quantity }}</td>
 												<td>{{ item.last_restocked }}</td>
+												<td>€{{ item.cost }}</td>
 												<td>
 
 														<button  [satPopoverAnchorFor]="contactPopover" (click)="contactPopover.toggle()" class="btn btn-default btn-sm">
@@ -100,7 +113,7 @@
 									    </tbody>
 									    <tfoot>
 									    <tr>
-									        <td colspan="5">
+									        <td colspan="7">
 									        	<ul class="pagination center">
 
 									        		<li (click) = "PreviosPage()"  class="page-item {{ inventoryPageActive == 1 ? 'disabled' : ''}}"><a class="page-link" style="cursor: pointer">«</a>
@@ -118,7 +131,118 @@
 									    </tr>
 									    </tfoot>
 									</table>
-										
+									<!--SALES-->
+									<div class="product-sales-content" *ngIf = "pager === 'sales'">
+										<h2>Most Popular Repairs</h2>
+										<div class="sales-overview">
+											<div class="row">
+												<div class="col-md-3">
+													<div class="metric">
+														<p>
+															<span class="title">Samsung Galaxy Note 8 Screen Replacement</span>
+															<span class="number top-space">Quantity: 22</span>
+															<span class="number">Value: €12</span>
+														</p>
+													</div>
+												</div>
+											
+											
+												<div class="col-md-3">
+													<div class="metric">
+														<p>
+															<span class="title small">IPhone X Charging Port Replacement</span>
+															<span class="number top-space">Quantity: 43</span>
+															<span class="number">Value: €155</span>
+														</p>
+													</div>
+												</div>
+												<div class="col-md-3">
+													<div class="metric">
+														<p>
+															<span class="title small">Samsung Tab E Back Glass Replacement</span>
+															<span class="number top-space">Quantity: 56</span>
+															<span class="number">Value: €223</span>
+														</p>
+													</div>
+												</div>
+												<div class="col-md-3">
+													<div class="metric">
+														<p>
+															<span class="title ">Huawei Media Pad M5 Lite Back Glass Replacement</span>
+															<span class="number top-space">Quantity: 54</span>
+															<span class="number">Value: €90</span>
+														</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+										<!--Categories-->
+											<table class="table table-hover" *ngIf="pager === 'categories'">
+												<div class="sub-menu">
+													<h4 (click)="openSecondPager('phone')" [ngStyle]="{'color': pagerSecond === 'phone' ? '#2980b9' : 'black', 'background': pagerSecond === 'phone' ? 'rgba(127, 127, 127, 0.3)' : '#ffffff', 'border-bottom': pagerSecond === 'phone' ? 'none' : '1px solid rgba(0, 0, 0, 0.5)'}"class="panel-title">Phone</h4>
+													<h4 (click)="openSecondPager('tablet')" [ngStyle]="{'color': pagerSecond === 'tablet' ? '#2980b9' : 'black', 'background': pagerSecond === 'tablet' ? 'rgba(127, 127, 127, 0.3)' :  '#ffffff', 'border-bottom': pagerSecond === 'tablet' ? 'none' : '1px solid rgba(0, 0, 0, 0.5)'}" class="panel-title">Tablet</h4>
+													<h4 (click)="openSecondPager('laptop')" [ngStyle]="{'color': pagerSecond === 'laptop' ? '#2980b9' : 'black', 'background': pagerSecond === 'laptop' ? 'rgba(127, 127, 127, 0.3)' : '#ffffff', 'border-bottom': pagerSecond === 'laptop' ? 'none' : '1px solid rgba(0, 0, 0, 0.5)'}"
+													class="panel-title">Laptop</h4>
+													<h4 (click)="openSecondPager('macbook')" [ngStyle]="{'color': pagerSecond === 'macbook' ? '#2980b9' : 'black', 'background': pagerSecond === 'macbook' ? 'rgba(127, 127, 127, 0.3)' : '#ffffff', 'border-bottom': pagerSecond === 'macbook' ? 'none' : '1px solid rgba(0, 0, 0, 0.5)'}"
+													 class="panel-title">MacBook</h4>
+													<h4 (click)="openSecondPager('gaming')" [ngStyle]="{'color': pagerSecond === 'gaming' ? '#2980b9' : 'black', 'background': pagerSecond === 'gaming' ? 'rgba(127, 127, 127, 0.3)' : '#ffffff', 'border-bottom': pagerSecond === 'gaming' ? 'none' : '1px solid rgba(0, 0, 0, 0.5)'}"
+													 class="panel-title">Gaming Console</h4>
+												</div>
+												 <div class="sub-second-menu" *ngIf="pagerSecond === 'phone'">
+													<h4 (click)="openThirdPager('iphone-phone')" [ngStyle]="{'color': pagerThird === 'iphone-phone' ? '#2980b9' : 'black'}"
+													 class="panel-title">iPhone</h4>
+													<h4 (click)="openThirdPager('samsung-phone')" [ngStyle]="{'color': pagerThird === 'samsung-phone' ? '#2980b9' : 'black'}"
+													 class="panel-title">Samsung</h4>
+													<h4 (click)="openThirdPager('huawei-phone')" [ngStyle]="{'color': pagerThird === 'huawei-phone' ? '#2980b9' : 'black'}"
+													 class="panel-title">Huawei</h4>
+													<h4 (click)="openThirdPager('sony-phone')" [ngStyle]="{'color': pagerThird === 'sony-phone' ? '#2980b9' : 'black'}"
+													 class="panel-title">Sony</h4>
+													<h4 (click)="openThirdPager('nokia-phone')" [ngStyle]="{'color': pagerThird === 'nokia-phone' ? '#2980b9' : 'black'}"
+													 class="panel-title">Nokia</h4>
+												</div>
+												<div class="sub-second-menu" *ngIf="pagerSecond === 'tablet'">
+													<h4 (click)="openThirdPager('ipad-tablet')" [ngStyle]="{'color': pagerThird === 'ipad-tablet' ? '#2980b9' : 'black'}"
+													 class="panel-title">iPad</h4>
+													<h4 (click)="openThirdPager('samsung-tablet')" [ngStyle]="{'color': pagerThird === 'samsung-tablet' ? '#2980b9' : 'black'}"
+													 class="panel-title">Samsung</h4>
+													<h4 (click)="openThirdPager('huawei-tablet')" [ngStyle]="{'color': pagerThird === 'huawei-tablet' ? '#2980b9' : 'black'}"
+													 class="panel-title">Huawei</h4>
+												</div>
+												<div class="sub-second-menu" *ngIf="pagerSecond === 'laptop'">
+													<h4 (click)="openThirdPager('hp-laptop')" [ngStyle]="{'color': pagerThird === 'hp-laptop' ? '#2980b9' : 'black'}"
+													 class="panel-title">Hewlett Packard (HP)</h4>
+													<h4 (click)="openThirdPager('lenovo-laptop')" [ngStyle]="{'color': pagerThird === 'lenovo-laptop' ? '#2980b9' : 'black'}"
+													 class="panel-title">Lenovo</h4>
+													<h4 (click)="openThirdPager('huawei-laptop')" [ngStyle]="{'color': pagerThird === 'huawei-laptop' ? '#2980b9' : 'black'}"
+													 class="panel-title">Huawei</h4>													 
+													<h4 (click)="openThirdPager('dell-laptop')" [ngStyle]="{'color': pagerThird === 'dell-laptop' ? '#2980b9' : 'black'}"
+													 class="panel-title">Dell</h4>
+													<h4 (click)="openThirdPager('asus-laptop')" [ngStyle]="{'color': pagerThird === 'asus-laptop' ? '#2980b9' : 'black'}"
+													 class="panel-title">Asus</h4>
+													<h4 (click)="openThirdPager('acer-laptop')" [ngStyle]="{'color': pagerThird === 'acer-laptop' ? '#2980b9' : 'black'}"
+													 class="panel-title">Acer</h4>
+													<h4 (click)="openThirdPager('microsoft-laptop')" [ngStyle]="{'color': pagerThird === 'microsoft-laptop' ? '#2980b9' : 'black'}"
+													 class="panel-title">Microsoft</h4>
+													<h4 (click)="openThirdPager('chrome-laptop')" [ngStyle]="{'color': pagerThird === 'chrome-laptop' ? '#2980b9' : 'black'}"
+													 class="panel-title">Chromebook</h4>
+													<h4 (click)="openThirdPager('toshiba-laptop')" [ngStyle]="{'color': pagerThird === 'toshiba-laptop' ? '#2980b9' : 'black'}"
+													 class="panel-title">Toshiba</h4>
+												</div>
+										<table class="table table-hover category-table" *ngIf= "pagerThird === 'iphone-phone' || pagerThird === 'huawei-phone' || pagerThird === 'samsung-phone' ||
+											 pagerThird === 'sony-phone' || pagerThird === 'nokia-phone'">
+													<div class="row">
+														<div class="col-md-2" *ngFor="let model of models">
+															<div class="metric">
+																<p>
+																	<span class="">Iphone {{ model.name }}</span>
+																</p>
+															</div>
+														</div>
+														
+													</div>
+										</table>
+									</table>
 									</div>
 								</div>
 							</div>

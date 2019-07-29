@@ -15,6 +15,7 @@ export class CustomersComponent implements OnInit {
   customersPage  = new Object();	
   customerspages : any;
  customerspageActive : number;
+ agents;
   constructor( public adminService : AdminService , private spinner: NgxSpinnerService , public router : Router ) { 
 
   }
@@ -45,7 +46,11 @@ export class CustomersComponent implements OnInit {
   		this.adminService.global.customers = this.customers;	
 
   	})
-  	}
+	  }
+	this.adminService.getAgents(1).subscribe( res => {
+		console.log(res);
+		this.agents = res.agents;
+	});
 
   }
 

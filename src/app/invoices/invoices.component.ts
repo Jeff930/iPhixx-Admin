@@ -5,6 +5,8 @@ import { AdminService } from '../admin.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Router , ActivatedRoute  } from '@angular/router';
 import { NgxSmartModalService } from 'ngx-smart-modal';
+import { NullInjector } from '@angular/core/src/di/injector';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-invoices',
@@ -13,18 +15,27 @@ import { NgxSmartModalService } from 'ngx-smart-modal';
 })
 export class InvoicesComponent implements OnInit {
 
+  getStartedForm: FormGroup;
+  taxes = [];
+  addTax: {
+      tax_name,
+      tax_value
+    }
+  ;
   invoices = [] ;
   invoicesPage  = new Object();	
   invoicespages : any;
   invoicePageActive : number;
 	pager: any = 'invoices';
   closeResult: string;
-  constructor( public adminService : AdminService , private spinner: NgxSpinnerService,public router : Router ) { 
-  		
+  constructor( public adminService : AdminService , private spinner: NgxSpinnerService,public router : Router ) {
     this.invoicePageActive = this.adminService.invoicePageActive;
     this.adminService.invoicesPage['page'+this.invoicePageActive ] ? this.invoices = this.adminService.invoicesPage['page'+this.invoicePageActive ] : '';
     this.invoicespages = this.adminService.invoicespages;
-
+    this.getStartedForm = new FormGroup({
+      'subject': new FormControl('', Validators.required),
+      'message': new FormControl('', Validators.required),
+    });
 }
 
 ngOnInit() {
@@ -43,11 +54,8 @@ ngOnInit() {
     console.log(JSON.stringify(this.invoices));
     this.spinner.hide();
     this.adminService.global.invoices = this.invoices;	
-
-  })
+  });
   }
-
-
 }
 
 ngAfterViewInit(){
@@ -167,6 +175,13 @@ updatePaymentStatus(id){
         break;
       case 'tax':
         this.pager = 'tax';
+        this.spinner.show();
+        // this.taxes = JSON.parse();
+        console.log(localStorage.getItem('tax'));
+        if (localStorage.getItem('tax')) {
+        this.taxes = JSON.parse(localStorage.getItem('tax'));
+        }
+        this.spinner.hide();
         break;
       default:
         this.pager = 'reports';
@@ -187,5 +202,15 @@ this.router.navigate(['/view-repair' , index]);
   viewInvoice(id , index){
     console.log(index);
     this.router.navigate(['/view-invoice' , index]);
+  }
+
+saveTax() {
+  this.taxes.push(this.addTax);
+  console.log(this.taxes);
+  localStorage.setItem('tax', JSON.stringify(this.taxes));
+}
+
+  goToTax(id, index) {
+    this.router.navigate(['/edit-tax', index]);
   }
 }

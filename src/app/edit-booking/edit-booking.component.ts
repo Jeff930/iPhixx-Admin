@@ -19,6 +19,7 @@ export class EditBookingComponent implements OnInit {
   title;
   buttonName;
   checkFrom;
+  locations: any;
   constructor(  private route: ActivatedRoute,
     private router: Router , public adminService : AdminService,
     public spinner : NgxSpinnerService) { 
@@ -39,24 +40,33 @@ export class EditBookingComponent implements OnInit {
       this.checkFrom = num;
       this.checkPage = params.get('page');
       console.log(this.title);
+      console.log(num);
       this.id = parseInt(num, 10);
       // console.log(this.adminService.leadsPage['page' + page ][this.id]);
       //   this.lead = this.adminService.leadsPage['page' + page ];
       // console.log(this.lead.bookings_id);
-        this.adminService.getOwner(this.id).subscribe(res => {
+        this.adminService.getOwner(num).subscribe(res => {
+          console.log(res);
           if (res) {
           this.owner = res;
           console.log(this.owner);
           this.customerName = this.owner.customer_fname + ' ' + this.owner.customer_lname;
           console.log(this.customerName);
           }
+          if ( this.owner.location === 'Iphixx Booking') {
+            this.locations = 'Joyces of Wexford' ;
+          } else {
+            this.locations = 'Iphixx Booking';
+          }
+          console.log(this.locations);
+          console.log(this.owner.location);
         }, err => {
           this.owner = {
             customer_id: '',
             email: '',
             birthdate: '',
             phone: '',
-            phone2: ''
+            location: ''
           };
           console.log(this.owner);
         });

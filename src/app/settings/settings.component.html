@@ -1,0 +1,450 @@
+<app-navbar> </app-navbar>
+<app-sidebar> </app-sidebar>
+<app-footer> </app-footer>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="#fff" type="pacman"></ngx-spinner>
+
+
+<div class="main">
+  <div class="main-content">
+    <div class="container-fluid">
+      <div class="col-lg-12">
+        <!-- TABLE HOVER -->
+        <div class="panel panel-headline">
+          <div class="panel-heading">
+            <div class="sub-menu">
+              <h4 (click)="openPager('general')" [ngStyle]="{'color':pager === 'general' ? '#2980b9' : 'black', 'background': pager === 'general' ? '#ffffff' : 'none'}">General</h4>
+              <h4 (click)="openPager('repair')" [ngStyle]="{'color': pager === 'repair' ? '#2980b9' : 'black', 'background': pager === 'repair' ? '#ffffff' : 'none'}"
+                class="panel-title">Repair</h4>
+              <h4 (click)="openPager('invoice')" [ngStyle]="{'color': pager === 'invoice' ? '#2980b9' : 'black', 'background': pager === 'invoice' ? '#ffffff' : 'none'}"
+                class="panel-title">Invoice</h4>
+              <h4 (click)="openPager('sms')" [ngStyle]="{'color': pager === 'sms' ? '#2980b9' : 'black', 'background': pager === 'sms' ? '#ffffff' : 'none'}"
+                class="panel-title">SMS</h4>
+              <h4 (click)="openPager('payment')" [ngStyle]="{'color': pager === 'payment' ? '#2980b9' : 'black', 'background': pager === 'payment' ? '#ffffff' : 'none'}"
+                class="panel-title">Payment</h4>
+              <h4 (click)="openPager('tickets')" [ngStyle]="{'color': pager === 'tickets' ? '#2980b9' : 'black', 'background': pager === 'tickets' ? '#ffffff' : 'none'}"
+                class="panel-title">Tickets</h4>
+              <h4 (click)="openPager('updates')" [ngStyle]="{'color': pager === 'updates' ? '#2980b9' : 'black', 'background': pager === 'updates' ? '#ffffff' : 'none'}"
+                class="panel-title">Updates</h4>
+            </div>
+            <div class="addCustomer  align-items-end">
+              <button type="button" class="btn" (click)="goToTax()">
+                <i class="lnr lnr-enter-down"></i>
+                Save
+              </button>
+            </div>
+          </div>
+
+          <!--BODY-->
+          <div class="panel-body">
+            <!-- GENERAL TAB -->
+            <div *ngIf="pager === 'general'">
+            <form class="form-inline">
+              <div class="md-form form-group mt-0 form-group-text">
+                <small id="passwordHelpInlineMD" class=" text-muted">
+                  Company Name:
+                </small>
+                <input type="password" id="inputPassword6MD" class="left-side form-control mr-sm-3" aria-describedby="passwordHelpInlineMD">
+              </div>
+              <div class="md-form form-group mt-0 form-group-text">
+                <small id="passwordHelpInlineMD" class=" text-muted">
+                  Company Email:
+                </small>
+                <input type="password" id="inputPassword6MD" class="left-side form-control mr-sm-3" aria-describedby="passwordHelpInlineMD">
+              </div>
+              <div class="md-form form-group mt-0 form-group-text">
+                <small id="passwordHelpInlineMD" class=" text-muted">
+                  Company Website:
+                </small>
+                <input type="password" id="inputPassword6MD" class="left-side form-control mr-sm-3" aria-describedby="passwordHelpInlineMD">
+              </div>
+              <div class="md-form form-group mt-0 form-group-text">
+                <small id="passwordHelpInlineMD" class=" text-muted">
+                  Company Address:
+                </small>
+                <input type="password" id="inputPassword6MD" class="left-side form-control mr-sm-3" aria-describedby="passwordHelpInlineMD">
+              </div>
+              <div class="md-form form-group mt-0 form-group-text">
+                <small id="passwordHelpInlineMD" class=" text-muted">
+                  Portal Address:
+                </small>
+                <input type="password" id="inputPassword6MD" class="left-side form-control mr-sm-3" aria-describedby="passwordHelpInlineMD">
+              </div>
+              <div class="md-form form-group mt-0 form-group-text">
+                <small id="passwordHelpInlineMD" class=" text-muted">
+                  Currency Symbol:
+                </small>
+                <input type="password" id="inputPassword6MD" class="left-side form-control mr-sm-3" aria-describedby="passwordHelpInlineMD">
+              </div>
+              <div class="md-form form-group mt-0 form-group-text">
+                <small id="passwordHelpInlineMD" class=" text-muted">
+                   Currency Position:
+                </small>
+                <input type="password" id="inputPassword6MD" class="left-side form-control mr-sm-3" aria-describedby="passwordHelpInlineMD">
+              </div>
+              <div class="md-form form-group mt-0 form-group-text">
+                <small id="passwordHelpInlineMD" class=" text-muted">
+                   Enable Front End:
+                </small>
+                <input type="password" id="inputPassword6MD" class="left-side form-control mr-sm-3" aria-describedby="passwordHelpInlineMD">
+              </div>
+              <div class="md-form form-group mt-0 form-group-text">
+                <small id="passwordHelpInlineMD" class=" text-muted">
+                   Date Format:
+                </small>
+                <input type="password" id="inputPassword6MD" class="left-side form-control mr-sm-3" aria-describedby="passwordHelpInlineMD">
+              </div>
+              <div class="md-form form-group mt-0 form-group-text">
+                <small id="passwordHelpInlineMD" class=" text-muted">
+                  Default Tax:
+                </small>
+                <input type="number" id="inputPassword6MD" class="left-side form-control mr-sm-3" aria-describedby="passwordHelpInlineMD">
+              </div>
+              <div class="md-form form-group mt-0 form-group-text">
+                <small id="passwordHelpInlineMD" class=" text-muted">
+                  Company Logo
+                </small>
+                <div class="left-side">
+                    <button>Choose File</button><span>  No file chosen</span>
+                </div>
+              </div>
+            </form>
+            </div>
+            <!--REPAIR TAB-->
+            <div *ngIf="pager === 'repair'">
+              <form class="form-inline">
+                <div class="md-form form-group mt-0 form-group-text">
+                  <small id="passwordHelpInlineMD" class=" text-muted">
+                     Auto Email Client Repair
+                  </small>
+                  <select class="mdb-select md-form left-side">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                  </select>
+                </div>
+                <div class="md-form form-group mt-0 form-group-text">
+                  <small id="passwordHelpInlineMD" class=" text-muted">
+                     Enable Walk In Client
+                  </small>
+                  <select class="mdb-select md-form left-side">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                  </select>
+                </div>
+                <div class="md-form form-group mt-0 form-group-text">
+                  <small id="passwordHelpInlineMD" class=" text-muted">
+                     Include Custom Fields In Reparation
+                  </small>
+                  <select class="mdb-select md-form left-side">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                  </select>
+                </div>
+                <div class="md-form form-group mt-0 form-group-text">
+                  <small id="passwordHelpInlineMD" class=" text-muted">
+                     Enable Custom Fields In Frontend
+                  </small>
+                  <select class="mdb-select md-form left-side">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                  </select>
+                </div>
+                <div class="md-form form-group mt-0 form-group-text">
+                  <small id="passwordHelpInlineMD" class=" text-muted">
+                   Enable File Uploads In Frontend
+                  </small>
+                  <select class="mdb-select md-form left-side">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                  </select>
+                </div>
+                <div class="md-form form-group mt-0 form-group-text">
+                  <small id="passwordHelpInlineMD" class=" text-muted">
+                     New Repair SMS
+                  </small>
+                  <div class="md-form">
+                    <textarea id="form7" class="left-side md-textarea form-control" rows="3" placeholder="Hello {first_name} {last_name}, we have received your order (Order #{id}).You can check progress by login to portal or using
+                    order number to check."></textarea>
+                  </div>
+                </div>
+                <div class="md-form form-group mt-0 form-group-text">
+                  <small id="passwordHelpInlineMD" class=" text-muted">
+                     New Repair Subject
+                  </small>
+                  <input type="password" id="inputPassword6MD" class="left-side form-control mr-sm-3" aria-describedby="passwordHelpInlineMD" placeholder="subject">
+                </div>
+                <div class="md-form form-group mt-0 form-group-text">
+                  <small id="passwordHelpInlineMD" class=" text-muted">
+                     New Repair Email
+                  </small>
+                  <input type="password" id="inputPassword6MD" class="left-side form-control mr-sm-3" aria-describedby="passwordHelpInlineMD" placeholder="email">
+                </div>
+                <div class="md-form form-group mt-0 form-group-text">
+                  <small id="passwordHelpInlineMD" class=" text-muted">
+                     Repair Status Sms
+                  </small>
+                  <div class="md-form">
+                    <textarea id="form7" class="left-side md-textarea form-control" rows="3" placeholder="Status"></textarea>
+                  </div>
+                </div>
+                <div class="md-form form-group mt-0 form-group-text">
+                  <small id="passwordHelpInlineMD" class=" text-muted">
+                     Status Subject
+                  </small>
+                  <input type="number" id="inputPassword6MD" class="left-side form-control mr-sm-3" aria-describedby="passwordHelpInlineMD" placeholder="Status Subject">
+                </div>
+            <div class="md-form form-group mt-0 form-group-text">
+              <small id="passwordHelpInlineMD" class=" text-muted">
+                 Repair Status Email
+              </small>
+              <input type="number" id="inputPassword6MD" class="left-side form-control mr-sm-3" aria-describedby="passwordHelpInlineMD"placeholder="Status Email">
+            </div>
+            <div class="md-form form-group mt-0 form-group-text">
+              <small id="passwordHelpInlineMD" class=" text-muted">
+                 Reparation Footer
+              </small>
+              <input type="number" id="inputPassword6MD" class="left-side form-control mr-sm-3" aria-describedby="passwordHelpInlineMD" placeholder="Reparation">
+            </div>
+            <div class="md-form form-group mt-0 form-group-text">
+              <small id="passwordHelpInlineMD" class=" text-muted">
+                 Repair Assigned Email Subject
+              </small>
+              <input type="number" id="inputPassword6MD" class="left-side form-control mr-sm-3" aria-describedby="passwordHelpInlineMD" placeholder="Email Subject">
+            </div>
+            <div class="md-form form-group mt-0 form-group-text">
+              <small id="passwordHelpInlineMD" class=" text-muted">
+                 Repair Assigned Email Template
+              </small>
+              <input type="number" id="inputPassword6MD" class="left-side form-control mr-sm-3" aria-describedby="passwordHelpInlineMD" placeholder="Email Template">
+            </div>
+            <div class="md-form form-group mt-0 form-group-text">
+              <small id="passwordHelpInlineMD" class=" text-muted">
+                 New Account Subject
+              </small>
+              <input type="number" id="inputPassword6MD" class="left-side form-control mr-sm-3" aria-describedby="passwordHelpInlineMD" placeholder="Account Subject">
+            </div>
+            <div class="md-form form-group mt-0 form-group-text">
+              <small id="passwordHelpInlineMD" class=" text-muted">
+                 New Account Template
+              </small>
+              <input type="number" id="inputPassword6MD" class="left-side form-control mr-sm-3" aria-describedby="passwordHelpInlineMD" placeholder="Account Template">
+            </div>
+              </form>
+            </div>
+            <!--INVOICE TAB-->
+            <div *ngIf="pager === 'invoice'">
+                <div class="md-form form-group mt-0 form-group-text">
+                  <small id="passwordHelpInlineMD" class=" text-muted">
+                     Invoice Subject
+                  </small>
+                  <input type="password" id="inputPassword6MD" class="left-side form-control mr-sm-3" aria-describedby="passwordHelpInlineMD"
+                    placeholder="subject">
+                </div>
+              <form class="form-inline">
+                <div class="md-form form-group mt-0 form-group-text">
+                  <small id="passwordHelpInlineMD" class=" text-muted">
+                     Invoice Template
+                  </small>
+                  <div class="md-form">
+                    <textarea id="form7" class="left-side md-textarea form-control" rows="3" placeholder="Hello {first_name} {last_name}, An invoice was generated for your package (Order #{id}) Invoice Amount:${invoice_amount}
+                    Payments Status:${payment_status}"></textarea>
+                  </div>
+                </div>
+                <div class="md-form form-group mt-0 form-group-text">
+                  <small id="passwordHelpInlineMD" class=" text-muted">
+                     Invoice Header
+                  </small>
+                  <div class="md-form">
+                    <textarea id="form7" class="left-side md-textarea form-control" rows="3" placeholder="Webstudio Pvt Ltd Kingston, Jamaica"></textarea>
+                  </div>
+                </div>
+                <div class="md-form form-group mt-0 form-group-text">
+                  <small id="passwordHelpInlineMD" class=" text-muted">
+                    Invoice Footer
+                  </small>
+                  <div class="md-form">
+                    <textarea id="form7" class="left-side md-textarea form-control" rows="3" placeholder="Webstudio Pvt Ltd Kingston, Jamaica"></textarea>
+                  </div>
+                </div>
+                <div class="md-form form-group mt-0 form-group-text">
+                  <small id="passwordHelpInlineMD" class=" text-muted">
+                     Invoice Payment Subject
+                  </small>
+                  <input type="password" id="inputPassword6MD" class="left-side form-control mr-sm-3" aria-describedby="passwordHelpInlineMD"
+                    placeholder="Invoice Payment Confirmation">
+                </div>
+                <div class="md-form form-group mt-0 form-group-text">
+                  <small id="passwordHelpInlineMD" class=" text-muted">
+                     Invoice Payment Template
+                  </small>
+                  <div class="md-form">
+                    <textarea id="form7" class="left-side md-textarea form-control" rows="3" placeholder="Template"></textarea>
+                  </div>
+                </div>
+                <div class="md-form form-group mt-0 form-group-text">
+                  <small id="passwordHelpInlineMD" class=" text-muted">
+                     Invoice Overdue Subject
+                  </small>
+                  <input type="password" id="inputPassword6MD" class="left-side form-control mr-sm-3" aria-describedby="passwordHelpInlineMD"
+                    placeholder="subject">
+                </div>
+                  <div class="md-form form-group mt-0 form-group-text">
+                    <small id="passwordHelpInlineMD" class=" text-muted">
+                       Invoice Overdue Template
+                    </small>
+                    <div class="md-form">
+                      <textarea id="form7" class="left-side md-textarea form-control" rows="3" placeholder="Overdue"></textarea>
+                    </div>
+                  </div>
+                  <div class="md-form form-group mt-0 form-group-text">
+                    <small id="passwordHelpInlineMD" class=" text-muted">
+                      Invoice Reminder Subject
+                    </small>
+                    <input type="password" id="inputPassword6MD" class="left-side form-control mr-sm-3" aria-describedby="passwordHelpInlineMD"
+                      placeholder="Invoice Payment Reminder">
+                  </div>
+                  <div class="md-form form-group mt-0 form-group-text">
+                    <small id="passwordHelpInlineMD" class=" text-muted">
+                      Invoice Reminder Template
+                    </small>
+                    <div class="md-form">
+                      <textarea id="form7" class="left-side md-textarea form-control" rows="3" placeholder="Reminder"></textarea>
+                    </div>
+                  </div>
+              </form>
+            </div>
+            <!--SMS TAB-->
+            <div *ngIf="pager === 'sms'">
+              <form class="form-inline">
+                <div class="md-form form-group mt-0 form-group-text">
+                  <small id="passwordHelpInlineMD" class=" text-muted">
+                     SMS Enabled
+                  </small>
+                  <select class="mdb-select md-form left-side">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                  </select>
+                </div>
+                <div class="md-form form-group mt-0 form-group-text">
+                  <small id="passwordHelpInlineMD" class=" text-muted">
+                    Active SMS Gateway
+                  </small>
+                  <select class="mdb-select md-form left-side">
+                    <option value="yes">Fix Accessories</option>
+                    <option value="no">Sanju</option>
+                  </select>
+                </div>
+              </form>
+            </div>
+            <!--PAYMENTS TAB-->
+            <div *ngIf="pager === 'payment'">
+              <form class="form-inline">
+                <div class="md-form form-group mt-0 form-group-text">
+                  <small id="passwordHelpInlineMD" class=" text-muted">
+                     Currency Code
+                  </small>
+                    <input type="password" id="inputPassword6MD" class="left-side form-control mr-sm-3" aria-describedby="passwordHelpInlineMD"
+                      placeholder="IDR">
+                </div>
+                <div class="md-form form-group mt-0 form-group-text">
+                  <small id="passwordHelpInlineMD" class=" text-muted">
+                     Paypal Email
+                  </small>
+                    <input type="password" id="inputPassword6MD" class="left-side form-control mr-sm-3" aria-describedby="passwordHelpInlineMD"
+                      placeholder="email">
+                </div>
+              </form>
+            </div>
+            <!--TICKETS TAB-->
+            <div *ngIf="pager === 'tickets'">
+              <form class="form-inline">
+            <div class="md-form form-group mt-0 form-group-text">
+              <small id="passwordHelpInlineMD" class=" text-muted">
+                 New Ticket Client Subject
+              </small>
+              <input type="password" id="inputPassword6MD" class="left-side form-control mr-sm-3" aria-describedby="passwordHelpInlineMD"
+                placeholder="Invoice Payment Reminder">
+            </div>
+            <div class="md-form form-group mt-0 form-group-text">
+              <small id="passwordHelpInlineMD" class=" text-muted">
+                 New Ticket Client Template
+              </small>
+              <div class="md-form">
+                <textarea id="form7" class="left-side md-textarea form-control" rows="3" placeholder="Reminder"></textarea>
+              </div>
+            </div>
+            <div class="md-form form-group mt-0 form-group-text">
+              <small id="passwordHelpInlineMD" class=" text-muted">
+                 New Ticket Staff Subject
+              </small>
+              <input type="password" id="inputPassword6MD" class="left-side form-control mr-sm-3" aria-describedby="passwordHelpInlineMD"
+                placeholder="Invoice Payment Reminder">
+            </div>
+            <div class="md-form form-group mt-0 form-group-text">
+              <small id="passwordHelpInlineMD" class=" text-muted">
+                 New Ticket Staff Template
+              </small>
+              <div class="md-form">
+                <textarea id="form7" class="left-side md-textarea form-control" rows="3" placeholder="Reminder"></textarea>
+              </div>
+            </div>
+            <div class="md-form form-group mt-0 form-group-text">
+              <small id="passwordHelpInlineMD" class=" text-muted">
+               New Ticket Reply Subject
+              </small>
+              <input type="password" id="inputPassword6MD" class="left-side form-control mr-sm-3" aria-describedby="passwordHelpInlineMD"
+                placeholder="Invoice Payment Reminder">
+            </div>
+            <div class="md-form form-group mt-0 form-group-text">
+              <small id="passwordHelpInlineMD" class=" text-muted">
+                 New Ticket Reply Template
+              </small>
+              <div class="md-form">
+                <textarea id="form7" class="left-side md-textarea form-control" rows="3" placeholder="Reminder"></textarea>
+              </div>
+            </div>
+            <div class="md-form form-group mt-0 form-group-text">
+              <small id="passwordHelpInlineMD" class=" text-muted">
+                 Ticket Status Subject
+              </small>
+              <input type="password" id="inputPassword6MD" class="left-side form-control mr-sm-3" aria-describedby="passwordHelpInlineMD"
+                placeholder="Invoice Payment Reminder">
+            </div>
+            <div class="md-form form-group mt-0 form-group-text">
+              <small id="passwordHelpInlineMD" class=" text-muted">
+                 Ticket Status Template
+              </small>
+              <div class="md-form">
+                <textarea id="form7" class="left-side md-textarea form-control" rows="3" placeholder="Reminder"></textarea>
+              </div>
+            </div>
+            </form>
+          </div>
+          <!--TICKETS TAB-->
+          <div *ngIf="pager === 'updates'">
+            <div class="update-container">
+              <div class="updates-div">
+                <h5 class="local">Local Version</h5>
+                <h6>1.6</h6>
+              </div>
+              <div class="updates-div">
+                <h5>Server Version</h5>
+                <button class="btn btn-primary" data-toggle="modal" data-target="#modal">Check Version</button>
+              </div>
+            </div>
+            <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content" style="text-align: center">
+                  <div class="modal-body">
+                    <h3 style="text-align: center">No Update Available</h3>
+                  </div>
+                  <div class="modal-footer" style="text-align: center">
+                    <button style="width: 50%"  type="button" class=" center btn btn-primary" data-dismiss="modal">Ok</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+         </div>
+      </div>
+    </div>
+  </div>
+</div>

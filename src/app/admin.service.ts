@@ -47,6 +47,10 @@ export interface Customer {
   location: any;
 }
 
+export interface Counter {
+  count: any;
+}
+
 export interface Repair {
   dev_type: any;
   dev_model: any;
@@ -143,38 +147,45 @@ return false;
   }
 
   getLeads(page =  1) {
-      return this.http.get<Leads>('http://admin.iphixx.com/api/v1/bookings/?page=' + page);
+      return this.http.get<Leads>('https://admin.iphixx.com/api/v1/bookings/?page=' + page);
   }
 
   getCustomers(page =  1) {
-   return this.http.get<Customers>('http://admin.iphixx.com/api/v1/customers/?page=' + page);
+   return this.http.get<Customers>('https://admin.iphixx.com/api/v1/customers/?page=' + page);
 
   }
 
   getAgents(page) {
-    return this.http.get<Agents>('http://admin.iphixx.com/api/v1/customers/agents/?page=' + page);
+    return this.http.get<Agents>('https://admin.iphixx.com/api/v1/customers/agents/?page=' + page);
    }
 
   getInvoices(page =  1) {
-    return this.http.get<Invoices>('http://admin.iphixx.com/api/v1/bookings/invoices/?page=' + page);
+    return this.http.get<Invoices>('https://admin.iphixx.com/api/v1/bookings/invoices/?page=' + page);
   }
 
   getTickets(page =  1) {
-    return this.http.get<Tickets>('http://admin.iphixx.com/api/v1/bookings/tickets/?page=' + page);
+    return this.http.get<Tickets>('https://admin.iphixx.com/api/v1/bookings/tickets/?page=' + page);
   }
 
   getInventory(page =  1) {
-  	return this.http.get<Inventory>('http://admin.iphixx.com/api/v1/bookings/inventory/?page=' + page);
-
+  	return this.http.get<Inventory>('https://admin.iphixx.com/api/v1/bookings/inventory/?page=' + page);
   }
 
   getOwner(id) {
-    return this.http.get<Customer>('http://admin.iphixx.com/api/v1/bookings/owner/' + id);
+    return this.http.get<Customer>('https://admin.iphixx.com/api/v1/bookings/owner/' + id);
   }
 
   getRepair(id) {
-    return this.http.get<Repair>('http://admin.iphixx.com/api/v1/bookings/repair/' + id);
+    return this.http.get<Repair>('https://admin.iphixx.com/api/v1/bookings/repair/' + id);
   }
+
+  getCustomersCount() { return this.http.get('https://admin.iphixx.com/api/v1/customers/customerscount/'); }
+
+  getInventoryCount() { return this.http.get<Counter>('https://admin.iphixx.com/api/v1/bookings/inventorycount/'); }
+
+  getInvoicesCount() { return this.http.get<Counter>('https://admin.iphixx.com/api/v1/bookings/invoicescount/'); }
+
+  getTicketsCount() { return this.http.get<Counter>('https://admin.iphixx.com/api/v1/bookings/ticketcount/'); }
 
 //  updateBooking(lead){
 //    console.log(lead);
@@ -308,7 +319,7 @@ editOwner(owner) {
 }
 
  cancelBooking(id){
-  return this.http.put('http://admin.iphixx.com/api/v1/bookings/cancel/'+id, {});
+  return this.http.put('https://admin.iphixx.com/api/v1/bookings/cancel/'+id, {});
 }
 
   getType(){
@@ -334,5 +345,13 @@ editOwner(owner) {
         break;
       }
   }
-
+  saveTax(tax) {
+    localStorage.setItem('tax', tax);
+  }
+  getTax() {
+    return localStorage.getItem('tax');
+  }
+  getAllModels() {
+      { return this.http.get<any>('assets/json/models.json'); }
+  }
 }

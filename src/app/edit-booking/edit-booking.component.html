@@ -57,9 +57,9 @@
 
 										  <div class="form-group">
 										    <label for="exampleInputEmail1">Location</label>
-													<select class="form-control" [(ngModel)] ="owner.location" id="selections">
-														<option>Iphixx Booking</option>
-														<option>Joyce of Wexford</option>
+													<select class="form-control" [(ngModel)] ="owner.location">
+														<option> {{owner.location}} <option>
+														<option> {{ locations }} </option>
 													</select>
 										  </div>
 										 
@@ -67,7 +67,7 @@
 									</div>
 									<div class="col ">
 										<button (click)="editBooking()" type="submit" class="btn btn-lg btn-primary update"> {{ buttonName }}</button>
-										<button (click)="goToBooking()" type="submit" class="btn btn-lg btn-primary update cancel">Back</button>
+										<button (click)="goToBooking()" type="submit" class="btn btn-lg btn-primary update">Back</button>
 									</div>
 									
 								</form>
