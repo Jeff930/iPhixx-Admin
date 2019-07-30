@@ -239,7 +239,7 @@ export class DashboardComponent implements OnInit {
         this.router.navigate(['/edit-tax', '']);
     }
     editBooking() {
-        this.router.navigate(['/edit-booking', '']);
+        this.router.navigate(['/edit-booking', '', '']);
     }
     newCustomer() {
         this.adminService.customersAction = 'new';

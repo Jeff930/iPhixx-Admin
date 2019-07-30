@@ -31,6 +31,7 @@ import { EditTaxComponent } from './edit-tax/edit-tax.component';
 import { LogisticsComponent } from './logistics/logistics.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ProcessLeadsComponent } from './process-leads/process-leads.component';
+import { AddReminderComponent } from './add-reminder/add-reminder.component';
 // import { NotificationComponent } from './notification/notification.component';
 
 
@@ -55,6 +56,7 @@ import { ProcessLeadsComponent } from './process-leads/process-leads.component';
     LogisticsComponent,
     SettingsComponent,
     ProcessLeadsComponent,
+    AddReminderComponent,
     // NotificationComponent
 
   ],

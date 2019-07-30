@@ -30,6 +30,7 @@ import { EditTaxComponent } from './edit-tax/edit-tax.component';
 import { LogisticsComponent } from './logistics/logistics.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ProcessLeadsComponent } from './process-leads/process-leads.component';
+import { AddReminderComponent } from './add-reminder/add-reminder.component';
 
 const routes: Routes = [
 
@@ -57,6 +58,7 @@ const routes: Routes = [
   { path: 'logistics', component: LogisticsComponent },
   { path: 'settings', component: SettingsComponent },
   { path: 'process-leads/:id', component: ProcessLeadsComponent },
+  { path: 'add-reminder', component: AddReminderComponent },
   // { path: 'admin', component: DashboardComponent },
   // {
   //   path: 'device',
