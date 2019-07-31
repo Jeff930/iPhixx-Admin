@@ -131,20 +131,19 @@ export class TicketsComponent implements OnInit {
 			)
 		}
 
-//   deleteBooking(id){
-// 	this.spinner.show();
-//   this.adminService.deleteBooking(id).subscribe(res=>{
-// 	this.spinner.hide();
-// 	console.log(res);
-// 	this.adminService.ticketsPage  = new Object(); 
-// 	 location.reload();
-//   },
-//   err =>{
-// 	alert('Error! Please Try again.')
-// 	this.spinner.hide();
-
-//   }
-//   )}
+  deleteBooking(id){
+	this.spinner.show();
+  this.adminService.deleteBooking(id).subscribe(res=>{
+	// this.spinner.hide();
+	console.log(res);
+	this.adminService.ticketsPage  = new Object(); 
+	 location.reload();
+  },
+  err =>{
+	alert('Error! Please Try again.')
+	this.spinner.hide();
+  }
+  )}
 
   editBooking(id , index){
 	console.log(index);

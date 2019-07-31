@@ -66,8 +66,9 @@ export class EditBookingComponent implements OnInit {
             email: '',
             birthdate: '',
             phone: '',
-            location: ''
+            location: 'Iphixx Booking'
           };
+          this.locations = 'Joyces of Wexford';
           console.log(this.owner);
         });
 

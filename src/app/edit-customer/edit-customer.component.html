@@ -51,8 +51,8 @@
 										  </div>
 										  
 										<div class="form-group">
-										    <label for="exampleInputEmail1">Alternative Phone</label>
-										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] ="customer.phone2" type="number" class="form-control" id="exampleInputEmail8" aria-describedby="emailHelp" placeholder="Phone">
+										    <label for="exampleInputEmail1">Address</label>
+										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] ="customer.address" type="number" class="form-control" id="exampleInputEmail8" aria-describedby="emailHelp" placeholder="Phone">
 										  </div>
 									
 										   <div class="form-group">
@@ -72,7 +72,14 @@
 										    <label for="exampleInputEmail1">Zip/Postal Code</label>
 										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] ="customer.zip" type="tel" class="form-control" id="exampleInputEmailk" aria-describedby="emailHelp" placeholder="Zip/Postal Code">
 										  </div> -->
-									
+										<div class="form-group">
+											<label for="selections">Select Location:</label>
+											<select [ngModelOptions]="{standalone: true}" class="form-control" [(ngModel)]="customer.location" id="selections">
+												<option> </option>
+												<option>Iphixx Booking</option>
+												<option>Joyce of Wexford</option>
+											</select>
+										</div>
 										
 									</div>
 									<div class="col ">

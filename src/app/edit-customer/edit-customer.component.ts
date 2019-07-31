@@ -26,8 +26,9 @@ export class EditCustomerComponent implements OnInit {
   	customer_lname :'',
   	email : '',
   	phone : '',
-  	phone2 :'',
+  	address :'',
   	birthdate : '',
+  	location: '',
   	// city : '',
   	// state : '',
   	// zip : '',
@@ -102,10 +103,10 @@ export class EditCustomerComponent implements OnInit {
   }
 
   newCustomer(){
-	console.log(this.customer.customer_fname);
+	console.log(this.customer.location);
 	  this.spinner.show();
 	  this.adminService.addCustomer(this.customer).subscribe(res => {
-		console.log("this" + res)
+		console.log("this " + res)
 		this.spinner.hide();
 		this.adminService.customersPage  = new Object(); 
 	  	this.router.navigate(['/customers']);

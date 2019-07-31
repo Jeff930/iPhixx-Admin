@@ -204,16 +204,15 @@ return false;
  addCustomer(customer) {
    console.log(customer);
    const body = new HttpParams()
-    .set('fullname', customer.fullname)
-    .set('business_name', customer.business_name)
+    .set('customer_fname', customer.customer_fname)
+    .set('customer_lname', customer.customer_lname)
     .set('email', customer.email)
-    .set('password', customer.password)
     .set('phone', customer.phone)
-    .set('address', customer.address)
-    .set('city', customer.city)
-    .set('state', customer.state)
-    .set('zip', customer.zip)
-    return this.http.post('http://admin.iphixx.com/api/v1/customers/add',
+     .set('address', customer.address)
+     .set('birthdate', customer.birthdate)
+     .set('location', customer.location);
+
+    return this.http.post('https://admin.iphixx.com/api/v1/customers/add',
      body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
  }
 
@@ -244,6 +243,11 @@ return false;
   console.log(id);
   return this.http.delete('http://admin.iphixx.com/api/v1/customers/agents/'+id);
 }
+
+  deleteBooking(id) {
+    console.log(id);
+    return this.http.delete('https://admin.iphixx.com/api/v1/bookings/'+id);
+  }
 
  updateCustomer(customer){
   console.log(customer);
