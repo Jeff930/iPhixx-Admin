@@ -103,7 +103,7 @@ export class EditCustomerComponent implements OnInit {
   }
 
   newCustomer(){
-	console.log(this.customer.location);
+	console.log(this.customer.address);
 	  this.spinner.show();
 	  this.adminService.addCustomer(this.customer).subscribe(res => {
 		console.log("this " + res)

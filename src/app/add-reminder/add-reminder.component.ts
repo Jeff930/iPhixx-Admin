@@ -4,7 +4,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { Leads, AdminService } from '../admin.service';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { getLocaleWeekEndRange } from '@angular/common';
+import { getLocaleWeekEndRange, formatDate } from '@angular/common';
 import { getComponentViewDefinitionFactory } from '@angular/core/src/view';
 
 @Component({
@@ -14,17 +14,18 @@ import { getComponentViewDefinitionFactory } from '@angular/core/src/view';
 })
 export class AddReminderComponent implements OnInit {
 
+  reminderTitle;
   customerName;
   checkPage;
   title;
   buttonName;
   checkFrom;
   locations: any;
+  myDate = new Date();
   constructor(private route: ActivatedRoute,
     private router: Router, public adminService: AdminService,
     public spinner: NgxSpinnerService) {
     // this.adminService.updateCustomer().subscribe( res => console.log(res))
-
   }
 
   lead = {
@@ -33,10 +34,24 @@ export class AddReminderComponent implements OnInit {
 
   owner: any;
   id;
+  reminder = {
+    reminderSubject: '',
+    reminderBody: '',
+    isCanceled: false,
+    reminderDate: formatDate( this.myDate, 'MMM, dd yyyy', 'en')
+  };
+  reminders = [];
 
   ngOnInit() {
+    
     this.route.paramMap.subscribe((params: ParamMap) => {
       const num = params.get('id');
+      if ( num === 'add' ) {
+        this.reminderTitle = 'add';
+      } else {
+        this.reminders = JSON.parse(localStorage.getItem('reminders'));
+        this.reminder = this.reminders[num];
+      }
       this.checkFrom = num;
       this.checkPage = params.get('page');
       console.log(this.title);
@@ -141,5 +156,24 @@ export class AddReminderComponent implements OnInit {
       this.router.navigate(['/leads']);
     }
   }
-
+  addReminder() {
+    console.log(this.reminder);
+    // this is for the time being will be replaced a data from the database
+    if (localStorage.getItem('reminders')) {
+      this.reminders = JSON.parse(localStorage.getItem('reminders'));
+      console.log(this.reminders);
+      this.reminders.push(this.reminder);
+      localStorage.setItem('reminders', JSON.stringify(this.reminders));
+    } else {
+      this.reminders.push(this.reminder);
+      localStorage.setItem('reminders', JSON.stringify(this.reminders));
+    }
+    this.router.navigate(['/admin']);
+  }
+  saveReminder() {
+    console.log(this.reminder);
+    this.reminders[this.checkFrom] = this.reminder;
+    localStorage.setItem('reminders', JSON.stringify(this.reminders));
+    this.router.navigate(['/admin']);
+  }
 }

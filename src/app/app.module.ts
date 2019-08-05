@@ -32,6 +32,7 @@ import { LogisticsComponent } from './logistics/logistics.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ProcessLeadsComponent } from './process-leads/process-leads.component';
 import { AddReminderComponent } from './add-reminder/add-reminder.component';
+import { AddBookingComponent } from './add-booking/add-booking.component';
 // import { NotificationComponent } from './notification/notification.component';
 
 
@@ -57,6 +58,7 @@ import { AddReminderComponent } from './add-reminder/add-reminder.component';
     SettingsComponent,
     ProcessLeadsComponent,
     AddReminderComponent,
+    AddBookingComponent,
     // NotificationComponent
 
   ],

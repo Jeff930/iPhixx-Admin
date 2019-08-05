@@ -58,7 +58,7 @@ const routes: Routes = [
   { path: 'logistics', component: LogisticsComponent },
   { path: 'settings', component: SettingsComponent },
   { path: 'process-leads/:id', component: ProcessLeadsComponent },
-  { path: 'add-reminder', component: AddReminderComponent },
+  { path: 'add-reminder/:id', component: AddReminderComponent },
   // { path: 'admin', component: DashboardComponent },
   // {
   //   path: 'device',

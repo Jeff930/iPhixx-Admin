@@ -31,7 +31,7 @@ export class DashboardComponent implements OnInit {
         { name: 'Add Tax', funct: 'goToTax'}
     ];
 
-
+    reminders = [];
     constructor(private adminservice: AdminService,
         private spinner: NgxSpinnerService,
         public router: Router,
@@ -58,7 +58,10 @@ export class DashboardComponent implements OnInit {
           console.log(this.counter);
           this.spinner.hide();
       });
-
+    if ( localStorage.getItem('reminders')) {
+        console.log(JSON.parse(localStorage.getItem('reminders')));
+        this.reminders = JSON.parse(localStorage.getItem('reminders'));
+    }
     //   this.customerspageActive = this.adminService.customerspageActive;
     //   this.adminService.customersPage['page' + this.customerspageActive] ? this.customers = this.adminService.customersPage['page' + this.customerspageActive] : '';
     //   this.adminService.customerspages ? this.customerspages = this.adminService.customerspages : '';
@@ -244,5 +247,22 @@ export class DashboardComponent implements OnInit {
     newCustomer() {
         this.adminService.customersAction = 'new';
         this.router.navigate(['/edit-customer']);
+    }
+    removeReminder(e, index) {
+        console.log(index);
+        if (e.target.checked) {
+            this.reminders[index].isCanceled = true;
+        } else {
+            this.reminders[index].isCanceled = false;
+        }
+    }
+    deleteReminder(index) {
+        console.log(index);
+        this.reminders.splice(index, 1);
+        localStorage.setItem( 'reminders', JSON.stringify(this.reminders));
+    }
+    editReminder(index) {
+        console.log(index);
+        this.router.navigate(['/add-reminder/' + index]);
     }
 }
