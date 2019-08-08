@@ -150,6 +150,9 @@ return false;
       return this.http.get<Leads>('https://admin.iphixx.com/api/v1/bookings/?page=' + page);
   }
 
+  getTax() {
+      return this.http.get<Leads>('https://admin.iphixx.com/api/v1/bookings/tax');
+  }
   getCustomers(page =  1) {
    return this.http.get<Customers>('https://admin.iphixx.com/api/v1/customers/?page=' + page);
 
@@ -177,6 +180,17 @@ return false;
 
   getRepair(id) {
     return this.http.get<Repair>('https://admin.iphixx.com/api/v1/bookings/repair/' + id);
+  }
+
+  getOneTax(id) {
+    return this.http.get<Leads>('https://admin.iphixx.com/api/v1/bookings/get-tax/' + id);
+  }
+
+  getModels() {
+    return this.http.get<Leads>('https://admin.iphixx.com/api/v1/bookings/phone');
+  }
+  getTablets() {
+    return this.http.get<Leads>('https://admin.iphixx.com/api/v1/bookings/tablet');
   }
 
   getCustomersCount() { return this.http.get('https://admin.iphixx.com/api/v1/customers/customerscount/'); }
@@ -216,6 +230,16 @@ return false;
      body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
  }
 
+ addTax(tax) {
+   console.log(tax);
+   const body = new HttpParams()
+     .set('tax_name', tax.tax_name)
+     .set('tax_value', tax.tax_value);
+
+   return this.http.post('https://admin.iphixx.com/api/v1/bookings/add-tax',
+     body.toString(), { headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, params: {} });
+ }
+
  addAgent(agent) {
   console.log(agent);
   const body = new HttpParams()
@@ -234,6 +258,10 @@ return false;
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
 
+  deleteTax(id) {
+    console.log(id);
+    return this.http.delete('http://admin.iphixx.com/api/v1/bookings/delete-tax/' + id);
+  }
  deleteCustomer(id) {
    console.log(id);
    return this.http.delete('http://admin.iphixx.com/api/v1/customers/'+id);
@@ -249,6 +277,18 @@ return false;
     return this.http.delete('https://admin.iphixx.com/api/v1/bookings/'+id);
   }
 
+ updateTax(id , tax) {
+   console.log(tax);
+
+   const body = new HttpParams()
+     .set('tax_name', tax.tax_name)
+     .set('tax_value', tax.tax_value);
+
+   return this.http.put('http://admin.iphixx.com/api/v1/bookings/edit-tax/' + id,
+     body.toString(), { headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, params: {} });
+ }
+
+
  updateCustomer(customer){
   console.log(customer);
 
@@ -258,7 +298,7 @@ return false;
    .set('email', customer.email)
    .set('phone', customer.phone)
    .set('location', customer.location)
-   .set('birthdate', customer.birthdate)
+   .set('birthdate', customer.birthdate);
   //  .set('address', customer.address)
   //  .set('address_2', customer.address2)
   //  .set('city', customer.city)
@@ -352,9 +392,9 @@ editOwner(owner) {
   saveTax(tax) {
     localStorage.setItem('tax', tax);
   }
-  getTax() {
-    return localStorage.getItem('tax');
-  }
+  // getTax() {
+  //   return localStorage.getItem('tax');
+  // }
   getAllModels() {
       { return this.http.get<any>('assets/json/models.json'); }
   }

@@ -48,10 +48,6 @@ export class DashboardComponent implements OnInit {
           console.log(res);
           this.counter.push({ name: 'Inventory', value: res });
       });
-      this.adminservice.getInvoicesCount().subscribe(res => {
-          console.log(res);
-          this.counter.push({ name: 'Invoices', value: res });
-      });
       this.adminservice.getTicketsCount().subscribe(res => {
           console.log(res);
           this.counter.push({ name: 'Tickets', value: res });

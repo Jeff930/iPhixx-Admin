@@ -10,7 +10,7 @@
 
     <div class="panel">
       <div class="panel-heading">
-        <h3 class="panel-title"> Edit Tax</h3>
+        <h3 class="panel-title"> Add Tax</h3>
       </div>
       <div class="panel-body">
         <form *ngIf="saved">
@@ -19,17 +19,17 @@
             <div class="form-group">
               <label for="exampleInputEmail1">Tax Name</label>
               <input [ngModelOptions]="{standalone: true}" [(ngModel)]="taxName" type="text" class="form-control" id="exampleInputEmail1"
-                aria-describedby="emailHelp" placeholder=" {{ tax.tax_name }}">
+                aria-describedby="emailHelp" placeholder="tax name">
             </div>
 
             <div class="form-group">
               <label for="exampleInputEmail1">Tax Value</label>
               <input [ngModelOptions]="{standalone: true}" [(ngModel)]="taxValue" type="text" class="form-control" id="exampleInputEmail1"
-                aria-describedby="emailHelp" placeholder=" {{ tax.tax_value }}">
+                aria-describedby="emailHelp" placeholder="tax value">
             </div>
-            </div>
+          </div>
           <div class="col saved">
-            <button (click)="saveTax()" type="submit" class="btn btn-lg btn-primary update">Save</button>
+            <button (click)="saveTax()" type="submit" class="btn btn-lg btn-primary update">Add</button>
             <button (click)="goToBooking()" type="submit" class="btn btn-lg btn-primary update">Back</button>
           </div>
         </form>
@@ -37,7 +37,7 @@
           <h2>Tax Saved</h2>
           <button (click)="goToBooking()" type="submit" class="btn btn-lg btn-primary update">Go back to Invoices</button>
         </div>
-        </div>
       </div>
     </div>
-   </div>
+  </div>
+</div>

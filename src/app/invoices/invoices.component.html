@@ -23,7 +23,7 @@
 										<h4 (click)="openPager('reports')" [ngStyle]="{'color': pager === 'reports' ? '#2980b9' : 'black', 'background': pager === 'reports' ? '#ffffff' : 'none'}" class="panel-title">Custom Reports</h4>
 									</div>
 									<div class="addCustomer  align-items-end" *ngIf="pager=== 'tax'">
-										<button type="button" class="btn" (click)="goToTax('','')">
+										<button type="button" class="btn" (click)="goToTax()">
 											<i class="lnr lnr-plus-circle"></i>
 											Add Tax
 										</button>
@@ -64,6 +64,9 @@
 									           Customer Name
 									        </th>
 									        <th>
+									           Booking No.
+									        </th>
+									        <th>
 									           Payment Date
 									        </th>
 									        <th>
@@ -87,6 +90,7 @@
 									        <td>{{item.city | uppercase}}</td> -->
 									        	<td>{{ invoice.invoice_no }}</td>
 									        	<td>{{ invoice.customer_fname }} {{ invoice.customer_lname }}</td>
+												<td>{{ invoice.bookings_id }}</td>
 												<td>{{ invoice.payment_Timestamp }}</td>
 												<td>{{ invoice.pstatus_name }}</td>
 												<td>€{{ invoice.total_price }}</td>
@@ -110,8 +114,9 @@
 													  <div class="list-group">
 													  	<a (click)="NgxSmartModalService.getModal('confirmPayment').open()" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-ok"></span>   Mark as Paid</a>
 													  	<!-- <a (click)="updatePaymentStatus(invoice.invoice_no)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-ok"></span>   Mark as Paid</a> -->
-														<a (click)="viewInvoice(i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-eye-open"> View</span> </a>
-
+														<a (click)="viewInvoice(invoice.bookings_id, invoice.total_price ,i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-eye-open"> View</span> </a>
+															<!-- <a (click)="viewRepair(invoice.total_price, i)" class="list-group-item list-group-item-action">
+																	<span class="margin-icon glyphicon glyphicon-eye-open"></span> View Repair</a> -->
 														 
 														 
 														  </div>
@@ -185,8 +190,8 @@
 
 													<sat-popover #contactPopover hasBackdrop verticalAlign="below">
 													  <div class="list-group">
-													  	<a (click)="goToTax('',i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-pencil"> </span>  Edit</a>
-
+													  	<a (click)="editTax(i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-pencil"> </span>  Edit</a>
+														<a (click)="deleteTax(tax.tax_id)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-trash"> </span>  Remove Tax</a>
 														 
 														 
 														  </div>

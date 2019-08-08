@@ -16,7 +16,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class InvoicesComponent implements OnInit {
 
   getStartedForm: FormGroup;
-  taxes = [];
+  taxes: any;
   addTax: {
       tax_name,
       tax_value
@@ -38,13 +38,19 @@ export class InvoicesComponent implements OnInit {
     });
 }
 
-ngOnInit() {
+  ngOnInit() {
+    this.spinner.show();
+  this.adminService.getTax().subscribe( res => {
+    console.log(res);
+    this.taxes = res;
+    console.log(this.taxes);
+  });
   if (this.invoices.length == 0) {
     this.invoicePageActive = 1;
     this.adminService.invoicePageActive = this.invoicePageActive;
-    this.spinner.show();
     this.adminService.getInvoices().subscribe( ( res ) => {
   console.log("this res:"+ JSON.stringify(res));
+  console.log(res);
   this.invoicespages = Array(res.total_page);
     this.adminService.invoicespages = this.invoicespages;
     console.log(this.invoicespages)	
@@ -175,13 +181,6 @@ updatePaymentStatus(id){
         break;
       case 'tax':
         this.pager = 'tax';
-        this.spinner.show();
-        // this.taxes = JSON.parse();
-        console.log(localStorage.getItem('tax'));
-        if (localStorage.getItem('tax')) {
-        this.taxes = JSON.parse(localStorage.getItem('tax'));
-        }
-        this.spinner.hide();
         break;
       default:
         this.pager = 'reports';
@@ -194,14 +193,14 @@ console.log(index);
 this.router.navigate(['/edit-booking' , index]);
 }
 
-viewRepair(id , index){
-console.log(index);
-this.router.navigate(['/view-repair' , index]);
-}
-
-  viewInvoice(id , index){
+  viewRepair(id, index) {
     console.log(index);
-    this.router.navigate(['/view-invoice' , index]);
+    this.router.navigate(['/view-repair', index, id]);
+  }
+
+  viewInvoice(id , index, price) {
+    console.log(index);
+    this.router.navigate(['/view-invoice', id, price, index]);
   }
 
 saveTax() {
@@ -210,7 +209,18 @@ saveTax() {
   localStorage.setItem('tax', JSON.stringify(this.taxes));
 }
 
-  goToTax(id, index) {
-    this.router.navigate(['/edit-tax', index]);
+  goToTax() { this.router.navigate(['/add-tax']); }
+  editTax(id) {
+    console.log(id);
+    this.router.navigate(['/edit-tax'], { queryParams: { tax_id: this.taxes[id].tax_id } } );
+  }
+
+  deleteTax(id) {
+    this.spinner.show();
+    this.adminService.deleteTax(id).subscribe( res => {
+      console.log(res);
+    });
+    this.spinner.hide();
+    location.reload();
   }
 }

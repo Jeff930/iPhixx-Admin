@@ -19,7 +19,8 @@ export class InventoryComponent implements OnInit {
   pager = 'products';
   pagerSecond = 'phone';
   pagerThird;
-  models = [];
+  models;
+  allModels: any;
   constructor(public adminService: AdminService, private spinner: NgxSpinnerService, public router: Router, public route: ActivatedRoute) { 
   		
     this.inventoryPageActive = this.adminService.inventoryPageActive;
@@ -28,19 +29,24 @@ export class InventoryComponent implements OnInit {
 
 }
 
-ngOnInit() {
-  this.route.paramMap.subscribe((params: ParamMap) => {
-    if (params.get('page') !== 'invt') {
-      this.pager = 'categories';
-    } else {
-      this.pager = 'products';
-    }
+  ngOnInit() {
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      if (params.get('page') !== 'invt') {
+        this.pager = 'categories';
+      } else {
+        this.pager = 'products';
+      }
+    });
+  this.adminService.getModels().subscribe(res => {
+    console.log(res);
+    this.allModels = res;
   });
+  
 
-  if (this.inventory.length == 0) {
+    if (this.inventory.length == 0) {
+      this.spinner.show();
     this.inventoryPageActive = 1;
     this.adminService.inventoryPageActive = this.inventoryPageActive;
-    this.spinner.show();
     this.adminService.getInventory().subscribe( ( res ) => {
   console.log("this res:"+ JSON.stringify(res));
   this.inventoryPages = Array(res.total_page);
@@ -146,18 +152,23 @@ PreviosPage(){
     switch (page) {
       case 'phone':
         this.pagerSecond = 'phone';
+        this.models = [];
         break;
       case 'tablet':
         this.pagerSecond = 'tablet';
+        this.models = [];
         break;
       case 'laptop':
         this.pagerSecond = 'laptop';
+        this.models = [];
         break;
       case 'macbook':
         this.pagerSecond = 'macbook';
+        this.models = [];
         break;
       default:
         this.pagerSecond = 'gaming';
+        this.models = [];
         break;
     }
   }
@@ -165,70 +176,136 @@ PreviosPage(){
     switch (page) {
       case 'iphone-phone':
         this.pagerThird = 'iphone-phone';
-        this.adminService.getAllModels().subscribe( res => {
-          console.log(res);
-          this.models = res.Iphone;
-          console.log(this.models);
-        });
+        this.models = [];
+        for ( const model of this.allModels) {
+          console.log(model);
+          if ( model.type === 'Phone' && model.phone_brand === 'iPhone') {
+            this.models.push(model);
+          }
+        }
+        console.log(this.models);
         break;
       case 'samsung-phone':
         this.pagerThird = 'samsung-phone';
-        this.adminService.getAllModels().subscribe(res => {
-          console.log(res);
-          this.models = res.Samsung;
-          console.log(this.models);
-        });
+        this.models = [];
+        for (const model of this.allModels) {
+          console.log(model);
+          if (model.type === 'Phone' && model.phone_brand === 'Samsung') {
+            this.models.push(model);
+          }
+        }
+        console.log(this.models);
         break;
       case 'huawei-phone':
         this.pagerThird = 'huawei-phone';
+        this.models = [];
+        for (const model of this.allModels) {
+          console.log(model);
+          if (model.type === 'Phone' && model.phone_brand === 'Huawei') {
+            this.models.push(model);
+          }
+        }
+        console.log(this.models);
         break;
       case 'sony-phone':
         this.pagerThird = 'sony-phone';
+        this.models = [];
+        for (const model of this.allModels) {
+          console.log(model);
+          if (model.type === 'Phone' && model.phone_brand === 'Sony') {
+            this.models.push(model);
+          }
+        }
+        console.log(this.models);
         break;
       case 'nokia-phone':
         this.pagerThird = 'nokia-phone';
+        this.models = [];
+        for (const model of this.allModels) {
+          console.log(model);
+          if (model.type === 'Phone' && model.phone_brand === 'Nokia') {
+            this.models.push(model);
+          }
+        }
+        console.log(this.models);
         break;
       case 'ipad-tablet':
         this.pagerThird = 'ipad-tablet';
+        this.models = [];
+        for (const model of this.allModels) {
+          console.log(model);
+          if (model.type === 'Tablet' && model.phone_brand === 'iPad') {
+            this.models.push(model);
+          }
+        }
+        console.log(this.models);
         break;
       case 'samsung-tablet':
         this.pagerThird = 'samsung-tablet';
+        this.models = [];
+        for (const model of this.allModels) {
+          console.log(model);
+          if (model.type === 'Tablet' && model.phone_brand === 'Samsung') {
+            this.models.push(model);
+          }
+        }
+        console.log(this.models);
         break;
       case 'huawei-tablet':
         this.pagerThird = 'huawei-tablet';
+        this.models = [];
+        for (const model of this.allModels) {
+          console.log(model);
+          if (model.type === 'Tablet' && model.phone_brand === 'Huawei') {
+            console.log('es');
+            this.models.push(model);
+          }
+        }
+        console.log(this.models);
         break;
       case 'hp-laptop':
         this.pagerThird = 'hp-laptop';
+        this.models = [];
         break;
       case 'lenovo-laptop':
         this.pagerThird = 'lenovo-laptop';
+        this.models = [];
         break;
       case 'dell-laptop':
         this.pagerThird = 'dell-laptop';
+        this.models = [];
         break;
       case 'asus-laptop':
         this.pagerThird = 'asus-laptop';
+        this.models = [];
         break;
       case 'huawei-laptop':
         this.pagerThird = 'huawei-laptop';
+        this.models = [];
         break;
       case 'acer-laptop':
         this.pagerThird = 'acer-laptop';
+        this.models = [];
         break;
       case 'microsoft-laptop':
         this.pagerThird = 'microsoft-laptop';
+        this.models = [];
         break;
       case 'chrome-laptop':
         this.pagerThird = 'chrome-laptop';
+        this.models = [];
         break;
       case 'toshiba-laptop':
         this.pagerThird = 'toshiba-laptop';
+        this.models = [];
         break;
       case 'macbook':
         this.pagerThird = 'macbook';
+        this.models = [];
         break;
       default:
         this.pagerThird = 'gaming';
+        this.models = [];
         break;
     }
   }

@@ -33,6 +33,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { ProcessLeadsComponent } from './process-leads/process-leads.component';
 import { AddReminderComponent } from './add-reminder/add-reminder.component';
 import { AddBookingComponent } from './add-booking/add-booking.component';
+import { AddTaxComponent } from './add-tax/add-tax.component';
 // import { NotificationComponent } from './notification/notification.component';
 
 
@@ -59,6 +60,7 @@ import { AddBookingComponent } from './add-booking/add-booking.component';
     ProcessLeadsComponent,
     AddReminderComponent,
     AddBookingComponent,
+    AddTaxComponent,
     // NotificationComponent
 
   ],

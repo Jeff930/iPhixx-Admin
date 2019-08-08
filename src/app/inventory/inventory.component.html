@@ -8,7 +8,6 @@
 	color = "#fff"
 	type = "pacman"
 ></ngx-spinner>
-<view-invoice></view-invoice>
 
 <div class="main">
 	<div class="main-content">
@@ -137,7 +136,7 @@
 										<div class="sales-overview">
 											<div class="row">
 												<div class="col-md-3">
-													<div class="metric">
+													<div class="non-metric metric">
 														<p>
 															<span class="title">Samsung Galaxy Note 8 Screen Replacement</span>
 															<span class="number top-space">Quantity: 22</span>
@@ -148,7 +147,7 @@
 											
 											
 												<div class="col-md-3">
-													<div class="metric">
+													<div class="non-metric metric">
 														<p>
 															<span class="title small">IPhone X Charging Port Replacement</span>
 															<span class="number top-space">Quantity: 43</span>
@@ -157,7 +156,7 @@
 													</div>
 												</div>
 												<div class="col-md-3">
-													<div class="metric">
+													<div class="non-metric metric">
 														<p>
 															<span class="title small">Samsung Tab E Back Glass Replacement</span>
 															<span class="number top-space">Quantity: 56</span>
@@ -166,7 +165,7 @@
 													</div>
 												</div>
 												<div class="col-md-3">
-													<div class="metric">
+													<div class="non-metric metric">
 														<p>
 															<span class="title ">Huawei Media Pad M5 Lite Back Glass Replacement</span>
 															<span class="number top-space">Quantity: 54</span>
@@ -229,13 +228,12 @@
 													<h4 (click)="openThirdPager('toshiba-laptop')" [ngStyle]="{'color': pagerThird === 'toshiba-laptop' ? '#2980b9' : 'black'}"
 													 class="panel-title">Toshiba</h4>
 												</div>
-										<table class="table table-hover category-table" *ngIf= "pagerThird === 'iphone-phone' || pagerThird === 'huawei-phone' || pagerThird === 'samsung-phone' ||
-											 pagerThird === 'sony-phone' || pagerThird === 'nokia-phone'">
+										<table class="table table-hover category-table" *ngIf= "pagerThird">
 													<div class="row">
 														<div class="col-md-2" *ngFor="let model of models">
 															<div class="metric">
 																<p>
-																	<span class="">Iphone {{ model.name }}</span>
+																	<span class="">{{ model.phone_brand }} {{ model.pmodel_name }}</span>
 																</p>
 															</div>
 														</div>
