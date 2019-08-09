@@ -11,7 +11,8 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./view-repair.component.scss']
 })
 export class ViewRepairComponent implements OnInit {
-
+  type;
+  title;
   constructor(  private route: ActivatedRoute,
     private router: Router , public adminService : AdminService,
     public spinner : NgxSpinnerService) { 
@@ -29,8 +30,11 @@ export class ViewRepairComponent implements OnInit {
     selectedRepairs:Array<string>=[];
 
     ngOnInit() {
+      
       this.route.paramMap.subscribe((params: ParamMap) => {
+        console.log(params);
       this.id = parseInt(params.get('id'));
+      this.type = params.get('type');
       console.log(this.adminService.leadsPage['page'+this.adminService.pageActive ][this.id])
       this.lead = this.adminService.leadsPage['page'+this.adminService.pageActive ][this.id];
       console.log(this.lead.bookings_id);
@@ -69,11 +73,11 @@ export class ViewRepairComponent implements OnInit {
         console.log(JSON.stringify(this.repair));
 
         })
-      
     } 
-
+    
     goToBooking(){
-      this.router.navigate(['/leads']);
+        this.router.navigate(['/tickets']);
+      
     }
   
     

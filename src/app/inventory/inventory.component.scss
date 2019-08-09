@@ -1,0 +1,107 @@
+th{
+  color : #337ab7;
+  font-family: Helvetica;
+}
+.panel-heading {
+   background: rgba(128, 128, 128, 0.502) !important; 
+   padding-bottom: 0px !important;
+}
+.sub-menu, .sub-second-menu {
+  font-family: Helvetica;  
+	h4 {
+        font-weight: bold !important;
+    font-size: 2rem !important;
+		cursor: pointer;
+    display: inline-block;
+    margin-bottom: -5px !important;
+    padding: 10px;
+    margin: 0px 15px 0px 0px;
+    border-radius: 5px 5px  0px 0px;
+  }
+	h4:last-child {
+		margin: 0px 15px;
+	}
+}
+.table {
+    th, tr {
+        text-align: center;
+        font-family: Helvetica;  
+    }
+      tr:nth-child(even) {
+	background-color: rgba(128, 128, 128, 0.1) !important; 
+  } 
+  .sub-menu {
+    width: 100%;
+    margin-top: 10px;
+    h4 {
+      min-width: 100px;
+      border: 1px solid rgba(0, 0, 0, 0.5);
+      border-radius: 5px 5px  0px 0px;
+		  cursor: pointer;
+      font-size: 1.8rem !important;
+      font-weight: 100 !important;
+      padding: 10px;
+      margin: 0px !important;
+    }
+  }
+}
+.sub-second-menu {
+  width: 35%;
+  border-top: none !important;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius:  0px 0px 5px 5px;
+  margin-top: -1px;
+	background-color: rgba(127, 127, 127, 0.3);
+  h4 {
+      font-size: 1.5rem !important;
+  }
+}
+.category-table { margin-top: 50px; }
+.row {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  .metric { 
+  min-height: 10vh !important;
+  max-height: 10vh !important;
+    cursor: pointer; 
+    font-size: 2rem;
+    font-weight: 600;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    color: black;
+    box-shadow: inset 0px 0px 5px 1px rgba(37, 44, 53, 0.2);
+    transition: .3s;
+    p {
+      text-align: center;
+    }
+  }
+  .metric:hover {
+    box-shadow: 0px 0px 5px 1px rgba(37, 44, 53, 0.2);
+    border: none;
+    color: #ffffff;
+    background: #2980b9;
+    transition: .3s;
+  }
+    .non-metric { 
+  min-height: 15vh !important;
+  max-height: 15vh !important;
+   
+  }
+}
+
+.product-sales-content {
+  font-family: Helvetica;
+  h2 { 
+    font-weight: bold;
+    color: #2980b9;
+    }
+  .sales-overview { margin-top: 20px; }
+  .metric {
+ p { text-align: left !important; }
+ .number { font-size: 1.7rem; }
+ .title { 
+   font-size: 2rem;
+   font-weight: 800;
+ }
+ .top-space { margin-top: 10px; }
+}
+}

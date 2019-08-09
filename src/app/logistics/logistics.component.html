@@ -1,0 +1,133 @@
+<app-navbar> </app-navbar>
+<app-sidebar> </app-sidebar>
+<app-footer> </app-footer>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="#fff" type="pacman"></ngx-spinner>
+
+<div class="main">
+  <div class="main-content">
+    <div class="container-fluid">
+      <div class="col-lg-12">
+        <!-- TABLE HOVER -->
+        <div class="panel panel-headline">
+          <div class="panel-heading">
+            <h3 class="panel-title">Logistics</h3>
+            <!-- <div class="form-group col-lg-8">
+              <label for="selections">Select Location:</label>
+              <select class="form-control" [(ngModel)]="location" id="selections">
+                <option> </option>
+                <option>Iphixx Booking</option>
+                <option>Joyce of Wexford</option>
+              </select>
+            </div>
+            <div class="addCustomer  align-items-end">
+              <button type="button" class="btn" (click)="editBooking('','')">
+                <i class="lnr lnr-plus-circle"></i>
+                New Booking
+              </button>
+            </div> -->
+          </div>
+          <div class="panel-body">
+                <div class="table-responsive">
+                  <table class="table table-hover ">
+                    <thead>
+                      <tr>
+                        <th>
+                          From Location
+                        </th>
+                        <th>
+                          To Location
+                        </th>
+                        <th> 
+                          Requested at
+                        </th>
+                        <th>
+                          Due at
+                        </th>
+                        <th>
+                          Ticket No.
+                        </th>
+                        <th> Desc.</th>
+                        <th>
+                          Products
+                        </th>
+                        <th>
+                          Quantity
+                        </th>
+                        <th>
+                          Action
+                        </th>
+                
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let ticket of tickets; let i = index" [hidden]="location !== ticket.location && location">
+                        <!--  <td>{{item.name}}</td>
+                									        <td>{{item.email}}</td>
+                									        <td class="text-right">{{item.age}}</td>
+                									        <td>{{item.city | uppercase}}</td>
+                									        <td>{{item.city | uppercase}}</td> -->
+                        <td>{{ ticket.location }}</td>
+                        <td>{{ ticket.location }}</td>
+                        <!-- <td></td> -->
+                        <td> Iphixx-Booking </td>
+                        <td> 01/01/2019 </td>
+                        <!-- <td>{{ ticket.phone2 }}</td> -->
+                        <td>{{ ticket.ticket_no }}</td>
+                        <td> on progress</td>
+                        <td> IPhone </td>
+                        <td>{{ ticket.ticket_no }}</td>
+                        <td>
+                
+                          <button [satPopoverAnchorFor]="contactPopover" (click)="contactPopover.toggle()" class="btn btn-default btn-sm">
+                            <span class="glyphicon glyphicon-option-horizontal"></span>
+                          </button>
+                
+                
+                
+                          <sat-popover #contactPopover hasBackdrop verticalAlign="below">
+                            <div class="list-group">
+                              <a (click)="editBooking('1', ticket.ticket_no )" class="list-group-item list-group-item-action">
+                                <span class="margin-icon glyphicon glyphicon-pencil"></span> Edit</a>
+                              <!-- <a (click)="viewInvoice(i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-eye-open"></span> View</a> -->
+                            </div>
+                
+                          </sat-popover>
+                
+                        </td>
+                        <!-- <td><button (click) = "updateBooking(lead.id)" class="btn btn-primary">Update Status</button></td> -->
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <td colspan="10">
+                          <ul class="pagination center">
+                
+                            <li (click)="PreviosPage()" class="page-item {{ ticketPageActive == 1 ? 'disabled' : ''}}">
+                              <a class="no-border page-link" style="cursor: pointer">«</a>
+                            </li>
+                            <li *ngFor="let page of ticketPages ; let i = index" (click)="goToPage(i+1)" class="page-item {{ i+1 == ticketPageActive ? 'active' : '' }}">
+                              <a class="page-link" style="cursor: pointer">{{i+1}}</a>
+                            </li>
+                            <!-- <li class="page-item"><a class="page-link" style="cursor: pointer">2</a></li>
+                									        		 -->
+                            <li (click)="NextPage()" class="page-item">
+                              <a class="no-border page-link" style="cursor: pointer">»</a>
+                            </li>
+                
+                          </ul>
+                          <!--    <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator> -->
+                        </td>
+                      </tr>
+                    </tfoot>
+                  </table>
+                
+                </div>
+          </div>
+        </div>
+        <!-- END TABLE HOVER -->
+      </div>
+
+
+    </div>
+  </div>
+</div>

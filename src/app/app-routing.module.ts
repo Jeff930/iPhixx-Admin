@@ -26,7 +26,12 @@ import { InventoryComponent } from './inventory/inventory.component';
 import { AgentsComponent } from './agents/agents.component';
 import { EditAgentComponent } from './edit-agent/edit-agent.component';
 import { ViewCustomerComponent } from './view-customer/view-customer.component';
-
+import { EditTaxComponent } from './edit-tax/edit-tax.component';
+import { LogisticsComponent } from './logistics/logistics.component';
+import { SettingsComponent } from './settings/settings.component';
+import { ProcessLeadsComponent } from './process-leads/process-leads.component';
+import { AddReminderComponent } from './add-reminder/add-reminder.component';
+import { AddTaxComponent } from './add-tax/add-tax.component';
 
 const routes: Routes = [
 
@@ -35,9 +40,9 @@ const routes: Routes = [
   { path: 'leads', component: LeadsComponent },
   { path: 'customers', component: CustomersComponent },
   { path: 'edit-customer/:id', component: EditCustomerComponent },
-  { path: 'edit-booking/:id', component: EditBookingComponent },
+  { path: 'edit-booking/:id/:page', component: EditBookingComponent },
   { path: 'view-repair/:id', component: ViewRepairComponent },
-  { path: 'view-invoice/:id', component: ViewInvoiceComponent },
+  { path: 'view-invoice/:booking/:id/:price', component: ViewInvoiceComponent },
   { path: 'edit-customer', component: EditCustomerComponent },
   { path: 'invoices', component: InvoicesComponent },
   { path: 'notifications', component: NotificationsComponent },
@@ -45,15 +50,19 @@ const routes: Routes = [
   { path: 'filter-by-invoice', component: FilterByInvoiceComponent },
   { path: 'filter-by-date', component: FilterByDateComponent },
   { path: 'tickets', component: TicketsComponent },
-  { path: 'inventory', component: InventoryComponent },
+  { path: 'inventory/:page', component: InventoryComponent },
   { path: 'agents', component: AgentsComponent },
   { path: 'edit-agent/:id', component: EditAgentComponent },
   { path: 'edit-agent', component: EditAgentComponent },
   { path: 'view-customer/:id', component: ViewCustomerComponent },
+  { path: 'edit-tax', component: EditTaxComponent },
+  { path: 'logistics', component: LogisticsComponent },
+  { path: 'settings', component: SettingsComponent },
+  { path: 'process-leads/:id', component: ProcessLeadsComponent },
+  { path: 'add-reminder/:id', component: AddReminderComponent },
+  { path: 'add-tax', component: AddTaxComponent },
   // { path: 'admin', component: DashboardComponent },
-
-
-  // {  
+  // {
   //   path: 'device',
   //   component: HomeComponent,
   //   data: { title: 'Device' }
@@ -63,7 +72,6 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   { path: '**', component: DashboardComponent }
-  
 ];
 
 @NgModule({

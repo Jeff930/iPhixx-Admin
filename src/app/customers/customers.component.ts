@@ -10,11 +10,12 @@ import { Router , ActivatedRoute  } from '@angular/router';
   styleUrls: ['./customers.component.scss']
 })
 export class CustomersComponent implements OnInit {
-
+	pager = 'customers';
   customers = []; 	
   customersPage  = new Object();	
   customerspages : any;
  customerspageActive : number;
+ agents;
   constructor( public adminService : AdminService , private spinner: NgxSpinnerService , public router : Router ) { 
 
   }
@@ -45,7 +46,11 @@ export class CustomersComponent implements OnInit {
   		this.adminService.global.customers = this.customers;	
 
   	})
-  	}
+	  }
+	this.adminService.getAgents(1).subscribe( res => {
+		console.log(res);
+		this.agents = res.agents;
+	});
 
   }
 
@@ -67,6 +72,17 @@ export class CustomersComponent implements OnInit {
   		this.adminService.global.customers = this.customers;	
   		console.log(this.adminService.customersPage)
   	})}
+	}
+
+	openPager(page) {
+		switch (page) {
+			case 'customers':
+				this.pager = 'customers';
+				break;
+			default:
+				this.pager = 'manages';
+				break;
+		}
 	}
 
   NextPage(){
@@ -114,13 +130,13 @@ export class CustomersComponent implements OnInit {
   	}	
   }
 
-  editCustomer(id , index){
+  editCustomer(id , index) {
   	console.log(index);
 	  this.adminService.customersAction = 'update';
   	this.router.navigate(['/edit-customer' , index]);
   }
 
-  newCustomer(){
+  newCustomer() {
   	this.adminService.customersAction = 'new';
   	this.router.navigate(['/edit-customer']);
   }

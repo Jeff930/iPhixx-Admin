@@ -1,41 +1,48 @@
-<div class="vertical-align-wrap">
-			<div class="vertical-align-middle">
-				<div class="auth-box ">
+<div class="vertical-align-wrap coverBackground ">
+			<div class="vertical-align-middle overlayBg">
+				<div class="auth-box  ">
 					<div class="left">
 						<div class="content">
 							<div class="header">
 								<div class="logo text-center"><img src="assets/img/logo.jpg" alt="Klorofil Logo"></div>
+								<hr class="lineBelow">
 								<p class="lead">Login to your account</p>
 							</div>
-						
+							<div class="form-group invalid" *ngIf="validation">
+								<p>Wrong username or password.</p>
+							</div>
+							<div class="form-group invalid" *ngIf="!getStartedForm.valid && user.email !== ''">
+								<p>Please enter a valid email.</p>
+							</div>
+							<form [formGroup]="getStartedForm">
 								<div class="form-group">
 									<label for="signin-email" class="control-label sr-only">Email</label>
-									<input type="email" [(ngModel)]="user.email" class="form-control" id="signin-email" value="samuel.gold@domain.com" placeholder="Email">
+									<input type="email" [(ngModel)]="user.email"  id="email" formControlName="email" class="form-control" id="signin-email" placeholder="Email" [ngClass]="{'is-invalid': !getStartedForm.get('email').valid}">
 								</div>
 								<div class="form-group">
 									<label for="signin-password" class="control-label sr-only">Password</label>
-									<input type="password" [(ngModel)]="user.password" class="form-control" id="signin-password" value="thisisthepassword" placeholder="Password">
+									<input type="password" [(ngModel)]="user.password" formControlName="password" class="form-control" id="signin-password" value="thisisthepassword" placeholder="Password">
 								</div>
 								<div class="form-group clearfix">
 									<label class="fancy-checkbox element-left">
-										<input type="checkbox">
+										<input type="checkbox" [(ngModel)]="isChecked">
 										<span>Remember me</span>
 									</label>
 								</div>
-								<a type="submit" class="btn btn-primary btn-lg btn-block" (click)="login()">LOGIN</a>
+								<button type="submit" class="btn btn-primary btn-lg btn-block" (click)="login()" [disabled]="!getStartedForm.valid">LOGIN</button>
 								<div class="bottom">
-									<span class="helper-text"><i class="fa fa-lock"></i> <a href="#">Forgot password?</a></span>
+									<!-- <span class="helper-text"><i class="fa fa-lock"></i> <a href="#">Forgot password?</a></span> -->
 								</div>
-						
+						</form>
 						</div>
 					</div>
-					<div class="right">
+					<!-- <div class="right">
 						<div class="overlay"></div>
 						<div class="content text">
 							<h1 class="heading">Broken Screen? No Problem</h1>
 							<p>iPhixx is here!</p>
 						</div>
-					</div>
+					</div> -->
 					<div class="clearfix"></div>
 				</div>
 			</div>

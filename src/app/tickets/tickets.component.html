@@ -16,7 +16,21 @@
 							<!-- TABLE HOVER -->
 							<div class="panel panel-headline">
 								<div class="panel-heading">
-									<h3 class="panel-title">Tickets</h3>
+										<h3 class="panel-title">Tickets</h3>
+									<div class="form-group col-lg-8">
+										<label for="selections">Select Location:</label>
+										<select class="form-control" [(ngModel)]="location" id="selections">
+											<option> </option>
+											<option>Iphixx Booking</option>
+											<option>Joyce of Wexford</option>
+										</select>
+									</div>
+									<div class="addCustomer  align-items-end">
+										<button type="button" class="btn" (click)="editBooking('','')">
+											<i class="lnr lnr-plus-circle"></i>
+											New Booking
+										</button>
+									</div>
 								</div>
 								<div class="panel-body">
 								<!-- 	<table class="table table-hover">
@@ -42,7 +56,100 @@
 										</tbody>
 									</table> -->
 									<div class="table-responsive">
-									<table class="table table-hover ">
+										<table class="table table-hover ">
+											<thead>
+												<tr>
+													<th>
+														Customer Name
+													</th>
+													<th>
+														Issue
+													</th>
+													<th>
+														Agent Assigned
+													</th>
+													<th>
+														Location
+													</th>
+													<th>
+														Repair Status
+													</th>
+													<th>
+														Date Created
+													</th>
+													<th>
+														Action
+													</th>
+										
+												</tr>
+											</thead>
+											<tbody>
+												<tr *ngFor="let booking of leads; let i = index" [hidden]="location !== booking.location && location" [ngStyle] = "{'background-color': !location ? '' : 'white'} ">
+													<!--  <td>{{item.name}}</td>
+																			        <td>{{item.email}}</td>
+																			        <td class="text-right">{{item.age}}</td>
+																			        <td>{{item.city | uppercase}}</td>
+																			        <td>{{item.city | uppercase}}</td> -->
+													<td> {{ booking.customer_fname }} {{ booking.customer_lname }} </td>
+													<td> {{ booking.type }} Repair </td>
+													<td>{{ booking.agent_fname }} {{ booking.agent_lname }}</td>
+													<td> {{ booking.location }} </td>
+													<td>{{ booking.rep_status }}</td>
+													<td> {{ booking.created_at }} </td>
+													<td>
+										
+														<button [satPopoverAnchorFor]="contactPopover" (click)="contactPopover.toggle()" class="btn btn-default btn-sm">
+															<span class="glyphicon glyphicon-option-horizontal"></span>
+														</button>
+										
+										
+														<sat-popover #contactPopover hasBackdrop verticalAlign="below">
+															<div class="list-group">
+																<!-- <a (click)="updatePaymentStatus(lead.id, i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-ok"></span>   Mark as Paid</a> -->
+																<!-- <a (click)="processLeads(booking.bookings_id, i)" class="list-group-item list-group-item-action">
+																	<span class="margin-icon glyphicon glyphicon-arrow-right"></span> Process</a> -->
+																<a (click)="checkStatus(booking.bookings_id, booking.rep_status)" class="list-group-item list-group-item-action">
+																	<span class="margin-icon glyphicon glyphicon-flag"></span> Update Status</a>
+																<a (click)="viewRepair(booking.bookings_id, i)" class="list-group-item list-group-item-action">
+																	<span class="margin-icon glyphicon glyphicon-eye-open"></span> View Repair</a>
+																<a (click)="viewCustomer(booking.bookings_id, i)" class="list-group-item list-group-item-action">
+																	<span class="margin-icon glyphicon glyphicon-user"></span> View Customer</a>
+																<a (click)="cancelBooking(booking.bookings_id)" class="list-group-item list-group-item-action">
+																	<span class="margin-icon glyphicon glyphicon-remove"></span> Cancel Booking</a>
+										
+										
+															</div>
+										
+														</sat-popover>
+										
+													</td>
+													<!-- <td><button (click) = "updateBooking(lead.id)" class="btn btn-primary">Update Status</button></td> -->
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="5">
+														<ul class="pagination center">
+										
+															<li (click)="PreviosPage()" class="page-item {{ pageActive == 1 ? 'disabled' : ''}}">
+																<a class="page-link" style="cursor: pointer">«</a>
+															</li>
+															<li *ngFor="let page of pages ; let i = index" (click)="goToPage(i+1)" class="page-item {{ i+1 == pageActive ? 'active' : '' }}">
+																<a class="page-link" style="cursor: pointer">{{i+1}}</a>
+															</li>
+															<!-- <li class="page-item"><a class="page-link" style="cursor: pointer">2</a></li>
+																			        		 -->
+															<li (click)="NextPage()" class="page-item">
+																<a class="page-link" style="cursor: pointer">»</a>
+															</li>
+										
+														</ul>
+														<!--    <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator> -->
+													</td>
+												</tr>
+											</tfoot>
+										</table>
+									<!-- <table class="table table-hover ">
 									    <thead>
 									    <tr>
 									    	<th>
@@ -51,9 +158,6 @@
 									        <th>
 									           Customer Name
 									        </th>
-									        <!-- <th style="width: 20%">
-									           Device Model
-									        </th> -->
 									        <th>
 									           Email
 									        </th>
@@ -61,67 +165,65 @@
 									           Phone
 									        </th>
 									        <th>
-									           Alternative
+									           Repair
+											</th>
+											<th>
+												Location
+											</th>
+									        <th>
+												Action
 									        </th>
-									       <!--  <th style="width: 5%">
-									        </th> -->
 
 									    </tr>
 									    </thead>
 									    <tbody>
-									    <tr *ngFor="let ticket of tickets; let i = index" >
-									       <!--  <td>{{item.name}}</td>
-									        <td>{{item.email}}</td>
-									        <td class="text-right">{{item.age}}</td>
-									        <td>{{item.city | uppercase}}</td>
-									        <td>{{item.city | uppercase}}</td> -->
+										<tr *ngFor="let ticket of tickets; let i = index" [hidden]="location !== ticket.location && location" [ngStyle] = "{'background-color': !location ? '' : 'white'} " >
+									    
 									        	<td>{{ ticket.ticket_no }}</td>
 												<td>{{ ticket.customer_fname }} {{ ticket.customer_lname }}</td>
-												<!-- <td></td> -->
 												<td>{{ ticket.email }}</td>
 												<td>{{ ticket.phone }}</td>
-												<td>{{ ticket.phone2 }}</td>
-												<!-- <td>
+												<td> Broket Screen </td>
+												<td>{{ ticket.location }}</td>
+												<td>
 
-													<button (click)="ngxSmartModalService.getModal('myModal').open()" class="btn btn-default btn-sm">
-		          										<span class="glyphicon glyphicon-option-horizontal"></span>
-		        									</button>
+														<button [satPopoverAnchorFor]="contactPopover" (click)="contactPopover.toggle()" class="btn btn-default btn-sm">
+															<span class="glyphicon glyphicon-option-horizontal"></span>
+														</button>
+
 
 
 													<sat-popover #contactPopover hasBackdrop verticalAlign="below">
 													  <div class="list-group">
-														<a (click)="viewInvoice(lead.id, i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-eye-open"></span>View</a>
-														
-														 
-														 
+														  <a (click)="editBooking('1', ticket.ticket_no )" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-pencil"></span>  Edit</a>
+														  <a (click)="deleteBooking(ticket.ticket_no)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-remove"></span>Delete</a>
 														  </div>
 
 													</sat-popover>
 															        								
-												</td> -->
-												<!-- <td><button (click) = "updateBooking(lead.id)" class="btn btn-primary">Update Status</button></td> -->
+												</td>
+											
 									    </tr>
 									    </tbody>
 									    <tfoot>
 									    <tr>
-									        <td colspan="5">
+									        <td colspan="6" >
 									        	<ul class="pagination center">
 
-									        		<li (click) = "PreviosPage()"  class="page-item {{ ticketPageActive == 1 ? 'disabled' : ''}}"><a class="page-link" style="cursor: pointer">«</a>
+									        		<li (click) = "PreviosPage()"  class="page-item {{ ticketPageActive == 1 ? 'disabled' : ''}}"><a class="no-border page-link" style="cursor: pointer">«</a>
 									        		</li>
 									        		<li *ngFor="let page of ticketPages ; let i = index" (click)="goToPage(i+1)" class="page-item {{ i+1 == ticketPageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">{{i+1}}</a>
 									        		</li>
-									        		<!-- <li class="page-item"><a class="page-link" style="cursor: pointer">2</a></li>
-									        		 -->
-									        		<li (click) = "NextPage()" class="page-item"><a class="page-link" style="cursor: pointer">»</a>
+									        	
+									        		<li (click) = "NextPage()" class="page-item"><a class="no-border page-link" style="cursor: pointer">»</a>
 									        		</li>
 
 									        	</ul>
-									         <!--    <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator> -->
+									         
 									        </td>
 									    </tr>
 									    </tfoot>
-									</table>
+									</table> -->
 										
 									</div>
 								</div>

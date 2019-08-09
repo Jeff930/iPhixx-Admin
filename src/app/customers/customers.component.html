@@ -16,28 +16,34 @@
 							<!-- TABLE HOVER -->
 							<div class="panel panel-headline">
 								<div class="panel-heading">
-							
-									<div class=" col-lg-3">
-										<h3 class="panel-title">Customers</h3>
-										
+									<div class="sub-menu">
+										<h4 (click)= "openPager('customers')" [ngStyle]="{'color':pager === 'customers' ? '#2980b9' : 'black', 'background': pager === 'customers' ? '#ffffff' : 'none'}">Customers/Users</h4>
+										<h4 (click)= "openPager('manages')" [ngStyle]="{'color': pager === 'manages' ? '#2980b9' : 'black', 'background': pager === 'manages' ? '#ffffff' : 'none'}" class="panel-title">Manage Roles</h4>
 									</div>
 									<!-- <div class="col-lg-offset-6 col-lg-3">
 										<button class="new-customer" (click)="newCustomer()">+ New Customer</button>
 									</div> -->
-
-
+									<div class="addCustomer  align-items-end">
+										<button type="button" class="btn" (click)="newCustomer()" >
+											<i class="lnr lnr-plus-circle"></i>
+												Add Customer
+										</button>
+									</div>
+									
 								</div>
+								<!-- <hr> -->
 								<div class="panel-body">
 									<div class="table-responsive">
-									<table class="table table-hover">
+									<table class="table table-hover" *ngIf="pager==='customers'">
 										<thead>
 											<tr>
-												<th>Customer Name</th>
+												<th>Customer/Business Name</th>
 												<th>Email</th>
 												<th>Phone</th>
-												<th>Alt. Phone</th>
-												<th>Birthdate</th>
-												<th> </th>
+												<th>Address</th>
+												<th>location</th>
+												<th>Created at</th>
+												<th>Action</th>
 												
 											</tr>
 										</thead>
@@ -47,8 +53,9 @@
 												<td>{{ customer.customer_fname }} {{ customer.customer_lname }}</td>
 												<td>{{ customer.email }}</td>
 												<td>{{ customer.phone }}</td>
-												<td>{{ customer.phone2 }}</td>
-												<td>{{ customer.birthdate }}</td>
+												<td>{{ customer.address }}</td>
+												<td>{{ customer.location }}</td>
+												<td>{{ customer.created_at }}</td>
 												<td>
 
 													<button  [satPopoverAnchorFor]="contactPopover" (click)="contactPopover.toggle()" class="btn btn-default btn-sm">
@@ -60,7 +67,7 @@
 													  <div class="list-group">
 														
 														  <a (click)="editCustomer(customer.customer_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-pencil"></span>Edit</a>
-														 <!--  <a (click)="deleteCustomer(customer.customer_id )" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-remove"></span>Delete</a> -->
+														  <a (click)="deleteCustomer(customer.customer_id )" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-remove"></span>Delete</a>
 														 
 														 
 														  </div>
@@ -75,16 +82,16 @@
 										</tbody>
 										  <tfoot>
 									    <tr>
-									        <td colspan="5">
-									        	<ul class="pagination center">
+									        <td colspan="6">
+									        	<ul class="pagination">
 
-									        		<li (click) = "PreviosPage()"  class="page-item {{ customerspageActive == 1 ? 'disabled' : ''}}"><a class="page-link" style="cursor: pointer">«</a>
+									        		<li (click) = "PreviosPage()"  class="page-item {{ customerspageActive == 1 ? 'disabled' : ''}}"><a class="no-border page-link" style="cursor: pointer">«</a>
 									        		</li>
 									        		<li *ngFor="let page of customerspages ; let i = index" (click)="goToPage(i+1)" class="page-item {{ i+1 == customerspageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">{{i+1}}</a>
 									        		</li>
 									        		<!-- <li class="page-item"><a class="page-link" style="cursor: pointer">2</a></li>
 									        		 -->
-									        		<li (click) = "NextPage()" class="page-item"><a class="page-link" style="cursor: pointer">»</a>
+									        		<li (click) = "NextPage()" class="page-item"><a class="no-border page-link" style="cursor: pointer">»</a>
 									        		</li>
 
 									        	</ul>
@@ -92,6 +99,68 @@
 									        </td>
 									    </tr>
 									    </tfoot>
+									</table>
+
+									<table class="table table-hover" *ngIf="pager==='manages'">
+										<thead>
+											<tr>
+												<th>Agent Name</th>
+												<th>Phone</th>
+												<th>Username</th>
+												<th>Store Assigned</th>
+												<th>Created at</th>
+												<th>Action</th>
+												
+											</tr>
+										</thead>
+										<tbody>
+											<tr *ngFor="let agent of agents ; let i = index">
+												
+												<td>{{ agent.agent_fname }} {{ agent.agent_lname }}</td>
+												<td>{{ agent.agent_phone }}</td>
+												<td>{{ agent.agent_username }}</td>
+												<td>{{ agent.store_assigned }}</td>
+												<td>{{ agent.agent_created_at }}</td>
+												<td>
+
+													<button  [satPopoverAnchorFor]="contactPopover" (click)="contactPopover.toggle()" class="btn btn-default btn-sm">
+		          										<span class="glyphicon glyphicon-option-horizontal"></span>
+		        									</button>
+
+
+													<sat-popover #contactPopover hasBackdrop verticalAlign="below">
+													  <div class="list-group">
+														
+														  <a (click)="editCustomer()" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-pencil"></span>Edit</a>
+														  <a (click)="deleteCustomer()" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-remove"></span>Delete</a>
+														 
+														 
+														  </div>
+
+													</sat-popover>
+															        								
+												</td>
+					    
+											
+											</tr>
+											
+										</tbody>
+										  <!-- <tfoot>
+									    <tr>
+									        <td colspan="6">
+									        	<ul class="pagination center">
+
+									        		<li (click) = "PreviosPage()"  class="page-item {{ customerspageActive == 1 ? 'disabled' : ''}}"><a class="page-link" style="cursor: pointer">«</a>
+									        		</li>
+									        		<li *ngFor="let page of customerspages ; let i = index" (click)="goToPage(i+1)" class="page-item {{ i+1 == customerspageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">{{i+1}}</a>
+									        		</li>
+									        		<li (click) = "NextPage()" class="page-item"><a class="page-link" style="cursor: pointer">»</a>
+									        		</li>
+
+									        	</ul>
+									        </td>
+									    </tr>
+									    </tfoot> -->
 									</table>
 								</div>
 								</div>

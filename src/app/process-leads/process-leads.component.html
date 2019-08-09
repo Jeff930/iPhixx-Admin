@@ -1,0 +1,110 @@
+<app-navbar> </app-navbar>
+<app-sidebar> </app-sidebar>
+<app-footer> </app-footer>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="#fff" type="pacman"></ngx-spinner>
+
+
+
+<div class="main">
+
+  <div class="main-content">
+
+    <div class="panel">
+      <div class="panel-heading">
+        <h2 class="panel-title">Process Leads</h2>
+        <div class="panel-heading-right">
+          <h3  class="panel-title">Customer: {{ lead.customer_fname }} {{ lead.customer_lname }}</h3>          
+          <h3  class="panel-title">Booking No: {{ lead.bookings_id }}</h3>
+        </div>
+      </div>
+      <div class="panel-heading-bottom">
+									<div class="sub-menu">
+										<h4 (click)="openPager('sales')" [ngStyle]="{'color': pager === 'sales' ? '#2980b9' : 'black', 'background': pager === 'sales' ? '#ffffff' : 'none'}"class="panel-title">Sales Funnel</h4>
+										<h4 (click)="openPager('appointments')" [ngStyle]="{'color': pager === 'appointments' ? '#2980b9' : 'black', 'background': pager === 'appointments' ? '#ffffff' : 'none'}" class="panel-title">Appointments</h4>
+                    <h4 (click)="openPager('attachments')" [ngStyle]="{'color': pager === 'attachments' ? '#2980b9' : 'black', 'background': pager === 'attachments' ? '#ffffff' : 'none'}"
+                      class="panel-title">Attachments</h4>
+                    <h4 (click)="openPager('sms')" [ngStyle]="{'color': pager === 'sms' ? '#2980b9' : 'black', 'background': pager === 'sms' ? '#ffffff' : 'none'}"
+                     class="panel-title">Email/SMS</h4>
+                    <!-- <h4 (click)="openPager('merge')" [ngStyle]="{'color': pager === 'merge' ? '#2980b9' : 'black', 'background': pager === 'merge' ? '#ffffff' : 'none'}"
+                      class="panel-title">Merge</h4> -->
+									</div>
+								</div>
+      <div class="panel-body">
+        <div class="pager-whole-container" *ngIf="pager === 'sales'">
+          <div class="pager-container">
+            <h4>Status</h4>
+            <div class="input-side"><input type="password" id="inputPassword6MD" class="left-side form-control" aria-describedby="passwordHelpInlineMD" placeholder="{{ lead.rep_status }}">
+            </div>
+          </div>
+          <div class="pager-container">
+            <h4>Assignee</h4>
+            <div class="input-side">
+              <input type="password" id="inputPassword6MD" class="left-side form-control" aria-describedby="passwordHelpInlineMD" placeholder="{{ lead.agent_fname }} {{ lead.agent_lname }}">
+            </div>
+          </div>
+          <div class="pager-container">
+            <h4>Estimated Value</h4>
+              <div class="input-side">
+                <input type="password" id="inputPassword6MD" class="left-side form-control" aria-describedby="passwordHelpInlineMD" placeholder="0.0">
+              </div>
+          </div>
+          <div class="pager-container">
+            <h4>Estimated Likelihood of Closing</h4>
+            <div class="input-side">
+              <input type="password" id="inputPassword6MD" class="left-side form-control" aria-describedby="passwordHelpInlineMD" placeholder="0">
+            </div>
+          </div>
+          <div class="pager-container">
+            <h4>Start Date</h4>
+            <div class="input-side">
+              <div class="md-form left-side">
+                <input type="date" id="inputMDEx" class="form-control">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div  class="pager-whole-container" *ngIf="pager === 'appointments'">
+          <div class="pager-container">
+            <h4 style="font-weight: bold;">Appointments</h4>
+            <div class="input-side left-side-left">
+              <input type="button" id="inputPassword6MD" class="left-side form-control" aria-describedby="passwordHelpInlineMD" value="New Appointment">
+            </div>
+            <div class="card">
+              <div class="card-body">
+                <p class="card-text">Details.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+          <div class="pager-whole-container" *ngIf="pager === 'attachments'">
+            <div class="pager-container">
+              <h4 style="font-weight: bold;">Attachments:</h4>
+                <input type="button" id="inputPassword6MD" class="form-control no-margin" aria-describedby="passwordHelpInlineMD" value="New Appointment">
+             <div class="attachments-text">
+               <p>Created <span></span></p>
+               <p>File <span></span></p>
+               <p>Private/Public <span></span></p>
+             </div>
+            </div>
+          </div>
+          <div class="pager-whole-container" *ngIf="pager === 'sms'">
+            <div class="pager-container">
+              <h4 style="font-weight: bold;">Appointments</h4>
+              <div class="input-side left-side-left">
+                <input type="button" id="inputPassword6MD" class="left-side form-control last-input" aria-describedby="passwordHelpInlineMD" value="New SMS">
+                <input type="button" id="inputPassword6MD" class="left-side form-control " aria-describedby="passwordHelpInlineMD" value="New Email">
+              </div>
+              <div class="card">
+                <div class="card-header">
+                  <span class="glyphicon glyphicon-envelope"> COMMUNICATIONS</span>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">   </p>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

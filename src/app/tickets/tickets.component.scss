@@ -1,4 +1,71 @@
+.popover-content {
+    padding: 0;
+}
 
+.margin-icon{
+	margin-right : 5px;
+	cursor: pointer;
+}
+
+.list-group-item{
+	cursor: pointer;
+}
+.panel-title {
+	font-family: Helvetica;
+	font-weight: bold;
+}
 .center{
   margin-left:45%;
+}
+.form-group  {
+  width: 15%;
+  float: right;
+  position: absolute;
+  top: 15px;
+  float: right;
+  right: 200px;
+}
+.panel-body {
+  width: 100% !important;
+}
+.table tr:nth-child(even) {
+	background-color: rgba(128, 128, 128, 0.1);
+}
+.table tr {
+	font-family: Helvetica;
+  text-align: center;
+}
+.table th {
+	font-family: Helvetica;
+  color : #337ab7;
+  text-align: center;
+}
+.addCustomer {
+	font-family: Helvetica;
+	position: relative;
+	font-family: Helvetica;
+	button {
+			position: absolute;
+			right: 0;
+			top: -15px;
+			color: white;
+			box-shadow: inset 0px 0px 5px 1px rgba(37, 44, 53, 0.2);
+			padding: 10px 20px;
+			border-radius: 10px;
+			background-color: #2980b9;
+		}
+		button:hover,  {  
+			transition-timing-function: ease-in-out;
+			transition: 0.2s;
+			transform: scale(1.02);
+		}
+}
+.pagination {
+	margin: 0 auto;
+	text-align: center;
+}
+@media (max-width: 768px ) {
+  .form-group {
+    width: 20%;
+  }
 }

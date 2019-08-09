@@ -15,7 +15,7 @@
 							<!-- TABLE HOVER -->
 							<div class="panel panel-headline">
 								<div class="panel-heading">
-									<h3 class="panel-title">Bookings</h3>
+									<h3 class="panel-title">Leads</h3>
 								</div>
 								<div class="panel-body">
 								<!-- 	<table class="table table-hover">
@@ -41,41 +41,37 @@
 										</tbody>
 									</table> -->
 									<div class="table-responsive">
-									<table class="table table-hover ">
+									<!-- <table class="table table-hover ">
 									    <thead>
 									    <tr>
 									    	<th>
-									            Booking ID
+												 Lead Name
 									        </th>
 									        <th >
-									            Customer Name
+												Date Created
 									        </th>
 									        <th>
-									            Agent Name
+									            Agent Assigned
 									        </th>
 									        <th>
-									            Date Created
+									            Booking No.
 									        </th>
 									        <th>
 									            Repair Status
 									        </th>									     
 									        <th>
-									            
+									            Action
 									        </th>
 
 									    </tr>
 									    </thead>
 									    <tbody>
 									    <tr *ngFor="let lead of leads; let i = index" >
-									       <!--  <td>{{item.name}}</td>
-									        <td>{{item.email}}</td>
-									        <td class="text-right">{{item.age}}</td>
-									        <td>{{item.city | uppercase}}</td>
-									        <td>{{item.city | uppercase}}</td> -->
-									        <td>{{ lead.bookings_id }}</td>
-									        <td>{{ lead.customer_fname }} {{ lead.customer_lname }}</td>
+									     
+									        <td> {{ lead.customer_fname }} {{ lead.customer_lname }} </td>
+									        <td> {{ lead.created_at }} </td>
 									        <td>{{ lead.agent_fname }} {{ lead.agent_lname }}</td>
-												<td>{{ lead.created_at }}</td>
+												<td> {{ lead.bookings_id }} </td>
 												<td>{{ lead.rep_status }}</td>
 												<td>
 
@@ -86,7 +82,7 @@
 
 													<sat-popover #contactPopover hasBackdrop verticalAlign="below">
 													  <div class="list-group">
-													  	<!-- <a (click)="updatePaymentStatus(lead.id, i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-ok"></span>   Mark as Paid</a> -->
+  														<a (click)="processLeads(lead.bookings_id, i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-arrow-right"></span>  Process</a>
 														<a (click)="checkStatus(lead.bookings_id, lead.rep_status)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-flag"></span>  Update Status</a>
 														<a (click)="viewRepair(lead.bookings_id, i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-eye-open"></span>  View Repair</a>
 														<a (click)="viewCustomer(lead.bookings_id, i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-user"></span>  View Customer</a>
@@ -98,7 +94,7 @@
 													</sat-popover>
 															        								
 												</td>
-												<!-- <td><button (click) = "updateBooking(lead.id)" class="btn btn-primary">Update Status</button></td> -->
+											
 									    </tr>
 									    </tbody>
 									    <tfoot>
@@ -110,17 +106,15 @@
 									        		</li>
 									        		<li *ngFor="let page of pages ; let i = index" (click)="goToPage(i+1)" class="page-item {{ i+1 == pageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">{{i+1}}</a>
 									        		</li>
-									        		<!-- <li class="page-item"><a class="page-link" style="cursor: pointer">2</a></li>
-									        		 -->
+									        		
 									        		<li (click) = "NextPage()" class="page-item"><a class="page-link" style="cursor: pointer">»</a>
 									        		</li>
 
 									        	</ul>
-									         <!--    <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator> -->
 									        </td>
 									    </tr>
 									    </tfoot>
-									</table>
+									</table> -->
 										
 									</div>
 								</div>

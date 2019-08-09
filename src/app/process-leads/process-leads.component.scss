@@ -1,0 +1,92 @@
+.panel-body{
+	
+}
+
+.update{
+	margin : 15px;
+}
+.panel-heading-right {
+    h3 { 
+        font-weight: bold !important; 
+        display: inline-block; 
+    }
+    h3:last-child { margin-left: 20px; }
+}
+.panel-heading h2, .panel-heading div { 
+        font-weight: bold !important; 
+        display: inline-block; 
+    }
+.panel-heading div { float: right; }
+.panel-heading { border-bottom: .5px solid rgba(0, 0, 0, 0.5); }
+.panel-heading-bottom {
+   background: rgba(128, 128, 128, 0.502) !important; 
+   padding-bottom: 0px !important;
+}
+.sub-menu, .sub-second-menu {
+  font-family: Helvetica;  
+	h4 {
+    font-weight: 700 !important; 
+    font-size: 1.7rem !important;
+	cursor: pointer;
+    display: inline-block;
+    margin-bottom: -5px !important;
+    padding: 5px;
+    margin: 10px 15px 0px 0px;
+    border-radius: 5px 5px  0px 0px;
+  }
+	h4:last-child {
+		margin: 0px 15px;
+    }
+    h4:first-child {
+        margin-left: 20px !important;
+    }
+}
+.pager-container {
+    h4, p, .md-form {
+        display: inline-block !important;
+    }
+    .input-side {
+        width: 50%;
+        float: right;
+        text-align: left !important;
+        margin-right: 500px ;
+    }
+    .left-side { 
+        width: 30%;
+        float: right;   
+    }
+}
+.left-side-left { 
+    margin-right: 0px !important; 
+   
+}
+.card {
+    margin-top: 10px;
+    .card-text { font-size: 1.8rem; }
+    .card-header {
+        padding: 15px;
+        background:rgb(128, 128, 128);
+        color: white;
+    }
+}
+.no-margin { 
+    display: inline-block; 
+    width: 200px;
+    margin-left: 50px;
+}
+.attachments-text {
+    margin-top: 30px;
+    p { 
+        font-size: 1.6rem;
+        display: inline-block; 
+        margin-left: 80px;
+    }
+    p:first-child { margin-left: 0px !important; }
+}
+.last-input { margin-left: 20px !important; }
+input[type='button'] {
+    background-color: #2980b9;
+    color: white;
+    border-radius: 5px;
+    font-size: 1.5rem;
+}

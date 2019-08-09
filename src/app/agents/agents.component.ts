@@ -31,7 +31,7 @@ export class AgentsComponent implements OnInit {
   		this.agentspageActive = 1;
   		this.adminService.agentspageActive = this.agentspageActive;
   		this.spinner.show();
-  		this.adminService.getAgents().subscribe( ( res ) => {
+  		this.adminService.getAgents(1).subscribe( ( res ) => {
   	  console.log(res);
   		this.agentspages = Array(res.total_page);
   		this.adminService.agentspages = this.agentspages;

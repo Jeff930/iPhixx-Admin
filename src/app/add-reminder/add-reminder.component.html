@@ -1,0 +1,66 @@
+<app-navbar> </app-navbar>
+<app-sidebar> </app-sidebar>
+<app-footer> </app-footer>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="#fff" type="pacman"></ngx-spinner>
+<div class="main">
+
+  <div class="main-content">
+
+    <div class="panel">
+      <div class="panel-heading">
+        <h3 class="panel-title" *ngIf="reminderTitle"> Add Reminder </h3>
+        <h3 class="panel-title"  *ngIf="reminderTitle !== 'add'"> Edit Reminder </h3>
+      </div>
+      <div class="panel-body">
+        <form>
+           <div class="col-lg-12 ">
+
+            <div class="form-group col-lg-6">
+              <label for="exampleInputEmail1">Reminder Subject:</label>
+              <input [ngModelOptions]="{standalone: true}" type="text" [(ngModel)] = "reminder.reminderSubject" class="form-control" id="exampleInputEmail1"
+                aria-describedby="emailHelp" placeholder="Subject">
+            </div>
+
+            <div class="form-group  col-lg-12">
+              <label for="message">Reminder:</label>
+              <textarea [ngModelOptions]="{standalone: true}" [(ngModel)] = "reminder.reminderBody" class="form-control z-depth-1 textArea" id="message" rows="5" placeholder="Write your reminder..."></textarea>
+            </div>
+    
+
+          </div>
+        <!-- <div class="col-lg-6 ">
+
+            <div class="form-group">
+              <label for="exampleInputEmail1">Birthdate</label>
+              <input [ngModelOptions]="{standalone: true}" [(ngModel)]="owner.birthdate" type="date" class="form-control" id="exampleInputEmail1"
+                aria-describedby="emailHelp" placeholder="Birthdate">
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputEmail1">Phone</label>
+              <input [ngModelOptions]="{standalone: true}" [(ngModel)]="owner.phone" type="tel" class="form-control" id="exampleInputEmail1"
+                aria-describedby="emailHelp" placeholder="Phone">
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputEmail1">Location</label>
+              <select class="form-control" [(ngModel)]="owner.location">
+                <option> {{owner.location}}
+                  <option>
+                    <option> {{ locations }} </option>
+              </select>
+            </div>
+
+
+          </div> -->
+          </form>
+          <div class="col ">
+            <button  (click)="addReminder()" type="submit" class="btn btn-lg btn-primary update" *ngIf="reminderTitle"> Add </button>
+            <button (click)="saveReminder()" type="submit" class="btn btn-lg btn-primary update" *ngIf="reminderTitle !== 'add'"> Save </button>
+            <button routerLink="/admin" type="submit" class="btn btn-lg btn-primary update"> Cancel </button>
+          </div>
+
+      </div>
+    </div>
+  </div>
+</div>

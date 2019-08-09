@@ -2,6 +2,7 @@
 $dialog-position-top: 10%;
 $width: 30%;
 
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "~ngx-smart-modal/ngx-smart-modal";
 @import "app/app.component";
 

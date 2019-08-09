@@ -5,6 +5,8 @@ import { AdminService } from '../admin.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Router , ActivatedRoute  } from '@angular/router';
 import { NgxSmartModalService } from 'ngx-smart-modal';
+import { NullInjector } from '@angular/core/src/di/injector';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-invoices',
@@ -13,27 +15,42 @@ import { NgxSmartModalService } from 'ngx-smart-modal';
 })
 export class InvoicesComponent implements OnInit {
 
+  getStartedForm: FormGroup;
+  taxes: any;
+  addTax: {
+      tax_name,
+      tax_value
+    }
+  ;
   invoices = [] ;
   invoicesPage  = new Object();	
   invoicespages : any;
   invoicePageActive : number;
-	
+	pager: any = 'invoices';
   closeResult: string;
-  constructor( public adminService : AdminService , private spinner: NgxSpinnerService,public router : Router ) { 
-  		
+  constructor( public adminService : AdminService , private spinner: NgxSpinnerService,public router : Router ) {
     this.invoicePageActive = this.adminService.invoicePageActive;
     this.adminService.invoicesPage['page'+this.invoicePageActive ] ? this.invoices = this.adminService.invoicesPage['page'+this.invoicePageActive ] : '';
     this.invoicespages = this.adminService.invoicespages;
-
+    this.getStartedForm = new FormGroup({
+      'subject': new FormControl('', Validators.required),
+      'message': new FormControl('', Validators.required),
+    });
 }
 
-ngOnInit() {
+  ngOnInit() {
+    this.spinner.show();
+  this.adminService.getTax().subscribe( res => {
+    console.log(res);
+    this.taxes = res;
+    console.log(this.taxes);
+  });
   if (this.invoices.length == 0) {
     this.invoicePageActive = 1;
     this.adminService.invoicePageActive = this.invoicePageActive;
-    this.spinner.show();
     this.adminService.getInvoices().subscribe( ( res ) => {
   console.log("this res:"+ JSON.stringify(res));
+  console.log(res);
   this.invoicespages = Array(res.total_page);
     this.adminService.invoicespages = this.invoicespages;
     console.log(this.invoicespages)	
@@ -43,11 +60,8 @@ ngOnInit() {
     console.log(JSON.stringify(this.invoices));
     this.spinner.hide();
     this.adminService.global.invoices = this.invoices;	
-
-  })
+  });
   }
-
-
 }
 
 ngAfterViewInit(){
@@ -160,18 +174,53 @@ updatePaymentStatus(id){
 // }
 // )}
 
+  openPager(page) {
+    switch (page) {
+      case 'invoices':
+        this.pager = 'invoices';
+        break;
+      case 'tax':
+        this.pager = 'tax';
+        break;
+      default:
+        this.pager = 'reports';
+        break;
+    }
+  }
+
 editBooking(id , index){
 console.log(index);
 this.router.navigate(['/edit-booking' , index]);
 }
 
-viewRepair(id , index){
-console.log(index);
-this.router.navigate(['/view-repair' , index]);
+  viewRepair(id, index) {
+    console.log(index);
+    this.router.navigate(['/view-repair', index, id]);
+  }
+
+  viewInvoice(id , index, price) {
+    console.log(index);
+    this.router.navigate(['/view-invoice', id, price, index]);
+  }
+
+saveTax() {
+  this.taxes.push(this.addTax);
+  console.log(this.taxes);
+  localStorage.setItem('tax', JSON.stringify(this.taxes));
 }
 
-  viewInvoice(id , index){
-    console.log(index);
-    this.router.navigate(['/view-invoice' , index]);
+  goToTax() { this.router.navigate(['/add-tax']); }
+  editTax(id) {
+    console.log(id);
+    this.router.navigate(['/edit-tax'], { queryParams: { tax_id: this.taxes[id].tax_id } } );
+  }
+
+  deleteTax(id) {
+    this.spinner.show();
+    this.adminService.deleteTax(id).subscribe( res => {
+      console.log(res);
+    });
+    this.spinner.hide();
+    location.reload();
   }
 }

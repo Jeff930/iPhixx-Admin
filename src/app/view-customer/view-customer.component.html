@@ -1,3 +1,4 @@
+
 <app-navbar > </app-navbar>
 <app-sidebar > </app-sidebar>
 <app-footer > </app-footer>
@@ -9,11 +10,8 @@
 ></ngx-spinner>
 
 
-
-	<div class="main">
-
+<div class="main">
 			<div class="main-content">
-
 					<div class="panel">
 								<div class="panel-heading">
 									<h3 class="panel-title">View Customer Details</h3>
@@ -24,21 +22,18 @@
 									
 									<div class="form-group">
 										    <label for="exampleInputEmail1">Customer ID</label>
-										     <p class="form-control">{{customer.customer_id}}</p>
+										     <p class="form-control"> {{ customer.customer_id }}</p>
 									</div>
 
 										  <div class="form-group">
 										    <label for="exampleInputEmail1">Full Name</label>
-										     <p class="form-control" >{{customer.customer_fname}} {{customer.customer_lname}}</p>
+										     <p class="form-control" > {{ customer.customer_fname }} {{ customer.customer_lname }} </p>
 										  </div>
-										  <!-- <div class="form-group">
-										    <label for="exampleInputPassword1">Last Name</label>
-										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] ="customer.lastname" type="text" class="form-control" id="exampleInputPassword1" placeholder="Last Name">
-										  </div> -->
+								
 
 										  <div class="form-group">
 										    <label for="exampleInputEmail13">Email</label>
-										   <p class="form-control">{{customer.email}}</p>
+										   <p class="form-control"> {{ customer.email }}</p>
 										  </div>
 
 										  									
@@ -46,20 +41,28 @@
 									<div class="col-lg-6 ">
 									
 										 <div class="form-group">
-										    <label for="exampleInputEmail1">Birthdate</label>
-										     <p class="form-control">{{customer.birthdate}}</p>
+										    <label for="exampleInputEmail1">Address</label>
+										     <p class="form-control"> {{ customer.address }}</p>
 										  </div>	
 										  
 										 <div class="form-group">
 										    <label for="exampleInputEmail1">Phone</label>
-										    <p class="form-control">{{customer.phone}}</p>
+										    <p class="form-control"> {{ customer.phone }}</p>
 										  </div>
 
+										<div class="form-group">
+											<label for="exampleInputEmail1">Birthdate</label>
+											<p class="form-control"> {{ customer.birthdate }}</p>
+										</div>
+
 										  <div class="form-group">
-										    <label for="exampleInputEmail1">Alternate Phone</label>
-										    <p class="form-control">{{customer.phone2}}</p>
+										    <label for="exampleInputEmail1">Location</label>
+										    <p class="form-control"> {{ customer.location }}</p>
 										  </div>
-										 
+										<div class="form-group">
+											<label for="exampleInputEmail1"> Booking No. </label>
+											<p class="form-control"> {{ lead.bookings_id }}</p>
+										</div>
 										
 									</div>
 									<div class="col ">

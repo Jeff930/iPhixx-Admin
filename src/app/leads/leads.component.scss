@@ -18,7 +18,10 @@ th{
 .popover-content {
     padding: 0;
 }
-
+.table th, .table tr { text-align: center !important; }
 .list-group-item{
 	cursor: pointer;
 }
+ tr:nth-child(even) {
+	background-color: rgba(128, 128, 128, 0.1) !important; 
+} 

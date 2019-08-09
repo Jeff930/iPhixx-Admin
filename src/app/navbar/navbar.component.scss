@@ -1,8 +1,10 @@
 .navbar-default{
 	.brand{
-		padding: 15px 40px;
+		padding: 10px 40px;
 		img{
-			height:50px;
+			height:60px;
 		}
 	}
 }
+.clickable { cursor: pointer; }
+.clickable a { font-size: 1.5rem !important; }

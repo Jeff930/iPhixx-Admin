@@ -16,20 +16,20 @@
 
 					<div class="panel">
 								<div class="panel-heading">
-									<h3 class="panel-title">Edit Booking</h3>
+									<h3 class="panel-title"> {{ title }}</h3>
 								</div>
 								<div class="panel-body">
 								<form>
 									<div class="col-lg-6 ">
 									
-									<div class="form-group">
+									<div class="form-group" *ngIf="owner.customer_id !== ''">
 										    <label for="exampleInputEmail1">Owner ID</label>
-										     <p class="form-control" id="exampleInputEmail13" aria-describedby="emailHelp" placeholder="Device Model">{{owner.owner_id}}</p>
+										     <p class="form-control" id="exampleInputEmail13" aria-describedby="emailHelp" placeholder="Device Model">{{owner.customer_id}}</p>
 									</div>
 
 										  <div class="form-group">
 										    <label for="exampleInputEmail1">Full Name</label>
-										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] = "owner.owner_name"  type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Full Name">
+										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] = "customerName"  type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Full Name">
 										  </div>
 										  <!-- <div class="form-group">
 										    <label for="exampleInputPassword1">Last Name</label>
@@ -56,15 +56,19 @@
 										  </div>
 
 										  <div class="form-group">
-										    <label for="exampleInputEmail1">Alternate Phone</label>
-										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] ="owner.phone2" type="tel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Alternate Phone">
+										    <label for="exampleInputEmail1">Location</label>
+													<select class="form-control" [(ngModel)] ="owner.location">
+														<option></option>
+														<option> {{owner.location}} <option>
+														<option> {{ locations }} </option>
+													</select>
 										  </div>
 										 
 										
 									</div>
 									<div class="col ">
-										<button (click)="editBooking()" type="submit" class="btn btn-lg btn-primary update">Save Changes</button>
-										<button (click)="goToBooking()" type="submit" class="btn btn-lg btn-primary update cancel">Back</button>
+										<button (click)="editBooking()" type="submit" class="btn btn-lg btn-primary update"> {{ buttonName }}</button>
+										<button (click)="goToBooking()" type="submit" class="btn btn-lg btn-primary update">Back</button>
 									</div>
 									
 								</form>
