@@ -41,9 +41,12 @@
 										</tbody>
 									</table> -->
 									<div class="table-responsive">
-									<!-- <table class="table table-hover ">
+									<table class="table table-hover ">
 									    <thead>
 									    <tr>
+									    	<th>
+									            Lead No.
+									        </th>
 									    	<th>
 												 Lead Name
 									        </th>
@@ -54,11 +57,11 @@
 									            Agent Assigned
 									        </th>
 									        <th>
-									            Booking No.
+									            Issue
 									        </th>
-									        <th>
-									            Repair Status
-									        </th>									     
+									       <!--  <th>
+									            Status
+									        </th> -->									     
 									        <th>
 									            Action
 									        </th>
@@ -67,12 +70,13 @@
 									    </thead>
 									    <tbody>
 									    <tr *ngFor="let lead of leads; let i = index" >
-									     
+
+									     	<td> {{ lead.bookings_id }} </td>
 									        <td> {{ lead.customer_fname }} {{ lead.customer_lname }} </td>
 									        <td> {{ lead.created_at }} </td>
 									        <td>{{ lead.agent_fname }} {{ lead.agent_lname }}</td>
-												<td> {{ lead.bookings_id }} </td>
-												<td>{{ lead.rep_status }}</td>
+												<td>issue</td>
+												<!-- <td>{{ lead.rep_status }}</td> -->
 												<td>
 
 													<button  [satPopoverAnchorFor]="contactPopover" (click)="contactPopover.toggle()" class="btn btn-default btn-sm">
@@ -82,10 +86,14 @@
 
 													<sat-popover #contactPopover hasBackdrop verticalAlign="below">
 													  <div class="list-group">
-  														<a (click)="processLeads(lead.bookings_id, i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-arrow-right"></span>  Process</a>
-														<a (click)="checkStatus(lead.bookings_id, lead.rep_status)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-flag"></span>  Update Status</a>
-														<a (click)="viewRepair(lead.bookings_id, i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-eye-open"></span>  View Repair</a>
+  														<a (click)="processLeads(lead.bookings_id, i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-arrow-right"></span>  Transfer to Ticket</a>
+
+														<!-- <a (click)="checkStatus(lead.bookings_id, lead.rep_status)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-flag"></span>  Update Status</a> -->
+
+														<!-- <a (click)="viewRepair(lead.bookings_id, i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-eye-open"></span>  View Repair</a> -->
+
 														<a (click)="viewCustomer(lead.bookings_id, i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-user"></span>  View Customer</a>
+
 														<a (click)="cancelBooking(lead.bookings_id)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-remove"></span>   Cancel Booking</a>
 														 
 														 
@@ -114,7 +122,7 @@
 									        </td>
 									    </tr>
 									    </tfoot>
-									</table> -->
+									</table>
 										
 									</div>
 								</div>
