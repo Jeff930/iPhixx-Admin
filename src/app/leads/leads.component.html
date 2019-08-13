@@ -59,9 +59,9 @@
 									        <th>
 									           Device Model
 									        </th>
-									       <!--  <th>
+									        <th>
 									            Status
-									        </th> -->									     
+									        </th>									     
 									        <th>
 									            Action
 									        </th>
@@ -77,7 +77,7 @@
 									        <td> {{ lead.created_at }} </td>
 									        <td>{{ lead.agent_fname }} {{ lead.agent_lname }}</td>
 												<td>{{ lead.phone_brand }} {{ lead.pmodel_name }}</td>
-												<!-- <td>{{ lead.rep_status }}</td> -->
+												<td></td>
 												<td>
 
 													<button  [satPopoverAnchorFor]="contactPopover" (click)="contactPopover.toggle()" class="btn btn-default btn-sm">
