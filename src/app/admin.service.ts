@@ -398,4 +398,13 @@ editOwner(owner) {
   getAllModels() {
       { return this.http.get<any>('assets/json/models.json'); }
   }
+
+  loginAgent(email,password){
+    const body = new HttpParams()
+   .set('email', email)
+   .set('password',password)
+
+    return this.http.post('http://admin.iphixx.com/api/v1/customers/sign-in',
+      body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
+  }
 }
