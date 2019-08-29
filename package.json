@@ -26,6 +26,7 @@
     "@ng-bootstrap/ng-bootstrap": "^4.2.1",
     "angular": "^1.7.5",
     "angular-6-datatable": "^0.8.0",
+    "angular-alert-module": "^2.0.3",
     "angular-material": "^1.1.13",
     "angular-vertical-timeline": "^0.6.0",
     "core-js": "^2.5.4",
