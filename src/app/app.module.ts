@@ -12,6 +12,7 @@ import { NgxSmartModalModule, NgxSmartModalService } from 'ngx-smart-modal';
 import { ModalDialogModule } from 'ngx-modal-dialog';
 import { DataTableModule } from 'angular-6-datatable';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AlertsModule } from 'angular-alert-module';
 
 import { AppComponent } from './app.component';
 import { EditBookingComponent } from './edit-booking/edit-booking.component';
@@ -34,6 +35,7 @@ import { ProcessLeadsComponent } from './process-leads/process-leads.component';
 import { AddReminderComponent } from './add-reminder/add-reminder.component';
 import { AddBookingComponent } from './add-booking/add-booking.component';
 import { AddTaxComponent } from './add-tax/add-tax.component';
+
 // import { NotificationComponent } from './notification/notification.component';
 
 
@@ -75,7 +77,8 @@ import { AddTaxComponent } from './add-tax/add-tax.component';
     BrowserAnimationsModule,
     SatPopoverModule,
     NgxSmartModalModule.forRoot(),
-    ModalDialogModule.forRoot()
+    ModalDialogModule.forRoot(),
+    AlertsModule.forRoot()
   ],
   providers: [AdminService, NgxSmartModalService],
   bootstrap: [AppComponent]
