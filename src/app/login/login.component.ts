@@ -57,6 +57,12 @@ export class LoginComponent implements OnInit {
       this.adminservice.loginAgent(this.getStartedForm.get('email').value,this.getStartedForm.get('password').value)
       .subscribe(res=>{
         console.log(res);
+        console.log(res['agent'][0]);
+        console.log(res['agent'][0].agent_id);
+        if (res['agent'][0]!=undefined){
+          localStorage.setItem('authenticated' , 'true');
+          this.router.navigateByUrl(this.return);
+        }        
     })
     
     //console.log(this.message);
