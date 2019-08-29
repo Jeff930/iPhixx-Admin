@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router , ActivatedRoute  } from '@angular/router';
 import { Agents, AdminService } from '../admin.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AlertsService } from 'angular-alert-module';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class LoginComponent implements OnInit {
   return ;
   isChecked: Boolean;
   validation= false;
-  constructor(public router: Router, private route: ActivatedRoute, private adminservice: AdminService) {
+  constructor(public router: Router, private route: ActivatedRoute, private adminservice: AdminService, public alert:AlertsService) {
     this.getStartedForm = new FormGroup({
       'email': new FormControl('', [Validators.required, Validators.email]),
       'password': new FormControl('', Validators.required),
@@ -58,10 +59,11 @@ export class LoginComponent implements OnInit {
       .subscribe(res=>{
         console.log(res);
         console.log(res['agent'][0]);
-        console.log(res['agent'][0].agent_id);
         if (res['agent'][0]!=undefined){
           localStorage.setItem('authenticated' , 'true');
           this.router.navigateByUrl(this.return);
+        }else{
+          this.alert.setMessage('No matching account found','error');
         }        
     })
     
