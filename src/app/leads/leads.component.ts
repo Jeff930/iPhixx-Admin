@@ -163,6 +163,7 @@ export class LeadsComponent implements OnInit {
 
 viewCustomer(id,index){
 	console.log(index);
+	this.adminService.from = 'leads';
 	this.router.navigate(['/view-customer' , index]);
 }
 

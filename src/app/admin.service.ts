@@ -115,6 +115,7 @@ export class AdminService implements CanActivate  {
     agents: [],
   };
   notif = '';
+  from = '';
 
   constructor(private router: Router , public http: HttpClient) { }
 

@@ -166,6 +166,7 @@ export class TicketsComponent implements OnInit {
 
 	viewCustomer(id, index) {
 		console.log(index);
+		this.adminService.from = 'tickets';
 		this.router.navigate(['/view-customer', index]);
 	}
 

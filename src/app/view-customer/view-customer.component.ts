@@ -40,7 +40,10 @@ export class ViewCustomerComponent implements OnInit {
     }
     
     goToBooking(){
-      this.router.navigate(['/tickets']);
+      if (this.adminService.from == 'tickets')
+        this.router.navigate(['/tickets']);
+      else
+        this.router.navigate(['/leads']);
     }
 
 }
