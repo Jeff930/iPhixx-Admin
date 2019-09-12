@@ -13,100 +13,122 @@ import { Router , ActivatedRoute  } from '@angular/router';
 export class TicketsComponent implements OnInit {
 
 
-	leads = [];
-	leadsPage = new Object();
-	pages: any;
-	pageActive: number;
+	tickets = [];
+	ticketsPage = new Object();
+	ticketPages: any;
+	ticketPageActive: number;
 	location;
 	constructor(public adminService: AdminService, private spinner: NgxSpinnerService, public router: Router) {
 
-		this.pageActive = this.adminService.pageActive;
-		this.adminService.leadsPage['page' + this.pageActive] ? this.leads = this.adminService.leadsPage['page' + this.pageActive] : '';
-		this.pages = this.adminService.pages;
+		this.ticketPageActive = this.adminService.ticketPageActive;
+		this.adminService.ticketsPage['page' + this.ticketPageActive] ? this.tickets = this.adminService.ticketsPage['page' + this.ticketPageActive] : '';
+		this.ticketPages = this.adminService.ticketPages;
 
 	}
 
 	ngOnInit() {
-		if (this.leads.length == 0) {
-			this.pageActive = 1;
-			this.adminService.pageActive = this.pageActive;
+		if (this.tickets.length == 0) {
+			this.ticketPageActive = 1;
+			this.adminService.ticketPageActive = this.ticketPageActive;
 			this.spinner.show();
-			this.adminService.getLeads().subscribe((res) => {
+			this.adminService.getTickets().subscribe((res) => {
 				console.log("this res:" + JSON.stringify(res));
-				this.pages = Array(res.total_page);
-				this.adminService.pages = this.pages;
-				console.log(this.pages)
-				this.adminService.leadsPage['page' + 1] = res.bookings;
-				console.log(this.leadsPage)
-				this.leads = this.adminService.leadsPage['page' + 1];
-				console.log(this.leads)
+				this.ticketPages = Array(res.total_page);
+				console.log(Array(res.total_page));
+				console.log(res.tickets);
+				this.adminService.ticketPages = this.ticketPages;
+				console.log(this.ticketPages)
+				this.adminService.ticketsPage['page' + 1] = res.tickets;
+				console.log(this.ticketsPage)
+				this.tickets = this.adminService.ticketsPage['page' + 1];
+				console.log(this.tickets)
 				this.spinner.hide();
-				this.adminService.global.leads = this.leads;
+				this.adminService.global.tickets = this.tickets;
 
 			})
 		}
 	}
 
+	//ngOnInit() {
+		//   	if (this.tickets.length == 0) {
+		//   		this.ticketticketPageActive = 1;
+		//   		this.adminService.ticketticketPageActive = this.ticketticketPageActive;
+		//   		this.spinner.show();
+		//   		this.adminService.getTickets().subscribe( ( res ) => {
+		// 		console.log("this res:"+ JSON.stringify(res));
+		// 		this.ticketticketPages = Array(res.total_page);
+		//   		this.adminService.ticketticketPages = this.ticketticketPages;
+		//   		console.log(this.ticketticketPages)	
+		//   		this.adminService.ticketsPage['page'+1 ] = res.tickets;
+		//   		console.log(this.ticketsPage)
+		//   		this.tickets = this.adminService.ticketsPage['page'+1 ];
+		//   		console.log(this.tickets)
+		//   		this.spinner.hide();
+		//   		this.adminService.global.tickets = this.tickets;	
+		// 		console.log(this.location);
+		//   	})
+		//   	}
+
 	goToPage(number) {
 		console.log(number);
-		this.pageActive = number;
-		this.adminService.pageActive = this.pageActive;
+		this.ticketPageActive = number;
+		this.adminService.ticketPageActive = this.ticketPageActive;
 		this.spinner.show();
-		if (this.adminService.leadsPage['page' + number]) {
+		if (this.adminService.ticketsPage['page' + number]) {
 
-			this.leads = this.adminService.leadsPage['page' + number];
+			this.tickets = this.adminService.ticketsPage['page' + number];
 			this.spinner.hide();
 		}
 		else {
-			this.adminService.getLeads(number).subscribe((res) => {
-				this.adminService.leadsPage['page' + number] = res.bookings;
-				this.leads = this.adminService.leadsPage['page' + number];
+			this.adminService.getTickets(number).subscribe((res) => {
+				this.adminService.ticketsPage['page' + number] = res.tickets;
+				this.tickets = this.adminService.ticketsPage['page' + number];
 				this.spinner.hide();
-				this.adminService.global.leads = this.leads;
-				console.log(this.adminService.leadsPage)
+				this.adminService.global.tickets = this.tickets;
+				console.log(this.adminService.ticketsPage)
 			})
 		}
 	}
 
 	NextPage() {
-		if (this.pageActive !== this.pages.length) {
-			this.pageActive = this.pageActive + 1;
-			this.adminService.pageActive = this.pageActive;
+		if (this.ticketPageActive !== this.ticketPages.length) {
+			this.ticketPageActive = this.ticketPageActive + 1;
+			this.adminService.ticketPageActive = this.ticketPageActive;
 			this.spinner.show();
-			if (this.adminService.leadsPage['page' + this.pageActive]) {
+			if (this.adminService.ticketsPage['page' + this.ticketPageActive]) {
 
-				this.leads = this.adminService.leadsPage['page' + this.pageActive];
+				this.tickets = this.adminService.ticketsPage['page' + this.ticketPageActive];
 				this.spinner.hide();
 			}
 			else {
-				this.adminService.getLeads(this.pageActive).subscribe((res) => {
-					this.adminService.leadsPage['page' + this.pageActive] = res.bookings;
-					this.leads = this.adminService.leadsPage['page' + this.pageActive];
+				this.adminService.getTickets(this.ticketPageActive).subscribe((res) => {
+					this.adminService.ticketsPage['page' + this.ticketPageActive] = res.tickets;
+					this.tickets = this.adminService.ticketsPage['page' + this.ticketPageActive];
 					this.spinner.hide();
-					this.adminService.global.leads = this.leads;
-					console.log(this.adminService.leadsPage)
+					this.adminService.global.tickets = this.tickets;
+					console.log(this.adminService.ticketsPage)
 				})
 			}
 		}
 	}
 
 	PreviosPage() {
-		if (this.pageActive !== 1) {
-			this.pageActive = this.pageActive - 1;
-			this.adminService.pageActive = this.pageActive;
+		if (this.ticketPageActive !== 1) {
+			this.ticketPageActive = this.ticketPageActive - 1;
+			this.adminService.ticketPageActive = this.ticketPageActive;
 			this.spinner.show();
-			if (this.adminService.leadsPage['page' + this.pageActive]) {
+			if (this.adminService.ticketsPage['page' + this.ticketPageActive]) {
 
-				this.leads = this.adminService.leadsPage['page' + this.pageActive];
+				this.tickets = this.adminService.ticketsPage['page' + this.ticketPageActive];
 				this.spinner.hide();
 			}
 			else {
-				this.adminService.getLeads(this.pageActive).subscribe((res) => {
-					this.adminService.leadsPage['page' + this.pageActive] = res.bookings;
-					this.leads = this.adminService.leadsPage['page' + this.pageActive];
+				this.adminService.getTickets(this.ticketPageActive).subscribe((res) => {
+					this.adminService.ticketsPage['page' + this.ticketPageActive] = res.tickets;
+					this.tickets = this.adminService.ticketsPage['page' + this.ticketPageActive];
 					this.spinner.hide();
-					this.adminService.global.leads = this.leads;
-					console.log(this.adminService.leadsPage)
+					this.adminService.global.tickets = this.tickets;
+					console.log(this.adminService.ticketsPage)
 				})
 			}
 		}
@@ -183,27 +205,27 @@ export class TicketsComponent implements OnInit {
 
 //   tickets = [] ;
 //   ticketsPage  = new Object();	
-//   ticketPages : any;
-//   ticketPageActive : number;
+//   ticketticketPages : any;
+//   ticketticketPageActive : number;
 // 	location;
 //   constructor( public adminService : AdminService , private spinner: NgxSpinnerService,public router : Router ) { 
   		
-//   		this.ticketPageActive = this.adminService.ticketPageActive;
-//   		this.adminService.ticketsPage['page'+this.ticketPageActive ] ? this.tickets = this.adminService.ticketsPage['page'+this.ticketPageActive ] : '';
-//   		this.ticketPages = this.adminService.ticketPages;
+//   		this.ticketticketPageActive = this.adminService.ticketticketPageActive;
+//   		this.adminService.ticketsPage['page'+this.ticketticketPageActive ] ? this.tickets = this.adminService.ticketsPage['page'+this.ticketticketPageActive ] : '';
+//   		this.ticketticketPages = this.adminService.ticketticketPages;
 
 //   }
 
 //   ngOnInit() {
 //   	if (this.tickets.length == 0) {
-//   		this.ticketPageActive = 1;
-//   		this.adminService.ticketPageActive = this.ticketPageActive;
+//   		this.ticketticketPageActive = 1;
+//   		this.adminService.ticketticketPageActive = this.ticketticketPageActive;
 //   		this.spinner.show();
 //   		this.adminService.getTickets().subscribe( ( res ) => {
 // 		console.log("this res:"+ JSON.stringify(res));
-// 		this.ticketPages = Array(res.total_page);
-//   		this.adminService.ticketPages = this.ticketPages;
-//   		console.log(this.ticketPages)	
+// 		this.ticketticketPages = Array(res.total_page);
+//   		this.adminService.ticketticketPages = this.ticketticketPages;
+//   		console.log(this.ticketticketPages)	
 //   		this.adminService.ticketsPage['page'+1 ] = res.tickets;
 //   		console.log(this.ticketsPage)
 //   		this.tickets = this.adminService.ticketsPage['page'+1 ];
@@ -223,8 +245,8 @@ export class TicketsComponent implements OnInit {
 
 // 	goToPage(number){
 // 		console.log(number);
-// 		this.ticketPageActive = number;
-// 		this.adminService.ticketPageActive = this.ticketPageActive;
+// 		this.ticketticketPageActive = number;
+// 		this.adminService.ticketticketPageActive = this.ticketticketPageActive;
 // 		this.spinner.show();
 // 		if(this.adminService.ticketsPage['page'+number ]){
 
@@ -245,19 +267,19 @@ export class TicketsComponent implements OnInit {
 
 
 
-//   	if(this.ticketPageActive !== this.ticketPages.length){
-//   		this.ticketPageActive = this.ticketPageActive+1;
-// 		this.adminService.ticketPageActive = this.ticketPageActive;
+//   	if(this.ticketticketPageActive !== this.ticketticketPages.length){
+//   		this.ticketticketPageActive = this.ticketticketPageActive+1;
+// 		this.adminService.ticketticketPageActive = this.ticketticketPageActive;
 // 		this.spinner.show();
-// 		if(this.adminService.ticketsPage['page'+this.ticketPageActive ]){
+// 		if(this.adminService.ticketsPage['page'+this.ticketticketPageActive ]){
 
-// 	  		this.tickets = this.adminService.ticketsPage['page'+this.ticketPageActive ];
+// 	  		this.tickets = this.adminService.ticketsPage['page'+this.ticketticketPageActive ];
 // 	  		this.spinner.hide();
 // 		}
 // 		else{
-//   		this.adminService.getTickets(this.ticketPageActive).subscribe( ( res ) => {
-//   		this.adminService.ticketsPage['page'+this.ticketPageActive ] = res.tickets;
-//   		this.tickets = this.adminService.ticketsPage['page'+this.ticketPageActive ];
+//   		this.adminService.getTickets(this.ticketticketPageActive).subscribe( ( res ) => {
+//   		this.adminService.ticketsPage['page'+this.ticketticketPageActive ] = res.tickets;
+//   		this.tickets = this.adminService.ticketsPage['page'+this.ticketticketPageActive ];
 //   		this.spinner.hide();
 //   		this.adminService.global.tickets = this.tickets;	
 //   		console.log(this.adminService.ticketsPage)
@@ -266,19 +288,19 @@ export class TicketsComponent implements OnInit {
 //   }
 
 //   PreviosPage(){
-//   	if(this.ticketPageActive !== 1){
-//   		this.ticketPageActive = this.ticketPageActive-1;
-// 		this.adminService.ticketPageActive = this.ticketPageActive;
+//   	if(this.ticketticketPageActive !== 1){
+//   		this.ticketticketPageActive = this.ticketticketPageActive-1;
+// 		this.adminService.ticketticketPageActive = this.ticketticketPageActive;
 // 		this.spinner.show();
-// 		if(this.adminService.ticketsPage['page'+this.ticketPageActive ]){
+// 		if(this.adminService.ticketsPage['page'+this.ticketticketPageActive ]){
 
-// 	  		this.tickets = this.adminService.ticketsPage['page'+this.ticketPageActive ];
+// 	  		this.tickets = this.adminService.ticketsPage['page'+this.ticketticketPageActive ];
 // 	  		this.spinner.hide();
 // 		}
 // 		else{
-//   		this.adminService.getTickets(this.ticketPageActive).subscribe( ( res ) => {
-//   		this.adminService.ticketsPage['page'+this.ticketPageActive ] = res.tickets;
-//   		this.tickets = this.adminService.ticketsPage['page'+this.ticketPageActive ];
+//   		this.adminService.getTickets(this.ticketticketPageActive).subscribe( ( res ) => {
+//   		this.adminService.ticketsPage['page'+this.ticketticketPageActive ] = res.tickets;
+//   		this.tickets = this.adminService.ticketsPage['page'+this.ticketticketPageActive ];
 //   		this.spinner.hide();
 //   		this.adminService.global.tickets = this.tickets;	
 //   		console.log(this.adminService.ticketsPage)
@@ -317,7 +339,7 @@ export class TicketsComponent implements OnInit {
 //   editBooking(id , index){
 // 	console.log(index);
    
-// 	  this.router.navigate(['/edit-booking', index, this.ticketPageActive]);
+// 	  this.router.navigate(['/edit-booking', index, this.ticketticketPageActive]);
 // }
 
 // viewRepair(index){
