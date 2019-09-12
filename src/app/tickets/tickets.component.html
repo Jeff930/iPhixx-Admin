@@ -60,6 +60,9 @@
 											<thead>
 												<tr>
 													<th>
+														Ticket No.
+													</th>
+													<th>
 														Customer Name
 													</th>
 													<th>
@@ -84,18 +87,20 @@
 												</tr>
 											</thead>
 											<tbody>
-												<tr *ngFor="let booking of leads; let i = index" [hidden]="location !== booking.location && location" [ngStyle] = "{'background-color': !location ? '' : 'white'} ">
+												<!-- <tr *ngFor="let ticket of tickets; let i = index" [hidden]="location !== booking.location && location" [ngStyle] = "{'background-color': !location ? '' : 'white'} "> -->
+													<tr *ngFor="let ticket of tickets; let i = index" [ngStyle] = "{'background-color': !location ? '' : 'white'} ">
 													<!--  <td>{{item.name}}</td>
 																			        <td>{{item.email}}</td>
 																			        <td class="text-right">{{item.age}}</td>
 																			        <td>{{item.city | uppercase}}</td>
 																			        <td>{{item.city | uppercase}}</td> -->
-													<td> {{ booking.customer_fname }} {{ booking.customer_lname }} </td>
-													<td> {{ booking.type }} Repair </td>
-													<td>{{ booking.agent_fname }} {{ booking.agent_lname }}</td>
-													<td> {{ booking.location }} </td>
-													<td>{{ booking.rep_status }}</td>
-													<td> {{ booking.created_at }} </td>
+													<td> {{ ticket.ticket_no }}</td>
+													<td> {{ ticket.customer_fname }} {{ ticket.customer_lname }} </td>
+													<td>  </td>
+													<td></td>
+													<td> </td>
+													<td></td>
+													<td></td>
 													<td>
 										
 														<button [satPopoverAnchorFor]="contactPopover" (click)="contactPopover.toggle()" class="btn btn-default btn-sm">
