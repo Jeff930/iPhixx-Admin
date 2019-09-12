@@ -367,6 +367,10 @@ editOwner(owner) {
   return this.http.put('https://admin.iphixx.com/api/v1/bookings/cancel/'+id, {});
 }
 
+transferLead(id){
+  return this.http.put('https://admin.iphixx.com/api/v1/bookings/transfer/'+id, {});
+}
+
   getType(){
     switch(this.type){
       case 'All':

@@ -175,6 +175,20 @@ viewRepair(id,index){
 processLeads(id, index) {
 	console.log(index);
 	this.router.navigate(['/process-leads', index]);
-
 }
+
+transferLead(id){
+	this.spinner.show();
+  this.adminService.transferLead(id).subscribe(res=>{
+	this.spinner.hide();
+	console.log(res);
+	this.adminService.leadsPage  = new Object(); 
+	 location.reload();
+  },
+  err =>{
+	console.log(err);
+	this.spinner.hide();
+  }
+  )}
+
 }
