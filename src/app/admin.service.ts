@@ -369,6 +369,10 @@ leadLost(id){
   return this.http.put('https://admin.iphixx.com/api/v1/bookings/lead-lost/'+id, {});
 }
 
+cancelTicket(id){
+  return this.http.put('https://admin.iphixx.com/api/v1/bookings/cancel-ticket/'+id, {});
+}
+
 checkLeadStatus(id){
   return this.http.get('https://admin.iphixx.com/api/v1/bookings/check-lead-status/'+id, {});
 }
