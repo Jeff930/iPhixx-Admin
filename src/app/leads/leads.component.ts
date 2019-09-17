@@ -110,22 +110,7 @@ export class LeadsComponent implements OnInit {
   	}	
   }
 
-  updateStatus(id){
-	this.spinner.show();
-    this.adminService.updateBookingStatus(id).subscribe(res=>{
-	  console.log(res);
-	  console.log("worked")
-      location.reload();
-    },
-    err => {
-	  console.log(err);
-	  console.log("notworked")
-      location.reload();
-    }
-    )
-	}
-
-	checkStatus(id, status){
+	checkLeadStatus(id, status){
 		console.log(id);
 		if (status == "Resolved"){
 			console.log("Already Resolved");
@@ -133,23 +118,10 @@ export class LeadsComponent implements OnInit {
 			this.updateStatus(id);
 		}
 	}
-	
-	updatePaymentStatus(id){
-		this.spinner.show();
-			this.adminService.updatePaymentStatus(id).subscribe(res=>{
-				console.log(res);
-				location.reload();
-			},
-			err => {
-				console.log(err);
-				location.reload();
-			}
-			)
-		}
 
-  cancelBooking(id){
+  leadLost(id){
 	this.spinner.show();
-  this.adminService.cancelBooking(id).subscribe(res=>{
+  this.adminService.leadLost(id).subscribe(res=>{
 	this.spinner.hide();
 	console.log(res);
 	this.adminService.leadsPage  = new Object(); 
