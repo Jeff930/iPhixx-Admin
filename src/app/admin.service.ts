@@ -363,9 +363,26 @@ editOwner(owner) {
   //return this.http.put('http://admin.iphixx.com/api/v1/bookings/'+id , {});
 }
 
- cancelBooking(id){
+cancelBooking(id){
   return this.http.put('https://admin.iphixx.com/api/v1/bookings/cancel/'+id, {});
 }
+
+checkLeadStatus(id){
+  return this.http.get('https://admin.iphixx.com/api/v1/bookings/check-lead-status/'+id, {});
+}
+
+checkRepairStatus(id){
+  return this.http.get('https://admin.iphixx.com/api/v1/bookings/check-repair-status/'+id, {});
+}
+
+checkInvoiceStatus(id){
+  return this.http.get('https://admin.iphixx.com/api/v1/bookings/check-invoice-status/'+id, {});
+}
+
+checkTicketStatus(id){
+  return this.http.get('https://admin.iphixx.com/api/v1/bookings/check-ticket-status/'+id, {});
+}
+
 
 transferLead(id){
   return this.http.put('https://admin.iphixx.com/api/v1/bookings/transfer/'+id, {});
