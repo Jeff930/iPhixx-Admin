@@ -349,22 +349,24 @@ editOwner(owner) {
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
 
- updateBookingStatus(id) {
-   //this.sendMail(id);
-   console.log('called ' + id);
-   return this.http.put('http://admin.iphixx.com/api/v1/bookings/status/' + id , {responseType: 'text' as 'text'});
-   //return this.http.put('http://admin.iphixx.com/api/v1/bookings/'+id , {});
- }
-
- updatePaymentStatus(id){
-  //this.sendMail(id);
-  console.log("called "+id);
-  return this.http.put('http://admin.iphixx.com/api/v1/bookings/payment/'+id , {});
-  //return this.http.put('http://admin.iphixx.com/api/v1/bookings/'+id , {});
+transferLead(id){
+  return this.http.put('https://admin.iphixx.com/api/v1/bookings/transfer-lead/'+id, {});
 }
 
-cancelBooking(id){
-  return this.http.put('https://admin.iphixx.com/api/v1/bookings/cancel/'+id, {});
+updateTicketStatus(id) {
+   return this.http.put('http://admin.iphixx.com/api/v1/bookings/update-ticket-status/' + id , {});
+}
+
+updateRepairStatus(id) {
+  return this.http.put('http://admin.iphixx.com/api/v1/bookings/update-repair-status/' + id , {});
+}
+
+updateInvoiceStatus(id){
+  return this.http.put('http://admin.iphixx.com/api/v1/bookings/update-invoice-status/'+id , {});
+}
+
+leadLost(id){
+  return this.http.put('https://admin.iphixx.com/api/v1/bookings/lead-lost/'+id, {});
 }
 
 checkLeadStatus(id){
@@ -381,11 +383,6 @@ checkInvoiceStatus(id){
 
 checkTicketStatus(id){
   return this.http.get('https://admin.iphixx.com/api/v1/bookings/check-ticket-status/'+id, {});
-}
-
-
-transferLead(id){
-  return this.http.put('https://admin.iphixx.com/api/v1/bookings/transfer/'+id, {});
 }
 
   getType(){
