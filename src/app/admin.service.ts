@@ -365,6 +365,10 @@ updateInvoiceStatus(id){
   return this.http.put('http://admin.iphixx.com/api/v1/bookings/update-invoice-status/'+id , {});
 }
 
+startRepair(id){
+  return this.http.put('http://admin.iphixx.com/api/v1/bookings/start-repair/'+id , {});
+}
+
 leadLost(id){
   return this.http.put('https://admin.iphixx.com/api/v1/bookings/lead-lost/'+id, {});
 }
