@@ -4,8 +4,7 @@ import { Component, OnInit , AfterViewInit } from '@angular/core';
 import { Leads, AdminService } from '../admin.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Router , ActivatedRoute  } from '@angular/router';
-
-
+import { AlertsService } from 'angular-alert-module';
 
 @Component({
   selector: 'app-leads',
@@ -19,7 +18,7 @@ export class LeadsComponent implements OnInit {
   pages : any;
   pageActive : number;
 
-  constructor( public adminService : AdminService , private spinner: NgxSpinnerService,public router : Router ) { 
+  constructor( public adminService : AdminService , private spinner: NgxSpinnerService,public router : Router, public alert:AlertsService ) { 
   		
   		this.pageActive = this.adminService.pageActive;
   		this.adminService.leadsPage['page'+this.pageActive ] ? this.leads = this.adminService.leadsPage['page'+this.pageActive ] : '';
@@ -28,6 +27,7 @@ export class LeadsComponent implements OnInit {
   }
 
   ngOnInit() {
+	this.alert.setMessage("sample",'error');
   	if (this.leads.length == 0) {
   		this.pageActive = 1;
   		this.adminService.pageActive = this.pageActive;
@@ -150,20 +150,37 @@ processLeads(id, index) {
 }
 
 transferLead(id){
-	this.spinner.show();
+	//this.spinner.show();
+	this.alert.setDefaults('timeout',0);
 	this.adminService.checkLeadStatus(id).subscribe(res =>{
 		console.log(res);
-	})
-  this.adminService.transferLead(id).subscribe(res=>{
-	this.spinner.hide();
-	console.log(res);
-	this.adminService.leadsPage  = new Object(); 
-	 location.reload();
-  },
-  err =>{
-	console.log(err);
-	this.spinner.hide();
-  }
-  )}
+		console.log(res['leadstatus_no']);
+		if (res['leadstatus_no'] == '1'){
+				this.adminService.transferLead(id).subscribe(res=>{
+					this.spinner.hide();
+					console.log(res);
+					this.adminService.leadsPage  = new Object(); 
+						location.reload();
+
+				},
+				err =>{
+					console.log(err);
+					this.spinner.hide();
+				}
+			);
+		}else{
+			if (res['leadstatus_no'] == '2'){
+				//this.spinner.hide();
+				this.alert.setMessage('Lead already transferred','error');
+				console.log("transferred");
+			}else{
+				this.spinner.hide();
+				this.alert.setMessage('Lead already cancelled','error');
+				console.log("cancelled");
+			}	
+		}	
+	});
+	
+}
 
 }

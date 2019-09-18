@@ -54,7 +54,6 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-  
       this.adminservice.loginAgent(this.getStartedForm.get('email').value,this.getStartedForm.get('password').value)
       .subscribe(res=>{
         console.log(res);
