@@ -110,14 +110,14 @@ export class LeadsComponent implements OnInit {
   	}	
   }
 
-	checkLeadStatus(id, status){
-		console.log(id);
-		if (status == "Resolved"){
-			console.log("Already Resolved");
-		} else {
-			this.updateStatus(id);
-		}
-	}
+	// checkLeadStatus(id, status){
+	// 	console.log(id);
+	// 	if (status == "Resolved"){
+	// 		console.log("Already Resolved");
+	// 	} else {
+	// 		this.updateStatus(id);
+	// 	}
+	// }
 
   leadLost(id){
 	this.spinner.show();
@@ -151,6 +151,9 @@ processLeads(id, index) {
 
 transferLead(id){
 	this.spinner.show();
+	this.adminService.checkLeadStatus(id).subscribe(res =>{
+		console.log(res);
+	})
   this.adminService.transferLead(id).subscribe(res=>{
 	this.spinner.hide();
 	console.log(res);

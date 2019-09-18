@@ -114,57 +114,57 @@ export class TicketsComponent implements OnInit {
 		}
 	}
 
-	updateStatus(id) {
-		this.spinner.show();
-		this.adminService.updateBookingStatus(id).subscribe(res => {
-			console.log(res);
-			console.log("worked")
-			location.reload();
-		},
-			err => {
-				console.log(err);
-				console.log("notworked")
-				location.reload();
-			}
-		)
-	}
+	// updateStatus(id) {
+	// 	this.spinner.show();
+	// 	this.adminService.updateBookingStatus(id).subscribe(res => {
+	// 		console.log(res);
+	// 		console.log("worked")
+	// 		location.reload();
+	// 	},
+	// 		err => {
+	// 			console.log(err);
+	// 			console.log("notworked")
+	// 			location.reload();
+	// 		}
+	// 	)
+	// }
 
-	checkStatus(id, status) {
-		console.log(id);
-		if (status == "Resolved") {
-			console.log("Already Resolved");
-		} else {
-			this.updateStatus(id);
-		}
-	}
+	// checkStatus(id, status) {
+	// 	console.log(id);
+	// 	if (status == "Resolved") {
+	// 		console.log("Already Resolved");
+	// 	} else {
+	// 		this.updateStatus(id);
+	// 	}
+	// }
 
-	updatePaymentStatus(id) {
-		this.spinner.show();
-		this.adminService.updatePaymentStatus(id).subscribe(res => {
-			console.log(res);
-			location.reload();
-		},
-			err => {
-				console.log(err);
-				location.reload();
-			}
-		)
-	}
+	// updatePaymentStatus(id) {
+	// 	this.spinner.show();
+	// 	this.adminService.updatePaymentStatus(id).subscribe(res => {
+	// 		console.log(res);
+	// 		location.reload();
+	// 	},
+	// 		err => {
+	// 			console.log(err);
+	// 			location.reload();
+	// 		}
+	// 	)
+	// }
 
-	cancelBooking(id) {
-		this.spinner.show();
-		this.adminService.cancelBooking(id).subscribe(res => {
-			this.spinner.hide();
-			console.log(res);
-			this.adminService.leadsPage = new Object();
-			location.reload();
-		},
-			err => {
-				console.log(err);
-				this.spinner.hide();
-			}
-		)
-	}
+	// cancelBooking(id) {
+	// 	this.spinner.show();
+	// 	this.adminService.cancelBooking(id).subscribe(res => {
+	// 		this.spinner.hide();
+	// 		console.log(res);
+	// 		this.adminService.leadsPage = new Object();
+	// 		location.reload();
+	// 	},
+	// 		err => {
+	// 			console.log(err);
+	// 			this.spinner.hide();
+	// 		}
+	// 	)
+	// }
 
 	viewCustomer(id, index) {
 		console.log(index);

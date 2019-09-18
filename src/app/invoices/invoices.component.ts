@@ -133,31 +133,31 @@ PreviosPage(){
   }	
 }
 
-updateStatus(id){
-this.spinner.show();
-  this.adminService.updateBookingStatus(id).subscribe(res=>{
-    console.log(res);
-    location.reload();
-  },
-  err => {
-    console.log(err);
-    location.reload();
-  }
-  )
-}
+// updateStatus(id){
+// this.spinner.show();
+//   this.adminService.updateBookingStatus(id).subscribe(res=>{
+//     console.log(res);
+//     location.reload();
+//   },
+//   err => {
+//     console.log(err);
+//     location.reload();
+//   }
+//   )
+// }
 
-updatePaymentStatus(id){
-  this.spinner.show();
-    this.adminService.updatePaymentStatus(id).subscribe(res=>{
-      console.log(res);
-      location.reload();
-    },
-    err => {
-      console.log(err);
-      location.reload();
-    }
-    )
-  }
+// updatePaymentStatus(id){
+//   this.spinner.show();
+//     this.adminService.updatePaymentStatus(id).subscribe(res=>{
+//       console.log(res);
+//       location.reload();
+//     },
+//     err => {
+//       console.log(err);
+//       location.reload();
+//     }
+//     )
+//   }
 
 // deleteBooking(id){
 // this.spinner.show();
