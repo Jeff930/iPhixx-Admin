@@ -150,7 +150,7 @@ processLeads(id, index) {
 }
 
 transferLead(id){
-	//this.spinner.show();
+	this.spinner.show();
 	this.alert.setDefaults('timeout',0);
 	this.adminService.checkLeadStatus(id).subscribe(res =>{
 		console.log(res);
@@ -170,7 +170,7 @@ transferLead(id){
 			);
 		}else{
 			if (res['leadstatus_no'] == '2'){
-				//this.spinner.hide();
+				this.spinner.hide();
 				this.alert.setMessage('Lead already transferred','error');
 				console.log("transferred");
 			}else{
