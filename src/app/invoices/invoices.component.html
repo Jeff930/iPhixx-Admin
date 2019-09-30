@@ -64,7 +64,7 @@
 									           Customer Name
 									        </th>
 									        <th>
-									           Booking No.
+									           Creation Date
 									        </th>
 									        <th>
 									           Payment Date
@@ -90,9 +90,9 @@
 									        <td>{{item.city | uppercase}}</td> -->
 									        	<td>{{ invoice.invoice_no }}</td>
 									        	<td>{{ invoice.customer_fname }} {{ invoice.customer_lname }}</td>
-												<td>{{ invoice.bookings_id }}</td>
-												<td>{{ invoice.payment_Timestamp }}</td>
-												<td>{{ invoice.pstatus_name }}</td>
+												<td>{{ invoice.unsettled_Timestamp }}</td>
+												<td>{{ invoice.settled_Timestamp }}</td>
+												<td>{{ invoice.invoicestatus_no }}</td>
 												<td>€{{ invoice.total_price }}</td>
 												<td>
 
