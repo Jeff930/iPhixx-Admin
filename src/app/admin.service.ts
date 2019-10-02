@@ -96,6 +96,8 @@ export class AdminService implements CanActivate  {
   inventoryPage  = new Object();
   inventoryPageActive: number;
 
+  invoiceDetails:any;
+
   notifs = ['Repair with Invoice No.10566 has been marked as paid on 2018-12-11 03:04:24',
   'Repair with Invoice No.10566 has been marked as resolved on 2018-12-10 11:21:20',
   'Repair with Invoice No.10566 has been marked as ongoing on 2018-12-10 11:20:50',
