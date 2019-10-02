@@ -242,4 +242,9 @@ saveTax() {
         return data;
     }
 
+    sample(invoice){
+      this.adminService.invoiceDetails = invoice;
+      this.NgxSmartModalService.getModal('confirmPayment').open();
+    }
+
 }
