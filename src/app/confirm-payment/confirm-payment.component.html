@@ -1,15 +1,11 @@
 <ngx-smart-modal #confirmPayment identifier="confirmPayment" (onOpen)="log('Modal opened!')" (onClose)="log('Modal closed!')" (onDismiss)="log('Modal dismissed!')">
-
-
-		
-
 					<div class="panel">
 								<div class="panel-heading">
 									<h3 class="panel-title">Payment Confirmation</h3>
 								</div>
 								<div class="panel-body">
 									<p class="panel-title">Please review the following details before marking it as paid.</p>
-								<form>
+								<!-- <form>
 									<div class="col-lg-6 ">
 										 <div *ngIf="confirmPayment.hasData()">
     										<pre>{{ confirmPayment.getData() | json }}</pre>
@@ -34,7 +30,7 @@
 										    <input class="form-control" id="exampleInputEmail13" aria-describedby="emailHelp" placeholder="Device Model">
 										  </div>			
 									</div>
-								</form>
+								</form> -->
 								</div>
 								<div class="panel-body">
 									<button (click)="confirmPayment.close()" type="submit" class="btn btn-lg btn-primary update">Back</button>
