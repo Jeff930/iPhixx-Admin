@@ -28,7 +28,7 @@ export class InvoicesComponent implements OnInit {
   invoicePageActive : number;
 	pager: any = 'invoices';
   closeResult: string;
-  constructor( public adminService : AdminService , private spinner: NgxSpinnerService,public router : Router ) {
+  constructor( public NgxSmartModalService: NgxSmartModalService,public adminService : AdminService , private spinner: NgxSpinnerService,public router : Router ) {
     this.invoicePageActive = this.adminService.invoicePageActive;
     this.adminService.invoicesPage['page'+this.invoicePageActive ] ? this.invoices = this.adminService.invoicesPage['page'+this.invoicePageActive ] : '';
     this.invoicespages = this.adminService.invoicespages;
@@ -89,9 +89,6 @@ goToPage(number){
 }
 
 NextPage(){
-
-
-
   if(this.invoicePageActive !== this.invoicespages.length){
     this.invoicePageActive = this.invoicePageActive+1;
   this.adminService.invoicePageActive = this.invoicePageActive;
@@ -223,4 +220,26 @@ saveTax() {
     this.spinner.hide();
     location.reload();
   }
+
+  leadLost(id){
+    this.spinner.show();
+    this.adminService.leadLost(id).subscribe(res=>{
+    this.spinner.hide();
+    console.log(res);
+    this.adminService.leadsPage  = new Object(); 
+     location.reload();
+    },
+    err =>{
+    console.log(err);
+    this.spinner.hide();
+    }
+    )}
+
+    check(data){
+      if (data === null)
+        return 'N/A';
+      else
+        return data;
+    }
+
 }

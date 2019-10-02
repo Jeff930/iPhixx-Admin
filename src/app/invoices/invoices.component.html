@@ -8,7 +8,7 @@
 	color = "#fff"
 	type = "pacman"
 ></ngx-spinner>
-<!-- <app-compare-payment></app-compare-payment> -->
+<app-confirm-payment></app-confirm-payment>
 
 <div class="main">
 	<div class="main-content">
@@ -91,7 +91,7 @@
 									        	<td>{{ invoice.invoice_no }}</td>
 									        	<td>{{ invoice.customer_fname }} {{ invoice.customer_lname }}</td>
 												<td>{{ invoice.unsettled_Timestamp }}</td>
-												<td>{{ invoice.settled_Timestamp }}</td>
+												<td>{{ check(invoice.settled_Timestamp) }}</td>
 												<td>{{ invoice.invoice_status }}</td>
 												<td>€{{ invoice.total_price }}</td>
 												<td>
