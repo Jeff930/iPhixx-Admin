@@ -1,15 +1,11 @@
-
-
 th{
   color : #337ab7;
-  font-family: Helvetica;  
 }
 .panel-heading {
    background: rgba(128, 128, 128, 0.5) !important; 
    padding-bottom: 0px !important;
 }
 .sub-menu {
-  font-family: Helvetica;  
 	h4 {
     font-weight: bold !important;
     font-size: 2rem !important;
@@ -80,7 +76,6 @@ modal_content {
 }
 
 .addCustomer {
-	font-family: Helvetica;
 	button {
 			float: right;
 			margin-top: -48px;
@@ -98,8 +93,7 @@ modal_content {
 			transform: scale(1.02);
 		}
 }
-.table {
-  font-family: Helvetica;   
+.table {  
   text-align: center; 
   thead {
     th {
