@@ -24,15 +24,16 @@
 										    <p class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Device Type">{{invoice.total_price}}</p>
 										  </div>
 
-										  <div>
+										 <!--  <div>
 										    <label for="exampleInputEmail13">Please input your PIN to confirm</label>
 										    <input class="form-control" id="exampleInputEmail13" aria-describedby="emailHelp" placeholder="Device Model">
-										  </div>			
+										  </div>		 -->	
 									</div>
 								</form>
 								</div>
 								<div class="panel-body">
 									<button (click)="confirmPayment.close()" type="submit" class="btn btn-lg btn-primary update">Back</button>
+									<button (click)="confirmPayment.close()" type="submit" class="btn btn-lg btn-primary update">Confirm</button>
 								</div>
 					</div>
 </ngx-smart-modal>
