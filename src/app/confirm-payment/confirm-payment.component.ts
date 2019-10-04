@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgxSmartModalService } from 'ngx-smart-modal';
 import { AdminService } from '../admin.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 @Component({
@@ -12,7 +13,7 @@ export class ConfirmPaymentComponent {
 
   invoice; 
 
-  constructor(public ngxSmartModalService: NgxSmartModalService, public adminService : AdminService) {
+  constructor(private spinner: NgxSpinnerService,public ngxSmartModalService: NgxSmartModalService, public adminService : AdminService) {
     
   }
 
@@ -21,6 +22,22 @@ export class ConfirmPaymentComponent {
     this.ngxSmartModalService.setModalData(this.invoice, 'confirmPayment');
     console.log(this.invoice);  
   }
+
+  updatePaymentStatus(id){
+    this.spinner.show();
+      this.adminService.updateInvoiceStatus(id).subscribe(res=>{
+        console.log(res);
+        location.reload();
+      },
+      err => {
+        console.log(err);
+        this.spinner.hide();
+        this.ngxSmartModalService.close('confirmPayment');
+      }
+      )
+    }
+
+
 
   
 }
