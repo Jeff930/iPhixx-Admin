@@ -364,7 +364,7 @@ updateRepairStatus(id) {
 }
 
 updateInvoiceStatus(id){
-  return this.http.put('http://admin.iphixx.com/api/v1/bookings/update-invoice-status/'+id , {});
+  return this.http.put('http://admin.iphixx.com/api/v1/bookings/payment/'+id , {});
 }
 
 startRepair(id){
