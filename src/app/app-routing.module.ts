@@ -106,5 +106,14 @@ export const routingComponents = [
                                   TicketsComponent,
                                   AgentsComponent,
                                   EditAgentComponent,
-                                  ViewCustomerComponent
+                                  ViewCustomerComponent,
+                                  EditTaxComponent,
+                                  LogisticsComponent,
+                                  SettingsComponent,
+                                  ProcessLeadsComponent,
+                                  AddReminderComponent,
+                                  AddTaxComponent,
+                                  DevicesComponent,
+                                  EditPriceComponent
+
                                  ]
