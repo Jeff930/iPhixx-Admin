@@ -70,9 +70,6 @@ export class DevicesComponent implements OnInit {
 	}
 
   NextPage(){
-
-
-
   	if(this.devicespageActive !== this.devicespages.length){
   		this.devicespageActive = this.devicespageActive+1;
 		this.adminService.devicespageActive = this.devicespageActive;
@@ -114,10 +111,10 @@ export class DevicesComponent implements OnInit {
   	}	
   }
 
-  editAgent(id , index){
+  editPrice(id , index){
   	console.log(index);
 	  this.adminService.devicesAction = 'update';
-  	this.router.navigate(['/edit-agent' , index]);
+  	this.router.navigate(['/edit-price' , index]);
   }
 
   newAgent(){
@@ -126,6 +123,52 @@ export class DevicesComponent implements OnInit {
   	this.router.navigate(['/edit-agent']);
   }
   
+  getType(type){
+    if (type=='1')
+      return "Phone";
+    if (type=='2')
+      return "Tablet";
+    if (type=='3')
+      return "Laptop";
+    if (type=='4')
+      return "MacBook";
+    if (type=='5')
+      return "Gaming Console";
+  }
+
+  getBrand(brand){
+    if (brand=='1')
+      return "iPhone";
+    if (brand=='2')
+      return "Samsung";
+    if (brand=='3')
+      return "Huawei";
+    if (brand=='4')
+      return "Sony";
+    if (brand=='5')
+      return "Nokia";
+    if (brand=='6')
+      return "iPad";
+    if (brand=='7')
+      return "Hewlett Packard";
+    if (brand=='8')
+      return "Lenovo";
+    if (brand=='9')
+      return "Dell";
+    if (brand=='10')
+      return "Asus";
+    if (brand=='11')
+      return "Acer";
+    if (brand=='12')
+      return "Microsoft";
+    if (brand=='13')
+      return "Chromebook";
+    if (brand=='14')
+      return "Toshiba";
+    if (brand=='15')
+      return "MacBook";
+  }
+
   deleteAgent(id){
 	  this.spinner.show();
 	  console.log(id);
