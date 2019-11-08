@@ -32,6 +32,8 @@ import { SettingsComponent } from './settings/settings.component';
 import { ProcessLeadsComponent } from './process-leads/process-leads.component';
 import { AddReminderComponent } from './add-reminder/add-reminder.component';
 import { AddTaxComponent } from './add-tax/add-tax.component';
+import { DevicesComponent } from './devices/devices.component';
+import { EditPriceComponent } from './edit-price/edit-price.component';
 
 const routes: Routes = [
 
@@ -61,6 +63,8 @@ const routes: Routes = [
   { path: 'process-leads/:id', component: ProcessLeadsComponent },
   { path: 'add-reminder/:id', component: AddReminderComponent },
   { path: 'add-tax', component: AddTaxComponent },
+  { path: 'devices', component: DevicesComponent },
+  { path: 'edit-price/:id', component: EditPriceComponent },
   // { path: 'admin', component: DashboardComponent },
   // {
   //   path: 'device',
