@@ -1,4 +1,8 @@
+import * as $ from 'jquery';
 import { Component, OnInit } from '@angular/core';
+import { Devices,AdminService } from '../admin.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { Router , ActivatedRoute  } from '@angular/router';
 
 @Component({
   selector: 'app-devices',
@@ -7,9 +11,153 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DevicesComponent implements OnInit {
 
-  constructor() { }
+  devices = []; 	
+  devicesPage  = new Object();	
+  devicespages : any;
+  devicespageActive : number;
+  constructor( public adminService : AdminService , private spinner: NgxSpinnerService , public router : Router ) { 
+
+  }
 
   ngOnInit() {
+
+  	// $('[data-toggle="popover"]').popover();
+
+      this.devicespageActive = this.adminService.devicespageActive;
+      this.adminService.devicesPage['page'+this.devicespageActive ] ? this.devices = this.adminService.devicesPage['page'+this.devicespageActive ] : '';
+      this.adminService.devicespages ? this.devicespages = this.adminService.devicespages : '';
+
+  	if (this.devices.length == 0) {
+  		this.devicespageActive = 1;
+  		this.adminService.devicespageActive = this.devicespageActive;
+  		this.spinner.show();
+  		this.adminService.getDevices(1).subscribe( ( res ) => {
+  	  console.log(res);
+  		this.devicespages = Array(res.total_page);
+  		this.adminService.devicespages = this.devicespages;
+  	
+  		this.adminService.devicesPage['page'+1 ] = res.devices;
+
+  		this.devices = this.adminService.devicesPage['page'+1 ];
+
+  		console.log(this.devices)
+  		this.spinner.hide();
+  		this.adminService.global.devices = this.devices;	
+
+  	})
+  	}
+
+  }
+
+  goToPage(number){
+		console.log(number);
+		this.devicespageActive = number;
+		this.adminService.devicespageActive = this.devicespageActive;
+		this.spinner.show();
+		if(this.adminService.devicesPage['page'+number ]){
+
+	  		this.devices = this.adminService.devicesPage['page'+number ];
+	  		this.spinner.hide();
+		}
+		else{
+  		this.adminService.getDevices(number).subscribe( ( res ) => {
+  		this.adminService.devicesPage['page'+number ] = res.devices;
+  		this.devices = this.adminService.devicesPage['page'+number ];
+  		this.spinner.hide();
+  		this.adminService.global.devices = this.devices;	
+  		console.log(this.adminService.devicesPage)
+  	})}
+	}
+
+  NextPage(){
+
+
+
+  	if(this.devicespageActive !== this.devicespages.length){
+  		this.devicespageActive = this.devicespageActive+1;
+		this.adminService.devicespageActive = this.devicespageActive;
+		this.spinner.show();
+		if(this.adminService.devicesPage['page'+this.devicespageActive ]){
+
+	  		this.devices = this.adminService.devicesPage['page'+this.devicespageActive ];
+	  		this.spinner.hide();
+		}
+		else{
+  		this.adminService.getDevices(this.devicespageActive).subscribe( ( res ) => {
+  		this.adminService.devicesPage['page'+this.devicespageActive ] = res.devices;
+  		this.devices = this.adminService.devicesPage['page'+this.devicespageActive ];
+  		this.spinner.hide();
+  		this.adminService.global.devices = this.devices;	
+  		console.log(this.adminService.devicesPage)
+  	})}
+  	}
+  }
+
+  PreviosPage(){
+  	if(this.devicespageActive !== 1){
+  		this.devicespageActive = this.devicespageActive-1;
+		this.adminService.devicespageActive = this.devicespageActive;
+		this.spinner.show();
+		if(this.adminService.devicesPage['page'+this.devicespageActive ]){
+
+	  		this.devices = this.adminService.devicesPage['page'+this.devicespageActive ];
+	  		this.spinner.hide();
+		}
+		else{
+  		this.adminService.getDevices(this.devicespageActive).subscribe( ( res ) => {
+  		this.adminService.devicesPage['page'+this.devicespageActive ] = res.devices;
+  		this.devices = this.adminService.devicesPage['page'+this.devicespageActive ];
+  		this.spinner.hide();
+  		this.adminService.global.devices = this.devices;	
+  		console.log(this.adminService.devicesPage)
+  	})}
+  	}	
+  }
+
+  editAgent(id , index){
+  	console.log(index);
+	  this.adminService.devicesAction = 'update';
+  	this.router.navigate(['/edit-agent' , index]);
+  }
+
+  newAgent(){
+	  console.log("called");
+  	this.adminService.devicesAction = 'new';
+  	this.router.navigate(['/edit-agent']);
+  }
+  
+  deleteAgent(id){
+	  this.spinner.show();
+	  console.log(id);
+    this.adminService.deleteAgent(id).subscribe(res=>{
+      // this.spinner.hide();
+      console.log(res);
+      this.adminService.devicesPage  = new Object(); 
+      location.reload();
+    },
+    err =>{
+      alert('Error! Please Try again.')
+      this.spinner.hide();
+
+    }
+    )
+ //  	$.ajax({
+	//   type: "DELETE",
+	//   url: 'https://iphixx.repairshopr.com/api/v1/devices/'+id+'?api_key=b60db6c6-2740-48c0-a0fa-34a49ecf6b3f',
+	 
+	//   success: (res) => {
+	//   	this.spinner.hide();
+	//   	console.log(res);
+	//   	this.adminService.devicesPage  = new Object(); 
+	//   	// this.router.navigate(['/devices']);
+	//   },
+	//   error:(err)=>{
+	//    console.log(err);
+	//    alert('Error! Please Try again.')
+	//    this.spinner.hide();
+	//   }
+	  
+	// });
   }
 
 }
