@@ -32,7 +32,6 @@
 												<th>Device Name</th>
 												<th>Model Number</th>
 												<th>Device Type</th>
-												<th>Brand</th>
 												<th></th>
 											</tr>
 										</thead>
@@ -40,10 +39,9 @@
 											<tr *ngFor="let device of devices ; let i = index">
 												
 												<td>{{ device.devicemodel_id }}</td>
-												<td>{{ device.model_name }}</td>
+												<td>{{ getBrand(device.devicebrand_id)}} {{ device.model_name }}</td>
 												<td>{{ device.model_number }}</td>
 												<td>{{ getType(device.devtype_id) }}</td>
-												<td>{{ getBrand(device.devicebrand_id)}}</td>
 												<td>
 
 													<button  [satPopoverAnchorFor]="contactPopover" (click)="contactPopover.toggle()" class="btn btn-default btn-sm">
