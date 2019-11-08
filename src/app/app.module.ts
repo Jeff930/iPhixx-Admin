@@ -35,6 +35,8 @@ import { ProcessLeadsComponent } from './process-leads/process-leads.component';
 import { AddReminderComponent } from './add-reminder/add-reminder.component';
 import { AddBookingComponent } from './add-booking/add-booking.component';
 import { AddTaxComponent } from './add-tax/add-tax.component';
+import { DevicesComponent } from './devices/devices.component';
+import { EditPriceComponent } from './edit-price/edit-price.component';
 
 // import { NotificationComponent } from './notification/notification.component';
 
@@ -63,6 +65,8 @@ import { AddTaxComponent } from './add-tax/add-tax.component';
     AddReminderComponent,
     AddBookingComponent,
     AddTaxComponent,
+    DevicesComponent,
+    EditPriceComponent,
     // NotificationComponent
 
   ],
