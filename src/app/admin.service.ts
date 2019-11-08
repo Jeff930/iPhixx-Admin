@@ -20,6 +20,12 @@ export interface Agents {
   page: any;
 }
 
+export interface Devices {
+  devices: Array<any>;
+  total_page: any;
+  page: any;
+}
+
 export interface Invoices {
   invoices: Array<any>;
   total_page: any;
@@ -84,6 +90,11 @@ export class AdminService implements CanActivate  {
   agentspageActive: number;
   agentsAction: string;
 
+  devicespages: any;
+  devicesPage  = new Object();
+  devicespageActive: number;
+  devicesAction: string;
+
   invoicespages: any;
   invoicesPage  = new Object();
   invoicePageActive: number;
@@ -115,6 +126,7 @@ export class AdminService implements CanActivate  {
     owner : [],
     inventory: [],
     agents: [],
+    devices: [],
   };
   notif = '';
   from = '';
@@ -163,7 +175,11 @@ return false;
 
   getAgents(page) {
     return this.http.get<Agents>('https://admin.iphixx.com/api/v1/customers/agents/?page=' + page);
-   }
+  }
+
+  getDevices(page = 1) {
+    return this.http.get<Devices>('https://admin.iphixx.com/api/v1/bookings/devices/?page=' + page);
+  }
 
   getInvoices(page =  1) {
     return this.http.get<Invoices>('https://admin.iphixx.com/api/v1/bookings/invoices/?page=' + page);
