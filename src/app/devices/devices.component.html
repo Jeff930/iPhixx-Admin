@@ -42,8 +42,8 @@
 												<td>{{ device.devicemodel_id }}</td>
 												<td>{{ device.model_name }}</td>
 												<td>{{ device.model_number }}</td>
-												<td>{{ device.devtype_id }}</td>
-												<td>{{ device.devicebrand_id}}</td>
+												<td>{{ getType(device.devtype_id) }}</td>
+												<td>{{ getBrand(device.devicebrand_id)}}</td>
 												<td>
 
 													<button  [satPopoverAnchorFor]="contactPopover" (click)="contactPopover.toggle()" class="btn btn-default btn-sm">
