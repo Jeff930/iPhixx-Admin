@@ -178,7 +178,7 @@ return false;
   }
 
   getDevices(page = 1) {
-    return this.http.get<Devices>('https://admin.iphixx.com/api/v1/bookings/devices/?page=' + page);
+    return this.http.get<Devices>('https://admin.iphixx.com/api/v1/bookings/all-devices/?page=' + page);
   }
 
   getInvoices(page =  1) {
