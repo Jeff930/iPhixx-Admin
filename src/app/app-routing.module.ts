@@ -34,6 +34,8 @@ import { AddReminderComponent } from './add-reminder/add-reminder.component';
 import { AddTaxComponent } from './add-tax/add-tax.component';
 import { DevicesComponent } from './devices/devices.component';
 import { EditPriceComponent } from './edit-price/edit-price.component';
+import { LaptopPriceComponent } from './laptop-price/laptop-price.component';
+import { EditLaptopPriceComponent } from './edit-laptop-price/edit-laptop-price.component';
 
 const routes: Routes = [
 
@@ -65,6 +67,7 @@ const routes: Routes = [
   { path: 'add-tax', component: AddTaxComponent },
   { path: 'devices', component: DevicesComponent },
   { path: 'edit-price/:id', component: EditPriceComponent },
+  { path: 'edit-laptop-price', component: EditLaptopPriceComponent },
   // { path: 'admin', component: DashboardComponent },
   // {
   //   path: 'device',
