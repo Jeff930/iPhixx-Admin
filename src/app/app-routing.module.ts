@@ -117,6 +117,7 @@ export const routingComponents = [
                                   AddReminderComponent,
                                   AddTaxComponent,
                                   DevicesComponent,
-                                  EditPriceComponent
+                                  EditPriceComponent,
+                                  EditLaptopPriceComponent
 
                                  ]
