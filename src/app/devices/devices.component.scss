@@ -6,6 +6,23 @@ th{
     padding: 0;
 }
 
+.editlaptop {
+	font-family: Helvetica;
+	button {
+			float: right;
+			color: white;
+			box-shadow: inset 0px 0px 5px 1px rgba(37, 44, 53, 0.2);
+			padding: 10px;
+			border-radius: 10px;
+			background-color: #2980b9;
+		}
+		button:hover,  {  
+			transition-timing-function: ease-in-out;
+			transition: 0.2s;
+			transform: scale(1.02);
+		}
+}
+
 .margin-icon{
 	margin-right : 10px;
 	cursor: pointer;
