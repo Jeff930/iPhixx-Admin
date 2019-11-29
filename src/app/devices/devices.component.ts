@@ -117,6 +117,10 @@ export class DevicesComponent implements OnInit {
   	this.router.navigate(['/edit-price' , index]);
   }
 
+  editLaptopPrice(){
+	this.router.navigate(['/edit-laptop-price']);
+}
+
   newAgent(){
 	  console.log("called");
   	this.adminService.devicesAction = 'new';
