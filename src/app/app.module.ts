@@ -37,6 +37,8 @@ import { AddBookingComponent } from './add-booking/add-booking.component';
 import { AddTaxComponent } from './add-tax/add-tax.component';
 import { DevicesComponent } from './devices/devices.component';
 import { EditPriceComponent } from './edit-price/edit-price.component';
+import { LaptopPriceComponent } from './laptop-price/laptop-price.component';
+import { EditLaptopPriceComponent } from './edit-laptop-price/edit-laptop-price.component';
 
 // import { NotificationComponent } from './notification/notification.component';
 
@@ -67,7 +69,8 @@ import { EditPriceComponent } from './edit-price/edit-price.component';
     AddTaxComponent,
     DevicesComponent,
     EditPriceComponent,
-    // NotificationComponent
+    LaptopPriceComponent,
+    EditLaptopPriceComponent
 
   ],
   imports: [
