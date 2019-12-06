@@ -53,6 +53,30 @@ export interface Customer {
   location: any;
 }
 
+export interface Device {
+  devicemodel_id: any;
+  model_name: any;
+  model_number: any;
+  screenrep_price: any;
+  headrep_price: any;
+  earrep_price: any;
+  powerrep_price: any;
+  rearcamrep_price: any;
+  frontcamrep_price: any;
+  homerep_price: any;
+  microphone_price: any;
+  chargeport_price: any;
+  volumerep_price: any;
+  battrep_price: any;
+  signalrep_price: any;
+  backglass_price: any;
+  trackpad_price: any;
+  hdmirep_price: any;
+  harddrive_rep: any;
+  devtype_id: any;
+  devicebrand_id: any;
+}
+
 export interface Counter {
   count: any;
 }
@@ -195,6 +219,10 @@ return false;
 
   getOwner(id) {
     return this.http.get<Customer>('https://admin.iphixx.com/api/v1/bookings/owner/' + id);
+  }
+
+  getDevice(id) {
+    return this.http.get<Device>('https://admin.iphixx.com/api/v1/bookings/device/' + id);
   }
 
   getRepair(id) {
