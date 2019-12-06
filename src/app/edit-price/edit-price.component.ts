@@ -22,7 +22,9 @@ export class EditPriceComponent implements OnInit {
       const id = params.get('id');
         this.adminService.getDevice(id).subscribe(res => {
           console.log(res);
-        }
+          this.price = res;
+        });
+    });
       //     if (res) {
          
       //     }
@@ -33,6 +35,39 @@ export class EditPriceComponent implements OnInit {
 
       // });
      
+  }
+
+  getBrand(brand){
+    if (brand=='1')
+      return "iPhone";
+    if (brand=='2')
+      return "Samsung";
+    if (brand=='3')
+      return "Huawei";
+    if (brand=='4')
+      return "Sony";
+    if (brand=='5')
+      return "Nokia";
+    if (brand=='6')
+      return "iPad";
+    if (brand=='7')
+      return "Hewlett Packard";
+    if (brand=='8')
+      return "Lenovo";
+    if (brand=='9')
+      return "Dell";
+    if (brand=='10')
+      return "Asus";
+    if (brand=='11')
+      return "Acer";
+    if (brand=='12')
+      return "Microsoft";
+    if (brand=='13')
+      return "Chromebook";
+    if (brand=='14')
+      return "Toshiba";
+    if (brand=='15')
+      return "MacBook";
   }
 
 }
