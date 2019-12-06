@@ -18,12 +18,21 @@ export class EditPriceComponent implements OnInit {
     public spinner : NgxSpinnerService) { }
 
   ngOnInit() {
-   
-  	this.route.paramMap.subscribe((params: ParamMap) => {
-      this.id = parseInt(params.get('id'));
- 		console.log(this.adminService.customersPage['page'+this.adminService.customerspageActive ][this.id])
- 		this.customer = this.adminService.customersPage['page'+this.adminService.customerspageActive ][this.id];
-    });
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      const id = params.get('id');
+        this.adminService.getDevice(id).subscribe(res => {
+          console.log(res);
+        }
+      //     if (res) {
+         
+      //     }
+         
+      //   }, err => {
+         
+      //   });
+
+      // });
+     
   }
 
 }
