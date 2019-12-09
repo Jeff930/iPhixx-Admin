@@ -78,27 +78,24 @@ export interface Device {
 }
 
 export interface LaptopPrice {
-  devicemodel_id: any;
-  model_name: any;
-  model_number: any;
-  screenrep_price: any;
-  headrep_price: any;
-  earrep_price: any;
-  powerrep_price: any;
-  rearcamrep_price: any;
-  frontcamrep_price: any;
-  homerep_price: any;
-  microphone_price: any;
-  chargeport_price: any;
-  volumerep_price: any;
-  battrep_price: any;
-  signalrep_price: any;
-  backglass_price: any;
-  trackpad_price: any;
-  hdmirep_price: any;
-  harddrive_rep: any;
-  devtype_id: any;
-  devicebrand_id: any;
+  LaptopPriceNo: any;
+  laptopscreenrep_price: any;
+  laptopchargerep_price: any;
+  keyboardrep_price: any;
+  fanrep_price: any;
+  laptopcamrep_price: any;
+  laptopspeakerrep_price: any;
+  laptopbatteryrep_price: any;
+  datarecovery: any;
+  virusremoval_withsoftware: any;
+  HDDHalfTeraWithDataTransfer: any;
+  HDDTeraWithDataTransfer: any;
+  HDDHalfTera: any;
+  HDDTera: any;
+  SSDHalfTeraWithDataTransfer: any;
+  SSDTeraWithDataTransfer: any;
+  SSDHalfTera: any;
+  SSDTera: any;
 }
 
 export interface Counter {
