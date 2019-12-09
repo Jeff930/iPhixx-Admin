@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from '../admin.service';
 
 @Component({
   selector: 'app-edit-laptop-price',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditLaptopPriceComponent implements OnInit {
 
-  constructor() { }
+  price;
+
+  constructor(public adminService : AdminService) { }
 
   ngOnInit() {
+        this.adminService.getLaptopPrice().subscribe(res => {
+          console.log(res);
+          this.price = res['result'][0];
+          console.log(this.price);
+        });
+      //     if (res) {
+         
+      //     }
+         
+      //   }, err => {
+         
+      //   });
+
+      // });
+     
   }
 
 }
