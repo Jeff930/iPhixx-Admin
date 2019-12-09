@@ -23,6 +23,11 @@ export class EditPriceComponent implements OnInit {
         this.adminService.getDevice(id).subscribe(res => {
           console.log(res);
           this.price = res;
+          if (this.price.screenrep_price == null){
+            console.log('empty')
+          }else{
+            console.log('nempty')
+          }
         });
     });
       //     if (res) {
@@ -38,6 +43,7 @@ export class EditPriceComponent implements OnInit {
   }
 
   getBrand(brand){
+    console.log(brand);
     if (brand=='1')
       return "iPhone";
     if (brand=='2')
