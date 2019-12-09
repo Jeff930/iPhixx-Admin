@@ -22,24 +22,24 @@
 								
 									<div class="col-lg-4 ">
 									
-										  <div class="form-group" *ngIf = "screenrep_price == null">
-										    <label for="exampleInputEmail1">Screen Repair</label>
-										    <input class="form-control" type="text" aria-describedby="emailHelp">
-										  </div>
-
-										  <div class="form-group" *ngIf = "microphone_price == null">
-										    <label for="exampleInputEmail1">Microphone Repair</label>
-										    <input class="form-control" type="text" aria-describedby="emailHelp" placeholder="€165">
-										  </div>
-
 										  <div class="form-group">
-										    <label for="exampleInputEmail1">Earpiece Repair</label>
-										    <input class="form-control" type="text" aria-describedby="emailHelp" placeholder="€145">
+										    <label for="exampleInputEmail1">Screen Repair (€)</label>
+										    <input class="form-control" [(ngModel)] = "price.screenrep_price" [disabled] = "price.screenrep_price == null" type="text" aria-describedby="emailHelp">
+										  </div>
+
+										  <div class="form-group" >
+										    <label for="exampleInputEmail1">Microphone Repair (€)</label>
+										    <input class="form-control" [(ngModel)] = "price.microphone_price" [disabled] = "price.microphone_price == null" type="text" aria-describedby="emailHelp">
+										  </div>
+
+										  <div class="form-group" >
+										    <label for="exampleInputEmail1">Earpiece Repair (€)</label>
+										    <input class="form-control" [(ngModel)] = "price.earrep_price" [disabled] = "price.earrep_price == null" type="text" aria-describedby="emailHelp">
 										  </div>
 
 										  <div  class="form-group">
-										    <label for="exampleInputEmail1">Back Camera Repair</label>
-										    <input class="form-control" type="text" aria-describedby="emailHelp" placeholder="€195">
+										    <label for="exampleInputEmail1">Back Camera Repair (€)</label>
+										    <input class="form-control" [(ngModel)] = "price.rearcamrep_price" [disabled] = "price.rearcamrep_price == null" type="text" aria-describedby="emailHelp" placeholder="€195">
 										  </div>
 
 										  
@@ -50,18 +50,20 @@
 									<div class="col-lg-4 ">
 
 										<div class="form-group">
-										    <label for="exampleInputEmail1">Back Glass Repair</label>
-										    <input class="form-control" type="text" aria-describedby="emailHelp" placeholder="N/A">
+										    <label for="exampleInputEmail1">Back Glass Repair (€)</label>
+										    <input class="form-control" [(ngModel)] = "price.backglass_price" [disabled] = "price.backglass_price == null" type="text" aria-describedby="emailHelp">
 										  </div>
 
 										  <div class="form-group">
-										    <label for="exampleInputEmail1">Charging Port Repair</label>
-										    <input class="form-control" type="text" aria-describedby="emailHelp" placeholder="€135">
+										    <label for="exampleInputEmail1">Charging Port Repair (€)</label>
+										    <input class="form-control" [(ngModel)] = "price.chargeport_price" type="text" 
+										    [disabled] = "price.chargeport_price == null" aria-describedby="emailHelp" placeholder="€135">
 										  </div>
 
 										  <div class="form-group">
-										    <label for="exampleInputEmail1">Volume Repair</label>
-										    <input class="form-control" type="text" aria-describedby="emailHelp" placeholder="€150">
+										    <label for="exampleInputEmail1">Volume Repair (€)</label>
+										    <input class="form-control" [(ngModel)] = "price.volumerep_price" type="text"  
+										    [disabled] = "price.volumerep_price == null" aria-describedby="emailHelp" placeholder="€150">
 										  </div>
 
 										 
@@ -71,18 +73,21 @@
 									<div class="col-lg-4 ">
 
 										 <div  class="form-group">
-										    <label for="exampleInputEmail1">Cellular Signal Repair</label>
-										    <input class="form-control" type="text" aria-describedby="emailHelp" placeholder="€135">
+										    <label for="exampleInputEmail1">Cellular Signal Repair (€)</label>
+										    <input class="form-control" [(ngModel)] = "price.signalrep_price" type="text" 
+										    [disabled] = "price.signalrep_price == null" aria-describedby="emailHelp" placeholder="€135">
 										  </div>
 
 										   <div  class="form-group">
-										    <label for="exampleInputEmail1">Front Camera Repair</label>
-										    <input class="form-control" type="text" aria-describedby="emailHelp" placeholder="€165">
+										    <label for="exampleInputEmail1">Front Camera Repair (€)</label>
+										    <input class="form-control" [(ngModel)] = "price.frontcamrep_price" type="text" 
+										    [disabled] = "price.frontcamrep_price == null" aria-describedby="emailHelp" placeholder="€165">
 										  </div>
 
 										   <div  class="form-group">
-										    <label for="exampleInputEmail1">Battery Repair</label>
-										    <input class="form-control" type="text" aria-describedby="emailHelp" placeholder="€145">
+										    <label for="exampleInputEmail1">Battery Repair (€)</label>
+										    <input class="form-control" [(ngModel)] = "price.battrep_price" type="text" 
+										    [disabled] = "price.battrep_price == null" aria-describedby="emailHelp" placeholder="€145">
 										  </div>
 									
 										
