@@ -24,70 +24,60 @@
 									
 										  <div class="form-group">
 										    <label for="exampleInputEmail1">Screen Repair</label>
-										    <input class="form-control" type="text" aria-describedby="emailHelp" placeholder="€230">
+										    <input class="form-control" [(ngModel)] = "price.laptopscreenrep_price" [disabled] = "price.laptopscreenrep_price == null" type="text" aria-describedby="emailHelp" placeholder="€230">
 										  </div>
 
 										  <div class="form-group">
 										    <label for="exampleInputEmail1">Charge Port Repair</label>
-										    <input class="form-control" type="text" aria-describedby="emailHelp" placeholder="€165">
+										    <input class="form-control" [(ngModel)] = "price.laptopchargerep_price" [disabled] = "price.laptopchargerep_price == null" type="text" aria-describedby="emailHelp" placeholder="€165">
 										  </div>
 
 										  <div class="form-group">
 										    <label for="exampleInputEmail1">Keyboard Repair</label>
-										    <input class="form-control" type="text" aria-describedby="emailHelp" placeholder="€145">
+										    <input class="form-control" [(ngModel)] = "price.keyboardrep_price" [disabled] = "price.keyboardrep_price == null" type="text" aria-describedby="emailHelp" placeholder="€145">
 										  </div>
 
 										  <div  class="form-group">
 										    <label for="exampleInputEmail1">Fan Repair</label>
-										    <input class="form-control" type="text" aria-describedby="emailHelp" placeholder="€195">
+										    <input class="form-control" [(ngModel)] = "price.fanrep_price" [disabled] = "price.fanrep_price == null" type="text" aria-describedby="emailHelp" placeholder="€195">
 										  </div>
 
 										  <div class="form-group">
 										    <label for="exampleInputEmail1">Virus Removal</label>
-										    <input class="form-control" type="text" aria-describedby="emailHelp" placeholder="€165">
+										    <input class="form-control" [(ngModel)] = "price.virusremoval_withsoftware" [disabled] = "price.virusremoval_withsoftware == null" type="text" aria-describedby="emailHelp" placeholder="€165">
 										  </div>
 
 										  <div class="form-group">
 										    <label for="exampleInputEmail1">500GB HDD with OS Reinstall</label>
-										    <input class="form-control" type="text" aria-describedby="emailHelp" placeholder="€145">
+										    <input class="form-control" [(ngModel)] = "price.HDDHalfTera" [disabled] = "price.HDDHalfTera == null" type="text" aria-describedby="emailHelp" placeholder="€145">
 										  </div>
 
 										  <div  class="form-group">
 										    <label for="exampleInputEmail1">1TB SSD with OS Reinstall and Data Transfer</label>
-										    <input class="form-control" type="text" aria-describedby="emailHelp" placeholder="€195">
+										    <input class="form-control" [(ngModel)] = "price.SSDTeraWithDataTransfer" [disabled] = "price.SSDTeraWithDataTransfer == null" type="text" aria-describedby="emailHelp" placeholder="€195">
 										  </div>							 
 										
 									</div>
 									<div class="col-lg-4 ">
 
-										  <div class="form-group">
-										    <label for="exampleInputEmail1">Back Glass Repair</label>
-										    <input class="form-control" type="text" aria-describedby="emailHelp" placeholder="N/A">
-										  </div>
-
-										  <div class="form-group">
-										    <label for="exampleInputEmail1">Charging Port Repair</label>
-										    <input class="form-control" type="text" aria-describedby="emailHelp" placeholder="€135">
-										  </div>
-
 										   <div class="form-group">
 										    <label for="exampleInputEmail1">Camera Repair</label>
-										    <input class="form-control" type="text" aria-describedby="emailHelp" placeholder="€150">
+										    <input class="form-control" [(ngModel)] = "price.laptopcamrep_price" [disabled] = "price.laptopcamrep_price == null" type="text" aria-describedby="emailHelp" placeholder="€150">
 										  </div>
 
 										  <div class="form-group">
-										    <label for="exampleInputEmail1">1TB SSD with OS Reinstall and Data Transfer</label>
-										    <input class="form-control" type="text" aria-describedby="emailHelp" placeholder="€150">
+										    <label for="exampleInputEmail1">1TB HDD with OS Reinstall and Data Transfer</label>
+										    <input class="form-control" [(ngModel)] = "price.HDDTeraWithDataTransfer" [disabled] = "price.HDDTeraWithDataTransfer == null" type="text" aria-describedby="emailHelp" placeholder="€150">
 										  </div>
 										 
 										 <div class="form-group">
 										    <label for="exampleInputEmail1">500GB SSD with OS Reinstall and Data Transfer</label>
-										    <input class="form-control" type="text" aria-describedby="emailHelp" placeholder="N/A">
+										    <input class="form-control" [(ngModel)] = "price.SSDHalfTeraWithDataTransfer" [disabled] = "price.SSDHalfTeraWithDataTransfer == null" type="text" aria-describedby="emailHelp" placeholder="N/A">
 										  </div>
 
 										  <div class="form-group">
 										    <label for="exampleInputEmail1">500GB SSD with OS Reinstall</label>
-										    <input class="form-control" type="text" aria-describedby="emailHelp" placeholder="€135">
+										    <input class="form-control" [(ngModel)] = "price.SSDHalfTera" [disabled] = "price.SSDHalfTera == null" type="text" aria-describedby="emailHelp" placeholder="€135">
 										  </div>
 
 									</div>
@@ -95,32 +85,32 @@
 
 										 <div  class="form-group">
 										    <label for="exampleInputEmail1">Speaker Repair</label>
-										    <input class="form-control" type="text" aria-describedby="emailHelp" placeholder="€135">
+										    <input class="form-control" [(ngModel)] = "price.laptopscreenrep_price" [disabled] = "price.laptopscreenrep_price == null" type="text" aria-describedby="emailHelp" placeholder="€135">
 										  </div>
 
 										   <div  class="form-group">
 										    <label for="exampleInputEmail1">Battery Repair</label>
-										    <input class="form-control" type="text" aria-describedby="emailHelp" placeholder="€165">
+										    <input class="form-control" [(ngModel)] = "price.laptopspeakerrep_price" [disabled] = "price.laptopspeakerrep_price == null" type="text" aria-describedby="emailHelp" placeholder="€165">
 										  </div>
 
 										   <div  class="form-group">
 										    <label for="exampleInputEmail1">Data Recovery</label>
-										    <input class="form-control" type="text" aria-describedby="emailHelp" placeholder="€145">
+										    <input class="form-control" [(ngModel)] = "price.datarecovery" [disabled] = "price.datarecovery == null" type="text" aria-describedby="emailHelp" placeholder="€145">
 										  </div>
 
 										  <div  class="form-group">
 										    <label for="exampleInputEmail1">500GB HDD with OS Reinstall and Data Transfer</label>
-										    <input class="form-control" type="text" aria-describedby="emailHelp" placeholder="€135">
+										    <input class="form-control" [(ngModel)] = "price.HDDHalfTeraWithDataTransfer" [disabled] = "price.HDDHalfTeraWithDataTransfer == null" type="text" aria-describedby="emailHelp" placeholder="€135">
 										  </div>
 
 										   <div  class="form-group">
-										    <label for="exampleInputEmail1">1TB HDDD with OS Reinstall</label>
-										    <input class="form-control" type="text" aria-describedby="emailHelp" placeholder="€165">
+										    <label for="exampleInputEmail1">1TB HDD with OS Reinstall</label>
+										    <input class="form-control" [(ngModel)] = "price.HDDTera" [disabled] = "price.HDDTera == null" type="text" aria-describedby="emailHelp" placeholder="€165">
 										  </div>
 
 										   <div  class="form-group">
 										    <label for="exampleInputEmail1">1TB SSD with OS Reinstall</label>
-										    <input class="form-control" type="text" aria-describedby="emailHelp" placeholder="€145">
+										    <input class="form-control" [(ngModel)] = "price.HDDTeraWithDataTransfer" [disabled] = "price.HDDTeraWithDataTransfer == null" type="text" aria-describedby="emailHelp" placeholder="€145">
 										  </div>
 									
 										
