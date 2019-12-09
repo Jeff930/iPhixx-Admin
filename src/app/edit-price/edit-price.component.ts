@@ -18,9 +18,7 @@ export class EditPriceComponent implements OnInit {
     public spinner : NgxSpinnerService) { }
 
   ngOnInit() {
-    this.route.paramMap.subscribe((params: ParamMap) => {
-      const id = params.get('id');
-        this.adminService.getDevice(id).subscribe(res => {
+        this.adminService.getLaptopPrice().subscribe(res => {
           console.log(res);
           this.price = res;
           if (this.price.screenrep_price == null){
@@ -29,7 +27,6 @@ export class EditPriceComponent implements OnInit {
             console.log('nempty')
           }
         });
-    });
       //     if (res) {
          
       //     }
@@ -74,6 +71,10 @@ export class EditPriceComponent implements OnInit {
       return "Toshiba";
     if (brand=='15')
       return "MacBook";
+  }
+
+  goToDevices(){
+    this.router.navigate(['/devices']);
   }
 
 }
