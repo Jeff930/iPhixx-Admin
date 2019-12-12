@@ -405,6 +405,28 @@ updateAgent(agent) {
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
 
+updatePrice(prices) {
+  console.log(prices);
+
+  const body = new HttpParams()
+   .set('screenrep_price', prices.screenrep_price)
+   .set('headrep_price', prices.headrep_price)
+   .set('earrep_price', prices.agent_username)
+   .set('powerrep_price', prices.agent_email)
+   .set('rearcamrep_price', prices.agent_phone)
+   .set('frontcamrep_price',prices.agent_location)
+   .set('homerep_price',prices.agent_pin)
+   .set('microphone_price',prices.agent_password)
+   .set('chargeport_price',prices.store_assigned)
+   .set('volumerep_price',prices.agent_location)
+   .set('battrep_price',prices.agent_pin)
+   .set('signalrep_price',prices.agent_password)
+   .set('backglass_price',prices.store_assigned)
+
+  return this.http.put('http://admin.iphixx.com/api/v1/customers/edit-price/'+agent.agent_id,
+    body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
+}
+
 editOwner(owner) {
   console.log(owner);
 
