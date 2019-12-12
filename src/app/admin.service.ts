@@ -407,7 +407,6 @@ updateAgent(agent) {
 
 updatePrice(prices) {
   console.log(prices);
-
   const body = new HttpParams()
    .set('screenrep_price', prices.screenrep_price)
    .set('headrep_price', prices.headrep_price)
@@ -424,6 +423,27 @@ updatePrice(prices) {
    .set('backglass_price',prices.backglass_price)
 
   return this.http.put('http://admin.iphixx.com/api/v1/customers/edit-price/'+prices.devicemodel_id,
+    body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
+}
+
+updateLaptopPrice(prices) {
+  console.log(prices);
+  const body = new HttpParams()
+   .set('laptopscreenrep_price', prices.laptopscreenrep_price)
+   .set('headrep_price', prices.headrep_price)
+   .set('earrep_price', prices.earrep_price)
+   .set('powerrep_price', prices.powerrep_price)
+   .set('rearcamrep_price', prices.rearcamrep_price)
+   .set('frontcamrep_price',prices.frontcamrep_price)
+   .set('homerep_price',prices.homerep_price)
+   .set('microphone_price',prices.microphone_price)
+   .set('chargeport_price',prices.chargeport_price)
+   .set('volumerep_price',prices.volumerep_price)
+   .set('battrep_price',prices.battrep_price)
+   .set('signalrep_price',prices.signalrep_price)
+   .set('backglass_price',prices.backglass_price)
+
+  return this.http.put('http://admin.iphixx.com/api/v1/customers/edit-laptop-price/'+prices.devicemodel_id,
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
 
