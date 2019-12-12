@@ -411,19 +411,19 @@ updatePrice(prices) {
   const body = new HttpParams()
    .set('screenrep_price', prices.screenrep_price)
    .set('headrep_price', prices.headrep_price)
-   .set('earrep_price', prices.agent_username)
-   .set('powerrep_price', prices.agent_email)
-   .set('rearcamrep_price', prices.agent_phone)
-   .set('frontcamrep_price',prices.agent_location)
-   .set('homerep_price',prices.agent_pin)
-   .set('microphone_price',prices.agent_password)
-   .set('chargeport_price',prices.store_assigned)
-   .set('volumerep_price',prices.agent_location)
-   .set('battrep_price',prices.agent_pin)
-   .set('signalrep_price',prices.agent_password)
-   .set('backglass_price',prices.store_assigned)
+   .set('earrep_price', prices.earrep_price)
+   .set('powerrep_price', prices.powerrep_price)
+   .set('rearcamrep_price', prices.rearcamrep_price)
+   .set('frontcamrep_price',prices.frontcamrep_price)
+   .set('homerep_price',prices.homerep_price)
+   .set('microphone_price',prices.microphone_price)
+   .set('chargeport_price',prices.chargeport_price)
+   .set('volumerep_price',prices.volumerep_price)
+   .set('battrep_price',prices.battrep_price)
+   .set('signalrep_price',prices.signalrep_price)
+   .set('backglass_price',prices.backglass_price)
 
-  return this.http.put('http://admin.iphixx.com/api/v1/customers/edit-price/'+agent.agent_id,
+  return this.http.put('http://admin.iphixx.com/api/v1/customers/edit-price/'+prices.devicemodel_id,
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
 
