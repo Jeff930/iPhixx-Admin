@@ -421,8 +421,7 @@ updatePrice(prices) {
    .set('battrep_price',prices.battrep_price)
    .set('signalrep_price',prices.signalrep_price)
    .set('backglass_price',prices.backglass_price)
-
-  return this.http.put('http://admin.iphixx.com/api/v1/customers/edit-price/'+prices.devicemodel_id,
+  return this.http.put('http://admin.iphixx.com/api/v1/bookings/edit-price/'+prices.devicemodel_id,
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
 
