@@ -57,7 +57,7 @@
 									    <thead>
 									    <tr>
 									        <th>
-											 SKU
+											 Model Table ID
 									        </th>
 									        <th>
 									           Device Model
@@ -77,12 +77,282 @@
 									    </tr>
 									    </thead>
 									    <tbody>
-									    <tr *ngFor="let item of inventory; let i = index" >
-									       <!--  <td>{{item.name}}</td>
-									        <td>{{item.email}}</td>
-									        <td class="text-right">{{item.age}}</td>
-									        <td>{{item.city | uppercase}}</td>
-									        <td>{{item.city | uppercase}}</td> -->
+									    <tr>
+									        	<td>1</td>
+												<td>iPhone X</td>
+												<td>Screen</td>
+												<td>50</td>
+												<td>09/30/19</td>
+												<td>€ 75</td>
+												<td>
+
+														<button  [satPopoverAnchorFor]="contactPopover" (click)="contactPopover.toggle()" class="btn btn-default btn-sm">
+		          										<span class="glyphicon glyphicon-option-horizontal"></span>
+		        									</button>
+
+
+													<sat-popover #contactPopover hasBackdrop verticalAlign="below">
+													  <div class="list-group">
+														<a (click)="checkStatus(lead.bookings_id, lead.rep_status)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-flag"></span>  Restock Item</a>
+														 
+														 
+														  </div>
+
+													</sat-popover>
+															        								
+												</td>
+									    </tr>
+									    <tr>
+									        	<td>2</td>
+												<td>iPhone X</td>
+												<td>Microphone</td>
+												<td>50</td>
+												<td>09/04/19</td>
+												<td>€ 65</td>
+												<td>
+
+														<button  [satPopoverAnchorFor]="contactPopover" (click)="contactPopover.toggle()" class="btn btn-default btn-sm">
+		          										<span class="glyphicon glyphicon-option-horizontal"></span>
+		        									</button>
+
+
+													<sat-popover #contactPopover hasBackdrop verticalAlign="below">
+													  <div class="list-group">
+														<a (click)="checkStatus(lead.bookings_id, lead.rep_status)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-flag"></span>  Restock Item</a>
+														 
+														 
+														  </div>
+
+													</sat-popover>
+															        								
+												</td>
+									    </tr>
+									    <tr>
+									        	<td>3</td>
+												<td>iPhone X</td>
+												<td>Earpiece</td>
+												<td>50</td>
+												<td>08/07/19</td>
+												<td>€ 85</td>
+												<td>
+
+														<button  [satPopoverAnchorFor]="contactPopover" (click)="contactPopover.toggle()" class="btn btn-default btn-sm">
+		          										<span class="glyphicon glyphicon-option-horizontal"></span>
+		        									</button>
+
+
+													<sat-popover #contactPopover hasBackdrop verticalAlign="below">
+													  <div class="list-group">
+														<a (click)="checkStatus(lead.bookings_id, lead.rep_status)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-flag"></span>  Restock Item</a>
+														 
+														 
+														  </div>
+
+													</sat-popover>
+															        								
+												</td>
+									    </tr>
+									    <tr>
+									        	<td>4</td>
+												<td>iPhone X</td>
+												<td>Charge Port</td>
+												<td>50</td>
+												<td>07/07/19</td>
+												<td>€ 65</td>
+												<td>
+
+														<button  [satPopoverAnchorFor]="contactPopover" (click)="contactPopover.toggle()" class="btn btn-default btn-sm">
+		          										<span class="glyphicon glyphicon-option-horizontal"></span>
+		        									</button>
+
+
+													<sat-popover #contactPopover hasBackdrop verticalAlign="below">
+													  <div class="list-group">
+														<a (click)="checkStatus(lead.bookings_id, lead.rep_status)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-flag"></span>  Restock Item</a>
+														 
+														 
+														  </div>
+
+													</sat-popover>
+															        								
+												</td>
+									    </tr>
+									    <tr>
+									        	<td>5</td>
+												<td>iPhone X</td>
+												<td>Front Camera</td>
+												<td>50</td>
+												<td>09/30/19</td>
+												<td>€ 75</td>
+												<td>
+
+														<button  [satPopoverAnchorFor]="contactPopover" (click)="contactPopover.toggle()" class="btn btn-default btn-sm">
+		          										<span class="glyphicon glyphicon-option-horizontal"></span>
+		        									</button>
+
+
+													<sat-popover #contactPopover hasBackdrop verticalAlign="below">
+													  <div class="list-group">
+														<a (click)="checkStatus(lead.bookings_id, lead.rep_status)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-flag"></span>  Restock Item</a>
+														 
+														 
+														  </div>
+
+													</sat-popover>
+															        								
+												</td>
+									    </tr>
+									    <tr>
+									        	<td>6</td>
+												<td>iPhone X</td>
+												<td>Rear Camera</td>
+												<td>50</td>
+												<td>09/07/19</td>
+												<td>€ 75</td>
+												<td>
+
+														<button  [satPopoverAnchorFor]="contactPopover" (click)="contactPopover.toggle()" class="btn btn-default btn-sm">
+		          										<span class="glyphicon glyphicon-option-horizontal"></span>
+		        									</button>
+
+
+													<sat-popover #contactPopover hasBackdrop verticalAlign="below">
+													  <div class="list-group">
+														<a (click)="checkStatus(lead.bookings_id, lead.rep_status)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-flag"></span>  Restock Item</a>
+														 
+														 
+														  </div>
+
+													</sat-popover>
+															        								
+												</td>
+									    </tr>
+									    <tr>
+									        	<td>7</td>
+												<td>iPhone 8 Plus</td>
+												<td>Screen</td>
+												<td>50</td>
+												<td>09/25/19</td>
+												<td>€ 50</td>
+												<td>
+
+														<button  [satPopoverAnchorFor]="contactPopover" (click)="contactPopover.toggle()" class="btn btn-default btn-sm">
+		          										<span class="glyphicon glyphicon-option-horizontal"></span>
+		        									</button>
+
+
+													<sat-popover #contactPopover hasBackdrop verticalAlign="below">
+													  <div class="list-group">
+														<a (click)="checkStatus(lead.bookings_id, lead.rep_status)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-flag"></span>  Restock Item</a>
+														 
+														 
+														  </div>
+
+													</sat-popover>
+															        								
+												</td>
+									    </tr>
+									    <tr>
+									        	<td>8</td>
+												<td>iPhone 8 Plus</td>
+												<td>Microphone</td>
+												<td>50</td>
+												<td>10/22/19</td>
+												<td>€ 35</td>
+												<td>
+
+														<button  [satPopoverAnchorFor]="contactPopover" (click)="contactPopover.toggle()" class="btn btn-default btn-sm">
+		          										<span class="glyphicon glyphicon-option-horizontal"></span>
+		        									</button>
+
+
+													<sat-popover #contactPopover hasBackdrop verticalAlign="below">
+													  <div class="list-group">
+														<a (click)="checkStatus(lead.bookings_id, lead.rep_status)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-flag"></span>  Restock Item</a>
+														 
+														 
+														  </div>
+
+													</sat-popover>
+															        								
+												</td>
+									    </tr>
+									    <tr>
+									        	<td>9</td>
+												<td>iPhone 8 Plus</td>
+												<td>Earpiece</td>
+												<td>50</td>
+												<td>09/27/19</td>
+												<td>€ 30</td>
+												<td>
+
+														<button  [satPopoverAnchorFor]="contactPopover" (click)="contactPopover.toggle()" class="btn btn-default btn-sm">
+		          										<span class="glyphicon glyphicon-option-horizontal"></span>
+		        									</button>
+
+
+													<sat-popover #contactPopover hasBackdrop verticalAlign="below">
+													  <div class="list-group">
+														<a (click)="checkStatus(lead.bookings_id, lead.rep_status)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-flag"></span>  Restock Item</a>
+														 
+														 
+														  </div>
+
+													</sat-popover>
+															        								
+												</td>
+									    </tr>
+									    <tr>
+									        	<td>10</td>
+												<td>iPhone 8 Plus</td>
+												<td>Front Camera</td>
+												<td>50</td>
+												<td>08/28/19</td>
+												<td>€ 45</td>
+												<td>
+
+														<button  [satPopoverAnchorFor]="contactPopover" (click)="contactPopover.toggle()" class="btn btn-default btn-sm">
+		          										<span class="glyphicon glyphicon-option-horizontal"></span>
+		        									</button>
+
+
+													<sat-popover #contactPopover hasBackdrop verticalAlign="below">
+													  <div class="list-group">
+														<a (click)="checkStatus(lead.bookings_id, lead.rep_status)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-flag"></span>  Restock Item</a>
+														 
+														 
+														  </div>
+
+													</sat-popover>
+															        								
+												</td>
+									    </tr>
+									    <tr>
+									        	<td>11</td>
+												<td>iPhone 8 Plus</td>
+												<td>Rear Camera</td>
+												<td>50</td>
+												<td>09/17/19</td>
+												<td>€ 55</td>
+												<td>
+
+														<button  [satPopoverAnchorFor]="contactPopover" (click)="contactPopover.toggle()" class="btn btn-default btn-sm">
+		          										<span class="glyphicon glyphicon-option-horizontal"></span>
+		        									</button>
+
+
+													<sat-popover #contactPopover hasBackdrop verticalAlign="below">
+													  <div class="list-group">
+														<a (click)="checkStatus(lead.bookings_id, lead.rep_status)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-flag"></span>  Restock Item</a>
+														 
+														 
+														  </div>
+
+													</sat-popover>
+															        								
+												</td>
+									    </tr>
+									    <!-- <tr *ngFor="let item of inventory; let i = index" >
 									        	<td>{{ item.item_no }}</td>
 												<td>{{ item.phone_brand }} {{ item.pmodel_name}}</td>
 												<td>{{ item.part_name }}</td>
@@ -98,7 +368,6 @@
 
 													<sat-popover #contactPopover hasBackdrop verticalAlign="below">
 													  <div class="list-group">
-													  	<!-- <a (click)="updatePaymentStatus(lead.id, i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-ok"></span>   Mark as Paid</a> -->
 														<a (click)="checkStatus(lead.bookings_id, lead.rep_status)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-flag"></span>  Restock Item</a>
 														 
 														 
@@ -107,8 +376,7 @@
 													</sat-popover>
 															        								
 												</td>
-												<!-- <td><button (click) = "updateBooking(lead.id)" class="btn btn-primary">Update Status</button></td> -->
-									    </tr>
+									    </tr> -->
 									    </tbody>
 									    <tfoot>
 									    <tr>
