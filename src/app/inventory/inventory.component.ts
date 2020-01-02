@@ -30,36 +30,36 @@ export class InventoryComponent implements OnInit {
 }
 
   ngOnInit() {
-    this.route.paramMap.subscribe((params: ParamMap) => {
-      if (params.get('page') !== 'invt') {
-        this.pager = 'categories';
-      } else {
-        this.pager = 'products';
-      }
-    });
-  this.adminService.getModels().subscribe(res => {
-    console.log(res);
-    this.allModels = res;
-  });
+  //   this.route.paramMap.subscribe((params: ParamMap) => {
+  //     if (params.get('page') !== 'invt') {
+  //       this.pager = 'categories';
+  //     } else {
+  //       this.pager = 'products';
+  //     }
+  //   });
+  // this.adminService.getModels().subscribe(res => {
+  //   console.log(res);
+  //   this.allModels = res;
+  // });
   
 
-    if (this.inventory.length == 0) {
-      this.spinner.show();
-    this.inventoryPageActive = 1;
-    this.adminService.inventoryPageActive = this.inventoryPageActive;
-    this.adminService.getInventory().subscribe( ( res ) => {
-  console.log("this res:"+ JSON.stringify(res));
-  this.inventoryPages = Array(res.total_page);
-    this.adminService.inventoryPages = this.inventoryPages;
-    console.log(this.inventoryPages)	
-    this.adminService.inventoryPage['page'+1 ] = res.inventory;
-    console.log(this.inventoryPage)
-    this.inventory = this.adminService.inventoryPage['page'+1 ];
-    console.log(this.inventory)
-    this.spinner.hide();
-    this.adminService.global.inventory = this.inventory;	
-  })
-  }
+  //   if (this.inventory.length == 0) {
+  //     this.spinner.show();
+  //   this.inventoryPageActive = 1;
+  //   this.adminService.inventoryPageActive = this.inventoryPageActive;
+  //   this.adminService.getInventory().subscribe( ( res ) => {
+  // console.log("this res:"+ JSON.stringify(res));
+  // this.inventoryPages = Array(res.total_page);
+  //   this.adminService.inventoryPages = this.inventoryPages;
+  //   console.log(this.inventoryPages)	
+  //   this.adminService.inventoryPage['page'+1 ] = res.inventory;
+  //   console.log(this.inventoryPage)
+  //   this.inventory = this.adminService.inventoryPage['page'+1 ];
+  //   console.log(this.inventory)
+  //   this.spinner.hide();
+  //   this.adminService.global.inventory = this.inventory;	
+  // })
+  // }
 
 
 }
