@@ -49,6 +49,7 @@ export class InvoicesComponent implements OnInit {
     this.invoicePageActive = 1;
     this.adminService.invoicePageActive = this.invoicePageActive;
     this.adminService.getInvoices().subscribe( ( res ) => {
+      this.spinner.hide();
   console.log("this res:"+ JSON.stringify(res));
   console.log(res);
   this.invoicespages = Array(res.total_page);
@@ -58,7 +59,7 @@ export class InvoicesComponent implements OnInit {
     console.log(this.invoicesPage)
     this.invoices = this.adminService.invoicesPage['page'+1 ];
     console.log(JSON.stringify(this.invoices));
-    this.spinner.hide();
+    
     this.adminService.global.invoices = this.invoices;	
   });
   }
