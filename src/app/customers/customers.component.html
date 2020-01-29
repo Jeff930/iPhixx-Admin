@@ -18,7 +18,7 @@
 								<div class="panel-heading">
 									<div class="sub-menu">
 										<h4 (click)= "openPager('customers')" [ngStyle]="{'color':pager === 'customers' ? '#2980b9' : 'black', 'background': pager === 'customers' ? '#ffffff' : 'none'}">Customers/Users</h4>
-										<h4 (click)= "openPager('manages')" [ngStyle]="{'color': pager === 'manages' ? '#2980b9' : 'black', 'background': pager === 'manages' ? '#ffffff' : 'none'}" class="panel-title">Manage Roles</h4>
+										<!-- <h4 (click)= "openPager('manages')" [ngStyle]="{'color': pager === 'manages' ? '#2980b9' : 'black', 'background': pager === 'manages' ? '#ffffff' : 'none'}" class="panel-title">Manage Roles</h4> -->
 									</div>
 									<!-- <div class="col-lg-offset-6 col-lg-3">
 										<button class="new-customer" (click)="newCustomer()">+ New Customer</button>
@@ -40,8 +40,8 @@
 												<th>Customer/Business Name</th>
 												<th>Email</th>
 												<th>Phone</th>
-												<th>Address</th>
-												<th>location</th>
+												<!-- <th>Address</th>
+												<th>location</th> -->
 												<th>Created at</th>
 												<th>Action</th>
 												
@@ -53,8 +53,8 @@
 												<td>{{ customer.customer_fname }} {{ customer.customer_lname }}</td>
 												<td>{{ customer.email }}</td>
 												<td>{{ customer.phone }}</td>
-												<td>{{ customer.address }}</td>
-												<td>{{ customer.location }}</td>
+												<!-- <td>{{ customer.address }}</td>
+												<td>{{ customer.location }}</td> -->
 												<td>{{ customer.created_at }}</td>
 												<td>
 
