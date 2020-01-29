@@ -191,6 +191,7 @@ export class EditCustomerComponent implements OnInit {
   }
 
   actionCustomer(){
+	console.log(this.adminService.customersAction);
   	if(this.adminService.customersAction == 'update'){
   		this.updateCustomer();
   	}
