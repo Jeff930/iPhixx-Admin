@@ -298,7 +298,7 @@ return false;
      .set('birthdate', customer.birthdate)
      .set('location', customer.location);
 
-    return this.http.post('https://admin.iphixx.com/api/v1/customers/add',
+    return this.http.post('https://admin.iphixx.com/api/v1/customers/',
      body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
  }
 
