@@ -16,7 +16,7 @@
 							<!-- TABLE HOVER -->
 							<div class="panel panel-headline">
 								<div class="panel-heading">
-										<h3 class="panel-title">Tickets</h3>
+										<h4 (click)= "openPager('tickets')" [ngStyle]="{'color':pager === 'tickets' ? '#2980b9' : 'black', 'background': pager === 'tickets' ? '#ffffff' : 'none'}">Tickets</h4>
 									<!-- <div class="form-group col-lg-8">
 										<label for="selections">Select Location:</label>
 										<select class="form-control" [(ngModel)]="location" id="selections">
