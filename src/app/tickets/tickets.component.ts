@@ -12,7 +12,7 @@ import { Router , ActivatedRoute  } from '@angular/router';
 })
 export class TicketsComponent implements OnInit {
 
-
+	pager = 'tickets';
 	tickets = [];
 	ticketsPage = new Object();
 	ticketPages: any;
