@@ -12,7 +12,7 @@ import { AlertsService } from 'angular-alert-module';
   styleUrls: ['./leads.component.scss']
 })
 export class LeadsComponent implements OnInit {
-
+  pager = 'leads';
   leads = [] ;
   leadsPage  = new Object();
   pages : any;
