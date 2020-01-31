@@ -17,7 +17,14 @@
 							<!-- TABLE HOVER -->
 							<div class="panel panel-headline">
 								<div class="panel-heading">
-									<h3 class="panel-title">Leads</h3>
+									<div class="sub-menu">
+										<h4 (click)= "openPager('leads')" [ngStyle]="{'color':pager === 'leads' ? '#2980b9' : 'black', 'background': pager === 'leads' ? '#ffffff' : 'none'}">Leads</h4>
+										<!-- <h4 (click)= "openPager('manages')" [ngStyle]="{'color': pager === 'manages' ? '#2980b9' : 'black', 'background': pager === 'manages' ? '#ffffff' : 'none'}" class="panel-title">Manage Roles</h4> -->
+									</div>
+									<!-- <div class="col-lg-offset-6 col-lg-3">
+										<button class="new-customer" (click)="newCustomer()">+ New Customer</button>
+									</div> -->
+									
 								</div>
 								<div class="panel-body">
 								<!-- 	<table class="table table-hover">
