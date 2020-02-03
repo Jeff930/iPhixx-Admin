@@ -16,13 +16,14 @@
 							<!-- TABLE HOVER -->
 							<div class="panel panel-headline">
 								<div class="panel-heading">
-							
-									<div class=" col-lg-3">
-										<h3 class="panel-title">Device Models</h3>
-										
+									<div class="sub-menu">
+										<h4 (click)= "openPager('devices')" [ngStyle]="{'color':pager === 'devices' ? '#2980b9' : 'black', 'background': pager === 'devices' ? '#ffffff' : 'none'}">Device Models</h4>
+										<!-- <h4 (click)= "openPager('manages')" [ngStyle]="{'color': pager === 'manages' ? '#2980b9' : 'black', 'background': pager === 'manages' ? '#ffffff' : 'none'}" class="panel-title">Manage Roles</h4> -->
 									</div>
-									
-									<div class="editlaptop align-items-end">
+									<!-- <div class="col-lg-offset-6 col-lg-3">
+										<button class="new-customer" (click)="newCustomer()">+ New Customer</button>
+									</div> -->
+									<div class="addCustomer  align-items-end">
 										<button type="button" class="btn" (click)="editLaptopPrice()" >
 											<i class="lnr lnr-pencil"></i>
 												Edit Laptop Prices
