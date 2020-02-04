@@ -11,6 +11,7 @@ import { Router , ActivatedRoute  } from '@angular/router';
 })
 export class DevicesComponent implements OnInit {
 
+  pager = 'devices';
   devices = []; 	
   devicesPage  = new Object();	
   devicespages : any;
