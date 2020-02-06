@@ -27,7 +27,7 @@ export class EditCustomerComponent implements OnInit {
   	phone : '',
   	address :'',
   	birthdate : '',
-  	location: '',
+  	location_id: '',
   	// city : '',
   	// state : '',
   	// zip : '',
