@@ -31,7 +31,7 @@
     "angular-vertical-timeline": "^0.6.0",
     "core-js": "^2.5.4",
     "hammerjs": "^2.0.8",
-    "jquery": "^3.3.1",
+    "jquery": "^3.4.0",
     "ng2-opd-popup": "^1.1.21",
     "ngx-modal-dialog": "^3.0.0",
     "ngx-smart-modal": "^7.1.0",
