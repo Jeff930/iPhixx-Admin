@@ -290,13 +290,13 @@ return false;
  addCustomer(customer) {
    console.log(customer);
    const body = new HttpParams()
-    .set('customer_fname', customer.customer_fname)
-    .set('customer_lname', customer.customer_lname)
+    .set('firstName', customer.customer_fname)
+    .set('lastName', customer.customer_lname)
     .set('email', customer.email)
-    .set('phone', customer.phone)
+    .set('mobile', customer.phone)
      .set('address', customer.address)
      .set('birthdate', customer.birthdate)
-     .set('location', customer.location);
+     .set('location_id', customer.location_id);
 
     return this.http.post('https://admin.iphixx.com/api/v1/customers/',
      body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
