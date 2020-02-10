@@ -294,10 +294,10 @@ return false;
     .set('lastName', customer.customer_lname)
     .set('email', customer.email)
     .set('mobile', customer.phone)
-     .set('address', customer.address)
-     .set('birthdate', customer.birthdate)
-     .set('location_id', customer.location_id);
-
+    .set('address', customer.address)
+    .set('birthdate', customer.birthdate)
+    .set('location_id', customer.location_id)
+    .set('smsOption',customer.smsOption);
     return this.http.post('https://admin.iphixx.com/api/v1/customers/',
      body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
  }
@@ -370,7 +370,8 @@ return false;
    .set('email', customer.email)
    .set('phone', customer.phone)
    .set('location', customer.location)
-   .set('birthdate', customer.birthdate);
+   .set('birthdate', customer.birthdate)
+   .set('smsOption',customer.smsOption);
   //  .set('address', customer.address)
   //  .set('address_2', customer.address2)
   //  .set('city', customer.city)
