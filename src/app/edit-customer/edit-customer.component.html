@@ -40,22 +40,21 @@
 										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] ="customer.email" type="email" class="form-control" id="exampleInputEmail13" aria-describedby="emailHelp" placeholder="Email Address">
 										  </div>
 
-										  
-										
-									</div>
-									<div class="col-lg-6 ">
-
-										 <div class="form-group">
+										  <div class="form-group">
 										    <label for="exampleInputEmail1">Phone</label>
 										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] ="customer.phone" type="number" class="form-control" id="exampleInputEmail8" aria-describedby="emailHelp" placeholder="Phone">
 										  </div>
+
 										  
+										
+									</div>
+									<div class="col-lg-6 ">										  
 										<div class="form-group">
 										    <label for="exampleInputEmail1">Address</label>
 										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] ="customer.address" type="text" class="form-control" id="firstname" aria-describedby="emailHelp" placeholder="Customer Address">
 										  </div>
 									
-										   <div class="form-group">
+										<div class="form-group">
 										    <label for="exampleInputEmail1">Birthdate</label>
 										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] ="customer.birthdate" type="date" class="form-control" id="exampleInputEmail9" aria-describedby="emailHelp" placeholder="Birthdate">
 										  </div>
@@ -76,6 +75,14 @@
 											<label for="selections">Select Location:</label>
 											<select [ngModelOptions]="{standalone: true}" class="form-control" [(ngModel)]="customer.location_id" id="selections">
 												<option value='1'>Joyce of Wexford</option>
+											</select>
+										</div>
+
+										<div class="form-group">
+											<label for="selections">SMS Preference:</label>
+											<select [ngModelOptions]="{standalone: true}" class="form-control" [(ngModel)]="customer.smsOption">
+												<option value='1'>Disabled</option>
+												<option value='1'>Enabled</option>
 											</select>
 										</div>
 										
