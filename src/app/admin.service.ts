@@ -50,7 +50,7 @@ export interface Customer {
   email: any;
   birthdate: any;
   phone: any;
-  location: any;
+  location_id: any;
 }
 
 export interface Device {
@@ -369,7 +369,7 @@ return false;
    .set('customer_lname', customer.customer_lname)
    .set('email', customer.email)
    .set('phone', customer.phone)
-   .set('location', customer.location)
+   .set('location_id', customer.location_id)
    .set('birthdate', customer.birthdate)
    .set('smsOption',customer.smsOption);
   //  .set('address', customer.address)
