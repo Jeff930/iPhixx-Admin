@@ -196,9 +196,9 @@ this.router.navigate(['/edit-booking' , index]);
     this.router.navigate(['/view-repair', index, id]);
   }
 
-  viewInvoice(id , index, price) {
-    console.log(index);
-    this.router.navigate(['/view-invoice', id, price, index]);
+  viewInvoice(id) {
+    console.log(id);
+    this.router.navigate(['/view-invoice', id]);
   }
 
 saveTax() {
