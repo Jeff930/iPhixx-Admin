@@ -36,9 +36,22 @@
 										   <p class="form-control"> {{ customer.email }}</p>
 										  </div>
 
+										  <div class="form-group">
+											<label for="selections">Select Location:</label>
+											<select [ngModelOptions]="{standalone: true}" class="form-control" [(ngModel)]="customer.location_id" id="selections">
+												<option value='1'>Joyce of Wexford</option>
+											</select>
+										</div>
+
+
 										  									
 									</div>
 									<div class="col-lg-6 ">
+
+										<div class="form-group">
+											<label for="exampleInputEmail1"> Booking No. </label>
+											<p class="form-control"> {{ lead.bookings_id }}</p>
+										</div>
 									
 										 <div class="form-group">
 										    <label for="exampleInputEmail1">Address</label>
@@ -55,13 +68,12 @@
 											<p class="form-control"> {{ customer.birthdate }}</p>
 										</div>
 
-										  <div class="form-group">
-										    <label for="exampleInputEmail1">Location</label>
-										    <p class="form-control"> {{ customer.location }}</p>
-										  </div>
 										<div class="form-group">
-											<label for="exampleInputEmail1"> Booking No. </label>
-											<p class="form-control"> {{ lead.bookings_id }}</p>
+											<label for="selections">SMS Preference:</label>
+											<select [ngModelOptions]="{standalone: true}" class="form-control" [(ngModel)]="customer.smsOption">
+												<option value='0'>Disabled</option>
+												<option value='1'>Enabled</option>
+											</select>
 										</div>
 										
 									</div>

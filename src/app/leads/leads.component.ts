@@ -125,7 +125,7 @@ export class LeadsComponent implements OnInit {
 	this.spinner.hide();
 	console.log(res);
 	this.adminService.leadsPage  = new Object(); 
-	 location.reload();
+	location.reload();
   },
   err =>{
 	console.log(err);
