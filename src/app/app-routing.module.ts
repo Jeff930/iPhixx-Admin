@@ -46,7 +46,7 @@ const routes: Routes = [
   { path: 'edit-customer/:id', component: EditCustomerComponent },
   { path: 'edit-booking/:id/:page', component: EditBookingComponent },
   { path: 'view-repair/:id', component: ViewRepairComponent },
-  { path: 'view-invoice/:booking/:id/:price', component: ViewInvoiceComponent },
+  { path: 'view-invoice/:id', component: ViewInvoiceComponent },
   { path: 'edit-customer', component: EditCustomerComponent },
   { path: 'invoices', component: InvoicesComponent },
   { path: 'notifications', component: NotificationsComponent },
