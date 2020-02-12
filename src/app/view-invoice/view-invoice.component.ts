@@ -35,8 +35,6 @@ export class ViewInvoiceComponent implements OnInit {
     this.route.paramMap.subscribe((params: ParamMap) => {
       console.log(params);
       this.id = parseInt(params.get('id'));
-      this.price = params.get('price');
-      this.bookingId = params.get('booking');
       console.log(this.adminService.leadsPage['page' + this.adminService.pageActive][this.id])
       this.lead = this.adminService.leadsPage['page' + this.adminService.pageActive][this.id];
       console.log(this.lead.bookings_id);
