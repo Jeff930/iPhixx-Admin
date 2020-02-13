@@ -17,15 +17,25 @@
 				<div class="col-12">
 					<form>
 						<div class="col-lg-4 ">
+
+							<div class="form-group">
+								<label for="exampleInputEmail1">Invoice ID</label>
+								<p class="form-control">{{ id }}</p>
+							</div>
 						
 							<div class="form-group">
+								<label for="exampleInputEmail1">Booking ID</label>
+								<p class="form-control">{{ invoice.bookings_id }}</p>
+							</div>
+
+							<div class="form-group">
 								<label for="exampleInputEmail1">Customer ID</label>
-								<p class="form-control">{{ customers.customer_id }}</p>
+								<p class="form-control">{{ invoice.customer_id }}</p>
 							</div>
 						
 							<div class="form-group">
 								<label for="exampleInputEmail1">Full Name</label>
-								<p class="form-control">{{ customers.customer_fname}}  {{ customers.customer_lname}}</p>
+								<p class="form-control">{{ invoice.customer_fname}}  {{invoice.customer_lname}}</p>
 							</div>
 						
 						
@@ -48,7 +58,7 @@
 
 							<div>
 								<label for="exampleInputEmail13">Device Model</label>
-								<p class="form-control" id="exampleInputEmail13" aria-describedby="emailHelp" placeholder="Device Model">{{repair.phone_brand}} {{repair.pmodel_name}}</p>
+								<p class="form-control" id="exampleInputEmail13" aria-describedby="emailHelp" placeholder="Device Model">{{invoice.device_brand}} {{invoice.model_name}}</p>
 							</div>
 
 							<div>
