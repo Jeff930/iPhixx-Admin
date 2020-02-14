@@ -83,6 +83,13 @@ export class ViewInvoiceComponent implements OnInit {
   
   }
 
+  getLocation(id){
+    switch(id){
+      case '1':
+        return 'Joyces of Wexford';
+    }
+
+  }
 
 
 }
