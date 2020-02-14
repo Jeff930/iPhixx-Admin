@@ -71,6 +71,46 @@ export class ViewInvoiceComponent implements OnInit {
         this.selectedRepairs.push("Cellular Signal Repair");
       if (this.repair.backglassrep_selected == 1)
         this.selectedRepairs.push("Back Glass Replacement");
+      if (this.repair.protector_selected == 1)
+        this.selectedRepairs.push("Screen Protector");
+      if (this.repair.tempPhone_selected == 1)
+        this.selectedRepairs.push("Temporary Phone");
+      if (this.repair.keyboardrep_selected == 1)
+        this.selectedRepairs.push("Keyboard Repair");
+      if (this.repair.fanrep_selected == 1)
+        this.selectedRepairs.push("Fan Repair");
+      if (this.repair.laptopcamrep_selected == 1)
+        this.selectedRepairs.push("Laptop Camera Repair");
+      if (this.repair.laptopscreenrep_selected == 1)
+        this.selectedRepairs.push("Laptop Screen Repair");
+      if (this.repair.laptopspeakerrep_selected == 1)
+        this.selectedRepairs.push("Laptop Speaker Repair");
+      if (this.repair.datarecovery == 1)
+        this.selectedRepairs.push("Data Recovery");
+      if (this.repair.virusremoval == 1)
+        this.selectedRepairs.push("Virus Removal");
+      if (this.repair.virusremoval_withsoftware == 1)
+        this.selectedRepairs.push("Virus Removal w/ software");
+      if (this.repair.HDDHalfTeraWithDataTransfer == 1)
+        this.selectedRepairs.push("500GB HDD w/ OS Reinstall & Data Transfer");
+      if (this.repair.HDDTeraWithDataTransfer == 1)
+        this.selectedRepairs.push("1TB HDD w/ OS Reinstall & Data Transfer");
+      if (this.repair.HDDHalfTera == 1)
+        this.selectedRepairs.push("500GB HDD w/ OS Reinstall");
+      if (this.repair.HDDTera == 1)
+        this.selectedRepairs.push("1TB HDD w/ OS Reinstall");
+      if (this.repair.SSDHalfTeraWithDataTransfer == 1)
+        this.selectedRepairs.push("500GB SSD w/ OS Reinstall & Data Transfer");
+      if (this.repair.SSDTeraWithDataTransfer == 1)
+        this.selectedRepairs.push("1TB SSD w/ OS Reinstall & Data Transfer");
+      if (this.repair.SSDHalfTera == 1)
+        this.selectedRepairs.push("500GB SSD w/ OS Reinstall");
+      if (this.repair.SSDTera == 1)
+        this.selectedRepairs.push("1TB SSD w/ OS Reinstall");
+      if (this.repair.hdmirep_selected == 1)
+        this.selectedRepairs.push("HDMI Repair");
+      if (this.repair.harddrive_selected == 1)
+        this.selectedRepairs.push("Hard Drive Repair");
 
       console.log(JSON.stringify(this.repair));
 
