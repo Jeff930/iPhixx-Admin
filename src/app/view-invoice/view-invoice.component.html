@@ -32,6 +32,13 @@
 								<label for="exampleInputEmail1">Customer ID</label>
 								<p class="form-control">{{ invoice.customer_id }}</p>
 							</div>
+
+							<div class="form-group">
+								<label for="exampleInputEmail13">Device Model</label>
+								<p class="form-control" placeholder="Device Model">{{invoice.device_brand}} {{invoice.model_name}}</p>
+							</div>
+
+							
 						
 						</div>
 						<div class="col-lg-4 ">
@@ -39,7 +46,11 @@
 								<label for="exampleInputEmail1">Full Name</label>
 								<p class="form-control">{{ invoice.customer_fname}}  {{invoice.customer_lname}}</p>
 							</div>
-						
+							
+							<div class="form-group">
+								<label for="exampleInputEmail13">Customer Phone</label>
+								<p class="form-control">{{invoice.phone}}</p>
+							</div>
 						
 							<div class="form-group">
 								<label for="exampleInputEmail13">Email</label>
@@ -51,10 +62,9 @@
 								<p class="form-control">{{getLocation(invoice.location_id)}}</p>
 							</div>
 
-							<div class="form-group">
-								<label for="exampleInputEmail13">Device Model</label>
-								<p class="form-control" placeholder="Device Model">{{invoice.device_brand}} {{invoice.model_name}}</p>
-							</div>
+
+
+							
 
 						
 						</div>
