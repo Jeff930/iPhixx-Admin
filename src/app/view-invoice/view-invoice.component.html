@@ -29,8 +29,8 @@
 							</div>
 
 							<div class="form-group">
-								<label for="exampleInputEmail1">Customer ID</label>
-								<p class="form-control">{{ invoice.customer_id }}</p>
+								<label for="exampleInputEmail13">Device Type</label>
+								<p class="form-control">{{repair.type}}</p>
 							</div>
 
 							<div class="form-group">
@@ -38,10 +38,23 @@
 								<p class="form-control" placeholder="Device Model">{{invoice.device_brand}} {{invoice.model_name}}</p>
 							</div>
 
-							
-						
+							<div class="form-group">
+								<label for="exampleInputEmail13">Model Number</label>
+								<p class="form-control">{{repair.model_number}}</p>
+							</div>
+
+							<div class="form-group">
+								<label for="exampleInputEmail13">Device Details</label>
+								<p class="form-control">{{repair.carrier_name}} - {{repair.color_name}}</p>
+							</div>
+
 						</div>
 						<div class="col-lg-4 ">
+							<div class="form-group">
+								<label for="exampleInputEmail1">Customer ID</label>
+								<p class="form-control">{{ invoice.customer_id }}</p>
+							</div>
+
 							<div class="form-group">
 								<label for="exampleInputEmail1">Full Name</label>
 								<p class="form-control">{{ invoice.customer_fname}}  {{invoice.customer_lname}}</p>
@@ -76,11 +89,11 @@
 							<label for="exampleInputEmail1">Device Repair/s</label>
 							<div *ngFor="let selectedRepair of selectedRepairs; let i = index">
 
-								<p class="form-control" id="exampleInputEmail13" aria-describedby="emailHelp" placeholder="Device Color">{{selectedRepair}}</p>
+								<p class="form-control">{{selectedRepair}}</p>
 							</div>
 								<div>
 									<label for="exampleInputEmail16">Total Price: </label>
-									<p class="form-control" id="exampleInputEmail16" aria-describedby="emailHelp" placeholder="Device Color">€{{ price }}</p>
+									<p class="form-control">€{{ invoice.total_price }}</p>
 								</div>
 
 						</div>
