@@ -114,29 +114,29 @@ export class TicketsComponent implements OnInit {
 		}
 	}
 
-	// updateStatus(id) {
-	// 	this.spinner.show();
-	// 	this.adminService.updateBookingStatus(id).subscribe(res => {
-	// 		console.log(res);
-	// 		console.log("worked")
-	// 		location.reload();
-	// 	},
-	// 		err => {
-	// 			console.log(err);
-	// 			console.log("notworked")
-	// 			location.reload();
-	// 		}
-	// 	)
-	// }
+	updateStatus(id) {
+		this.spinner.show();
+		this.adminService.updateTicketStatus(id).subscribe(res => {
+			console.log(res);
+			console.log("worked")
+			location.reload();
+		},
+			err => {
+				console.log(err);
+				console.log("notworked")
+				location.reload();
+			}
+		)
+	}
 
-	// checkStatus(id, status) {
-	// 	console.log(id);
-	// 	if (status == "Resolved") {
-	// 		console.log("Already Resolved");
-	// 	} else {
-	// 		this.updateStatus(id);
-	// 	}
-	// }
+	checkStatus(id, status) {
+		console.log(id);
+		if (status == "Resolved") {
+			console.log("Already Resolved");
+		} else {
+			this.updateStatus(id);
+		}
+	}
 
 	// updatePaymentStatus(id) {
 	// 	this.spinner.show();
