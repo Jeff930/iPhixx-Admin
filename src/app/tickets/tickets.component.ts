@@ -131,8 +131,8 @@ export class TicketsComponent implements OnInit {
 
 	checkStatus(id, status) {
 		console.log(id);
-		if (status == "Resolved") {
-			console.log("Already Resolved");
+		if (status == "Resolved" || status == "Cancelled") {
+			console.log("Ticket status is either resolved or cancelled.");
 		} else {
 			this.updateStatus(id);
 		}
@@ -172,15 +172,9 @@ export class TicketsComponent implements OnInit {
 		this.router.navigate(['/view-customer', index]);
 	}
 
-	viewRepair(id, index) {
-		console.log(index);
-		this.router.navigate(['/view-repair', index]);
-	}
-
-	processLeads(id, index) {
-		console.log(index);
-		this.router.navigate(['/process-leads', index]);
-
+	viewTicket(id) {
+		//console.log(index);
+		this.router.navigate(['/view-ticket', id]);
 	}
 
 }
