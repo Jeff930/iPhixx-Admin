@@ -39,6 +39,7 @@ import { DevicesComponent } from './devices/devices.component';
 import { EditPriceComponent } from './edit-price/edit-price.component';
 import { LaptopPriceComponent } from './laptop-price/laptop-price.component';
 import { EditLaptopPriceComponent } from './edit-laptop-price/edit-laptop-price.component';
+import { ViewTicketComponent } from './view-ticket/view-ticket.component';
 
 // import { NotificationComponent } from './notification/notification.component';
 
@@ -70,7 +71,8 @@ import { EditLaptopPriceComponent } from './edit-laptop-price/edit-laptop-price.
     DevicesComponent,
     EditPriceComponent,
     LaptopPriceComponent,
-    EditLaptopPriceComponent
+    EditLaptopPriceComponent,
+    ViewTicketComponent
 
   ],
   imports: [
