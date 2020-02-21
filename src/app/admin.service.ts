@@ -246,6 +246,10 @@ return false;
     return this.http.get<Customer>('https://admin.iphixx.com/api/v1/bookings/invoice/' + id);
   }
 
+  getTicket(id) {
+    return this.http.get<Customer>('https://admin.iphixx.com/api/v1/bookings/invoice/' + id);
+  }
+
   getDevice(id) {
     return this.http.get<Device>('https://admin.iphixx.com/api/v1/bookings/device/' + id);
   }
