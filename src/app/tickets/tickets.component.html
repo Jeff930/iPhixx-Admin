@@ -104,9 +104,9 @@
 										
 														<sat-popover #contactPopover hasBackdrop verticalAlign="below">
 															<div class="list-group">
-																<a (click)="checkStatus(ticket.ticket_no, ticket.rep_status)" class="list-group-item list-group-item-action">
+																<a (click)="checkStatus(ticket.bookings_id, ticket.rep_status)" class="list-group-item list-group-item-action">
 																	<span class="margin-icon glyphicon glyphicon-flag"></span> Update Status</a>
-																<a (click)="viewTicket(ticket.bookings_id)" class="list-group-item list-group-item-action">
+																<a (click)="viewTicket(ticket.ticket_no)" class="list-group-item list-group-item-action">
 																	<span class="margin-icon glyphicon glyphicon-eye-open"></span> View Ticket</a>
 																<a (click)="cancelBooking(booking.bookings_id)" class="list-group-item list-group-item-action">
 																	<span class="margin-icon glyphicon glyphicon-remove"></span> Cancel Booking</a>
