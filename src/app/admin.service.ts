@@ -247,7 +247,7 @@ return false;
   }
 
   getTicket(id) {
-    return this.http.get<Customer>('https://admin.iphixx.com/api/v1/bookings/invoice/' + id);
+    return this.http.get<Customer>('https://admin.iphixx.com/api/v1/bookings/ticket/' + id);
   }
 
   getDevice(id) {

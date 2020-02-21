@@ -20,7 +20,7 @@
 									<div class="sub-menu">
 										<h4 (click)="openPager('invoices')" [ngStyle]="{'color':pager === 'invoices' ? '#2980b9' : 'black', 'background': pager === 'invoices' ? '#ffffff' : 'none'}">Invoices</h4>
 										<h4 (click)="openPager('tax')" [ngStyle]="{'color': pager === 'tax' ? '#2980b9' : 'black', 'background': pager === 'tax' ? '#ffffff' : 'none'}" class="panel-title">Tax Rates</h4>	
-										<h4 (click)="openPager('reports')" [ngStyle]="{'color': pager === 'reports' ? '#2980b9' : 'black', 'background': pager === 'reports' ? '#ffffff' : 'none'}" class="panel-title">Custom Reports</h4>
+										<!-- <h4 (click)="openPager('reports')" [ngStyle]="{'color': pager === 'reports' ? '#2980b9' : 'black', 'background': pager === 'reports' ? '#ffffff' : 'none'}" class="panel-title">Custom Reports</h4> -->
 									</div>
 									<div class="addCustomer  align-items-end" *ngIf="pager=== 'tax'">
 										<button type="button" class="btn" (click)="goToTax()">
