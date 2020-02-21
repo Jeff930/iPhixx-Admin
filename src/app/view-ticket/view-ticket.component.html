@@ -17,6 +17,42 @@
 				<div class="col-12">
 					<form>
 						<div class="col-lg-4 ">
+
+							<div class="form-group">
+								<label for="exampleInputEmail1">Booking ID</label>
+								<p class="form-control">{{ ticket.bookings_id }}</p>
+							</div>
+
+							<div class="form-group">
+								<label for="exampleInputEmail1">Customer ID</label>
+								<p class="form-control">{{ ticket.customer_id }}</p>
+							</div>
+
+							<div class="form-group">
+								<label for="exampleInputEmail1">Full Name</label>
+								<p class="form-control">{{ ticket.customer_fname}}  {{ticket.customer_lname}}</p>
+							</div>
+							
+							<div class="form-group">
+								<label for="exampleInputEmail13">Customer Phone</label>
+								<p class="form-control">{{ ticket.phone}}</p>
+							</div>
+
+							<div class="form-group">
+								<label for="exampleInputEmail13">Email</label>
+								<p class="form-control"> {{ ticket.email}}</p>
+							</div>
+
+							<div class="form-group">
+								<label for="exampleInputEmail13">Customer Location</label>
+								<p class="form-control">{{getLocation(ticket.location_id)}}</p>
+							</div>
+
+
+							
+						
+						</div>
+						<div class="col-lg-4 ">
 							<div class="form-group">
 								<label for="exampleInputEmail1">Ticket ID</label>
 								<p class="form-control">{{ id }}</p>
@@ -24,42 +60,43 @@
 
 							<div class="form-group">
 								<label for="exampleInputEmail1">Ticket Status</label>
-								<p class="form-control">{{ id }}</p>
+								<p class="form-control">{{ ticket.ticket_status }}</p>
 							</div>
 
 							<div class="form-group">
 								<label for="exampleInputEmail1">Created Date</label>
-								<p class="form-control">{{ id }}</p>
+								<p class="form-control">{{ ticket.created_at }}</p>
 							</div>
 
 							<div class="form-group">
 								<label for="exampleInputEmail1">Outbound Date</label>
-								<p class="form-control">{{ id }}</p>
+								<p class="form-control">{{ ticket.outbound_timestamp }}</p>
 							</div>
 
 							<div class="form-group">
 								<label for="exampleInputEmail1">Ongoing Date</label>
-								<p class="form-control">{{ id }}</p>
+								<p class="form-control">{{ ticket.ongoing_timestamp }}</p>
 							</div>
 
 							<div class="form-group">
 								<label for="exampleInputEmail1">Inbound Date</label>
-								<p class="form-control">{{ id }}</p>
+								<p class="form-control">{{ ticket.inbound_timestamp }}</p>
+							</div>
+
+							<div class="form-group">
+								<label for="exampleInputEmail1">Resolved Date</label>
+								<p class="form-control">{{ ticket.resolved_timestamp }}</p>
 							</div>
 
 							<div class="form-group">
 								<label for="exampleInputEmail1">Cancelled Date</label>
-								<p class="form-control">{{ id }}</p>
+								<p class="form-control">{{ ticket.cancelled_timestamp }}</p>
 							</div>
-						
+
+							
+							
 						</div>
 						<div class="col-lg-4 ">
-
-							<div class="form-group">
-								<label for="exampleInputEmail1">Booking ID</label>
-								<p class="form-control">{{ ticket.bookings_id }}</p>
-							</div>
-
 							<div class="form-group">
 								<label for="exampleInputEmail13">Device Type</label>
 								<p class="form-control">{{repair.type}}</p>
@@ -74,8 +111,7 @@
 								<label for="exampleInputEmail13">Model Number</label>
 								<p class="form-control">{{repair.model_number}}</p>
 							</div>		
-						</div>
-						<div class="col-lg-4 ">
+
 							<label for="exampleInputEmail1">Device Repair/s</label>
 							<div *ngFor="let selectedRepair of selectedRepairs; let i = index">
 
@@ -83,61 +119,12 @@
 							</div>
 								<div>
 									<label for="exampleInputEmail16">Total Price: </label>
-									<p class="form-control">€{{ invoice.total_price }}</p>
+									<p class="form-control">€{{ ticket.total_price }}</p>
 								</div>
 						</div>
 					</form>
 
 				</div>
-			</div>
-			<div class="panel-body">
-				<div class="col-12">
-					<form>
-						<div class="col-lg-4 ">
-							<div class="form-group">
-								<label for="exampleInputEmail1">Customer ID</label>
-								<p class="form-control">{{ invoice.customer_id }}</p>
-							</div>
-
-							<div class="form-group">
-								<label for="exampleInputEmail1">Full Name</label>
-								<p class="form-control">{{ invoice.customer_fname}}  {{invoice.customer_lname}}</p>
-							</div>
-							
-							<div class="form-group">
-								<label for="exampleInputEmail13">Customer Phone</label>
-								<p class="form-control">{{invoice.phone}}</p>
-							</div>
-						
-							
-						
-						</div>
-						<div class="col-lg-4 ">
-							<div class="form-group">
-								<label for="exampleInputEmail13">Email</label>
-								<p class="form-control"> {{invoice.email}}</p>
-							</div>
-
-							<div class="form-group">
-								<label for="exampleInputEmail13">Customer Location</label>
-								<p class="form-control">{{getLocation(invoice.location_id)}}</p>
-							</div>
-
-							
-						</div>
-
-
-
-
-						<div class="col-lg-4 ">
-							
-						</div>
-					</form>
-
-				</div>
-
-
-
 			</div>
 			<div class="panel-body">
 				<div class="col-12">
