@@ -444,9 +444,16 @@ updatePrice(prices) {
   if (prices.backglass_price!= null)
     body = body.append('backglass_price',prices.backglass_price)
 
-  console.log(body.toString);
-  return this.http.put('http://admin.iphixx.com/api/v1/bookings/edit-price/'+prices.devicemodel_id,body.toString,
-    { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {} })
+  if (prices.trackpad_price!= null)
+    body = body.append('trackpad_price',prices.trackpad_price)
+  if (prices.hdmirep_price!= null)
+    body = body.append('hdmirep_price',prices.hdmirep_price)
+  if (prices.harddrive_rep!= null)
+    body = body.append('harddrive_rep',prices.harddrive_rep)
+
+  console.log(body.toString());
+  return this.http.put('http://admin.iphixx.com/api/v1/bookings/edit-price/'+prices.devicemodel_id,
+  body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {} })
 }
 
 updateLaptopPrice(prices) {
