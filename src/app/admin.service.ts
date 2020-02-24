@@ -416,22 +416,37 @@ updateAgent(agent) {
 
 updatePrice(prices) {
   console.log(prices);
-  const body = new HttpParams()
-   .set('screenrep_price', prices.screenrep_price)
-   .set('headrep_price', prices.headrep_price)
-   .set('earrep_price', prices.earrep_price)
-   .set('powerrep_price', prices.powerrep_price)
-   .set('rearcamrep_price', prices.rearcamrep_price)
-   .set('frontcamrep_price',prices.frontcamrep_price)
-   .set('homerep_price',prices.homerep_price)
-   .set('microphone_price',prices.microphone_price)
-   .set('chargeport_price',prices.chargeport_price)
-   .set('volumerep_price',prices.volumerep_price)
-   .set('battrep_price',prices.battrep_price)
-   .set('signalrep_price',prices.signalrep_price)
-   .set('backglass_price',prices.backglass_price)
-  return this.http.put('http://admin.iphixx.com/api/v1/bookings/edit-price/'+prices.devicemodel_id,
-    body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
+  var body = new HttpParams()
+  if (prices.screenrep_price!= null)
+    body = body.append('screenrep_price', prices.screenrep_price);
+  if (prices.headrep_price!= null)
+    body = body.append('headrep_price', prices.headrep_price)
+  if (prices.earrep_price!= null)
+    body = body.append('earrep_price', prices.earrep_price)
+  if (prices.powerrep_price!= null)
+    body = body.append('powerrep_price', prices.powerrep_price)
+  if (prices.rearcamrep_price!= null)
+    body = body.append('rearcamrep_price', prices.rearcamrep_price)
+  if (prices.frontcamrep_price!= null)
+    body = body.append('frontcamrep_price',prices.frontcamrep_price)
+  if (prices.homerep_price!= null)
+    body = body.append('homerep_price',prices.homerep_price)
+  if (prices.microphone_price!= null)
+    body = body.append('microphone_price',prices.microphone_price)
+  if (prices.chargeport_price!= null)
+    body = body.append('chargeport_price',prices.chargeport_price)
+  if (prices.volumerep_price!= null)
+    body = body.append('volumerep_price',prices.volumerep_price)
+  if (prices.battrep_price!= null)
+    body = body.append('battrep_price',prices.battrep_price)
+  if (prices.signalrep_price!= null)
+    body = body.append('signalrep_price',prices.signalrep_price)
+  if (prices.backglass_price!= null)
+    body = body.append('backglass_price',prices.backglass_price)
+
+  console.log(body.toString);
+  return this.http.put('http://admin.iphixx.com/api/v1/bookings/edit-price/'+prices.devicemodel_id,body.toString,
+    { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {} })
 }
 
 updateLaptopPrice(prices) {
