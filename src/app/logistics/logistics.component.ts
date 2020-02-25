@@ -9,55 +9,55 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class LogisticsComponent implements OnInit {
 
-  tickets = [];
-  ticketPages: any;
-  ticketsPage = new Object();
-  ticketPageActive: number;
+  logistics = [];
+  logisticPages: any;
+  logisticsPage = new Object();
+  logisticPageActive: number;
   location;
   constructor(public adminService: AdminService, private spinner: NgxSpinnerService) {
 
-    this.ticketPageActive = this.adminService.ticketPageActive;
-    this.adminService.ticketsPage['page' + this.ticketPageActive] ? this.tickets = this.adminService.ticketsPage['page' + this.ticketPageActive] : '';
-    this.ticketPages = this.adminService.ticketPages;
+    this.logisticPageActive = this.adminService.logisticPageActive;
+    this.adminService.logisticsPage['page' + this.logisticPageActive] ? this.logistics = this.adminService.logisticsPage['page' + this.logisticPageActive] : '';
+    this.logisticPages = this.adminService.logisticPages;
 
   }
 
   ngOnInit() {
-    if (this.tickets.length === 0) {
-      this.ticketPageActive = 1;
-      this.adminService.ticketPageActive = this.ticketPageActive;
+    if (this.logistics.length === 0) {
+      this.logisticPageActive = 1;
+      this.adminService.logisticPageActive = this.logisticPageActive;
       this.spinner.show();
       this.adminService.getLogistics().subscribe((res) => {
         console.log('this res:'  + JSON.stringify(res));
-        this.ticketPages = Array(res.total_page);
-        this.adminService.ticketPages = this.ticketPages;
-        console.log(this.ticketPages);
-        this.adminService.ticketsPage['page' + 1] = res.tickets;
-        console.log(this.ticketsPage);
-        this.tickets = this.adminService.ticketsPage['page' + 1];
-        console.log(this.tickets);
+        this.logisticPages = Array(res.total_page);
+        this.adminService.logisticPages = this.logisticPages;
+        console.log(this.logisticPages);
+        this.adminService.logisticsPage['page' + 1] = res.logistics;
+        console.log(this.logisticsPage);
+        this.logistics = this.adminService.logisticsPage['page' + 1];
+        console.log(this.logistics);
         this.spinner.hide();
-        this.adminService.global.tickets = this.tickets;
+        this.adminService.global.logistics = this.logistics;
         console.log(this.location);
       });
     }
   }
   goToPage(number) {
     console.log(number);
-    this.ticketPageActive = number;
-    this.adminService.ticketPageActive = this.ticketPageActive;
+    this.logisticPageActive = number;
+    this.adminService.logisticPageActive = this.logisticPageActive;
     this.spinner.show();
-    if (this.adminService.ticketsPage['page' + number]) {
-      this.tickets = this.adminService.ticketsPage['page' + number];
+    if (this.adminService.logisticsPage['page' + number]) {
+      this.logistics = this.adminService.logisticsPage['page' + number];
       this.spinner.hide();
     }
     else {
-      this.adminService.getTickets(number).subscribe((res) => {
-        this.adminService.ticketsPage['page' + number] = res.tickets;
-        this.tickets = this.adminService.ticketsPage['page' + number];
+      this.adminService.getLogistics(number).subscribe((res) => {
+        this.adminService.logisticsPage['page' + number] = res.logistics;
+        this.logistics = this.adminService.logisticsPage['page' + number];
         this.spinner.hide();
-        this.adminService.global.tickets = this.tickets;
-        console.log(this.adminService.ticketsPage)
+        this.adminService.global.logistics = this.logistics;
+        console.log(this.adminService.logisticsPage)
       })
     }
   }
@@ -66,44 +66,44 @@ export class LogisticsComponent implements OnInit {
 
 
 
-    if (this.ticketPageActive !== this.ticketPages.length) {
-      this.ticketPageActive = this.ticketPageActive + 1;
-      this.adminService.ticketPageActive = this.ticketPageActive;
+    if (this.logisticPageActive !== this.logisticPages.length) {
+      this.logisticPageActive = this.logisticPageActive + 1;
+      this.adminService.logisticPageActive = this.logisticPageActive;
       this.spinner.show();
-      if (this.adminService.ticketsPage['page' + this.ticketPageActive]) {
+      if (this.adminService.logisticsPage['page' + this.logisticPageActive]) {
 
-        this.tickets = this.adminService.ticketsPage['page' + this.ticketPageActive];
+        this.logistics = this.adminService.logisticsPage['page' + this.logisticPageActive];
         this.spinner.hide();
       }
       else {
-        this.adminService.getTickets(this.ticketPageActive).subscribe((res) => {
-          this.adminService.ticketsPage['page' + this.ticketPageActive] = res.tickets;
-          this.tickets = this.adminService.ticketsPage['page' + this.ticketPageActive];
+        this.adminService.getLogistics(this.logisticPageActive).subscribe((res) => {
+          this.adminService.logisticsPage['page' + this.logisticPageActive] = res.logistics;
+          this.logistics = this.adminService.logisticsPage['page' + this.logisticPageActive];
           this.spinner.hide();
-          this.adminService.global.tickets = this.tickets;
-          console.log(this.adminService.ticketsPage)
+          this.adminService.global.logistics = this.logistics;
+          console.log(this.adminService.logisticsPage)
         })
       }
     }
   }
 
   PreviosPage() {
-    if (this.ticketPageActive !== 1) {
-      this.ticketPageActive = this.ticketPageActive - 1;
-      this.adminService.ticketPageActive = this.ticketPageActive;
+    if (this.logisticPageActive !== 1) {
+      this.logisticPageActive = this.logisticPageActive - 1;
+      this.adminService.logisticPageActive = this.logisticPageActive;
       this.spinner.show();
-      if (this.adminService.ticketsPage['page' + this.ticketPageActive]) {
+      if (this.adminService.logisticsPage['page' + this.logisticPageActive]) {
 
-        this.tickets = this.adminService.ticketsPage['page' + this.ticketPageActive];
+        this.logistics = this.adminService.logisticsPage['page' + this.logisticPageActive];
         this.spinner.hide();
       }
       else {
-        this.adminService.getTickets(this.ticketPageActive).subscribe((res) => {
-          this.adminService.ticketsPage['page' + this.ticketPageActive] = res.tickets;
-          this.tickets = this.adminService.ticketsPage['page' + this.ticketPageActive];
+        this.adminService.getLogistics(this.logisticPageActive).subscribe((res) => {
+          this.adminService.logisticsPage['page' + this.logisticPageActive] = res.logistics;
+          this.logistics = this.adminService.logisticsPage['page' + this.logisticPageActive];
           this.spinner.hide();
-          this.adminService.global.tickets = this.tickets;
-          console.log(this.adminService.ticketsPage)
+          this.adminService.global.logistics = this.logistics;
+          console.log(this.adminService.logisticsPage)
         })
       }
     }
