@@ -158,6 +158,10 @@ export class AdminService implements CanActivate  {
   inventoryPage  = new Object();
   inventoryPageActive: number;
 
+  logisticPages: any;
+  logisticsPage  = new Object();
+  logisticPageActive: number;
+
   invoiceDetails:any;
 
   notifs = ['Repair with Invoice No.10566 has been marked as paid on 2018-12-11 03:04:24',
