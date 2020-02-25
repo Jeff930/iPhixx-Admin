@@ -27,7 +27,7 @@ export class LogisticsComponent implements OnInit {
       this.ticketPageActive = 1;
       this.adminService.ticketPageActive = this.ticketPageActive;
       this.spinner.show();
-      this.adminService.getTickets().subscribe((res) => {
+      this.adminService.getLogistics().subscribe((res) => {
         console.log('this res:'  + JSON.stringify(res));
         this.ticketPages = Array(res.total_page);
         this.adminService.ticketPages = this.ticketPages;
