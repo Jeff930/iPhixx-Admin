@@ -109,4 +109,20 @@ export class LogisticsComponent implements OnInit {
     }
   }
 
+  getBookingStatus(id){
+    switch(id){
+      case '1':
+        return 'New';
+      case '2':
+        return 'Transferred';
+      case '3':
+        return 'Lost';
+    }
+  }
+
+  getLocation(id){
+    
+
+  }
+
 }
