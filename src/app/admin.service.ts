@@ -182,6 +182,7 @@ export class AdminService implements CanActivate  {
     inventory: [],
     agents: [],
     devices: [],
+    logistics: []
   };
   notif = '';
   from = '';
