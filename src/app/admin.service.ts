@@ -443,20 +443,24 @@ updateLaptopPrice(prices) {
   console.log(prices);
   const body = new HttpParams()
    .set('laptopscreenrep_price', prices.laptopscreenrep_price)
-   .set('headrep_price', prices.headrep_price)
-   .set('earrep_price', prices.earrep_price)
-   .set('powerrep_price', prices.powerrep_price)
-   .set('rearcamrep_price', prices.rearcamrep_price)
-   .set('frontcamrep_price',prices.frontcamrep_price)
-   .set('homerep_price',prices.homerep_price)
-   .set('microphone_price',prices.microphone_price)
-   .set('chargeport_price',prices.chargeport_price)
-   .set('volumerep_price',prices.volumerep_price)
-   .set('battrep_price',prices.battrep_price)
-   .set('signalrep_price',prices.signalrep_price)
-   .set('backglass_price',prices.backglass_price)
+   .set('laptopchargerep_price', prices.laptopchargerep_price)
+   .set('keyboardrep_price', prices.keyboardrep_price)
+   .set('fanrep_price', prices.fanrep_price)
+   .set('laptopcamrep_price', prices.laptopcamrep_price)
+   .set('laptopspeakerrep_price',prices.laptopspeakerrep_price)
+   .set('laptopbatteryrep_price',prices.laptopbatteryrep_price)
+   .set('datarecovery',prices.datarecovery)
+   .set('virusremoval_withsoftware',prices.virusremoval_withsoftware)
+   .set('HDDHalfTeraWithDataTransfer',prices.HDDHalfTeraWithDataTransfer)
+   .set('HDDTeraWithDataTransfer',prices.HDDTeraWithDataTransfer)
+   .set('HDDHalfTera',prices.HDDHalfTera)
+   .set('HDDTera',prices.HDDTera)
+   .set('SSDHalfTeraWithDataTransfer',prices.SSDHalfTeraWithDataTransfer)
+   .set('SSDTeraWithDataTransfer',prices.SSDTeraWithDataTransfer)
+   .set('SSDHalfTera',prices.SSDHalfTera)
+   .set('SSDTera',prices.SSDTera)
 
-  return this.http.put('http://admin.iphixx.com/api/v1/customers/edit-laptop-price/'+prices.devicemodel_id,
+  return this.http.put('http://admin.iphixx.com/api/v1/bookings/edit-laptop-price/',
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
 
