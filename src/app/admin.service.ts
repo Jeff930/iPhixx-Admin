@@ -32,6 +32,12 @@ export interface Invoices {
   page: any;
 }
 
+export interface Logistics {
+  logistics: Array<any>;
+  total_page: any;
+  page: any;
+}
+
 export interface Tickets {
   tickets: Array<any>;
   total_page: any;
@@ -232,6 +238,10 @@ return false;
 
   getTickets(page =  1) {
     return this.http.get<Tickets>('https://admin.iphixx.com/api/v1/bookings/tickets/?page=' + page);
+  }
+
+  getLogistics(page =  1) {
+    return this.http.get<Logistics>('https://admin.iphixx.com/api/v1/bookings/logistics/?page=' + page);
   }
 
   getInventory(page =  1) {
