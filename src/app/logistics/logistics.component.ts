@@ -111,6 +111,8 @@ export class LogisticsComponent implements OnInit {
 
   getBookingStatus(id){
     switch(id){
+      case null:
+        return 'N/A';
       case '1':
         return 'New';
       case '2':
@@ -120,9 +122,31 @@ export class LogisticsComponent implements OnInit {
     }
   }
 
-  getLocation(id){
-    
+  getTicketStatus(id){
+    switch(id){
+      case null:
+        return 'N/A';
+      case '1':
+        return 'New';
+      case '2':
+        return 'Outbound';
+      case '3':
+        return 'For Repair';
+      case '4':
+        return 'Inbound';
+      case '5':
+        return 'Resolved';
+      case '6':
+        return 'Cancelled';
+    }
+  }
 
+  getTicket(id){
+    if (id === null){
+      return 'N/A';
+    }else{
+      return id;
+    }
   }
 
 }
