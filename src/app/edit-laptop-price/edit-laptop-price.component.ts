@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../admin.service';
+import { Router , ActivatedRoute , ParamMap  } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-edit-laptop-price',
@@ -10,7 +12,9 @@ export class EditLaptopPriceComponent implements OnInit {
 
   price;
 
-  constructor(public adminService : AdminService) { }
+  constructor(private route: ActivatedRoute,
+    private router: Router , public adminService : AdminService,
+    public spinner : NgxSpinnerService) { }
 
   ngOnInit() {
         this.adminService.getLaptopPrice().subscribe(res => {
@@ -18,16 +22,18 @@ export class EditLaptopPriceComponent implements OnInit {
           this.price = res['result'][0];
           console.log(this.price);
         });
-      //     if (res) {
-         
-      //     }
-         
-      //   }, err => {
-         
-      //   });
+  }
 
-      // });
-     
+  goToDevices(){
+    this.router.navigate(['/devices']);
+  }
+
+  updateLaptopPrice(){
+    console.log(this.price);
+    this.adminService.updateLaptopPrice(this.price).subscribe(res => {
+      console.log(res);
+      this.ngOnInit();
+    });
   }
 
 }
