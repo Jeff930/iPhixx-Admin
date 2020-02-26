@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../admin.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { Router , ActivatedRoute  } from '@angular/router';
+
 
 @Component({
   selector: 'app-logistics',
@@ -14,7 +16,7 @@ export class LogisticsComponent implements OnInit {
   logisticsPage = new Object();
   logisticPageActive: number;
   location;
-  constructor(public adminService: AdminService, private spinner: NgxSpinnerService) {
+  constructor(public adminService : AdminService , private spinner: NgxSpinnerService,public router : Router) {
 
     this.logisticPageActive = this.adminService.logisticPageActive;
     this.adminService.logisticsPage['page' + this.logisticPageActive] ? this.logistics = this.adminService.logisticsPage['page' + this.logisticPageActive] : '';
@@ -147,6 +149,11 @@ export class LogisticsComponent implements OnInit {
     }else{
       return id;
     }
+  }
+
+  viewHistory(id){
+    console.log(id);
+    this.router.navigate(['/view-logistics', id]);
   }
 
 }
