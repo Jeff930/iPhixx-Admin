@@ -1,3 +1,228 @@
-<p>
-  view-logistics works!
-</p>
+<app-navbar> </app-navbar>
+<app-sidebar> </app-sidebar>
+<app-footer> </app-footer>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="#fff" type="pacman"></ngx-spinner>
+
+
+
+<div class="main">
+
+	<div class="main-content">
+
+		<div class="panel">
+			<div class="panel-heading">
+				<h3 class="panel-title"> Log History </h3>
+			</div>
+			<div class="panel-body">
+				<div class="col-12">
+					<form>
+						<div class="col-lg-4 ">
+
+							<div class="form-group">
+								<label for="exampleInputEmail1">Booking ID</label>
+								<p class="form-control">{{ id }}</p>
+							</div>
+						
+							<div class="form-group">
+								<label for="exampleInputEmail1">Ticket No</label>
+								<p class="form-control">{{ logistic.bookings_id }}</p>
+							</div>
+
+
+							<div class="form-group">
+								<label for="exampleInputEmail13">Device Model</label>
+								<p class="form-control" placeholder="Device Model">{{logistic.device_brand}} {{logistic.model_name}}</p>
+							</div>
+
+
+						</div>
+						<div class="col-lg-4 ">
+							<div class="form-group">
+								<label for="exampleInputEmail1">Customer ID</label>
+								<p class="form-control">{{ invoice.customer_id }}</p>
+							</div>
+
+							<div class="form-group">
+								<label for="exampleInputEmail1">Full Name</label>
+								<p class="form-control">{{ invoice.customer_fname}}  {{invoice.customer_lname}}</p>
+							</div>							
+						
+							<div class="form-group">
+								<label for="exampleInputEmail13">Email</label>
+								<p class="form-control"> {{invoice.email}}</p>
+							</div>
+
+							<div class="form-group">
+								<label for="exampleInputEmail13">Customer Location</label>
+								<p class="form-control">{{getLocation(invoice.location_id)}}</p>
+							</div>
+
+
+
+							
+
+						
+						</div>
+
+
+
+
+						<div class="col-lg-4 ">
+							
+
+						</div>
+					</form>
+
+				</div>
+
+
+
+			</div>
+			<div class="panel-body">
+				<div class="col-12">
+					<button (click)="goToBooking()" type="submit" class="btn btn-lg btn-primary update">Back</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+<!-- <ngx-smart-modal #myModal identifier="myModal" (onOpen)="log('Modal opened!')" (onClose)="log('Modal closed!')" (onDismiss)="log('Modal dismissed!')">
+
+
+		
+
+					<div class="panel">
+								<div class="panel-heading">
+									<h3 class="panel-title">View Invoice Details</h3>
+								</div>
+								<div class="panel-body">
+								<form>
+									<div class="col-lg-6 ">
+										 <div *ngIf="myModal.hasData()">
+    <pre>{{ myModal.getData() | json }}</pre>
+  </div>
+									
+										<div>
+										    <label for="exampleInputEmail1">Invoice No.</label>
+										    <p class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Device Type">10566</p>
+										  </div>
+
+										  <div>
+										    <label for="exampleInputEmail1">Full Name</label>
+										    <p class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Device Type">Sample</p>
+										  </div>
+
+										  <div>
+										    <label for="exampleInputEmail1">Device Type</label>
+										    <p class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Device Type">Phone</p>
+										  </div>
+
+										  <div>
+										    <label for="exampleInputEmail13">Device Model</label>
+										    <p class="form-control" id="exampleInputEmail13" aria-describedby="emailHelp" placeholder="Device Model">iPhone X</p>
+										  </div>
+
+			
+									</div>
+									<div class="col-lg-6 ">
+										<label for="exampleInputEmail1">Item/s</label>
+										  <div>
+										    
+										    <p  class="form-control" id="exampleInputEmail13" aria-describedby="emailHelp" placeholder="Device Color">Earpiece Repair</p>
+										  
+
+										  
+										    
+										    <p  class="form-control" id="exampleInputEmail13" aria-describedby="emailHelp" placeholder="Device Color">Headphone Repair</p>
+										 
+										    
+										    <p  class="form-control" id="exampleInputEmail13" aria-describedby="emailHelp" placeholder="Device Color">Power Button Repair</p>
+										  </div>
+
+										  <div>
+										    <label for="exampleInputEmail1">Total Price</label>
+										    <p class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Device Type">€480.00</p>
+										  </div>
+										 
+										
+									</div>
+								</form>
+								</div>
+								<div class="panel-body">
+									<button (click)="myModal.close()" type="submit" class="btn btn-lg btn-primary update">Back</button>
+								</div>
+					</div>
+</ngx-smart-modal> -->
+
+<!-- <app-navbar > </app-navbar>
+<app-sidebar > </app-sidebar>
+<app-footer > </app-footer>
+<ngx-spinner
+	bdColor = "rgba(51, 51, 51, 0.8)"
+	size = "medium"
+	color = "#fff"
+	type = "pacman"
+></ngx-spinner>
+
+
+
+	<div class="main">
+
+			<div class="main-content">
+
+					<div class="panel">
+								<div class="panel-heading">
+									<h3 class="panel-title">View Invoice Details</h3>
+								</div>
+								<div class="panel-body">
+								<form>
+									<div class="col-lg-6 ">
+									
+										<div>
+										    <label for="exampleInputEmail1">Invoice No.</label>
+										    <p class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Device Type"></p>
+										  </div>
+
+										  <div>
+										    <label for="exampleInputEmail1">Full Name</label>
+										    <p class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Device Type">{{lead.fullname}}</p>
+										  </div>
+
+										  <div>
+										    <label for="exampleInputEmail1">Device Type</label>
+										    <p class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Device Type">{{lead.device}}</p>
+										  </div>
+										  <div class="form-group">
+										    <label for="exampleInputPassword1">Last Name</label>
+										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] ="customer.lastname" type="text" class="form-control" id="exampleInputPassword1" placeholder="Last Name">
+										  </div>
+
+										  <div>
+										    <label for="exampleInputEmail13">Device Model</label>
+										    <p class="form-control" id="exampleInputEmail13" aria-describedby="emailHelp" placeholder="Device Model">{{lead.brand}} {{lead.model}}</p>
+										  </div>
+
+			
+									</div>
+									<div class="col-lg-6 ">
+										<label for="exampleInputEmail1">Item/s</label>
+										  <div *ngFor="let repair of repairs; let i = index">
+										    
+										    <p  class="form-control" id="exampleInputEmail13" aria-describedby="emailHelp" placeholder="Device Color">{{repair}}</p>
+										  </div>
+
+										  <div>
+										    <label for="exampleInputEmail1">Total Price</label>
+										    <p class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Device Type">{{lead.total_price}}</p>
+										  </div>
+										 
+										
+									</div>
+								</form>
+								</div>
+					</div>
+			</div>
+	</div> -->
