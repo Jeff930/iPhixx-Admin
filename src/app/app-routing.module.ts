@@ -37,6 +37,7 @@ import { EditPriceComponent } from './edit-price/edit-price.component';
 import { LaptopPriceComponent } from './laptop-price/laptop-price.component';
 import { EditLaptopPriceComponent } from './edit-laptop-price/edit-laptop-price.component';
 import { ViewTicketComponent } from './view-ticket/view-ticket.component';
+import { ViewLogisticsComponent } from './view-logistics/view-logistics.component';
 
 const routes: Routes = [
 
@@ -61,6 +62,7 @@ const routes: Routes = [
   { path: 'edit-agent', component: EditAgentComponent },
   { path: 'view-customer/:id', component: ViewCustomerComponent },
   { path: 'view-ticket/:id', component: ViewTicketComponent },
+  { path: 'view-logistics/:id', component: ViewLogisticsComponent },
   { path: 'edit-tax', component: EditTaxComponent },
   { path: 'logistics', component: LogisticsComponent },
   { path: 'settings', component: SettingsComponent },
@@ -115,6 +117,7 @@ export const routingComponents = [
                                   ViewTicketComponent,
                                   EditTaxComponent,
                                   LogisticsComponent,
+                                  ViewLogisticsComponent,
                                   SettingsComponent,
                                   ProcessLeadsComponent,
                                   AddReminderComponent,
