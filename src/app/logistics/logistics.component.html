@@ -59,7 +59,6 @@
                           Location
                         </th>
                         <th>
-                          Action
                         </th>
                 
                       </tr>
@@ -83,27 +82,21 @@
                         <td>{{ getBookingStatus(logistic.leadstatus_no) }}</td>
                          <td>{{ getBookingStatus(logistic.ticketstatus_no) }}</td>
                         <td>{{ logistic.location_name }}</td>
-                        <td> </td>
-                        <!-- <td> IPhone </td>
-                        <td>{{ ticket.ticket_no }}</td> -->
-                        <!-- <td>
+                        <td>
                 
                           <button [satPopoverAnchorFor]="contactPopover" (click)="contactPopover.toggle()" class="btn btn-default btn-sm">
                             <span class="glyphicon glyphicon-option-horizontal"></span>
                           </button>
                 
-                
-                
                           <sat-popover #contactPopover hasBackdrop verticalAlign="below">
                             <div class="list-group">
-                              <a (click)="editBooking('1', ticket.ticket_no )" class="list-group-item list-group-item-action">
-                                <span class="margin-icon glyphicon glyphicon-pencil"></span> Edit</a>
+                              <a (click)="viewHistory( logistics.booking_id )" class="list-group-item list-group-item-action">
+                                <span class="margin-icon glyphicon glyphicon-eye-open"></span>    View History</a>
                             </div>
                 
                           </sat-popover>
                 
-                        </td> -->
-                        <!-- <td><button (click) = "updateBooking(lead.id)" class="btn btn-primary">Update Status</button></td> -->
+                        </td>
                       </tr>
                     </tbody>
                     <tfoot>
