@@ -59,6 +59,26 @@ export interface Customer {
   location_id: any;
 }
 
+export interface Logistic {
+  bookings_id: any;
+  customer_fname: any;
+  customer_lname: any;
+  location_id: any;
+  device_brand: any;
+  model_name: any;
+  customer_id: any;
+  created_at: any;
+  transfer_timestamp: any;
+  lost_timestamp: any;
+  ticket_no: any;
+  ticket_create: any;
+  outbound_timestamp: any;
+  ongoing_timestamp: any;
+  inbound_timestamp: any;
+  resolved_timestamp: any;
+  cancelled_timestamp: any;
+}
+
 export interface Device {
   devicemodel_id: any;
   model_name: any;
@@ -259,6 +279,10 @@ return false;
 
   getInvoice(id) {
     return this.http.get<Customer>('https://admin.iphixx.com/api/v1/bookings/invoice/' + id);
+  }
+
+  getLogistic(id) {
+    return this.http.get<Logistic>('https://admin.iphixx.com/api/v1/bookings/logistic/' + id);
   }
 
   getTicket(id) {
