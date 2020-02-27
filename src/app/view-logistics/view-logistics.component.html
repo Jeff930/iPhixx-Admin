@@ -39,29 +39,24 @@
 						<div class="col-lg-4 ">
 							<div class="form-group">
 								<label for="exampleInputEmail1">Customer ID</label>
-								<p class="form-control">{{ invoice.customer_id }}</p>
+								<p class="form-control">{{ logistic.customer_id }}</p>
 							</div>
 
 							<div class="form-group">
 								<label for="exampleInputEmail1">Full Name</label>
-								<p class="form-control">{{ invoice.customer_fname}}  {{invoice.customer_lname}}</p>
+								<p class="form-control">{{ logistic.customer_fname}}  {{logistic.customer_lname}}</p>
 							</div>							
 						
 							<div class="form-group">
-								<label for="exampleInputEmail13">Email</label>
-								<p class="form-control"> {{invoice.email}}</p>
-							</div>					
+								<label for="exampleInputEmail13">Location</label>
+								<p class="form-control">{{getLocation(logistic.location_id)}}</p>
+							</div>		
 						</div>
 
 
 
 
 						<div class="col-lg-4 ">
-							<div class="form-group">
-								<label for="exampleInputEmail13">Location</label>
-								<p class="form-control">{{getLocation(invoice.location_id)}}</p>
-							</div>
-
 							<div class="form-group">
 								<label for="exampleInputEmail13">Booking Status</label>
 								<p class="form-control">{{getLocation(invoice.location_id)}}</p>
