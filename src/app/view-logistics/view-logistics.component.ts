@@ -40,4 +40,43 @@ export class ViewLogisticsComponent implements OnInit {
       })
     }
 
+    getLocation(id){
+      switch(id){
+        case '1':
+          return 'Joyces of Wexford';
+      }
+    }
+
+    getBookingStatus(id){
+      switch(id){
+        case null:
+          return 'N/A';
+        case '1':
+          return 'New';
+        case '2':
+          return 'Transferred';
+        case '3':
+          return 'Lost';
+      }
+    }
+
+    getTicketStatus(id){
+      switch(id){
+        case null:
+          return 'N/A';
+        case '1':
+          return 'New';
+        case '2':
+          return 'Outbound';
+        case '3':
+          return 'For Repair';
+        case '4':
+          return 'Inbound';
+        case '5':
+          return 'Resolved';
+        case '6':
+          return 'Cancelled';
+      }
+    }
+
 }
