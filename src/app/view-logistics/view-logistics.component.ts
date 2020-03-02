@@ -79,4 +79,8 @@ export class ViewLogisticsComponent implements OnInit {
       }
     }
 
+    goToLogistics(){
+      this.router.navigate(['/logistics']);
+    }
+
 }
