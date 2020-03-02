@@ -87,14 +87,51 @@
 
                     <tbody>
                       <tr>                      
-                        <td>Ticket No {{ logistic.ticket_no }} has been marked as cancelled.</td>
+                        <td>Repair of Ticket No {{ logistic.ticket_no }} has been marked as cancelled.</td>
                         <td>{{logistic.cancelled_timestamp}}</td>
                       </tr>
 
                       <tr>                      
-                        <td>{{ Booking No {{ logistic.bookings_id }} has been marked as lost. }}</td>
+                        <td>Lead of Booking No {{ logistic.bookings_id }} has been marked as lost.</td>
                         <td>{{ logistic.lost_timestamp }}</td>
                       </tr>
+
+                      <tr>                      
+                        <td>Repair of Ticket No {{ logistic.ticket_no }} has been marked as resolved.</td>
+                        <td>{{logistic.resolved_timestamp}}</td>
+                      </tr>
+
+                      <tr>                      
+                        <td>Repaired Device of Ticket No {{ logistic.ticket_no }} is now inbound back to repair hub.</td>
+                        <td>{{logistic.inbound_timestamp}}</td>
+                      </tr>
+
+                      <tr>                      
+                        <td>Repair of Ticket No {{ logistic.ticket_no }} is now ongoing.</td>
+                        <td>{{logistic.ongoing_timestamp}}</td>
+                      </tr>
+
+                      <tr>                      
+                        <td>Device of Ticket No {{ logistic.ticket_no }} is now outbound to facility for repair.</td>
+                        <td>{{logistic.outbound_timestamp}}</td>
+                      </tr>
+
+                      <tr>                      
+                        <td>Ticket No {{ logistic.ticket_no }} has been created.</td>
+                        <td>{{logistic.ticket_create}}</td>
+                      </tr>
+
+                      <tr>                      
+                        <td>Booking No {{ logistic.bookings_id }} has been transferred to Ticket No {{ logistic.ticket_no }}.</td>
+                        <td>{{logistic.transfer_timestamp}}</td>
+                      </tr>
+
+                      <tr>                      
+                        <td>Booking No {{ logistic.bookings_id }} has been created.</td>
+                        <td>{{logistic.created_at}}</td>
+                      </tr>
+
+
 
 
 
