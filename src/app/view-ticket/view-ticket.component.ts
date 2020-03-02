@@ -127,7 +127,6 @@ export class ViewTicketComponent implements OnInit {
         case '1':
           return 'Joyces of Wexford';
       }
-  
     }
   
 
