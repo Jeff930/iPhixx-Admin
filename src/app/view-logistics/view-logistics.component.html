@@ -84,64 +84,24 @@
                         </th>                
                       </tr>
                     </thead>
+
                     <tbody>
-                      
-                      <tr *ngFor="let logistic of logistics; let i = index">
-                        <!--  <td>{{item.name}}</td>
-                									        <td>{{item.email}}</td>
-                									        <td class="text-right">{{item.age}}</td>
-                									        <td>{{item.city | uppercase}}</td>
-                									        <td>{{item.city | uppercase}}</td> -->
-                        <!-- <td>{{ ticket.location }}</td>
-                        <td>{{ ticket.location }}</td> -->
-                        <!-- <td></td> -->
-                       <!--  <td> Iphixx-Booking </td>
-                        <td> 01/01/2019 </td> -->
-                        <!-- <td>{{ ticket.phone2 }}</td> -->
-                         <td>{{ logistic.bookings_id }}</td>
-                        <td>{{ getTicket(logistic.ticket_no) }}</td>
-                        <td>{{ getBookingStatus(logistic.leadstatus_no) }}</td>
-                         <td>{{ getBookingStatus(logistic.ticketstatus_no) }}</td>
-                        <td>{{ logistic.location_name }}</td>
-                        <td>
-                
-                          <button [satPopoverAnchorFor]="contactPopover" (click)="contactPopover.toggle()" class="btn btn-default btn-sm">
-                            <span class="glyphicon glyphicon-option-horizontal"></span>
-                          </button>
-                
-                          <sat-popover #contactPopover hasBackdrop verticalAlign="below">
-                            <div class="list-group">
-                              <a (click)="viewHistory( logistic.bookings_id )" class="list-group-item list-group-item-action">
-                                <span class="margin-icon glyphicon glyphicon-eye-open"></span>    View History</a>
-                            </div>
-                
-                          </sat-popover>
-                
-                        </td>
+                      <tr>                      
+                        <td>Ticket No {{ logistic.ticket_no }} has been marked as cancelled.</td>
+                        <td>{{logistic.cancelled_timestamp}}</td>
                       </tr>
+
+                      <tr>                      
+                        <td>{{ Booking No {{ logistic.bookings_id }} has been marked as lost. }}</td>
+                        <td>{{ logistic.lost_timestamp }}</td>
+                      </tr>
+
+
+
+
                     </tbody>
-                    <tfoot>
-                      <tr>
-                        <td colspan="10">
-                          <ul class="pagination center">
-                
-                            <li (click)="PreviosPage()" class="page-item {{ ticketPageActive == 1 ? 'disabled' : ''}}">
-                              <a class="no-border page-link" style="cursor: pointer">«</a>
-                            </li>
-                            <li *ngFor="let page of ticketPages ; let i = index" (click)="goToPage(i+1)" class="page-item {{ i+1 == ticketPageActive ? 'active' : '' }}">
-                              <a class="page-link" style="cursor: pointer">{{i+1}}</a>
-                            </li>
-                            <!-- <li class="page-item"><a class="page-link" style="cursor: pointer">2</a></li>
-                									        		 -->
-                            <li (click)="NextPage()" class="page-item">
-                              <a class="no-border page-link" style="cursor: pointer">»</a>
-                            </li>
-                
-                          </ul>
-                          <!--    <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator> -->
-                        </td>
-                      </tr>
-                    </tfoot>
+
+                    
                   </table>
                 
                 </div>
