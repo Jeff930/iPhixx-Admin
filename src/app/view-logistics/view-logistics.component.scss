@@ -4,3 +4,34 @@
     font-weight: bold;
     font-weight: 1.5rem !important;
  }
+
+ .panel-title {
+	font-family: Helvetica;
+	font-weight: bold;
+}
+.center{
+  margin-left:45%;
+}
+
+.panel-body {
+  width: 100% !important;
+}
+.table tr:nth-child(even) {
+	background-color: rgba(128, 128, 128, 0.1);
+}
+.table tr {
+	font-family: Helvetica;
+  text-align: center;
+}
+.table th {
+	font-family: Helvetica;
+  color : #337ab7;
+  text-align: center;
+}
+
+
+@media (max-width: 768px ) {
+  .form-group {
+    width: 20%;
+  }
+}
