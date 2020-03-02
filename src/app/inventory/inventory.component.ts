@@ -43,23 +43,23 @@ export class InventoryComponent implements OnInit {
   // });
   
 
-  //   if (this.inventory.length == 0) {
-  //     this.spinner.show();
-  //   this.inventoryPageActive = 1;
-  //   this.adminService.inventoryPageActive = this.inventoryPageActive;
-  //   this.adminService.getInventory().subscribe( ( res ) => {
-  // console.log("this res:"+ JSON.stringify(res));
-  // this.inventoryPages = Array(res.total_page);
-  //   this.adminService.inventoryPages = this.inventoryPages;
-  //   console.log(this.inventoryPages)	
-  //   this.adminService.inventoryPage['page'+1 ] = res.inventory;
-  //   console.log(this.inventoryPage)
-  //   this.inventory = this.adminService.inventoryPage['page'+1 ];
-  //   console.log(this.inventory)
-  //   this.spinner.hide();
-  //   this.adminService.global.inventory = this.inventory;	
-  // })
-  // }
+    if (this.inventory.length == 0) {
+      this.spinner.show();
+    this.inventoryPageActive = 1;
+    this.adminService.inventoryPageActive = this.inventoryPageActive;
+    this.adminService.getInventory().subscribe( ( res ) => {
+  console.log("this res:"+ JSON.stringify(res));
+  this.inventoryPages = Array(res.total_page);
+    this.adminService.inventoryPages = this.inventoryPages;
+    console.log(this.inventoryPages)	
+    this.adminService.inventoryPage['page'+1 ] = res.inventory;
+    console.log(this.inventoryPage)
+    this.inventory = this.adminService.inventoryPage['page'+1 ];
+    console.log(this.inventory)
+    this.spinner.hide();
+    this.adminService.global.inventory = this.inventory;	
+  })
+  }
 
 
 }
