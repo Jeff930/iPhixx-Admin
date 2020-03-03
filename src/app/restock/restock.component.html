@@ -20,7 +20,7 @@
 
 							<div class="form-group">
 								<label for="exampleInputEmail1">Stock</label>
-								<p class="form-control">{{ stock.quantity }}</p>
+								<input type="text" [(ngModel)] = "stock.quantity" [ngModelOptions]="{standalone: true}" class="form-control">
 							</div>
 
 							
@@ -38,7 +38,7 @@
 			</div>
 			<div class="panel-body">
 				<div class="col-12">
-					<button (click)="save()" type="submit" class="btn btn-lg btn-primary update">Save</button>
+					<button (click)="updateStock()" type="submit" class="btn btn-lg btn-primary update">Save</button>
 					<button (click)="goToInventory()" type="submit" class="btn btn-lg btn-primary update">Back</button>
 				</div>
 			</div>
