@@ -461,6 +461,16 @@ updateAgent(agent) {
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
 
+updateStock(stock) {
+  console.log(stock);
+  const body = new HttpParams()
+   .set('quantity', stock.quantity)
+
+   console.log(body.toString());
+  return this.http.put('http://admin.iphixx.com/api/v1/bookings/update-stock/'+ stock.item_no,
+    body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
+}
+
 updatePrice(prices) {
   console.log(prices);
   const body = new HttpParams()
