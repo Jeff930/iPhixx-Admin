@@ -79,6 +79,10 @@ export interface Logistic {
   cancelled_timestamp: any;
 }
 
+export interface Stock {
+  quantity:any;
+}
+
 export interface Device {
   devicemodel_id: any;
   model_name: any;
@@ -283,6 +287,10 @@ return false;
 
   getLogistic(id) {
     return this.http.get<Logistic>('https://admin.iphixx.com/api/v1/bookings/logistic/' + id);
+  }
+
+  getStock(id){
+    return this.http.get<Stock>('https://admin.iphixx.com/api/v1/bookings/stock/' + id);
   }
 
   getTicket(id) {
