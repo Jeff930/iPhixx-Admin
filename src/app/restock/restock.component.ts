@@ -47,4 +47,12 @@ export class RestockComponent implements OnInit {
     goToInventory() {
         this.router.navigate(['/inventory']);
     }
+
+    updateStock(){
+      console.log(this.stock);
+      this.adminService.updateStock(this.stock).subscribe(res => {
+        console.log(res);
+        this.ngOnInit();
+      });
+    }
 }
