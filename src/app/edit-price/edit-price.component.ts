@@ -23,11 +23,6 @@ export class EditPriceComponent implements OnInit {
         this.adminService.getDevice(id).subscribe(res => {
           console.log(res);
           this.price = res;
-          if (this.price.screenrep_price == null){
-            console.log('empty')
-          }else{
-            console.log('nempty')
-          }
         });
     });
       //     if (res) {
