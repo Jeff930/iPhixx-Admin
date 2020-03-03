@@ -132,6 +132,11 @@ PreviosPage(){
   })}
   }	
 }
+
+restock(id){
+  this.router.navigate(['/restock',id]);
+}
+
   openPager(page) {
     switch (page) {
       case 'inventory':
