@@ -26,9 +26,12 @@
 									<table class="table table-hover">
 									    <thead>
 									    <tr>
-									        <th>
-												Model ID
+									    	<th>
+												Item No
 									        </th>
+									        <!-- <th>
+												Model ID
+									        </th> -->
 									        <th>
 									        	Device Model
 									        </th>
@@ -41,17 +44,19 @@
 									        <th>
 									        	Date Last Restocked
 									        </th>
+									        <th>
+									        	
+									        </th>
 									    </tr>
 									    </thead>
 									    <tbody>
-											<tr *ngFor="let item of items ; let i = index">
+											<tr *ngFor="let item of inventory ; let i = index">
 												
-												<td>{{ customer.customer_fname }} {{ customer.customer_lname }}</td>
-												<td>{{ customer.email }}</td>
-												<td>{{ customer.phone }}</td>
-												<!-- <td>{{ customer.address }}</td>
-												<td>{{ customer.location }}</td> -->
-												<td>{{ customer.created_at }}</td>
+												<td>{{ item.item_no }}</td>
+												<td>{{ item.device_brand}} {{ item.model_name}}</td>
+												<td>{{ item.part_name }}</td>
+												<td>{{ item.quantity }}</td>
+												<td>{{ item.last_restocked }}</td>
 												<td>
 
 													<button  [satPopoverAnchorFor]="contactPopover" (click)="contactPopover.toggle()" class="btn btn-default btn-sm">
@@ -62,11 +67,11 @@
 													<sat-popover #contactPopover hasBackdrop verticalAlign="below">
 													  <div class="list-group">
 														
-														  <a (click)="editCustomer(customer.customer_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-pencil"></span>Edit</a>
-														  <a (click)="deleteCustomer(customer.customer_id )" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-remove"></span>Delete</a>
+														  <a (click)="restock(item.item_no)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-pencil"></span> Update Stock</a>
+												
 														 
 														 
-														  </div>
+														</div>
 
 													</sat-popover>
 															        								
