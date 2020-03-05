@@ -77,14 +77,33 @@
 										  <tfoot>
 									    <tr>
 									        <td colspan="5">
-									        	<ul class="pagination center">
+									        	<ul *ngIf="devicespages.length <= 5" class="pagination center">
 
-									        		<li (click) = "PreviosPage()"  class="page-item {{ agentspageActive == 1 ? 'disabled' : ''}}"><a class="page-link" style="cursor: pointer">«</a>
+									        		<li (click) = "PreviosPage()"  class="page-item {{ devicespageActive == 1 ? 'disabled' : ''}}"><a class="page-link" style="cursor: pointer">«</a>
 									        		</li>
-									        		<li *ngFor="let page of agentspages ; let i = index" (click)="goToPage(i+1)" class="page-item {{ i+1 == agentspageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">{{i+1}}</a>
+
+									        		<li *ngFor="let page of devicespages ; let i = index" (click)="goToPage(i+1)" class="page-item {{ i+1 == devicespageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">{{i+1}}</a>
 									        		</li>
-									        		<!-- <li class="page-item"><a class="page-link" style="cursor: pointer">2</a></li>
-									        		 -->
+									        		
+									        		<li (click) = "NextPage()" class="page-item"><a class="page-link" style="cursor: pointer">»</a>
+									        		</li>
+
+									        	</ul>
+
+									        	<ul *ngIf="devicespages.length > 5" class="pagination center">
+
+									        		<li (click) = "PreviosPage()"  class="page-item {{ devicespageActive == 1 ? 'disabled' : ''}}"><a class="page-link" style="cursor: pointer">«</a>
+									        		</li>
+
+									        		<li *ngFor="let page of devicespages ; let i = index" (click)="goToPage(i+1)" class="page-item {{ i+1 == devicespageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">..</a>
+									        		</li>
+
+									        		<li *ngFor="let page of devicespages ; let i = index" (click)="goToPage(i+1)" class="page-item {{ i+1 == devicespageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">{{i+1}}</a>
+									        		</li>
+
+									        		<li *ngFor="let page of devicespages ; let i = index" (click)="goToPage(i+1)" class="page-item {{ i+1 == devicespageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">..</a>
+									        		</li>
+									        		
 									        		<li (click) = "NextPage()" class="page-item"><a class="page-link" style="cursor: pointer">»</a>
 									        		</li>
 
