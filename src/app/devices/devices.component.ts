@@ -34,7 +34,8 @@ export class DevicesComponent implements OnInit {
   		this.spinner.show();
   		this.adminService.getDevices(1).subscribe( ( res ) => {
   	  console.log(res);
-  		this.devicespages = Array(res.total_page);
+		  this.devicespages = Array(res.total_page);
+		  console.log(this.devicespages.length);
   		this.adminService.devicespages = this.devicespages;
   	
   		this.adminService.devicesPage['page'+1 ] = res.devices;
