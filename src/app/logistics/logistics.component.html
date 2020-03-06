@@ -115,6 +115,21 @@
                             <li (click)="NextPage()" class="page-item">
                               <a class="no-border page-link" style="cursor: pointer">»</a>
                             </li>
+
+                            <li (click) = "PreviosPage()"  class="page-item {{ devicespageActive == 1 ? 'disabled' : ''}}"><a class="page-link" style="cursor: pointer">«</a>
+                              </li>
+
+                              <li class="page-item {{ i+1 == devicespageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">..</a>
+                              </li>
+
+                              <li *ngFor="let page of devicespages ; let i = index" (click)="goToPage(i+1)" class="page-item {{ i+1 == devicespageActive ? 'active' : '' }}"  ><a *ngIf="i<=4" class="page-link"  style="cursor: pointer">{{i+1}}</a>
+                              </li>
+
+                              <li  class="page-item {{ i+1 == devicespageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">..</a>
+                              </li>
+                              
+                              <li (click) = "NextPage()" class="page-item"><a class="page-link" style="cursor: pointer">»</a>
+                              </li>
                 
                           </ul>
                           <!--    <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator> -->
