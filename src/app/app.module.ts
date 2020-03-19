@@ -42,6 +42,7 @@ import { EditLaptopPriceComponent } from './edit-laptop-price/edit-laptop-price.
 import { ViewTicketComponent } from './view-ticket/view-ticket.component';
 import { ViewLogisticsComponent } from './view-logistics/view-logistics.component';
 import { RestockComponent } from './restock/restock.component';
+import { AddAgentComponent } from './add-agent/add-agent.component';
 
 // import { NotificationComponent } from './notification/notification.component';
 
@@ -76,7 +77,8 @@ import { RestockComponent } from './restock/restock.component';
     EditLaptopPriceComponent,
     ViewTicketComponent,
     ViewLogisticsComponent,
-    RestockComponent
+    RestockComponent,
+    AddAgentComponent
 
   ],
   imports: [
