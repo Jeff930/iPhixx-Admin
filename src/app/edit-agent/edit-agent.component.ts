@@ -17,7 +17,7 @@ export class EditAgentComponent implements OnInit {
   constructor(  private route: ActivatedRoute,
   private router: Router , public adminService : AdminService,
   public spinner : NgxSpinnerService) { 
-  	// this.adminService.updateCustomer().subscribe( res => console.log(res))
+  	//this.adminService.get().subscribe( res => console.log(res))
  
    }
 
@@ -25,17 +25,14 @@ export class EditAgentComponent implements OnInit {
   	agent_fname: '',
 	agent_lname :'',
 	agent_username:'',
-	password :'',  
   	email : '',
   	phone : '',
   	address :'',
-  	pin : '',
   	store_assigned : '',
   	// state : '',
   	// zip : '',
   	id : 0,
   	// password : '',
-
   };
 
   id ;
@@ -44,9 +41,15 @@ export class EditAgentComponent implements OnInit {
   	if(this.adminService.agentsAction == 'update'){
 			this.title="Edit Agent"
   	this.route.paramMap.subscribe((params: ParamMap) => {
-      this.id = parseInt(params.get('id'));
- 		console.log(this.adminService.agentsPage['page'+this.adminService.agentspageActive ][this.id])
- 		this.agent = this.adminService.agentsPage['page'+this.adminService.agentspageActive ][this.id];
+	  this.id = parseInt(params.get('id'));
+	  this.adminService.getAgent(this.id).subscribe(res => {
+		console.log(res);
+		if (res) {
+		this.agent = res;
+		}
+	  });
+ 		// console.log(this.adminService.agentsPage['page'+this.adminService.agentspageActive ][this.id])
+ 		// this.agent = this.adminService.agentsPage['page'+this.adminService.agentspageActive ][this.id];
     });
    }else{
 		 this.title="New Agent"
