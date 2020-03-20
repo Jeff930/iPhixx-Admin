@@ -94,7 +94,7 @@ export class EditAgentComponent implements OnInit {
 		console.log(res)
 		this.spinner.hide();
 		this.adminService.agentsPage  = new Object(); 
-	  	this.router.navigate(['/agent']);
+	  	this.router.navigate(['/agents']);
 	},
 	 (err)=>{
 	   console.log(err);
