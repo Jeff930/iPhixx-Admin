@@ -21,6 +21,11 @@
 								<div class="panel-body">
 								
 									<div class="col-lg-6 ">
+
+										<div class="form-group">
+										    <label for="exampleInputEmail1">Agent ID</label>
+										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] = "agent.agent_id"  type="text" class="form-control" id="fullname" aria-describedby="emailHelp" placeholder="Agent ID" disabled>
+										  </div>
 									
 										  <div class="form-group">
 										    <label for="exampleInputEmail1">Agent First Name</label>
@@ -34,13 +39,19 @@
 										  <div class="form-group">
 										    <label for="exampleInputEmail1">Agent Username</label>
 										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] = "agent.agent_username"  type="text" class="form-control" id="fullname" aria-describedby="emailHelp" placeholder="Username">
-										  </div>									  
+										  </div>
+								  
 									</div>
 									<div class="col-lg-6 ">
 										<div class="form-group">
+										    <label for="exampleInputEmail13">Agent Status</label>
+										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] ="agent.agent_status" type="email" class="form-control" id="exampleInputEmail13" aria-describedby="emailHelp" placeholder="Email Address">
+										  </div>
+
+										   <div class="form-group">
 										    <label for="exampleInputEmail13">Email</label>
 										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] ="agent.agent_email" type="email" class="form-control" id="exampleInputEmail13" aria-describedby="emailHelp" placeholder="Email Address">
-										  </div>
+										  </div>	
 
 										    <div class="form-group">
 										    <label for="exampleInputEmail1">Phone</label>
@@ -54,7 +65,7 @@
 										
 									</div>
 									<div class="col ">
-										<button (click)="actionAgent()" type="submit" class="btn btn-lg btn-primary update">Save Changes</button>
+										<button (click)="updateAgent()" type="submit" class="btn btn-lg btn-primary update">Save Changes</button>
 										<button (click)="goToAgent()" type="submit" class="btn btn-lg btn-primary update cancel">Cancel</button>
 									</div>
 								
