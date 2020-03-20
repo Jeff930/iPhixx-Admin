@@ -18,13 +18,15 @@
 								<div class="panel-heading">
 							
 									<div class="sub-menu">
-										<h4 (click)= "openPager('leads')" [ngStyle]="{'color':pager === 'leads' ? '#2980b9' : 'black', 'background': pager === 'leads' ? '#ffffff' : 'none'}">Agents</h4>
+										<h4 (click)= "openPager('agents')" [ngStyle]="{'color':pager === 'agents' ? '#2980b9' : 'black', 'background': pager === 'agents' ? '#ffffff' : 'none'}">Agents</h4>
 										<!-- <h4 (click)= "openPager('manages')" [ngStyle]="{'color': pager === 'manages' ? '#2980b9' : 'black', 'background': pager === 'manages' ? '#ffffff' : 'none'}" class="panel-title">Manage Roles</h4> -->
 									</div>
-									<div class="col-lg-offset-6 col-lg-3">
-										<button class="new-customer" (click)="newCustomer()">+ New Agent</button>
+									<div class="addCustomer  align-items-end">
+										<button type="button" class="btn" (click)="newCustomer()" >
+											<i class="lnr lnr-plus-circle"></i>
+												Add Customer
+										</button>
 									</div>
-
 
 								</div>
 								<div class="panel-body">
@@ -44,7 +46,7 @@
 												
 												<td>{{ agent.agent_fname }} {{ agent.agent_lname }}</td>
 												<td>{{ agent.agent_username }}</td>
-												<td>{{ agent.store_assigned }}</td>
+												<td>{{ agent.location_id }}</td>
 												<td>{{ agent.agent_email}}</td>
 												<td>
 
