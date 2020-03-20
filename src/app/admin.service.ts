@@ -254,7 +254,7 @@ return false;
   }
 
   getAgents(page) {
-    return this.http.get<Agents>('https://admin.iphixx.com/api/v1/customers/agents/?page=' + page);
+    return this.http.get<Agents>('https://admin.iphixx.com/api/v1/bookings/agents/?page=' + page);
   }
 
   getDevices(page = 1) {
