@@ -117,9 +117,9 @@ export class AgentsComponent implements OnInit {
   }
 
   editAgent(id , index){
-  	console.log(index);
+  	console.log(id);
 	  this.adminService.agentsAction = 'update';
-  	this.router.navigate(['/edit-agent' , index]);
+  	this.router.navigate(['/edit-agent' , id]);
   }
 
   newAgent(){
