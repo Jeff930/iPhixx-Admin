@@ -140,6 +140,19 @@ export interface Repair {
   selectedRepair: any;
 }
 
+export interface Agent {
+  agent_fname: any,
+	agent_lname :any,
+	agent_username:any,
+  	email : any,
+  	phone : any,
+  	address :any,
+  	store_assigned : any,
+  	// state : '',
+  	// zip : '',
+  	id : 0,
+}
+
 
 @Injectable({
   providedIn: 'root'
@@ -287,6 +300,10 @@ return false;
 
   getLogistic(id) {
     return this.http.get<Logistic>('https://admin.iphixx.com/api/v1/bookings/logistic/' + id);
+  }
+
+  getAgent(id) {
+    return this.http.get<Agent>('https://admin.iphixx.com/api/v1/bookings/agent/' + id);
   }
 
   getStock(id){
