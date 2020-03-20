@@ -463,18 +463,9 @@ updateAgent(agent) {
    .set('agent_username', agent.agent_username)
    .set('agent_email', agent.agent_email)
    .set('agent_phone', agent.agent_phone)
-   .set('agent_location',agent.agent_location)
-   .set('agent_pin',agent.agent_pin)
-   .set('agent_password',agent.agent_password)
-   .set('store_assigned',agent.store_assigned)
-  // .set('birthdate', customer.birthdate)
-  //  .set('address', customer.address)
-  //  .set('address_2', customer.address2)
-  //  .set('city', customer.city)
-  //  .set('state', customer.state)
-  //  .set('zip', customer.zip)
+   .set('location_id','1')
 
-  return this.http.put('http://admin.iphixx.com/api/v1/customers/agents/'+agent.agent_id,
+  return this.http.put('http://admin.iphixx.com/api/v1/bookings/update-agent/'+agent.agent_id,
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
 
