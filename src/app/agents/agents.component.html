@@ -34,6 +34,7 @@
 									<table class="table table-hover">
 										<thead>
 											<tr>
+												<th>Agent ID</th>
 												<th>Full Name</th>
 												<th>Username</th>
 												<th>Store Assigned</th>
@@ -43,7 +44,7 @@
 										</thead>
 										<tbody>
 											<tr *ngFor="let agent of agents ; let i = index">
-												
+												<td>{{ agent.agent_id }}</td>
 												<td>{{ agent.agent_fname }} {{ agent.agent_lname }}</td>
 												<td>{{ agent.agent_username }}</td>
 												<td>{{ agent.location_id }}</td>
