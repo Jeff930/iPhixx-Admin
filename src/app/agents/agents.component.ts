@@ -15,6 +15,8 @@ export class AgentsComponent implements OnInit {
   agentsPage  = new Object();	
   agentspages : any;
   agentspageActive : number;
+  pager: any = 'agents';
+
   constructor( public adminService : AdminService , private spinner: NgxSpinnerService , public router : Router ) { 
 
   }
