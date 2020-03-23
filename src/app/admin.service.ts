@@ -393,12 +393,11 @@ return false;
    .set('email', agent.email)
    .set('password', agent.password)
    .set('phone', agent.phone)
-   .set('pin', agent.pin)
-   .set('store_assigned', agent.store_assigned)
+   .set('address', agent.address)
   //  .set('city', customer.city)
   //  .set('state', customer.state)
   //  .set('zip', customer.zip)
-   return this.http.post('http://admin.iphixx.com/api/v1/customers/agents/add',
+   return this.http.post('http://admin.iphixx.com/api/v1/bookings/add-agent',
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
 
