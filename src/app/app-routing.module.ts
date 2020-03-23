@@ -25,6 +25,7 @@ import { TicketsComponent } from './tickets/tickets.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { AgentsComponent } from './agents/agents.component';
 import { EditAgentComponent } from './edit-agent/edit-agent.component';
+import { AddAgentComponent } from './add-agent/add-agent.component';
 import { ViewCustomerComponent } from './view-customer/view-customer.component';
 import { EditTaxComponent } from './edit-tax/edit-tax.component';
 import { LogisticsComponent } from './logistics/logistics.component';
@@ -74,6 +75,7 @@ const routes: Routes = [
   { path: 'edit-price/:id', component: EditPriceComponent },
   { path: 'edit-laptop-price', component: EditLaptopPriceComponent },
   { path: 'restock/:id', component: RestockComponent },
+  { path: 'add-agent', component: AddAgentComponent },
   // { path: 'admin', component: DashboardComponent },
   // {
   //   path: 'device',
