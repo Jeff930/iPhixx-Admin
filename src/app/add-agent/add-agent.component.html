@@ -21,11 +21,6 @@
 								<div class="panel-body">
 								
 									<div class="col-lg-6 ">
-
-										<div class="form-group">
-										    <label for="exampleInputEmail1">Agent ID</label>
-										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] = "agent.agent_id"  type="text" class="form-control" id="fullname" aria-describedby="emailHelp" placeholder="Agent ID" disabled>
-										  </div>
 									
 										  <div class="form-group">
 										    <label for="exampleInputEmail1">Agent First Name</label>
@@ -36,8 +31,14 @@
 										    <label for="exampleInputEmail1">Agent Last Name</label>
 										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] = "agent.agent_lname"  type="text" class="form-control" id="fullname" aria-describedby="emailHelp" placeholder="Last Name">
 										  </div>
+
 										  <div class="form-group">
 										    <label for="exampleInputEmail1">Agent Username</label>
+										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] = "agent.agent_username"  type="text" class="form-control" id="fullname" aria-describedby="emailHelp" placeholder="Username">
+										  </div>
+
+										  <div class="form-group">
+										    <label for="exampleInputEmail1">Address</label>
 										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] = "agent.agent_username"  type="text" class="form-control" id="fullname" aria-describedby="emailHelp" placeholder="Username">
 										  </div>
 								  
@@ -58,10 +59,10 @@
 										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] ="agent.agent_phone" type="tel" class="form-control" id="exampleInputEmail8" aria-describedby="emailHelp" placeholder="Phone">
 										  </div>
 
-										  <div class="form-group">
-										    <label for="exampleInputEmail1">Store Assigned to</label>
-										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] ="agent.store_assigned" type="tel" class="form-control" id="exampleInputEmail8" aria-describedby="emailHelp" placeholder="Store">
-										  </div>									
+										 <div class="form-group">
+										    <label for="exampleInputEmail1">Temporary Password</label>
+										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] = "agent.agent_username"  type="text" class="form-control" id="fullname" aria-describedby="emailHelp" placeholder="Username">
+										  </div>							
 										
 									</div>
 									<div class="col ">
