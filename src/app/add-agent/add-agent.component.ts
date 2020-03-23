@@ -24,11 +24,10 @@ export class AddAgentComponent implements OnInit {
       email : '',
       phone : '',
       address :'',
-      store_assigned : '',
+      location : '',
       // state : '',
       // zip : '',
-      id : 0,
-      // password : '',
+      password : '',
     };
   
     id ;
