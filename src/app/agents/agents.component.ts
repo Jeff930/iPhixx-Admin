@@ -125,7 +125,7 @@ export class AgentsComponent implements OnInit {
   newAgent(){
 	  console.log("called");
   	this.adminService.agentsAction = 'new';
-  	this.router.navigate(['/edit-agent']);
+  	this.router.navigate(['/add-agent']);
   }
   
   deleteAgent(id){
