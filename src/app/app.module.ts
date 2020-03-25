@@ -43,6 +43,7 @@ import { ViewTicketComponent } from './view-ticket/view-ticket.component';
 import { ViewLogisticsComponent } from './view-logistics/view-logistics.component';
 import { RestockComponent } from './restock/restock.component';
 import { AddAgentComponent } from './add-agent/add-agent.component';
+import { LocationComponent } from './location/location.component';
 
 // import { NotificationComponent } from './notification/notification.component';
 
@@ -78,7 +79,8 @@ import { AddAgentComponent } from './add-agent/add-agent.component';
     ViewTicketComponent,
     ViewLogisticsComponent,
     RestockComponent,
-    AddAgentComponent
+    AddAgentComponent,
+    LocationComponent
 
   ],
   imports: [
