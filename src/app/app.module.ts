@@ -44,6 +44,8 @@ import { ViewLogisticsComponent } from './view-logistics/view-logistics.componen
 import { RestockComponent } from './restock/restock.component';
 import { AddAgentComponent } from './add-agent/add-agent.component';
 import { LocationComponent } from './location/location.component';
+import { AddLocationComponent } from './add-location/add-location.component';
+import { EditLocationComponent } from './edit-location/edit-location.component';
 
 // import { NotificationComponent } from './notification/notification.component';
 
@@ -80,7 +82,9 @@ import { LocationComponent } from './location/location.component';
     ViewLogisticsComponent,
     RestockComponent,
     AddAgentComponent,
-    LocationComponent
+    LocationComponent,
+    AddLocationComponent,
+    EditLocationComponent
 
   ],
   imports: [
