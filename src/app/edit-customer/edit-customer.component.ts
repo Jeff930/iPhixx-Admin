@@ -16,7 +16,6 @@ export class EditCustomerComponent implements OnInit {
   constructor(  private route: ActivatedRoute,
   private router: Router , public adminService : AdminService,
   public spinner : NgxSpinnerService) { 
-  	// this.adminService.updateCustomer().subscribe( res => console.log(res))
  
    }
 
