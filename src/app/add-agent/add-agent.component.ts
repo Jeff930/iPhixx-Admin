@@ -19,8 +19,8 @@ export class AddAgentComponent implements OnInit {
   
     agent = { 
       agent_fname: '',
-    agent_lname :'',
-    agent_username:'',
+      agent_lname :'',
+      agent_username:'',
       email : '',
       phone : '',
       address :'',
