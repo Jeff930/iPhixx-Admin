@@ -65,6 +65,15 @@ export interface Customer {
   location_id: any;
 }
 
+export interface Invoice {
+  customer_fname: any;
+  customer_lname: any;
+  email: any;
+  birthdate: any;
+  phone: any;
+  location_id: any;
+}
+
 export interface Location {
   location_name: any;
 }
@@ -292,6 +301,10 @@ return false;
     return this.http.get<Invoices>('https://admin.iphixx.com/api/v1/bookings/invoices/?page=' + page);
   }
 
+  getLocations(page =  1) {
+    return this.http.get<Locations>('https://admin.iphixx.com/api/v1/bookings/locations/?page=' + page);
+  }
+
   getTickets(page =  1) {
     return this.http.get<Tickets>('https://admin.iphixx.com/api/v1/bookings/tickets/?page=' + page);
   }
@@ -309,7 +322,11 @@ return false;
   }
 
   getInvoice(id) {
-    return this.http.get<Customer>('https://admin.iphixx.com/api/v1/bookings/invoice/' + id);
+    return this.http.get<Invoice>('https://admin.iphixx.com/api/v1/bookings/invoice/' + id);
+  }
+
+  getLocation(id) {
+    return this.http.get<Comer>('https://admin.iphixx.com/api/v1/bookings/invoice/' + id);
   }
 
   getLogistic(id) {
