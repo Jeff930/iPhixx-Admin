@@ -14,6 +14,12 @@ export interface Customers {
   page: any;
 }
 
+export interface Locations {
+  locations : Array<any>;
+  total_page : any;
+  page: any;
+}
+
 export interface Agents {
   agents: Array<any>;
   total_page: any;
@@ -57,6 +63,10 @@ export interface Customer {
   birthdate: any;
   phone: any;
   location_id: any;
+}
+
+export interface Location {
+  location_name: any;
 }
 
 export interface Logistic {
