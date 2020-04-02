@@ -197,6 +197,10 @@ export class AdminService implements CanActivate  {
   invoicesPage  = new Object();
   invoicePageActive: number;
 
+  locationspages: any;
+  locationsPage  = new Object();
+  locationPageActive: number;
+
   ticketPages: any;
   ticketsPage  = new Object();
   ticketPageActive: number;
