@@ -201,6 +201,11 @@ export class AdminService implements CanActivate  {
   agentspageActive: number;
   agentsAction: string;
 
+  locationspages: any;
+  locationsPage  = new Object();
+  locationspageActive: number;
+  locationsAction: string;
+
   devicespages: any;
   devicesPage  = new Object();
   devicespageActive: number;
@@ -209,10 +214,6 @@ export class AdminService implements CanActivate  {
   invoicespages: any;
   invoicesPage  = new Object();
   invoicePageActive: number;
-
-  locationspages: any;
-  locationsPage  = new Object();
-  locationPageActive: number;
 
   ticketPages: any;
   ticketsPage  = new Object();
