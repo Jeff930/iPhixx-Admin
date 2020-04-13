@@ -128,20 +128,19 @@ export class AgentsComponent implements OnInit {
   	this.router.navigate(['/add-agent']);
   }
   
-  deleteAgent(id){
+  deactivateAgent(id){
 	  this.spinner.show();
 	  console.log(id);
-    this.adminService.deleteAgent(id).subscribe(res=>{
-      // this.spinner.hide();
-      console.log(res);
-      this.adminService.agentsPage  = new Object(); 
-      location.reload();
-    },
-    err =>{
-      alert('Error! Please Try again.')
-      this.spinner.hide();
-
-    }
+      this.adminService.deactivateAgent(id).subscribe(res=>{
+      	// this.spinner.hide();
+      	console.log(res);
+      	this.adminService.agentsPage  = new Object(); 
+      	location.reload();
+    	},
+    	err =>{
+      		alert('Error! Please Try again.')
+      		this.spinner.hide();
+    	}
     )
  //  	$.ajax({
 	//   type: "DELETE",
