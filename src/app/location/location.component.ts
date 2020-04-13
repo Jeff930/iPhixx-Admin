@@ -19,26 +19,26 @@ export class LocationComponent implements OnInit {
   constructor( public adminService : AdminService , private spinner: NgxSpinnerService , public router : Router ) { }
 
   ngOnInit() {
-    this.agentspageActive = this.adminService.agentspageActive;
-    this.adminService.agentsPage['page'+this.agentspageActive ] ? this.agents = this.adminService.agentsPage['page'+this.agentspageActive ] : '';
-    this.adminService.agentspages ? this.agentspages = this.adminService.agentspages : '';
+    this.locationspageActive = this.adminService.locationspageActive;
+    this.adminService.locationsPage['page'+this.locationspageActive ] ? this.locations = this.adminService.locationsPage['page'+this.locationspageActive ] : '';
+    this.adminService.locationspages ? this.locationspages = this.adminService.locationspages : '';
 
-  if (this.agents.length == 0) {
-    this.agentspageActive = 1;
-    this.adminService.agentspageActive = this.agentspageActive;
+  if (this.locations.length == 0) {
+    this.locationspageActive = 1;
+    this.adminService.locationspageActive = this.locationspageActive;
     this.spinner.show();
     this.adminService.getAgents(1).subscribe( ( res ) => {
     console.log(res);
-    this.agentspages = Array(res.total_page);
-    this.adminService.agentspages = this.agentspages;
+    this.locationspages = Array(res.total_page);
+    this.adminService.locationspages = this.locationspages;
   
-    this.adminService.agentsPage['page'+1 ] = res.agents;
+    this.adminService.locationsPage['page'+1 ] = res.locations;
 
-    this.agents = this.adminService.agentsPage['page'+1 ];
+    this.locations = this.adminService.locationsPage['page'+1 ];
 
-    console.log(this.agents)
+    console.log(this.locations)
     this.spinner.hide();
-    this.adminService.global.agents = this.agents;	
+    this.adminService.global.locations = this.locations;	
 
   })
   }
@@ -46,21 +46,21 @@ export class LocationComponent implements OnInit {
 
 goToPage(number){
   console.log(number);
-  this.agentspageActive = number;
-  this.adminService.agentspageActive = this.agentspageActive;
+  this.locationspageActive = number;
+  this.adminService.locationspageActive = this.locationspageActive;
   this.spinner.show();
-  if(this.adminService.agentsPage['page'+number ]){
+  if(this.adminService.locationsPage['page'+number ]){
 
-      this.agents = this.adminService.agentsPage['page'+number ];
+      this.locations = this.adminService.locationsPage['page'+number ];
       this.spinner.hide();
   }
   else{
     this.adminService.getAgents(number).subscribe( ( res ) => {
-    this.adminService.agentsPage['page'+number ] = res.agents;
-    this.agents = this.adminService.agentsPage['page'+number ];
+    this.adminService.locationsPage['page'+number ] = res.locations;
+    this.locations = this.adminService.locationsPage['page'+number ];
     this.spinner.hide();
-    this.adminService.global.agents = this.agents;	
-    console.log(this.adminService.agentsPage)
+    this.adminService.global.locations = this.locations;	
+    console.log(this.adminService.locationsPage)
   })}
 }
 
@@ -68,43 +68,43 @@ NextPage(){
 
 
 
-  if(this.agentspageActive !== this.agentspages.length){
-    this.agentspageActive = this.agentspageActive+1;
-  this.adminService.agentspageActive = this.agentspageActive;
+  if(this.locationspageActive !== this.locationspages.length){
+    this.locationspageActive = this.locationspageActive+1;
+  this.adminService.locationspageActive = this.locationspageActive;
   this.spinner.show();
-  if(this.adminService.agentsPage['page'+this.agentspageActive ]){
+  if(this.adminService.locationsPage['page'+this.locationspageActive ]){
 
-      this.agents = this.adminService.agentsPage['page'+this.agentspageActive ];
+      this.locations = this.adminService.locationsPage['page'+this.locationspageActive ];
       this.spinner.hide();
   }
   else{
-    this.adminService.getAgents(this.agentspageActive).subscribe( ( res ) => {
-    this.adminService.agentsPage['page'+this.agentspageActive ] = res.agents;
-    this.agents = this.adminService.agentsPage['page'+this.agentspageActive ];
+    this.adminService.getAgents(this.locationspageActive).subscribe( ( res ) => {
+    this.adminService.locationsPage['page'+this.locationspageActive ] = res.locations;
+    this.locations = this.adminService.locationsPage['page'+this.locationspageActive ];
     this.spinner.hide();
-    this.adminService.global.agents = this.agents;	
-    console.log(this.adminService.agentsPage)
+    this.adminService.global.locations = this.locations;	
+    console.log(this.adminService.locationsPage)
   })}
   }
 }
 
 PreviosPage(){
-  if(this.agentspageActive !== 1){
-    this.agentspageActive = this.agentspageActive-1;
-  this.adminService.agentspageActive = this.agentspageActive;
+  if(this.locationspageActive !== 1){
+    this.locationspageActive = this.locationspageActive-1;
+  this.adminService.locationspageActive = this.locationspageActive;
   this.spinner.show();
-  if(this.adminService.agentsPage['page'+this.agentspageActive ]){
+  if(this.adminService.locationsPage['page'+this.locationspageActive ]){
 
-      this.agents = this.adminService.agentsPage['page'+this.agentspageActive ];
+      this.locations = this.adminService.locationsPage['page'+this.locationspageActive ];
       this.spinner.hide();
   }
   else{
-    this.adminService.getAgents(this.agentspageActive).subscribe( ( res ) => {
-    this.adminService.agentsPage['page'+this.agentspageActive ] = res.agents;
-    this.agents = this.adminService.agentsPage['page'+this.agentspageActive ];
+    this.adminService.getAgents(this.locationspageActive).subscribe( ( res ) => {
+    this.adminService.locationsPage['page'+this.locationspageActive ] = res.locations;
+    this.locations = this.adminService.locationsPage['page'+this.locationspageActive ];
     this.spinner.hide();
-    this.adminService.global.agents = this.agents;	
-    console.log(this.adminService.agentsPage)
+    this.adminService.global.locations = this.locations;	
+    console.log(this.adminService.locationsPage)
   })}
   }	
 }
@@ -127,7 +127,7 @@ deactivateAgent(id){
     this.adminService.deactivateAgent(id).subscribe(res=>{
       // this.spinner.hide();
       console.log(res);
-      this.adminService.agentsPage  = new Object(); 
+      this.adminService.locationsPage  = new Object(); 
       location.reload();
     },
     err =>{
@@ -137,13 +137,13 @@ deactivateAgent(id){
   )
 //  	$.ajax({
 //   type: "DELETE",
-//   url: 'https://iphixx.repairshopr.com/api/v1/agents/'+id+'?api_key=b60db6c6-2740-48c0-a0fa-34a49ecf6b3f',
+//   url: 'https://iphixx.repairshopr.com/api/v1/locations/'+id+'?api_key=b60db6c6-2740-48c0-a0fa-34a49ecf6b3f',
  
 //   success: (res) => {
 //   	this.spinner.hide();
 //   	console.log(res);
-//   	this.adminService.agentsPage  = new Object(); 
-//   	// this.router.navigate(['/agents']);
+//   	this.adminService.locationsPage  = new Object(); 
+//   	// this.router.navigate(['/locations']);
 //   },
 //   error:(err)=>{
 //    console.log(err);
