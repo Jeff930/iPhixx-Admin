@@ -586,7 +586,7 @@ editOwner(owner) {
 }
 
 deactivateAgent(agentId) {
-  return this.http.put('http://admin.iphixx.com/api/v1/bookings/deactivate-agent/'+ agentId,{});
+  return this.http.put('https://admin.iphixx.com/api/v1/bookings/deactivate-agent/'+ agentId,{});
 }
 
 transferLead(id){
