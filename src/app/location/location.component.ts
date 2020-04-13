@@ -78,7 +78,7 @@ NextPage(){
       this.spinner.hide();
   }
   else{
-    this.adminService.getAgents(this.locationspageActive).subscribe( ( res ) => {
+    this.adminService.getLocations(this.locationspageActive).subscribe( ( res ) => {
     this.adminService.locationsPage['page'+this.locationspageActive ] = res.locations;
     this.locations = this.adminService.locationsPage['page'+this.locationspageActive ];
     this.spinner.hide();
@@ -99,7 +99,7 @@ PreviosPage(){
       this.spinner.hide();
   }
   else{
-    this.adminService.getAgents(this.locationspageActive).subscribe( ( res ) => {
+    this.adminService.getLocations(this.locationspageActive).subscribe( ( res ) => {
     this.adminService.locationsPage['page'+this.locationspageActive ] = res.locations;
     this.locations = this.adminService.locationsPage['page'+this.locationspageActive ];
     this.spinner.hide();
