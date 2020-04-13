@@ -75,7 +75,11 @@ export interface Invoice {
 }
 
 export interface Location {
+  location_id: any;
   location_name: any;
+  company_name: any;
+  location_address:any;
+  main_contact: any;
 }
 
 export interface Logistic {
