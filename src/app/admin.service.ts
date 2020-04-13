@@ -326,7 +326,7 @@ return false;
   }
 
   getLocation(id) {
-    return this.http.get<Comer>('https://admin.iphixx.com/api/v1/bookings/invoice/' + id);
+    return this.http.get<Location>('https://admin.iphixx.com/api/v1/bookings/invoice/' + id);
   }
 
   getLogistic(id) {
@@ -559,10 +559,8 @@ updateLaptopPrice(prices) {
 
 editOwner(owner) {
   console.log(owner);
-
   const body = new HttpParams()
    .set('owner_name', owner.owner_name)
-
    .set('email', owner.email)
    .set('phone', owner.phone)
    .set('location', owner.location)
