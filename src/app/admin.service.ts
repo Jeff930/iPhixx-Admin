@@ -430,6 +430,21 @@ return false;
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
 
+addLocation(agent) {
+  console.log(agent);
+  const body = new HttpParams()
+   .set('agent_fname', agent.agent_fname)
+   .set('agent_lname', agent.agent_lname)
+   .set('agent_username', agent.agent_username)
+   .set('email', agent.email)
+   .set('password', agent.password)
+   .set('phone', agent.phone)
+   .set('address', agent.address)
+
+   return this.http.post('http://admin.iphixx.com/api/v1/bookings/add-agent',
+    body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
+}
+
   deleteTax(id) {
     console.log(id);
     return this.http.delete('http://admin.iphixx.com/api/v1/bookings/delete-tax/' + id);
