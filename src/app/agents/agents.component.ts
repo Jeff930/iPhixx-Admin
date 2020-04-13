@@ -22,9 +22,6 @@ export class AgentsComponent implements OnInit {
   }
 
   ngOnInit() {
-
-  	// $('[data-toggle="popover"]').popover();
-
       this.agentspageActive = this.adminService.agentspageActive;
       this.adminService.agentsPage['page'+this.agentspageActive ] ? this.agents = this.adminService.agentsPage['page'+this.agentspageActive ] : '';
       this.adminService.agentspages ? this.agentspages = this.adminService.agentspages : '';
@@ -48,7 +45,6 @@ export class AgentsComponent implements OnInit {
 
   	})
   	}
-
   }
 
   goToPage(number){
