@@ -56,6 +56,12 @@ export interface Inventory {
   page: any;
 }
 
+export interface Locations {
+	locations: Array<any>;
+  total_page: any;
+  page: any;
+}
+
 export interface Customer {
   customer_fname: any;
   customer_lname: any;
@@ -247,7 +253,8 @@ export class AdminService implements CanActivate  {
     inventory: [],
     agents: [],
     devices: [],
-    logistics: []
+    logistics: [],
+    locations:[]
   };
   notif = '';
   from = '';
