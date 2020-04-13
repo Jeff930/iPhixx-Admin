@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Agents, AdminService } from '../admin.service';
+import { Locations, AdminService } from '../admin.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Router , ActivatedRoute  } from '@angular/router';
 
@@ -27,7 +27,7 @@ export class LocationComponent implements OnInit {
     this.locationspageActive = 1;
     this.adminService.locationspageActive = this.locationspageActive;
     this.spinner.show();
-    this.adminService.getAgents(1).subscribe( ( res ) => {
+    this.adminService.getLocations(1).subscribe( ( res ) => {
     console.log(res);
     this.locationspages = Array(res.total_page);
     this.adminService.locationspages = this.locationspages;
@@ -55,7 +55,7 @@ goToPage(number){
       this.spinner.hide();
   }
   else{
-    this.adminService.getAgents(number).subscribe( ( res ) => {
+    this.adminService.getLocations(number).subscribe( ( res ) => {
     this.adminService.locationsPage['page'+number ] = res.locations;
     this.locations = this.adminService.locationsPage['page'+number ];
     this.spinner.hide();
