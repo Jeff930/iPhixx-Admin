@@ -67,7 +67,8 @@
 
 										    <div class="form-group">
 										    <label for="exampleInputEmail1">Location</label>
-										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] ="agent.location" type="tel" class="form-control" id="exampleInputEmail8" aria-describedby="emailHelp" placeholder="Location">
+										    <select [(ngModel)] ="agent.location" class="form-control" id="exampleInputEmail8" placeholder="Location">
+										    	<option [value]="locations.location_id" *ngFor="let location of locations">{{location.locationName}}</option>
 										  </div>										
 										
 									</div>
