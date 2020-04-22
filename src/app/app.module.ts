@@ -46,6 +46,10 @@ import { AddAgentComponent } from './add-agent/add-agent.component';
 import { LocationComponent } from './location/location.component';
 import { AddLocationComponent } from './add-location/add-location.component';
 import { EditLocationComponent } from './edit-location/edit-location.component';
+import { EditInvoiceComponent } from './edit-invoice/edit-invoice.component';
+import { AddDevtypeComponent } from './add-devtype/add-devtype.component';
+import { EditDevtypeComponent } from './edit-devtype/edit-devtype.component';
+import { AddBrandComponent } from './add-brand/add-brand.component';
 
 // import { NotificationComponent } from './notification/notification.component';
 
@@ -84,7 +88,11 @@ import { EditLocationComponent } from './edit-location/edit-location.component';
     AddAgentComponent,
     LocationComponent,
     AddLocationComponent,
-    EditLocationComponent
+    EditLocationComponent,
+    EditInvoiceComponent,
+    AddDevtypeComponent,
+    EditDevtypeComponent,
+    AddBrandComponent
 
   ],
   imports: [
