@@ -63,6 +63,7 @@ export class InvoicesComponent implements OnInit {
     this.adminService.global.invoices = this.invoices;	
   });
   }
+  this.spinner.hide();
 }
 
 ngAfterViewInit(){
