@@ -54,12 +54,12 @@
 										  <div class="form-group">
 										    <label for="exampleInputEmail1">Location</label>
 										    <select [(ngModel)] ="agent.location" class="form-control" id="exampleInputEmail8" placeholder="Location">
-										    	<option [value]="locations.location_id" *ngFor="let location of locations">{{location.locationName}}</option>
+										    	<option [value]="locations.location_id" *ngFor="let location of locations">{{location.location_name}}</option>
 										    </select>
 										  </div>										
 										
 									</div>
-									<div class="col ">
+									<div class="col-lg-12">
 										<button (click)="addAgent()" type="submit" class="btn btn-lg btn-primary update">Save Changes</button>
 										<button (click)="goToAgent()" type="submit" class="btn btn-lg btn-primary update cancel">Cancel</button>
 									</div>
