@@ -12,7 +12,8 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class EditAgentComponent implements OnInit {
 
-	title;
+  title;
+  locations: any;
 	
   constructor(  private route: ActivatedRoute,
   private router: Router , public adminService : AdminService,
@@ -28,7 +29,7 @@ export class EditAgentComponent implements OnInit {
   	email : '',
   	phone : '',
   	address :'',
-  	store_assigned : '',
+  	location_id : '',
   	// state : '',
   	// zip : '',
   	id : 0,
@@ -39,21 +40,25 @@ export class EditAgentComponent implements OnInit {
 
   ngOnInit() {
   	if(this.adminService.agentsAction == 'update'){
-			this.title="Edit Agent"
-  	this.route.paramMap.subscribe((params: ParamMap) => {
-	  this.id = parseInt(params.get('id'));
-	  this.adminService.getAgent(this.id).subscribe(res => {
-		console.log(res);
-		if (res) {
-		this.agent = res;
-		}
-	  });
+		this.title="Edit Agent"
+  		this.route.paramMap.subscribe((params: ParamMap) => {
+	  		this.id = parseInt(params.get('id'));
+	  		this.adminService.getAgent(this.id).subscribe(res => {
+				console.log(res);
+				if (res) {
+					this.agent = res;
+					this.adminService.getLocationList().subscribe( ( res ) => {
+						console.log(res);
+						this.locations = res;
+					  })
+				}
+	  		});
  		// console.log(this.adminService.agentsPage['page'+this.adminService.agentspageActive ][this.id])
  		// this.agent = this.adminService.agentsPage['page'+this.adminService.agentspageActive ][this.id];
-    });
-   }else{
-		 this.title="New Agent"
-	 }
+    	});
+   	}else{
+		this.title="New Agent"
+	}
   } 
   
   updateAgent(){
