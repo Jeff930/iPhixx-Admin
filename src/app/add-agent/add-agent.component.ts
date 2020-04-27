@@ -26,7 +26,7 @@ export class AddAgentComponent implements OnInit {
       email : '',
       phone : '',
       address :'',
-      location : '',
+      location_id : '',
       // state : '',
       // zip : '',
       password : '',
