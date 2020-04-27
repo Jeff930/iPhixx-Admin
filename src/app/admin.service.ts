@@ -62,6 +62,11 @@ export interface Locations {
   page: any;
 }
 
+export interface LocationList {
+	location_id: any;
+  location_name: any;
+}
+
 export interface Customer {
   customer_fname: any;
   customer_lname: any;
@@ -323,6 +328,10 @@ return false;
 
   getLogistics(page =  1) {
     return this.http.get<Logistics>('https://admin.iphixx.com/api/v1/bookings/logistics/?page=' + page);
+  }
+
+  getLocationList() {
+    return this.http.get<LocationList>('https://admin.iphixx.com/api/v1/bookings/list-locations');
   }
 
   getInventory(page =  1) {
