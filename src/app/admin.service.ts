@@ -181,7 +181,7 @@ export interface Agent {
   	email : any,
   	phone : any,
   	address :any,
-  	store_assigned : any,
+  	location_id : any,
   	// state : '',
   	// zip : '',
   	id : 0,
@@ -446,6 +446,7 @@ return false;
    .set('password', agent.password)
    .set('phone', agent.phone)
    .set('address', agent.address)
+   .set('location_id', agent.location_id)
 
    return this.http.post('http://admin.iphixx.com/api/v1/bookings/add-agent',
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
