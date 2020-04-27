@@ -59,9 +59,9 @@
 										  </div>
 
 										  <div class="form-group">
-										    <label for="exampleInputEmail1">Store Assigned</label>
-										   	<select [(ngModel)] ="agent.location" class="form-control" id="exampleInputEmail8" placeholder="Location">
-										    	<option [value]="locations.location_id" *ngFor="let location of locations">{{location.locationName}}</option>
+										    <label for="exampleInputEmail1">Location</label>
+										   	<select [(ngModel)] ="agent.location_id" class="form-control" id="exampleInputEmail8" placeholder="Location" [value]="agent.location_id">
+										    	<option [value]="location.location_id" *ngFor="let location of locations">{{location.location_name}}</option>
 										    </select>
 										  </div>									
 										
