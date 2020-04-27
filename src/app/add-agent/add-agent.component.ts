@@ -12,6 +12,8 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class AddAgentComponent implements OnInit {
 
+  locations: any;
+
   constructor(  private route: ActivatedRoute,
     private router: Router , public adminService : AdminService,
     public spinner : NgxSpinnerService) { 
@@ -32,7 +34,12 @@ export class AddAgentComponent implements OnInit {
   
     id ;
   
-    ngOnInit() {    } 
+    ngOnInit() { 
+      this.adminService.getLocationList().subscribe( ( res ) => {
+        console.log(res);
+        this.locations = res;
+      })
+    } 
   
     addAgent(){
       console.log("called");
