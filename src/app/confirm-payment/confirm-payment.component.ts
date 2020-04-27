@@ -11,7 +11,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class ConfirmPaymentComponent {
 
-  invoice; 
+  invoice;
 
   constructor(private spinner: NgxSpinnerService,public ngxSmartModalService: NgxSmartModalService, public adminService : AdminService) {
     
@@ -35,9 +35,5 @@ export class ConfirmPaymentComponent {
         this.ngxSmartModalService.close('confirmPayment');
       }
       )
-    }
-
-
-
-  
+    }  
 }
