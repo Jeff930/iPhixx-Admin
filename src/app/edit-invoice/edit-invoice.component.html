@@ -1,3 +1,78 @@
-<p>
-  edit-invoice works!
-</p>
+<app-navbar > </app-navbar>
+<app-sidebar > </app-sidebar>
+<app-footer > </app-footer>
+<ngx-spinner
+	bdColor = "rgba(51, 51, 51, 0.8)"
+	size = "medium"
+	color = "#fff"
+	type = "pacman"
+></ngx-spinner>
+
+
+
+	<div class="main">
+
+			<div class="main-content">
+
+					<div class="panel">
+								<div class="panel-heading">
+									<h3 class="panel-title"> {{ title }}</h3>
+								</div>
+								<div class="panel-body">
+								<form>
+									<div class="col-lg-6 ">
+									
+									<div class="form-group" *ngIf="owner.customer_id !== ''">
+										    <label for="exampleInputEmail1">Owner ID</label>
+										     <p class="form-control" id="exampleInputEmail13" aria-describedby="emailHelp" placeholder="Device Model">{{owner.customer_id}}</p>
+									</div>
+
+										  <div class="form-group">
+										    <label for="exampleInputEmail1">Full Name</label>
+										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] = "customerName"  type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Full Name">
+										  </div>
+										  <!-- <div class="form-group">
+										    <label for="exampleInputPassword1">Last Name</label>
+										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] ="customer.lastname" type="text" class="form-control" id="exampleInputPassword1" placeholder="Last Name">
+										  </div> -->
+
+										  <div class="form-group">
+										    <label for="exampleInputEmail13">Email</label>
+										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] ="owner.email" type="email" class="form-control" id="exampleInputEmail13" aria-describedby="emailHelp" placeholder="Email Address">
+										  </div>
+
+										  									
+									</div>
+									<div class="col-lg-6 ">
+									
+										 <div class="form-group">
+										    <label for="exampleInputEmail1">Birthdate</label>
+										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] ="owner.birthdate" type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Birthdate">
+										  </div>	
+										  
+										 <div class="form-group">
+										    <label for="exampleInputEmail1">Phone</label>
+										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] ="owner.phone" type="tel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Phone">
+										  </div>
+
+										  <div class="form-group">
+										    <label for="exampleInputEmail1">Location</label>
+													<select class="form-control" [(ngModel)] ="owner.location">
+														<option></option>
+														<option> {{owner.location}} <option>
+														<option> {{ locations }} </option>
+													</select>
+										  </div>
+										 
+										
+									</div>
+									<div class="col ">
+										<button (click)="editBooking()" type="submit" class="btn btn-lg btn-primary update"> {{ buttonName }}</button>
+										<button (click)="goToBooking()" type="submit" class="btn btn-lg btn-primary update">Back</button>
+									</div>
+									
+								</form>
+								</div>
+					</div>
+			</div>
+	</div>
