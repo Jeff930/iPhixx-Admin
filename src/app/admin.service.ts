@@ -426,6 +426,33 @@ return false;
      body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
  }
 
+addModel(model) {
+  const body = new HttpParams()
+  .set('brand', model.brand)
+  .set('modelNum', model.modelNum)
+  .set('modelName', model.modelName)
+  .set('devType', model.devType)
+  .set('image',model.image)
+  return this.http.post('https://admin.iphixx.com/api/v1/booking/add-model/', 
+    body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
+}
+
+addBrand(brand) {
+  const body = new HttpParams()
+  .set('brandName', brand.brandName)
+  .set('image', brand.image)
+  return this.http.post('https://admin.iphixx.com/api/v1/booking/add-brand/', 
+    body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
+}
+
+addRepairOption(repair) {
+  const body = new HttpParams()
+  .set('repairName', repair.repairName)
+  .set('image', repair.image)
+  return this.http.post('https://admin.iphixx.com/api/v1/booking/add-repair-option/', 
+    body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
+}
+
  addTax(tax) {
    console.log(tax);
    const body = new HttpParams()
@@ -467,10 +494,11 @@ addLocation(agent) {
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
 
-  deleteTax(id) {
+deleteTax(id) {
     console.log(id);
     return this.http.delete('http://admin.iphixx.com/api/v1/bookings/delete-tax/' + id);
   }
+
  deleteCustomer(id) {
    console.log(id);
    return this.http.delete('http://admin.iphixx.com/api/v1/customers/'+id);
@@ -500,7 +528,6 @@ addLocation(agent) {
 
  updateCustomer(customer){
   console.log(customer);
-
   const body = new HttpParams()
    .set('customer_fname', customer.customer_fname)
    .set('customer_lname', customer.customer_lname)
@@ -521,7 +548,6 @@ addLocation(agent) {
 
 updateAgent(agent) {
   console.log(agent);
-
   const body = new HttpParams()
    .set('agent_fname', agent.agent_fname)
    .set('agent_lname', agent.agent_lname)
@@ -529,7 +555,6 @@ updateAgent(agent) {
    .set('agent_email', agent.agent_email)
    .set('agent_phone', agent.agent_phone)
    .set('location_id','1')
-
   return this.http.put('http://admin.iphixx.com/api/v1/bookings/update-agent/'+agent.agent_id,
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
@@ -538,7 +563,6 @@ updateStock(stock) {
   console.log(stock);
   const body = new HttpParams()
    .set('quantity', stock.quantity)
-
    console.log(body.toString());
   return this.http.put('http://admin.iphixx.com/api/v1/bookings/update-stock/'+ stock.item_no,
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
