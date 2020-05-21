@@ -53,6 +53,7 @@ import { AddBrandComponent } from './add-brand/add-brand.component';
 import { AddModelComponent } from './add-model/add-model.component';
 import { EditModelComponent } from './edit-model/edit-model.component';
 import { EditBrandComponent } from './edit-brand/edit-brand.component';
+import { BrandsComponent } from './brands/brands.component';
 
 // import { NotificationComponent } from './notification/notification.component';
 
@@ -98,7 +99,8 @@ import { EditBrandComponent } from './edit-brand/edit-brand.component';
     AddBrandComponent,
     AddModelComponent,
     EditModelComponent,
-    EditBrandComponent
+    EditBrandComponent,
+    BrandsComponent
 
   ],
   imports: [
