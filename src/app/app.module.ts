@@ -50,6 +50,9 @@ import { EditInvoiceComponent } from './edit-invoice/edit-invoice.component';
 import { AddDevtypeComponent } from './add-devtype/add-devtype.component';
 import { EditDevtypeComponent } from './edit-devtype/edit-devtype.component';
 import { AddBrandComponent } from './add-brand/add-brand.component';
+import { AddModelComponent } from './add-model/add-model.component';
+import { EditModelComponent } from './edit-model/edit-model.component';
+import { EditBrandComponent } from './edit-brand/edit-brand.component';
 
 // import { NotificationComponent } from './notification/notification.component';
 
@@ -92,7 +95,10 @@ import { AddBrandComponent } from './add-brand/add-brand.component';
     EditInvoiceComponent,
     AddDevtypeComponent,
     EditDevtypeComponent,
-    AddBrandComponent
+    AddBrandComponent,
+    AddModelComponent,
+    EditModelComponent,
+    EditBrandComponent
 
   ],
   imports: [
