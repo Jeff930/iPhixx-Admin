@@ -1,0 +1,82 @@
+th{
+	color : #337ab7;
+	text-align: center;
+	font-family: Helvetica;
+}
+
+.popover-content {
+    padding: 0;
+}
+
+.margin-icon{
+	margin-right : 10px;
+	cursor: pointer;
+}
+
+.list-group-item{
+	cursor: pointer;
+}
+
+.new-customer{
+	
+	background-color: #00AAFF !important;
+    padding: 12px  !important;
+    color: #fff;
+    float: right;
+}
+
+.table-responsive {
+	overflow-x: unset;
+	text-align: center;
+	font-family: Helvetica;
+}
+
+.center{
+	margin-left:40%;
+}
+.table tr:nth-child(even) {
+	background-color: rgba(128, 128, 128, 0.1);
+}
+.addCustomer {
+	font-family: Helvetica;
+	button {
+			float: right;
+			margin-top: -50px;
+			right: 10px;
+			top: -5px;
+			color: white;
+			box-shadow: inset 0px 0px 5px 1px rgba(37, 44, 53, 0.2);
+			padding: 10px;
+			border-radius: 10px;
+			background-color: #2980b9;
+		}
+		button:hover,  {  
+			transition-timing-function: ease-in-out;
+			transition: 0.2s;
+			transform: scale(1.02);
+		}
+}
+// .panel {
+// 	hr {
+// 		width: 50%;
+// 		height: 2px;
+// 		background-color: rgba(5, 142, 221, 0.5);
+// 		border-radius: 25px;
+// 	}
+// }
+.panel-heading {
+   background: rgba(128, 128, 128, 0.5) !important; 
+   padding-bottom: 0px !important;
+}
+.sub-menu {
+	h4 {
+	font-family: Helvetica;
+	font-weight: bold !important;
+    font-size: 2rem !important;
+	cursor: pointer;
+    display: inline-block;
+    margin-bottom: -5px !important;
+    padding: 10px;
+    border-radius: 5px 5px  0px 0px;
+  }
+}
