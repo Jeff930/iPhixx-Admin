@@ -19,16 +19,21 @@
 									<div class="sub-menu">
 										<h4 (click)= "openPager('devices')" [ngStyle]="{'color':pager === 'devices' ? '#2980b9' : 'black', 'background': pager === 'devices' ? '#ffffff' : 'none'}">Device Models</h4>
 										<!-- <h4 (click)= "openPager('manages')" [ngStyle]="{'color': pager === 'manages' ? '#2980b9' : 'black', 'background': pager === 'manages' ? '#ffffff' : 'none'}" class="panel-title">Manage Roles</h4> -->
-									</div>
-									<!-- <div class="col-lg-offset-6 col-lg-3">
-										<button class="new-customer" (click)="newCustomer()">+ New Customer</button>
-									</div> -->
-									<div class="addCustomer  align-items-end">
+									<div class="addCustomer">
+										<button type="button" class="btn" (click)="goToAddDevice()" >
+											<i class="lnr lnr-plus-circle"></i>
+												Add Device
+										</button>
 										<button type="button" class="btn" (click)="editLaptopPrice()" >
 											<i class="lnr lnr-pencil"></i>
 												Edit Laptop Prices
 										</button>
 									</div>
+
+									</div>
+									<!-- <div class="col-lg-offset-6 col-lg-3">
+										<button class="new-customer" (click)="newCustomer()">+ New Customer</button>
+									</div> -->
 									
 
 								</div>
