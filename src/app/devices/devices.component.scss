@@ -39,11 +39,10 @@ th{
 }
 .addCustomer {
 	font-family: Helvetica;
+	float:right;
+	margin-top:-10px;
 	button {
-			float: right;
-			margin-top: -50px;
-			right: 10px;
-			top: -5px;
+			
 			color: white;
 			box-shadow: inset 0px 0px 5px 1px rgba(37, 44, 53, 0.2);
 			padding: 10px;
