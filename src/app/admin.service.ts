@@ -32,6 +32,12 @@ export interface Devices {
   page: any;
 }
 
+export interface Brands {
+  brands: Array<any>;
+  total_page: any;
+  page: any;
+}
+
 export interface Invoices {
   invoices: Array<any>;
   total_page: any;
@@ -115,6 +121,11 @@ export interface Logistic {
 
 export interface Stock {
   quantity:any;
+}
+
+export interface Brand {
+  devicebrand_id: any;
+  device_brand: any;
 }
 
 export interface Device {
@@ -217,6 +228,11 @@ export class AdminService implements CanActivate  {
   locationspageActive: number;
   locationsAction: string;
 
+  brandspages: any;
+  brandsPage  = new Object();
+  brandspageActive: number;
+  brandsAction: string;
+
   devicespages: any;
   devicesPage  = new Object();
   devicespageActive: number;
@@ -257,6 +273,7 @@ export class AdminService implements CanActivate  {
     owner : [],
     inventory: [],
     agents: [],
+    brands: [],
     devices: [],
     logistics: [],
     locations:[]
@@ -312,6 +329,10 @@ return false;
 
   getDevices(page = 1) {
     return this.http.get<Devices>('https://admin.iphixx.com/api/v1/bookings/all-devices/?page=' + page);
+  }
+
+  getBrands(page = 1) {
+    return this.http.get<Brands>('https://admin.iphixx.com/api/v1/bookings/brands/?page=' + page);
   }
 
   getInvoices(page =  1) {
@@ -370,6 +391,10 @@ return false;
     return this.http.get<Device>('https://admin.iphixx.com/api/v1/bookings/device/' + id);
   }
 
+  getBrand(id) {
+    return this.http.get<Brand>('https://admin.iphixx.com/api/v1/bookings/brand/' + id);
+  }
+
   getLaptopPrice() {
     return this.http.get<LaptopPrice>('https://admin.iphixx.com/api/v1/bookings/laptop-prices');
   }
@@ -385,6 +410,8 @@ return false;
   getModels() {
     return this.http.get<Leads>('https://admin.iphixx.com/api/v1/bookings/phone');
   }
+
+
   getTablets() {
     return this.http.get<Leads>('https://admin.iphixx.com/api/v1/bookings/tablet');
   }
@@ -503,6 +530,11 @@ deleteTax(id) {
    console.log(id);
    return this.http.delete('http://admin.iphixx.com/api/v1/customers/'+id);
  }
+
+ deleteBrand(id) {
+  console.log(id);
+  return this.http.delete('http://admin.iphixx.com/api/v1/bookings/brand/'+id);
+}
 
  deleteAgent(id) {
   console.log(id);
