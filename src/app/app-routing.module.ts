@@ -40,6 +40,8 @@ import { EditLaptopPriceComponent } from './edit-laptop-price/edit-laptop-price.
 import { ViewTicketComponent } from './view-ticket/view-ticket.component';
 import { ViewLogisticsComponent } from './view-logistics/view-logistics.component';
 import { RestockComponent } from './restock/restock.component';
+import { AddBrandComponent } from './add-brand/add-brand.component';
+import { AddModelComponent } from './add-model/add-model.component';
 
 const routes: Routes = [
 
@@ -76,6 +78,8 @@ const routes: Routes = [
   { path: 'edit-laptop-price', component: EditLaptopPriceComponent },
   { path: 'restock/:id', component: RestockComponent },
   { path: 'add-agent', component: AddAgentComponent },
+  { path: 'add-brand', component: AddBrandComponent },
+  { path: 'add-model', component: AddModelComponent },
   // { path: 'admin', component: DashboardComponent },
   // {
   //   path: 'device',
