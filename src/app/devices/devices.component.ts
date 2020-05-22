@@ -123,6 +123,10 @@ export class DevicesComponent implements OnInit {
 	this.router.navigate(['/edit-laptop-price']);
 }
 
+goToAddDevice(){
+	this.router.navigate(['/add-device']);
+}
+
   newAgent(){
 	  console.log("called");
   	this.adminService.devicesAction = 'new';
