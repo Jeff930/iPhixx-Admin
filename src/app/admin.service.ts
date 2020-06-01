@@ -26,6 +26,12 @@ export interface Agents {
   page: any;
 }
 
+export interface Networks {
+  networks: Array<any>;
+  total_page: any;
+  page: any;
+}
+
 export interface Devices {
   devices: Array<any>;
   total_page: any;
