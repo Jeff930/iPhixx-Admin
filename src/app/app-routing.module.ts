@@ -46,6 +46,7 @@ import { AddBrandComponent } from './add-brand/add-brand.component';
 import { EditBrandComponent } from './edit-brand/edit-brand.component';
 import { AddModelComponent } from './add-model/add-model.component';
 import { EditModelComponent } from './edit-model/edit-model.component';
+import { NetworksComponent } from './networks/networks.component';
 import { AddNetworkComponent } from './add-network/add-network.component';
 import { EditNetworkComponent } from './edit-network/edit-network.component';
 
@@ -90,6 +91,7 @@ const routes: Routes = [
   { path: 'edit-brand/:id', component: EditBrandComponent },
   { path: 'add-model', component: AddModelComponent },
   { path: 'edit-model/:id', component: EditModelComponent },
+  { path: 'networks', component: NetworksComponent },
   { path: 'add-network', component: AddNetworkComponent },
   { path: 'edit-network/:id', component: EditNetworkComponent },
   // { path: 'admin', component: DashboardComponent },
