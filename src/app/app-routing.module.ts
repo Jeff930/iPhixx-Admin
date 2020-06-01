@@ -40,8 +40,14 @@ import { EditLaptopPriceComponent } from './edit-laptop-price/edit-laptop-price.
 import { ViewTicketComponent } from './view-ticket/view-ticket.component';
 import { ViewLogisticsComponent } from './view-logistics/view-logistics.component';
 import { RestockComponent } from './restock/restock.component';
+import { AddDevtypeComponent } from './add-devtype/add-devtype.component';
+import { EditDevtypeComponent } from './edit-devtype/edit-devtype.component';
 import { AddBrandComponent } from './add-brand/add-brand.component';
+import { EditBrandComponent } from './edit-brand/edit-brand.component';
 import { AddModelComponent } from './add-model/add-model.component';
+import { EditModelComponent } from './edit-model/edit-model.component';
+import { AddNetworkComponent } from './add-network/add-network.component';
+import { EditNetworkComponent } from './edit-network/edit-network.component';
 
 const routes: Routes = [
 
@@ -78,8 +84,14 @@ const routes: Routes = [
   { path: 'edit-laptop-price', component: EditLaptopPriceComponent },
   { path: 'restock/:id', component: RestockComponent },
   { path: 'add-agent', component: AddAgentComponent },
+  { path: 'add-devtype', component: AddDevtypeComponent },
+  { path: 'edit-devtype/:id', component: EditDevtypeComponent },
   { path: 'add-brand', component: AddBrandComponent },
+  { path: 'edit-brand/:id', component: EditBrandComponent },
   { path: 'add-model', component: AddModelComponent },
+  { path: 'edit-model/:id', component: EditModelComponent },
+  { path: 'add-network', component: AddNetworkComponent },
+  { path: 'edit-network/:id', component: EditNetworkComponent },
   // { path: 'admin', component: DashboardComponent },
   // {
   //   path: 'device',
