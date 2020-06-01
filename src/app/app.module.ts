@@ -54,6 +54,8 @@ import { AddModelComponent } from './add-model/add-model.component';
 import { EditModelComponent } from './edit-model/edit-model.component';
 import { EditBrandComponent } from './edit-brand/edit-brand.component';
 import { BrandsComponent } from './brands/brands.component';
+import { AddNetworkComponent } from './add-network/add-network.component';
+import { EditNetworkComponent } from './edit-network/edit-network.component';
 
 // import { NotificationComponent } from './notification/notification.component';
 
@@ -100,7 +102,9 @@ import { BrandsComponent } from './brands/brands.component';
     AddModelComponent,
     EditModelComponent,
     EditBrandComponent,
-    BrandsComponent
+    BrandsComponent,
+    AddNetworkComponent,
+    EditNetworkComponent
 
   ],
   imports: [
