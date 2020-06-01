@@ -134,6 +134,11 @@ export interface Brand {
   device_brand: any;
 }
 
+export interface Network {
+  carrier_no: any;
+  carrier_name: any;
+}
+
 export interface Device {
   devicemodel_id: any;
   model_name: any;
