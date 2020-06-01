@@ -1,4 +1,9 @@
+import * as $ from 'jquery';
 import { Component, OnInit } from '@angular/core';
+import { Router , ActivatedRoute , ParamMap  } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
+import { AdminService } from '../admin.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-add-network',
@@ -7,9 +12,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddNetworkComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute,
+    private router: Router , public adminService : AdminService,
+    public spinner : NgxSpinnerService) { }
 
   ngOnInit() {
+  }
+
+  network = { 
+    network_name: '',
+    network_path :'',
+    network_file:''
+  };
+
+  id;
+
+  addNetwork(){
+    console.log("called");
+    console.log(this.network);
+    this.spinner.show();
+    this.adminService.addNetwork(this.network).subscribe(res => {
+      console.log("this" + res)
+      this.spinner.hide();
+      this.adminService.networksPage  = new Object(); 
+      this.router.navigate(['/networks']);
+    },
+    (err)=>{
+       console.log(err);
+       alert('Error! Please Try again.')
+       this.spinner.hide();
+    }
+  )
+}
+
+goToBrand(){
+  this.router.navigate(['/networks']);
   }
 
 }
