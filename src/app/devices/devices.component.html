@@ -136,7 +136,7 @@
 											<tr *ngFor="let devtype of devtypes ; let i = index">
 												
 												<td>{{ devtype.devtype_id }}</td>
-												<td>{{ devtype.devtype }}</td>
+												<td>{{ devtype.type }}</td>
 												<td>
 
 													<button  [satPopoverAnchorFor]="contactPopover" (click)="contactPopover.toggle()" class="btn btn-default btn-sm">
@@ -176,7 +176,7 @@
 
 									        	</ul>
 
-									        	<ul *ngIf="devicespages.length > 5" class="pagination center">
+									        	<ul *ngIf="devtypespages.length > 5" class="pagination center">
 
 									        		<li (click) = "PreviosDevtypesPage()"  class="page-item {{ devicespageActive == 1 ? 'disabled' : ''}}"><a class="page-link" style="cursor: pointer">«</a>
 									        		</li>
