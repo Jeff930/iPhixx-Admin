@@ -503,6 +503,14 @@ return false;
      body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
  }
 
+ addDevtype(devtype) {
+  const body = new HttpParams()
+  .set('devtypeName', devtype.devtypeName)
+  .set('image', devtype.image)
+  return this.http.post('https://admin.iphixx.com/api/v1/booking/add-devtype/', 
+    body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
+}
+
 addModel(model) {
   const body = new HttpParams()
   .set('brand', model.brand)
