@@ -18,13 +18,14 @@
 								<div class="panel-heading">
 									<div class="sub-menu">
 										<h4 (click)= "openPager('devices')" [ngStyle]="{'color':pager === 'devices' ? '#2980b9' : 'black', 'background': pager === 'devices' ? '#ffffff' : 'none'}">Device Models</h4>
+										<h4 (click)= "openPager('devtypes')" [ngStyle]="{'color':pager === 'devtypes' ? '#2980b9' : 'black', 'background': pager === 'devtypes' ? '#ffffff' : 'none'}">Device Types</h4>
 										<!-- <h4 (click)= "openPager('manages')" [ngStyle]="{'color': pager === 'manages' ? '#2980b9' : 'black', 'background': pager === 'manages' ? '#ffffff' : 'none'}" class="panel-title">Manage Roles</h4> -->
 									<div class="addCustomer">
-										<button type="button" class="btn" (click)="goToAddDevice()" >
+										<button type="button" class="btn" (click)="goToAddDevice()" *ngIf="pager== 'devices'" >
 											<i class="lnr lnr-plus-circle"></i>
 												Add Device
 										</button>
-										<button type="button" class="btn" (click)="editLaptopPrice()" >
+										<button type="button" class="btn" (click)="editLaptopPrice()" *ngIf="pager== 'devices'">
 											<i class="lnr lnr-pencil"></i>
 												Edit Laptop Prices
 										</button>
