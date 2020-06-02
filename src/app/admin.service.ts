@@ -429,7 +429,9 @@ return false;
     return this.http.get<Customer>('https://admin.iphixx.com/api/v1/bookings/ticket/' + id);
   }
 
-  
+  getDevtype(id) {
+    return this.http.get<Devtype>('https://admin.iphixx.com/api/v1/bookings/devtype/' + id);
+  }
 
   getDevice(id) {
     return this.http.get<Device>('https://admin.iphixx.com/api/v1/bookings/device/' + id);
