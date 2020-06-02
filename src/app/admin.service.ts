@@ -145,6 +145,11 @@ export interface Network {
   carrier_name: any;
 }
 
+export interface Devtype {
+  devtype_id: any;
+  type: any;
+}
+
 export interface Device {
   devicemodel_id: any;
   model_name: any;
@@ -245,6 +250,11 @@ export class AdminService implements CanActivate  {
   locationspageActive: number;
   locationsAction: string;
 
+  devtypespages: any;
+  devtypesPage  = new Object();
+  devtypespageActive: number;
+  devtypesAction: string;
+
   brandspages: any;
   brandsPage  = new Object();
   brandspageActive: number;
@@ -295,8 +305,10 @@ export class AdminService implements CanActivate  {
     owner : [],
     inventory: [],
     agents: [],
+    devtypes: [],
     brands: [],
     devices: [],
+    networks: [],
     logistics: [],
     locations:[]
   };
