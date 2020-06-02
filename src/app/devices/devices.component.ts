@@ -158,6 +158,68 @@ export class DevicesComponent implements OnInit {
   	}	
   }
 
+  goToDevtypesPage(number){
+	console.log(number);
+	this.devtypespageActive = number;
+	this.adminService.devtypespageActive = this.devtypespageActive;
+	this.spinner.show();
+	if(this.adminService.devtypesPage['page'+number ]){
+
+		  this.devtypes = this.adminService.devtypesPage['page'+number ];
+		  this.spinner.hide();
+	}
+	else{
+	  this.adminService.getDevtypes(number).subscribe( ( res ) => {
+	  this.adminService.devtypesPage['page'+number ] = res.devtypes;
+	  this.devtypes = this.adminService.devtypesPage['page'+number ];
+	  this.spinner.hide();
+	  this.adminService.global.devtypes = this.devtypes;	
+	  console.log(this.adminService.devtypesPage)
+  })}
+}
+
+NextDevtypesPage(){
+  if(this.devtypespageActive !== this.devtypespages.length){
+	  this.devtypespageActive = this.devtypespageActive+1;
+	this.adminService.devtypespageActive = this.devtypespageActive;
+	this.spinner.show();
+	if(this.adminService.devtypesPage['page'+this.devtypespageActive ]){
+
+		  this.devtypes = this.adminService.devtypesPage['page'+this.devtypespageActive ];
+		  this.spinner.hide();
+	}
+	else{
+	  this.adminService.getDevtypes(this.devtypespageActive).subscribe( ( res ) => {
+	  this.adminService.devtypesPage['page'+this.devtypespageActive ] = res.devtypes;
+	  this.devtypes = this.adminService.devtypesPage['page'+this.devtypespageActive ];
+	  this.spinner.hide();
+	  this.adminService.global.devtypes = this.devtypes;	
+	  console.log(this.adminService.devtypesPage)
+  })}
+  }
+}
+
+PreviosDevtypesPage(){
+  if(this.devtypespageActive !== 1){
+	  this.devtypespageActive = this.devtypespageActive-1;
+	this.adminService.devtypespageActive = this.devtypespageActive;
+	this.spinner.show();
+	if(this.adminService.devtypesPage['page'+this.devtypespageActive ]){
+
+		  this.devtypes = this.adminService.devtypesPage['page'+this.devtypespageActive ];
+		  this.spinner.hide();
+	}
+	else{
+	  this.adminService.getDevtypes(this.devtypespageActive).subscribe( ( res ) => {
+	  this.adminService.devtypesPage['page'+this.devtypespageActive ] = res.devtypes;
+	  this.devtypes = this.adminService.devtypesPage['page'+this.devtypespageActive ];
+	  this.spinner.hide();
+	  this.adminService.global.devtypes = this.devtypes;	
+	  console.log(this.adminService.devtypesPage)
+  })}
+  }	
+}
+
   editPrice(id , index){
   	console.log(index);
 	  this.adminService.devicesAction = 'update';
