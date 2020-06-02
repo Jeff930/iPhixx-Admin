@@ -492,7 +492,13 @@ addBrand(brand) {
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
 
-
+addNetwork(network) {
+  const body = new HttpParams()
+  .set('networkName', network.brandName)
+  .set('image', network.image)
+  return this.http.post('https://admin.iphixx.com/api/v1/booking/add-network/', 
+    body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
+}
 
 addRepairOption(repair) {
   const body = new HttpParams()
