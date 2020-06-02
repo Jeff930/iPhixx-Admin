@@ -32,6 +32,12 @@ export interface Networks {
   page: any;
 }
 
+export interface Devtypes {
+  devtypes: Array<any>;
+  total_page: any;
+  page: any;
+}
+
 export interface Devices {
   devices: Array<any>;
   total_page: any;
