@@ -19,6 +19,7 @@
 									<div class="sub-menu">
 										<h4 (click)= "openPager('devices')" [ngStyle]="{'color':pager === 'devices' ? '#2980b9' : 'black', 'background': pager === 'devices' ? '#ffffff' : 'none'}">Device Models</h4>
 										<h4 (click)= "openPager('devtypes')" [ngStyle]="{'color':pager === 'devtypes' ? '#2980b9' : 'black', 'background': pager === 'devtypes' ? '#ffffff' : 'none'}">Device Types</h4>
+										<h4 (click)= "openPager('brands')" [ngStyle]="{'color':pager === 'brands' ? '#2980b9' : 'black', 'background': pager === 'brands' ? '#ffffff' : 'none'}">Device Brands</h4>
 										<!-- <h4 (click)= "openPager('manages')" [ngStyle]="{'color': pager === 'manages' ? '#2980b9' : 'black', 'background': pager === 'manages' ? '#ffffff' : 'none'}" class="panel-title">Manage Roles</h4> -->
 									<div class="addCustomer">
 										<button type="button" class="btn" (click)="goToAddDevice()" *ngIf="pager== 'devices'" >
@@ -32,6 +33,10 @@
 										<button type="button" class="btn" (click)="goToAddDeviceType()" *ngIf="pager== 'devtypes'" >
 											<i class="lnr lnr-plus-circle"></i>
 												Add Device Type
+										</button>
+										<button type="button" class="btn" (click)="goToAddBrand()" *ngIf="pager== 'brands'" >
+											<i class="lnr lnr-plus-circle"></i>
+												Add Device Brand
 										</button>
 									</div>
 
@@ -184,7 +189,7 @@
 									        		<li class="page-item {{ i+1 == devicespageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">..</a>
 									        		</li>
 
-									        		<li *ngFor="let page of devicespages ; let i = index" (click)="goToPage(i+1)" class="page-item {{ i+1 == devicespageActive ? 'active' : '' }}"  ><a *ngIf="i<=4" class="page-link"  style="cursor: pointer">{{i+1}}</a>
+									        		<li *ngFor="let page of devicespages ; let i = index" (click)="goToDevtypesPage(i+1)" class="page-item {{ i+1 == devicespageActive ? 'active' : '' }}"  ><a *ngIf="i<=4" class="page-link"  style="cursor: pointer">{{i+1}}</a>
 									        		</li>
 
 									        		<li  class="page-item {{ i+1 == devicespageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">..</a>
@@ -199,6 +204,83 @@
 									    </tr>
 									    </tfoot>
 									</table>
+
+									<table class="table table-hover" *ngIf="pager== 'brands'">
+										<thead>
+											<tr>
+												<th>Brand ID</th>
+												<th>Brand Name</th>
+												<th></th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr *ngFor="let brand of brands ; let i = index">
+												
+												<td>{{ brand.devicebrand_id }}</td>
+												<td>{{ brand.device_brand }}</td>
+												<td>
+
+													<button  [satPopoverAnchorFor]="contactPopover" (click)="contactPopover.toggle()" class="btn btn-default btn-sm">
+		          										<span class="glyphicon glyphicon-option-horizontal"></span>
+		        									</button>
+
+
+													<sat-popover #contactPopover hasBackdrop verticalAlign="below">
+													  <div class="list-group">
+														
+														  <a (click)="editBrand(brand.devicebrand_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-pencil"></span>Edit Brand</a>
+													
+														 
+														  </div>
+
+													</sat-popover>
+															        								
+												</td>
+					    
+											
+											</tr>
+											
+										</tbody>
+										  <tfoot>
+									    <tr>
+									        <td colspan="5">
+									        	<ul *ngIf="brandspages.length <= 5" class="pagination center">
+
+									        		<li (click) = "PreviosBrandsPage()"  class="page-item {{ brandspageActive == 1 ? 'disabled' : ''}}"><a class="page-link" style="cursor: pointer">«</a>
+									        		</li>
+
+									        		<li *ngFor="let page of brandspages ; let i = index" (click)="goToBrandsPage(i+1)" class="page-item {{ i+1 == brandspageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">{{i+1}}</a>
+									        		</li>
+									        		
+									        		<li (click) = "NextBrandsPage()" class="page-item"><a class="page-link" style="cursor: pointer">»</a>
+									        		</li>
+
+									        	</ul>
+
+									        	<ul *ngIf="brandspages.length > 5" class="pagination center">
+
+									        		<li (click) = "PreviosBrandsPage()"  class="page-item {{ brandspageActive == 1 ? 'disabled' : ''}}"><a class="page-link" style="cursor: pointer">«</a>
+									        		</li>
+
+									        		<li class="page-item {{ i+1 == brandspageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">..</a>
+									        		</li>
+
+									        		<li *ngFor="let page of brandspages ; let i = index" (click)="goToBrandsPage(i+1)" class="page-item {{ i+1 == brandspageActive ? 'active' : '' }}"  ><a *ngIf="i<=4" class="page-link"  style="cursor: pointer">{{i+1}}</a>
+									        		</li>
+
+									        		<li  class="page-item {{ i+1 == brandspageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">..</a>
+									        		</li>
+									        		
+									        		<li (click) = "NextBrandsPage()" class="page-item"><a class="page-link" style="cursor: pointer">»</a>
+									        		</li>
+
+									        	</ul>
+									         <!--    <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator> -->
+									        </td>
+									    </tr>
+									    </tfoot>
+									</table>
+
 								</div>
 								</div>
 							</div>
