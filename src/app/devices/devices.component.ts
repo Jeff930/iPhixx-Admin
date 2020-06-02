@@ -81,6 +81,32 @@ export class DevicesComponent implements OnInit {
   		this.adminService.global.devtypes = this.devtypes;	
 
   	})
+	}
+	 
+	this.brandspageActive = this.adminService.brandspageActive;
+      this.adminService.brandsPage['page'+this.brandspageActive ] ? this.brands = this.adminService.brandsPage['page'+this.brandspageActive ] : '';
+      this.adminService.brandspages ? this.brandspages = this.adminService.brandspages : '';
+
+	console.log(this.brands.length);
+  	if (this.brands.length == 0) {
+  		this.brandspageActive = 1;
+  		this.adminService.brandspageActive = this.brandspageActive;
+  		this.spinner.show();
+  		this.adminService.getBrands(1).subscribe( ( res ) => {
+  	  console.log(res);
+		  this.brandspages = Array(res.total_page);
+		  console.log(this.brandspages.length);
+  		this.adminService.brandspages = this.brandspages;
+  	
+  		this.adminService.brandsPage['page'+1 ] = res.brands;
+
+  		this.brands = this.adminService.brandsPage['page'+1 ];
+
+  		console.log(this.brands)
+  		this.spinner.hide();
+  		this.adminService.global.brands = this.brands;	
+
+  	})
   	}
 
 	  
