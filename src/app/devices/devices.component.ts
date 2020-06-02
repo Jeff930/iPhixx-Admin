@@ -16,12 +16,16 @@ export class DevicesComponent implements OnInit {
   devicesPage  = new Object();	
   devicespages : any;
   devicespageActive : number;
+
+  devtypes = []; 	
+  devtypesPage  = new Object();	
+  devtypespages : any;
+  devtypespageActive : number;
   constructor( public adminService : AdminService , private spinner: NgxSpinnerService , public router : Router ) { 
 
   }
 
   ngOnInit() {
-  	// $('[data-toggle="popover"]').popover();
       this.devicespageActive = this.adminService.devicespageActive;
       this.adminService.devicesPage['page'+this.devicespageActive ] ? this.devices = this.adminService.devicesPage['page'+this.devicespageActive ] : '';
       this.adminService.devicespages ? this.devicespages = this.adminService.devicespages : '';
@@ -45,7 +49,36 @@ export class DevicesComponent implements OnInit {
   		this.adminService.global.devices = this.devices;	
 
   	})
+	}
+
+
+	this.devtypespageActive = this.adminService.devtypespageActive;
+      this.adminService.devtypesPage['page'+this.devtypespageActive ] ? this.devtypes = this.adminService.devtypesPage['page'+this.devtypespageActive ] : '';
+      this.adminService.devtypespages ? this.devtypespages = this.adminService.devtypespages : '';
+
+  	if (this.devtypes.length == 0) {
+  		this.devtypespageActive = 1;
+  		this.adminService.devtypespageActive = this.devtypespageActive;
+  		this.spinner.show();
+  		this.adminService.getDevtypes(1).subscribe( ( res ) => {
+  	  console.log(res);
+		  this.devtypespages = Array(res.total_page);
+		  console.log(this.devtypespages.length);
+  		this.adminService.devtypespages = this.devtypespages;
+  	
+  		this.adminService.devtypesPage['page'+1 ] = res.devtypes;
+
+  		this.devtypes = this.adminService.devtypesPage['page'+1 ];
+
+  		console.log(this.devtypes)
+  		this.spinner.hide();
+  		this.adminService.global.devtypes = this.devtypes;	
+
+  	})
   	}
+
+	  
+
 
   }
 
@@ -63,7 +96,7 @@ export class DevicesComponent implements OnInit {
     }
   }
 
-  goToPage(number){
+  goToDevicesPage(number){
 		console.log(number);
 		this.devicespageActive = number;
 		this.adminService.devicespageActive = this.devicespageActive;
@@ -83,7 +116,7 @@ export class DevicesComponent implements OnInit {
   	})}
 	}
 
-  NextPage(){
+  NextDevicesPage(){
   	if(this.devicespageActive !== this.devicespages.length){
   		this.devicespageActive = this.devicespageActive+1;
 		this.adminService.devicespageActive = this.devicespageActive;
@@ -104,7 +137,7 @@ export class DevicesComponent implements OnInit {
   	}
   }
 
-  PreviosPage(){
+  PreviosDevicesPage(){
   	if(this.devicespageActive !== 1){
   		this.devicespageActive = this.devicespageActive-1;
 		this.adminService.devicespageActive = this.devicespageActive;
