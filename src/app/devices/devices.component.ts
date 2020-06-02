@@ -21,9 +21,7 @@ export class DevicesComponent implements OnInit {
   }
 
   ngOnInit() {
-
   	// $('[data-toggle="popover"]').popover();
-
       this.devicespageActive = this.adminService.devicespageActive;
       this.adminService.devicesPage['page'+this.devicespageActive ] ? this.devices = this.adminService.devicesPage['page'+this.devicespageActive ] : '';
       this.adminService.devicespages ? this.devicespages = this.adminService.devicespages : '';
@@ -49,6 +47,20 @@ export class DevicesComponent implements OnInit {
   	})
   	}
 
+  }
+
+  openPager(page) {
+    switch (page) {
+      case 'brands':
+        this.pager = 'brands';
+        break;
+      case 'devtypes':
+        this.pager = 'devtypes';
+        break;
+      default:
+        this.pager = 'devices';
+        break;
+    }
   }
 
   goToPage(number){
