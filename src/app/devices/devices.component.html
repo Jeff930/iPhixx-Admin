@@ -85,32 +85,32 @@
 									        <td colspan="5">
 									        	<ul *ngIf="devicespages.length <= 5" class="pagination center">
 
-									        		<li (click) = "PreviosPage()"  class="page-item {{ devicespageActive == 1 ? 'disabled' : ''}}"><a class="page-link" style="cursor: pointer">«</a>
+									        		<li (click) = "PreviosDevicesPage()"  class="page-item {{ devicespageActive == 1 ? 'disabled' : ''}}"><a class="page-link" style="cursor: pointer">«</a>
 									        		</li>
 
-									        		<li *ngFor="let page of devicespages ; let i = index" (click)="goToPage(i+1)" class="page-item {{ i+1 == devicespageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">{{i+1}}</a>
+									        		<li *ngFor="let page of devicespages ; let i = index" (click)="goToDevicesPage(i+1)" class="page-item {{ i+1 == devicespageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">{{i+1}}</a>
 									        		</li>
 									        		
-									        		<li (click) = "NextPage()" class="page-item"><a class="page-link" style="cursor: pointer">»</a>
+									        		<li (click) = "NextDevicesPage()" class="page-item"><a class="page-link" style="cursor: pointer">»</a>
 									        		</li>
 
 									        	</ul>
 
 									        	<ul *ngIf="devicespages.length > 5" class="pagination center">
 
-									        		<li (click) = "PreviosPage()"  class="page-item {{ devicespageActive == 1 ? 'disabled' : ''}}"><a class="page-link" style="cursor: pointer">«</a>
+									        		<li (click) = "PreviosDevicesPage()"  class="page-item {{ devicespageActive == 1 ? 'disabled' : ''}}"><a class="page-link" style="cursor: pointer">«</a>
 									        		</li>
 
 									        		<li class="page-item {{ i+1 == devicespageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">..</a>
 									        		</li>
 
-									        		<li *ngFor="let page of devicespages ; let i = index" (click)="goToPage(i+1)" class="page-item {{ i+1 == devicespageActive ? 'active' : '' }}"  ><a *ngIf="i<=4" class="page-link"  style="cursor: pointer">{{i+1}}</a>
+									        		<li *ngFor="let page of devicespages ; let i = index" (click)="goToDevicesPage(i+1)" class="page-item {{ i+1 == devicespageActive ? 'active' : '' }}"  ><a *ngIf="i<=4" class="page-link"  style="cursor: pointer">{{i+1}}</a>
 									        		</li>
 
 									        		<li  class="page-item {{ i+1 == devicespageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">..</a>
 									        		</li>
 									        		
-									        		<li (click) = "NextPage()" class="page-item"><a class="page-link" style="cursor: pointer">»</a>
+									        		<li (click) = "NextDevicesPage()" class="page-item"><a class="page-link" style="cursor: pointer">»</a>
 									        		</li>
 
 									        	</ul>
@@ -131,10 +131,8 @@
 										<tbody>
 											<tr *ngFor="let devtype of devtypes ; let i = index">
 												
-												<td>{{ device.devicemodel_id }}</td>
-												<td>{{ getBrand(device.devicebrand_id)}} {{ device.model_name }}</td>
-												<td>{{ device.model_number }}</td>
-												<td>{{ getType(device.devtype_id) }}</td>
+												<td>{{ devtype.devtype_id }}</td>
+												<td>{{ devtype.devtype }}</td>
 												<td>
 
 													<button  [satPopoverAnchorFor]="contactPopover" (click)="contactPopover.toggle()" class="btn btn-default btn-sm">
@@ -145,7 +143,7 @@
 													<sat-popover #contactPopover hasBackdrop verticalAlign="below">
 													  <div class="list-group">
 														
-														  <a (click)="editPrice(device.devicemodel_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-pencil"></span>Update Prices</a>
+														  <a (click)="editType(devtype.devtype_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-pencil"></span>Edit Type</a>
 													
 														 
 														  </div>
@@ -161,22 +159,22 @@
 										  <tfoot>
 									    <tr>
 									        <td colspan="5">
-									        	<ul *ngIf="devicespages.length <= 5" class="pagination center">
+									        	<ul *ngIf="devtypespages.length <= 5" class="pagination center">
 
-									        		<li (click) = "PreviosPage()"  class="page-item {{ devicespageActive == 1 ? 'disabled' : ''}}"><a class="page-link" style="cursor: pointer">«</a>
+									        		<li (click) = "PreviosDevtypesPage()"  class="page-item {{ devtypespageActive == 1 ? 'disabled' : ''}}"><a class="page-link" style="cursor: pointer">«</a>
 									        		</li>
 
-									        		<li *ngFor="let page of devicespages ; let i = index" (click)="goToPage(i+1)" class="page-item {{ i+1 == devicespageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">{{i+1}}</a>
+									        		<li *ngFor="let page of devtypespages ; let i = index" (click)="goToDevtypesPage(i+1)" class="page-item {{ i+1 == devtypespageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">{{i+1}}</a>
 									        		</li>
 									        		
-									        		<li (click) = "NextPage()" class="page-item"><a class="page-link" style="cursor: pointer">»</a>
+									        		<li (click) = "NextDevtypesPage()" class="page-item"><a class="page-link" style="cursor: pointer">»</a>
 									        		</li>
 
 									        	</ul>
 
 									        	<ul *ngIf="devicespages.length > 5" class="pagination center">
 
-									        		<li (click) = "PreviosPage()"  class="page-item {{ devicespageActive == 1 ? 'disabled' : ''}}"><a class="page-link" style="cursor: pointer">«</a>
+									        		<li (click) = "PreviosDevtypesPage()"  class="page-item {{ devicespageActive == 1 ? 'disabled' : ''}}"><a class="page-link" style="cursor: pointer">«</a>
 									        		</li>
 
 									        		<li class="page-item {{ i+1 == devicespageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">..</a>
@@ -188,7 +186,7 @@
 									        		<li  class="page-item {{ i+1 == devicespageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">..</a>
 									        		</li>
 									        		
-									        		<li (click) = "NextPage()" class="page-item"><a class="page-link" style="cursor: pointer">»</a>
+									        		<li (click) = "NextDevtypesPage()" class="page-item"><a class="page-link" style="cursor: pointer">»</a>
 									        		</li>
 
 									        	</ul>
