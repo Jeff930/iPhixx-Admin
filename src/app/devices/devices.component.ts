@@ -328,6 +328,14 @@ goToAddDevice(){
 	this.router.navigate(['/add-device']);
 }
 
+goToAddDeviceType(){
+	this.router.navigate(['/add-devtype']);
+}
+
+goToAddBrand(){
+	this.router.navigate(['/add-brand']);
+}
+
   newAgent(){
 	  console.log("called");
   	this.adminService.devicesAction = 'new';
