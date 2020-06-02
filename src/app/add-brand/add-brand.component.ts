@@ -26,7 +26,7 @@ export class AddBrandComponent implements OnInit {
       brand_file:''
     };
   
-    id ;
+    id;
   
     ngOnInit() {} 
   
@@ -49,8 +49,8 @@ export class AddBrandComponent implements OnInit {
   }
   
   
-    goToBrand(){
-    this.router.navigate(['/brands']);
+    goToDevices(){
+    this.router.navigate(['/devices']);
     }
   
   }
