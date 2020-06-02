@@ -45,7 +45,7 @@ export class AddNetworkComponent implements OnInit {
   )
 }
 
-goToBrand(){
+goToNetwork(){
   this.router.navigate(['/networks']);
   }
 

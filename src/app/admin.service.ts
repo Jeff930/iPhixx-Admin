@@ -249,6 +249,11 @@ export class AdminService implements CanActivate  {
   devicespageActive: number;
   devicesAction: string;
 
+  networkspages: any;
+  networksPage  = new Object();
+  networkspageActive: number;
+  networksAction: string;
+
   invoicespages: any;
   invoicesPage  = new Object();
   invoicePageActive: number;
@@ -344,6 +349,10 @@ return false;
 
   getBrands(page = 1) {
     return this.http.get<Brands>('https://admin.iphixx.com/api/v1/bookings/brands/?page=' + page);
+  }
+
+  getNetworks(page = 1) {
+    return this.http.get<Networks>('https://admin.iphixx.com/api/v1/bookings/networks/?page=' + page);
   }
 
   getInvoices(page =  1) {
@@ -482,6 +491,8 @@ addBrand(brand) {
   return this.http.post('https://admin.iphixx.com/api/v1/booking/add-brand/', 
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
+
+
 
 addRepairOption(repair) {
   const body = new HttpParams()
