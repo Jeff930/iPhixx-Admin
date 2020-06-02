@@ -361,6 +361,10 @@ return false;
     return this.http.get<Agents>('https://admin.iphixx.com/api/v1/bookings/agents/?page=' + page);
   }
 
+  getDevtypes(page = 1) {
+    return this.http.get<Devtypes>('https://admin.iphixx.com/api/v1/bookings/devtypes/?page=' + page);
+  }
+
   getDevices(page = 1) {
     return this.http.get<Devices>('https://admin.iphixx.com/api/v1/bookings/all-devices/?page=' + page);
   }
@@ -424,6 +428,8 @@ return false;
   getTicket(id) {
     return this.http.get<Customer>('https://admin.iphixx.com/api/v1/bookings/ticket/' + id);
   }
+
+  
 
   getDevice(id) {
     return this.http.get<Device>('https://admin.iphixx.com/api/v1/bookings/device/' + id);
