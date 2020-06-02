@@ -252,6 +252,68 @@ PreviosDevtypesPage(){
   }	
 }
 
+goToBrandsPage(number){
+	console.log(number);
+	this.brandspageActive = number;
+	this.adminService.brandspageActive = this.brandspageActive;
+	this.spinner.show();
+	if(this.adminService.brandsPage['page'+number ]){
+
+		  this.brands = this.adminService.brandsPage['page'+number ];
+		  this.spinner.hide();
+	}
+	else{
+	  this.adminService.getBrands(number).subscribe( ( res ) => {
+	  this.adminService.brandsPage['page'+number ] = res.brands;
+	  this.brands = this.adminService.brandsPage['page'+number ];
+	  this.spinner.hide();
+	  this.adminService.global.brands = this.brands;	
+	  console.log(this.adminService.brandsPage)
+  })}
+}
+
+NextBrandsPage(){
+  if(this.brandspageActive !== this.brandspages.length){
+	  this.brandspageActive = this.brandspageActive+1;
+	this.adminService.brandspageActive = this.brandspageActive;
+	this.spinner.show();
+	if(this.adminService.brandsPage['page'+this.brandspageActive ]){
+
+		  this.brands = this.adminService.brandsPage['page'+this.brandspageActive ];
+		  this.spinner.hide();
+	}
+	else{
+	  this.adminService.getBrands(this.brandspageActive).subscribe( ( res ) => {
+	  this.adminService.brandsPage['page'+this.brandspageActive ] = res.brands;
+	  this.brands = this.adminService.brandsPage['page'+this.brandspageActive ];
+	  this.spinner.hide();
+	  this.adminService.global.brands = this.brands;	
+	  console.log(this.adminService.brandsPage)
+  })}
+  }
+}
+
+PreviosBrandsPage(){
+  if(this.brandspageActive !== 1){
+	  this.brandspageActive = this.brandspageActive-1;
+	this.adminService.brandspageActive = this.brandspageActive;
+	this.spinner.show();
+	if(this.adminService.brandsPage['page'+this.brandspageActive ]){
+
+		  this.brands = this.adminService.brandsPage['page'+this.brandspageActive ];
+		  this.spinner.hide();
+	}
+	else{
+	  this.adminService.getBrands(this.brandspageActive).subscribe( ( res ) => {
+	  this.adminService.brandsPage['page'+this.brandspageActive ] = res.brands;
+	  this.brands = this.adminService.brandsPage['page'+this.brandspageActive ];
+	  this.spinner.hide();
+	  this.adminService.global.brands = this.brands;	
+	  console.log(this.adminService.brandsPage)
+  })}
+  }	
+}
+
   editPrice(id , index){
   	console.log(index);
 	  this.adminService.devicesAction = 'update';
