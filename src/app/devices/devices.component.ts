@@ -21,6 +21,11 @@ export class DevicesComponent implements OnInit {
   devtypesPage  = new Object();	
   devtypespages : any;
   devtypespageActive : number;
+
+  brands = []; 	
+  brandsPage  = new Object();	
+  brandspages : any;
+  brandspageActive : number;
   constructor( public adminService : AdminService , private spinner: NgxSpinnerService , public router : Router ) { 
 
   }
@@ -56,6 +61,7 @@ export class DevicesComponent implements OnInit {
       this.adminService.devtypesPage['page'+this.devtypespageActive ] ? this.devtypes = this.adminService.devtypesPage['page'+this.devtypespageActive ] : '';
       this.adminService.devtypespages ? this.devtypespages = this.adminService.devtypespages : '';
 
+	console.log(this.devtypes.length);
   	if (this.devtypes.length == 0) {
   		this.devtypespageActive = 1;
   		this.adminService.devtypespageActive = this.devtypespageActive;
