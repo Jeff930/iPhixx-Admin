@@ -445,6 +445,10 @@ return false;
     return this.http.get<LaptopPrice>('https://admin.iphixx.com/api/v1/bookings/laptop-prices');
   }
 
+  getNetwork(id) {
+    return this.http.get<Network>('https://admin.iphixx.com/api/v1/bookings/network/' + id);
+  }
+
   getRepair(id) {
     return this.http.get<Repair>('https://admin.iphixx.com/api/v1/bookings/repair/' + id);
   }
