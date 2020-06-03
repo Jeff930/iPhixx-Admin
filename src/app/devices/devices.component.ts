@@ -325,7 +325,7 @@ PreviosBrandsPage(){
 }
 
 goToAddDevice(){
-	this.router.navigate(['/add-device']);
+	this.router.navigate(['/add-model']);
 }
 
 goToAddDeviceType(){
