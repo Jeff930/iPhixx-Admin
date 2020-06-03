@@ -10,6 +10,15 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class AddModelComponent implements OnInit {
 
+  device = {
+    devtype:0,
+    brand:0,
+    modelName:"",
+    modelNum:"",
+    
+
+
+  };
   devtypes;
   brands;
   id;
@@ -19,10 +28,10 @@ export class AddModelComponent implements OnInit {
     public spinner : NgxSpinnerService) { }
 
     ngOnInit() {
-      this.adminService.getDevtypesList().subscribe(res => {
+      this.adminService.getDevtypeList().subscribe(res => {
         this.devtypes = res;
-        this.adminService.getBrandsList().subscribe(res => {
-          this.brands = res.brands;
+        this.adminService.getBrandList().subscribe(res => {
+          this.brands = res;
         });
       });
     }
