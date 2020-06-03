@@ -407,6 +407,14 @@ return false;
     return this.http.get<LocationList>('https://admin.iphixx.com/api/v1/bookings/list-locations');
   }
 
+  getBrandList() {
+    return this.http.get<BrandList>('https://admin.iphixx.com/api/v1/bookings/list-brands');
+  }
+
+  getDevtypeList() {
+    return this.http.get<DevtypeList>('https://admin.iphixx.com/api/v1/bookings/list-devtypes');
+  }
+
   getInventory(page =  1) {
   	return this.http.get<Inventory>('https://admin.iphixx.com/api/v1/bookings/inventory/?page=' + page);
   }
