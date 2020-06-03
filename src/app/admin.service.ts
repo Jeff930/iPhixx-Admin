@@ -85,6 +85,16 @@ export interface LocationList {
   location_name: any;
 }
 
+export interface DevtypeList {
+	devtype_id: any;
+  type: any;
+}
+
+export interface BrandList {
+	devicebrand_id: any;
+  device_brand: any;
+}
+
 export interface Customer {
   customer_fname: any;
   customer_lname: any;
