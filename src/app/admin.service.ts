@@ -700,6 +700,14 @@ updateBrand(brand) {
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
 
+updateNetwork(network) {
+  console.log(network);
+  const body = new HttpParams()
+   .set('carrier_name', network.network_name)
+  return this.http.put('http://admin.iphixx.com/api/v1/bookings/update-network/'+network.carrier_no,
+    body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
+}
+
 updatePrice(prices) {
   console.log(prices);
   const body = new HttpParams()
