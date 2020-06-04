@@ -692,6 +692,14 @@ updateDevtype(devtype) {
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
 
+updateBrand(brand) {
+  console.log(brand);
+  const body = new HttpParams()
+   .set('device_brand', brand.device_brand)
+  return this.http.put('http://admin.iphixx.com/api/v1/bookings/update-brand/'+brand.device_brand,
+    body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
+}
+
 updatePrice(prices) {
   console.log(prices);
   const body = new HttpParams()
