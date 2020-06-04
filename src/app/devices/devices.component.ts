@@ -325,6 +325,11 @@ PreviosBrandsPage(){
 	this.router.navigate(['/edit-devtype' , id]);
 }
 
+editBrand(id , index){
+	console.log(index)
+	this.router.navigate(['/edit-brand' , id]);
+}
+
   editLaptopPrice(){
 	this.router.navigate(['/edit-laptop-price']);
 }
