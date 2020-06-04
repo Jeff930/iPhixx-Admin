@@ -684,6 +684,14 @@ updateStock(stock) {
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
 
+updateDevtype(devtype) {
+  console.log(devtype);
+  const body = new HttpParams()
+   .set('type', devtype.name)
+  return this.http.put('http://admin.iphixx.com/api/v1/bookings/update-devtype/'+devtype.devtype_id,
+    body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
+}
+
 updatePrice(prices) {
   console.log(prices);
   const body = new HttpParams()
