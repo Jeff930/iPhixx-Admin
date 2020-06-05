@@ -35,7 +35,7 @@ export class EditNetworkComponent implements OnInit {
     });
   }
 
-  updateBrand(){
+  updateNetwork(){
   	this.spinner.show();
     this.adminService.updateNetwork(this.network).subscribe(res => {
 			console.log(res)
