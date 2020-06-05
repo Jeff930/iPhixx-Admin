@@ -696,7 +696,7 @@ updateBrand(brand) {
   console.log(brand);
   const body = new HttpParams()
    .set('device_brand', brand.device_brand)
-  return this.http.put('http://admin.iphixx.com/api/v1/bookings/update-brand/'+brand.device_brand,
+  return this.http.put('http://admin.iphixx.com/api/v1/bookings/update-brand/'+brand.devicebrand_id,
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
 
