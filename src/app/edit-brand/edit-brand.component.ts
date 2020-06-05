@@ -37,7 +37,7 @@ export class EditBrandComponent implements OnInit {
 
   updateBrand(){
   	this.spinner.show();
-    this.adminService.updateDevtype(this.brand).subscribe(res => {
+    this.adminService.updateBrand(this.brand).subscribe(res => {
 			console.log(res)
 			this.spinner.hide();
 			this.adminService.brandsPage  = new Object(); 
