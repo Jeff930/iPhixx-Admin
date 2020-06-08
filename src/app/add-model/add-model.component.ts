@@ -13,8 +13,8 @@ export class AddModelComponent implements OnInit {
   device = {
     devtype_id:0,
     devicebrand_id:0,
-    modelName:"",
-    modelNum:"",
+    model_name:"",
+    model_number:"",
     screenrep_price:null,
     microphone_price:null,
     earrep_price:null,

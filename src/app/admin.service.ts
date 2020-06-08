@@ -532,8 +532,8 @@ return false;
 addModel(model) {
   const body = new HttpParams()
   .set('devicebrand_id', model.devicebrand_id)
-  .set('modelNum', model.modelNum)
-  .set('modelName', model.modelName)
+  .set('model_number', model.model_number)
+  .set('model_name', model.model_name)
   .set('devtype_id', model.devtype_id)
   .set('screenrep_price', model.screenrep_price)
   .set('headrep_price', model.headrep_price)
@@ -544,6 +544,7 @@ addModel(model) {
   .set('homerep_price', model.homerep_price)
   .set('microphone_price', model.microphone_price)
   .set('chargeport_price', model.chargeport_price)
+  .set('volumerep_price', model.volumerep_price)
   .set('battrep_price', model.battrep_price)
   .set('signalrep_price', model.signalrep_price)
   .set('backglass_price', model.backglass_price)
