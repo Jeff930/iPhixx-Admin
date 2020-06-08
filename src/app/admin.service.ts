@@ -727,6 +727,7 @@ updateNetwork(network) {
 updateDevice(model) {
   console.log(model);
   const body = new HttpParams()
+  .set('devicemodel_id', model.devicemodel_id)
   .set('devicebrand_id', model.devicebrand_id)
   .set('model_number', model.model_number)
   .set('model_name', model.model_name)
