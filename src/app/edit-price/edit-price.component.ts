@@ -79,7 +79,13 @@ export class EditPriceComponent implements OnInit {
     console.log(this.price);
     this.adminService.updatePrice(this.price).subscribe(res => {
       console.log(res);
-      this.ngOnInit();
+      if (res){
+        this.router.navigate(['/devices']);
+      }else{
+        alert('Error! Please Try again.');
+      }
+    },err=>{
+      alert('Error! Please Try again.');
     });
   }
 
