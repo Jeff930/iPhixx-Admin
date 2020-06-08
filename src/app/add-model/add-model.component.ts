@@ -92,7 +92,13 @@ export class AddModelComponent implements OnInit {
       console.log(this.device);
       this.adminService.addModel(this.device).subscribe(res => {
         console.log(res);
-        this.ngOnInit();
+        if (res){
+          this.router.navigate(['/devices']);
+        }else{
+          alert('Error! Please Try again.');
+        }
+      },err=>{
+        alert('Error! Please Try again.');
       });
     }
   
