@@ -15,10 +15,24 @@ export class AddModelComponent implements OnInit {
     brand:0,
     modelName:"",
     modelNum:"",
-    
-
-
+    screenrep_price:0,
+    microphone_price:0,
+    earrep_price:0,
+    rearcamrep_price:0,
+    homerep_price:0,
+    trackpad_price:0,
+    backglass_price:0,
+    headrep_price:0,
+    chargeport_price:0,
+    volumerep_price:0,
+    hdmirep_price:0,
+    signalrep_price:0,
+    powerrep_price:0,
+    frontcamrep_price:0,
+    battrep_price:0,
+    harddrive_rep:0  
   };
+  
   devtypes;
   brands;
   id;
