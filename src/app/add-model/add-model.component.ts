@@ -11,26 +11,26 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class AddModelComponent implements OnInit {
 
   device = {
-    devtype:0,
-    brand:0,
+    devtype_id:0,
+    devicebrand_id:0,
     modelName:"",
     modelNum:"",
-    screenrep_price:0,
-    microphone_price:0,
-    earrep_price:0,
-    rearcamrep_price:0,
-    homerep_price:0,
-    trackpad_price:0,
-    backglass_price:0,
-    headrep_price:0,
-    chargeport_price:0,
-    volumerep_price:0,
-    hdmirep_price:0,
-    signalrep_price:0,
-    powerrep_price:0,
-    frontcamrep_price:0,
-    battrep_price:0,
-    harddrive_rep:0  
+    screenrep_price:null,
+    microphone_price:null,
+    earrep_price:null,
+    rearcamrep_price:null,
+    homerep_price:null,
+    trackpad_price:null,
+    backglass_price:null,
+    headrep_price:null,
+    chargeport_price:null,
+    volumerep_price:null,
+    hdmirep_price:null,
+    signalrep_price:null,
+    powerrep_price:null,
+    frontcamrep_price:null,
+    battrep_price:null,
+    harddrive_rep:null
   };
 
   devtypes;
@@ -88,7 +88,7 @@ export class AddModelComponent implements OnInit {
       this.router.navigate(['/devices']);
     }
   
-    updatePrice(){
+    addModel(){
       console.log(this.device);
       this.adminService.addModel(this.device).subscribe(res => {
         console.log(res);
