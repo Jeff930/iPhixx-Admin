@@ -32,7 +32,7 @@ export class AddModelComponent implements OnInit {
     battrep_price:0,
     harddrive_rep:0  
   };
-  
+
   devtypes;
   brands;
   id;
@@ -89,8 +89,8 @@ export class AddModelComponent implements OnInit {
     }
   
     updatePrice(){
-      console.log(this.brands);
-      this.adminService.updatePrice(this.brands).subscribe(res => {
+      console.log(this.device);
+      this.adminService.addModel(this.device).subscribe(res => {
         console.log(res);
         this.ngOnInit();
       });
