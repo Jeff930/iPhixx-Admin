@@ -724,6 +724,17 @@ updateNetwork(network) {
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
 
+updateDevice(model) {
+  console.log(model);
+  const body = new HttpParams()
+  .set('devicebrand_id', model.devicebrand_id)
+  .set('model_number', model.model_number)
+  .set('model_name', model.model_name)
+  .set('devtype_id', model.devtype_id)
+  return this.http.put('http://admin.iphixx.com/api/v1/bookings/update-device/'+model.devicemodel_id,
+    body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
+}
+
 updatePrice(prices) {
   console.log(prices);
   const body = new HttpParams()
