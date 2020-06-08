@@ -525,16 +525,16 @@ return false;
   const body = new HttpParams()
   .set('devtypeName', devtype.devtypeName)
   .set('image', devtype.image)
-  return this.http.post('https://admin.iphixx.com/api/v1/booking/add-devtype/', 
+  return this.http.post('https://admin.iphixx.com/api/v1/bookings/add-devtype/', 
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
 
 addModel(model) {
   const body = new HttpParams()
-  .set('brand', model.brand)
+  .set('devicebrand_id', model.devicebrand_id)
   .set('modelNum', model.modelNum)
   .set('modelName', model.modelName)
-  .set('devType', model.devType)
+  .set('devtype_id', model.devtype_id)
   .set('screenrep_price', model.screenrep_price)
   .set('headrep_price', model.headrep_price)
   .set('earrep_price', model.earrep_price)
@@ -551,7 +551,7 @@ addModel(model) {
   .set('hdmirep_price', model.hdmirep_price)
   .set('harddrive_rep', model.harddrive_rep);
 
-  return this.http.post('https://admin.iphixx.com/api/v1/booking/add-model/', 
+  return this.http.post('https://admin.iphixx.com/api/v1/bookings/add-model/', 
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
 
@@ -559,7 +559,7 @@ addBrand(brand) {
   const body = new HttpParams()
   .set('brandName', brand.brandName)
   .set('image', brand.image)
-  return this.http.post('https://admin.iphixx.com/api/v1/booking/add-brand/', 
+  return this.http.post('https://admin.iphixx.com/api/v1/bookings/add-brand/', 
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
 
@@ -567,7 +567,7 @@ addNetwork(network) {
   const body = new HttpParams()
   .set('networkName', network.brandName)
   .set('image', network.image)
-  return this.http.post('https://admin.iphixx.com/api/v1/booking/add-network/', 
+  return this.http.post('https://admin.iphixx.com/api/v1/bookings/add-network/', 
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
 
@@ -575,7 +575,7 @@ addRepairOption(repair) {
   const body = new HttpParams()
   .set('repairName', repair.repairName)
   .set('image', repair.image)
-  return this.http.post('https://admin.iphixx.com/api/v1/booking/add-repair-option/', 
+  return this.http.post('https://admin.iphixx.com/api/v1/bookings/add-repair-option/', 
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
 
