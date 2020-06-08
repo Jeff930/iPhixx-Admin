@@ -535,7 +535,22 @@ addModel(model) {
   .set('modelNum', model.modelNum)
   .set('modelName', model.modelName)
   .set('devType', model.devType)
-  .set('image',model.image)
+  .set('screenrep_price', model.screenrep_price)
+  .set('headrep_price', model.headrep_price)
+  .set('earrep_price', model.earrep_price)
+  .set('powerrep_price', model.powerrep_price)
+  .set('rearcamrep_price', model.rearcamrep_price)
+  .set('frontcamrep_price', model.frontcamrep_price)
+  .set('homerep_price', model.homerep_price)
+  .set('microphone_price', model.microphone_price)
+  .set('chargeport_price', model.chargeport_price)
+  .set('battrep_price', model.battrep_price)
+  .set('signalrep_price', model.signalrep_price)
+  .set('backglass_price', model.backglass_price)
+  .set('trackpad_price', model.trackpad_price)
+  .set('hdmirep_price', model.hdmirep_price)
+  .set('harddrive_rep', model.harddrive_rep);
+
   return this.http.post('https://admin.iphixx.com/api/v1/booking/add-model/', 
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
