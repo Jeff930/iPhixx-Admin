@@ -24,21 +24,21 @@
 
 										  <div class="form-group">
 										    <label for="exampleInputEmail1">Device Type</label>
-										   <select class="form-control" [(ngModel)] = "device.devtype" aria-describedby="emailHelp">
+										   <select class="form-control" [(ngModel)] = "device.devtype_id" aria-describedby="emailHelp">
 										    	<option [value]="devtype.devtype_id" *ngFor="let devtype of devtypes">{{devtype.type}}</option>
 										    </select>
 										  </div>
 											
 										  <div class="form-group">
 										    <label for="exampleInputEmail1">Model Number</label>
-										    <input class="form-control" [(ngModel)] = "device.modelNum" type="text" aria-describedby="emailHelp">
+										    <input class="form-control" [(ngModel)] = "device.model_number" type="text" aria-describedby="emailHelp">
 										  </div>
 										
 									</div>
 									<div class="col-lg-4 ">
 										<div class="form-group">
 										    <label for="exampleInputEmail1">Model Brand</label>
-										    <select class="form-control" [(ngModel)] = "device.brand" aria-describedby="emailHelp">
+										    <select class="form-control" [(ngModel)] = "device.devicebrand_id" aria-describedby="emailHelp">
 										    	<option [value]="brand.devicebrand_id" *ngFor="let brand of brands">{{brand.device_brand}}</option>
 										    </select>
 										 </div>
@@ -48,7 +48,7 @@
 
 										<div class="form-group">
 										    <label for="exampleInputEmail1">Model Name</label>
-										    <input class="form-control" [(ngModel)] = "device.modelName" type="text" aria-describedby="emailHelp">
+										    <input class="form-control" [(ngModel)] = "device.model_name" type="text" aria-describedby="emailHelp">
 										 </div>									 
 										
 									</div>
