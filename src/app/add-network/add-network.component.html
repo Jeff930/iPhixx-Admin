@@ -22,13 +22,19 @@
 
 										  <div class="form-group">
 										    <label for="exampleInputEmail1">Network Filepath</label>
-										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] = "network.network_path"  type="file" class="form-control" id="fullname" aria-describedby="emailHelp" placeholder="Network Image Path" accept="image/jpeg">
+										    <input #imageInput [ngModelOptions]="{standalone: true}" [(ngModel)] = "network.network_path"  type="file" class="form-control" id="fullname" (change)="acceptImage(imageInput)" aria-describedby="emailHelp" placeholder="Network Image Path" accept="image/jpeg">
 										  </div>
 
 										  <div class="form-group">
 										    <label for="exampleInputEmail1" disabled >Network Filename</label>
 										    <p class="form-control">{{ network.network_file }}</p>
 										  </div>								 
+									</div>
+									<div class="col-lg-6 ">
+										  <div>
+										    <label for="exampleInputEmail1">Image Preview</label>
+										    
+										  </div>							 
 									</div>
 									<div class="col-lg-12">
 										<button (click)="addNetwork()" type="submit" class="btn btn-lg btn-primary update">Save Changes</button>
