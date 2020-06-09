@@ -76,6 +76,8 @@
 													<sat-popover #contactPopover hasBackdrop verticalAlign="below">
 													  <div class="list-group">
 														
+														 <a (click)="editModel(device.devicemodel_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-pencil"></span>Edit Model</a>
+
 														  <a (click)="editPrice(device.devicemodel_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-pencil"></span>Update Prices</a>
 													
 														 
