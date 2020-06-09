@@ -330,6 +330,11 @@ editBrand(id , index){
 	this.router.navigate(['/edit-brand' , id]);
 }
 
+editModel(id , index){
+	console.log(index)
+	this.router.navigate(['/edit-model' , id]);
+}
+
   editLaptopPrice(){
 	this.router.navigate(['/edit-laptop-price']);
 }
