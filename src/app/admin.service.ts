@@ -523,10 +523,42 @@ return false;
 
  addDevtype(devtype) {
   const body = new HttpParams()
-  .set('devtypeName', devtype.devtypeName)
-  .set('image', devtype.image)
+  .set('devtypeName', devtype.devtypeName);
+
   return this.http.post('https://admin.iphixx.com/api/v1/bookings/add-devtype/', 
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
+}
+
+uploadDevtypeImage(image) {
+  const body = new HttpParams()
+  .set('image', image);
+
+  return this.http.post('https://admin.iphixx.com/api/v1/bookings/upload-devtype-image/', 
+  body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
+}
+
+uploadBrandImage(image) {
+  const body = new HttpParams()
+  .set('image', image);
+
+  return this.http.post('https://admin.iphixx.com/api/v1/bookings/upload-brand-image/', 
+  body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
+}
+
+uploadModelImage(image) {
+  const body = new HttpParams()
+  .set('image', image);
+
+  return this.http.post('https://admin.iphixx.com/api/v1/bookings/upload-model-image/', 
+  body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
+}
+
+uploadNetworkImage(image) {
+  const body = new HttpParams()
+  .set('image', image);
+
+  return this.http.post('https://admin.iphixx.com/api/v1/bookings/upload-network-image/', 
+  body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
 
 addModel(model) {
@@ -558,16 +590,16 @@ addModel(model) {
 
 addBrand(brand) {
   const body = new HttpParams()
-  .set('brandName', brand.brandName)
-  .set('image', brand.image)
+  .set('brandName', brand.brandName);
+
   return this.http.post('https://admin.iphixx.com/api/v1/bookings/add-brand/', 
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
 
 addNetwork(network) {
   const body = new HttpParams()
-  .set('networkName', network.brandName)
-  .set('image', network.image)
+  .set('networkName', network.brandName);
+
   return this.http.post('https://admin.iphixx.com/api/v1/bookings/add-network/', 
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
