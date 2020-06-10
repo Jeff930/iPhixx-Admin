@@ -71,8 +71,7 @@ acceptImage(image){
    
    });
 
-  var test= reader.readAsDataURL(file);
-  console.log(test);
+  reader.readAsDataURL(file);
 }
 
 goToNetwork(){
