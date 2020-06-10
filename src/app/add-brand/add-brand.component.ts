@@ -25,7 +25,7 @@ export class AddBrandComponent implements OnInit {
       brand_file:''
     };
 
-    imagePath;
+    imagePath=null;
   
     id;
   
@@ -37,9 +37,23 @@ export class AddBrandComponent implements OnInit {
       this.spinner.show();
       this.adminService.addBrand(this.brand).subscribe(res => {
         console.log("this" + res)
-        this.spinner.hide();
-        this.adminService.brandsPage  = new Object(); 
-        this.router.navigate(['/brands']);
+        if (this.imagePath==null){
+          this.spinner.hide();
+          this.adminService.brandsPage  = new Object(); 
+          this.router.navigate(['/brands']);
+        }else{
+          this.adminService.uploadBrandImage(this.imagePath).subscribe(
+            (res) => {
+              this.spinner.hide();
+              this.adminService.brandsPage  = new Object(); 
+              this.router.navigate(['/brands']);
+            },
+            (err) => {
+              console.log(err);
+              alert('Error! Please Try again.')
+              this.spinner.hide();
+            })
+        }  
       },
       (err)=>{
          console.log(err);
@@ -56,18 +70,10 @@ export class AddBrandComponent implements OnInit {
     console.log(file);
     reader.addEventListener('load', (event: any) => {
       this.imagePath = event.target.result;
-      console.log(this.imagePath);
-    //   this.apiService.uploadImage(this.selectedFile.file).subscribe(
-    //     (res) => {
-        
-    //     },
-    //     (err) => {
-        
-    //     })
-     });
+      console.log(this.imagePath); 
+    });
   
-    var test= reader.readAsDataURL(file);
-    console.log(test);
+    reader.readAsDataURL(file);
   }
   
     goToDevices(){
