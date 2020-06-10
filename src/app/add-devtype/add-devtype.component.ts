@@ -20,9 +20,10 @@ export class AddDevtypeComponent implements OnInit {
   ngOnInit() {
   }
 
+  imagePath;
+  
   devtype = { 
     devtype_name: '',
-    devtype_path :'',
     devtype_file:''
   };
 
@@ -42,6 +43,27 @@ export class AddDevtypeComponent implements OnInit {
        this.spinner.hide();
     }
   )
+}
+
+acceptImage(image){
+  console.log(image);
+  const file: File = image.files[0];
+  const reader = new FileReader();
+  console.log(file);
+  reader.addEventListener('load', (event: any) => {
+    this.imagePath = event.target.result;
+    console.log(this.imagePath);
+  //   this.apiService.uploadImage(this.selectedFile.file).subscribe(
+  //     (res) => {
+      
+  //     },
+  //     (err) => {
+      
+  //     })
+   });
+
+  var test= reader.readAsDataURL(file);
+  console.log(test);
 }
 
 goToDevices(){
