@@ -22,9 +22,10 @@ export class AddBrandComponent implements OnInit {
   
     brand = { 
       brand_name: '',
-      brand_path :'',
       brand_file:''
     };
+
+    imagePath;
   
     id;
   
@@ -48,6 +49,26 @@ export class AddBrandComponent implements OnInit {
     )
   }
   
+  acceptImage(image){
+    console.log(image);
+    const file: File = image.files[0];
+    const reader = new FileReader();
+    console.log(file);
+    reader.addEventListener('load', (event: any) => {
+      this.imagePath = event.target.result;
+      console.log(this.imagePath);
+    //   this.apiService.uploadImage(this.selectedFile.file).subscribe(
+    //     (res) => {
+        
+    //     },
+    //     (err) => {
+        
+    //     })
+     });
+  
+    var test= reader.readAsDataURL(file);
+    console.log(test);
+  }
   
     goToDevices(){
     this.router.navigate(['/devices']);
