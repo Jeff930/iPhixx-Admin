@@ -20,7 +20,7 @@ export class AddDevtypeComponent implements OnInit {
   ngOnInit() {
   }
 
-  imagePath;
+  imagePath=null;
   
   devtype = { 
     devtype_name: '',
@@ -33,9 +33,23 @@ export class AddDevtypeComponent implements OnInit {
     this.spinner.show();
     this.adminService.addDevtype(this.devtype).subscribe(res => {
       console.log("this" + res)
-      this.spinner.hide();
-      this.adminService.devicesPage  = new Object(); 
-      this.router.navigate(['/devices']);
+      if (this.imagePath==null){
+        this.spinner.hide();
+        this.adminService.devicesPage  = new Object(); 
+        this.router.navigate(['/devices']);
+      }else{
+        this.adminService.uploadDevtypeImage(this.imagePath).subscribe(
+          (res) => {
+            this.spinner.hide();
+            this.adminService.devicesPage  = new Object(); 
+            this.router.navigate(['/devices']);
+          },
+          (err) => {
+            console.log(err);
+            alert('Error! Please Try again.')
+            this.spinner.hide();
+          })
+      }  
     },
     (err)=>{
        console.log(err);
@@ -53,17 +67,9 @@ acceptImage(image){
   reader.addEventListener('load', (event: any) => {
     this.imagePath = event.target.result;
     console.log(this.imagePath);
-  //   this.apiService.uploadImage(this.selectedFile.file).subscribe(
-  //     (res) => {
-      
-  //     },
-  //     (err) => {
-      
-  //     })
    });
 
-  var test= reader.readAsDataURL(file);
-  console.log(test);
+  reader.readAsDataURL(file);
 }
 
 goToDevices(){
