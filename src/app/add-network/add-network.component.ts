@@ -19,7 +19,7 @@ export class AddNetworkComponent implements OnInit {
   ngOnInit() {
   }
 
-  imagePath;
+  imagePath=null;
 
   network = { 
     network_name: '',
@@ -34,9 +34,23 @@ export class AddNetworkComponent implements OnInit {
     this.spinner.show();
     this.adminService.addNetwork(this.network).subscribe(res => {
       console.log("this" + res)
-      this.spinner.hide();
-      this.adminService.networksPage  = new Object(); 
-      this.router.navigate(['/networks']);
+      if (this.imagePath==null){
+        this.spinner.hide();
+        this.adminService.networksPage  = new Object(); 
+        this.router.navigate(['/networks']);  
+      }else{
+        this.adminService.uploadNetworkImage(this.imagePath).subscribe(
+          (res) => {
+            this.spinner.hide();
+            this.adminService.networksPage  = new Object(); 
+            this.router.navigate(['/networks']);
+          },
+          (err) => {
+            console.log(err);
+            alert('Error! Please Try again.')
+            this.spinner.hide();
+          })
+      }  
     },
     (err)=>{
        console.log(err);
@@ -54,13 +68,7 @@ acceptImage(image){
   reader.addEventListener('load', (event: any) => {
     this.imagePath = event.target.result;
     console.log(this.imagePath);
-  //   this.apiService.uploadImage(this.selectedFile.file).subscribe(
-  //     (res) => {
-      
-  //     },
-  //     (err) => {
-      
-  //     })
+   
    });
 
   var test= reader.readAsDataURL(file);
