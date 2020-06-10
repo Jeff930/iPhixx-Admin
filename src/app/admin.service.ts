@@ -590,7 +590,7 @@ addModel(model) {
 
 addBrand(brand) {
   const body = new HttpParams()
-  .set('brandName', brand.brandName);
+  .set('brand_name', brand.brand_name);
 
   return this.http.post('https://admin.iphixx.com/api/v1/bookings/add-brand/', 
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
@@ -598,7 +598,7 @@ addBrand(brand) {
 
 addNetwork(network) {
   const body = new HttpParams()
-  .set('networkName', network.brandName);
+  .set('network_name', network.network_name);
 
   return this.http.post('https://admin.iphixx.com/api/v1/bookings/add-network/', 
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
