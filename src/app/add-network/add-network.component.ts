@@ -23,7 +23,6 @@ export class AddNetworkComponent implements OnInit {
 
   network = { 
     network_name: '',
-    network_path :'',
     network_file:''
   };
 
