@@ -26,6 +26,7 @@ export class AddBrandComponent implements OnInit {
     };
 
     imagePath=null;
+    file:File;
   
     id;
   
@@ -36,24 +37,31 @@ export class AddBrandComponent implements OnInit {
       console.log(this.brand);
       this.spinner.show();
       this.adminService.addBrand(this.brand).subscribe(res => {
-        console.log("this" + res)
-        if (this.imagePath==null){
-          this.spinner.hide();
-          this.adminService.brandsPage  = new Object(); 
-          this.router.navigate(['/brands']);
+        console.log(res);
+        console.log(res['devicebrand_id']);
+        if (res['devicebrand_id']>=0){
+          if (this.imagePath==null){
+            this.spinner.hide();
+            this.adminService.brandsPage  = new Object(); 
+            this.router.navigate(['/devices']);
+          }else{
+            this.adminService.uploadBrandImage(this.file,res['device_brand']).subscribe(
+              (res) => {
+                console.log(res);
+                this.spinner.hide();
+                this.adminService.brandsPage  = new Object(); 
+                this.router.navigate(['/devices']);
+              },
+              (err) => {
+                console.log(err);
+                alert('Error! Please Try again.')
+                this.spinner.hide();
+              })
+          }  
         }else{
-          this.adminService.uploadBrandImage(this.imagePath).subscribe(
-            (res) => {
-              this.spinner.hide();
-              this.adminService.brandsPage  = new Object(); 
-              this.router.navigate(['/brands']);
-            },
-            (err) => {
-              console.log(err);
-              alert('Error! Please Try again.')
-              this.spinner.hide();
-            })
-        }  
+          alert('Error! Please Try again.')
+          this.spinner.hide();
+        }
       },
       (err)=>{
          console.log(err);
@@ -65,15 +73,17 @@ export class AddBrandComponent implements OnInit {
   
   acceptImage(image){
     console.log(image);
-    const file: File = image.files[0];
+    this.file = image.files[0];
+    console.log(this.file);
     const reader = new FileReader();
-    console.log(file);
+    console.log(this.file);
     reader.addEventListener('load', (event: any) => {
       this.imagePath = event.target.result;
+      this.file = this.imagePath;
       console.log(this.imagePath); 
     });
   
-    reader.readAsDataURL(file);
+    reader.readAsDataURL(this.file);
   }
   
     goToDevices(){
