@@ -1,6 +1,7 @@
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse , HttpParams} from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 export interface Leads {
 	bookings : Array<any>;
@@ -521,22 +522,11 @@ return false;
      body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
  }
 
- 
-
 uploadDevtypeImage(image) {
-  const body = new HttpParams()
-  .set('image', image);
+  const body = new FormData()
+  .append('image', image);
 
-  return this.http.post('https://admin.iphixx.com/api/v1/bookings/upload-devtype-image/', 
-  body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
-}
-
-uploadBrandImage(image) {
-  const body = new HttpParams()
-  .set('image', image);
-
-  return this.http.post('https://admin.iphixx.com/api/v1/bookings/upload-brand-image/', 
-  body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
+  return this.http.post('https://admin.iphixx.com/api/v1/bookings/upload-devtype-image/', body)
 }
 
 uploadModelImage(image) {
@@ -545,6 +535,16 @@ uploadModelImage(image) {
 
   return this.http.post('https://admin.iphixx.com/api/v1/bookings/upload-model-image/', 
   body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
+}
+
+uploadBrandImage(image,brand_name): Observable<any>{
+  console.log(image);
+  let body = new FormData()
+  body.append('image', image);
+  body.append('device_brand',brand_name)
+
+  console.log(body);
+  return this.http.post('https://admin.iphixx.com/api/v1/bookings/upload-brand-image/', body)
 }
 
 uploadNetworkImage(image) {
