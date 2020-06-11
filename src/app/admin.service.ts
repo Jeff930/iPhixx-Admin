@@ -521,13 +521,7 @@ return false;
      body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
  }
 
- addDevtype(devtype) {
-  const body = new HttpParams()
-  .set('devtypeName', devtype.devtypeName);
-
-  return this.http.post('https://admin.iphixx.com/api/v1/bookings/add-devtype/', 
-    body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
-}
+ 
 
 uploadDevtypeImage(image) {
   const body = new HttpParams()
@@ -585,6 +579,14 @@ addModel(model) {
   .set('harddrive_rep', model.harddrive_rep);
 
   return this.http.post('https://admin.iphixx.com/api/v1/bookings/add-model/', 
+    body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
+}
+
+addDevtype(devtype) {
+  const body = new HttpParams()
+  .set('devtype_name', devtype.devtype_name);
+
+  return this.http.post('https://admin.iphixx.com/api/v1/bookings/add-devtype/', 
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
 
