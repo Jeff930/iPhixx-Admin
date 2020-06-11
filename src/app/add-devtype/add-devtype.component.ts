@@ -21,6 +21,7 @@ export class AddDevtypeComponent implements OnInit {
   }
 
   imagePath=null;
+  file:File;
   
   devtype = { 
     devtype_name: '',
@@ -38,7 +39,7 @@ export class AddDevtypeComponent implements OnInit {
         this.adminService.devicesPage  = new Object(); 
         this.router.navigate(['/devices']);
       }else{
-        this.adminService.uploadDevtypeImage(this.imagePath).subscribe(
+        this.adminService.uploadDevtypeImage(this.file).subscribe(
           (res) => {
             this.spinner.hide();
             this.adminService.devicesPage  = new Object(); 
@@ -61,15 +62,15 @@ export class AddDevtypeComponent implements OnInit {
 
 acceptImage(image){
   console.log(image);
-  const file: File = image.files[0];
+  this.file = image.files[0];
   const reader = new FileReader();
-  console.log(file);
+  console.log(this.file);
   reader.addEventListener('load', (event: any) => {
     this.imagePath = event.target.result;
     console.log(this.imagePath);
    });
 
-  reader.readAsDataURL(file);
+  reader.readAsDataURL(this.file);
 }
 
 goToDevices(){
