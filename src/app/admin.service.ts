@@ -537,8 +537,7 @@ uploadModelImage(image,model_name) {
   body.append('image', image);
   body.append('model_name',model_name)
 
-  return this.http.post('https://admin.iphixx.com/api/v1/bookings/upload-model-image/', 
-  body)
+  return this.http.post('https://admin.iphixx.com/api/v1/bookings/upload-model-image/', body)
 }
 
 uploadBrandImage(image,brand_name): Observable<any>{
@@ -551,12 +550,13 @@ uploadBrandImage(image,brand_name): Observable<any>{
   return this.http.post('https://admin.iphixx.com/api/v1/bookings/upload-brand-image/', body)
 }
 
-uploadNetworkImage(image) {
-  const body = new HttpParams()
-  .set('image', image);
+uploadNetworkImage(image,carrier_name) {
+  console.log(image);
+  let body = new FormData()
+  body.append('image', image);
+  body.append('carrier_name',carrier_name)
 
-  return this.http.post('https://admin.iphixx.com/api/v1/bookings/upload-network-image/', 
-  body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
+  return this.http.post('https://admin.iphixx.com/api/v1/bookings/upload-network-image/', body)
 }
 
 addModel(model) {
