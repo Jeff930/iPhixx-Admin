@@ -33,23 +33,29 @@ export class AddDevtypeComponent implements OnInit {
     console.log(this.devtype);
     this.spinner.show();
     this.adminService.addDevtype(this.devtype).subscribe(res => {
-      console.log("this" + res)
-      if (this.imagePath==null){
-        this.spinner.hide();
-        this.adminService.devicesPage  = new Object(); 
-        this.router.navigate(['/devices']);
+      console.log(res);
+      console.log(res['devtype_id']);
+      if (res['devtype_id']>=0){
+        if (this.imagePath==null){
+          this.spinner.hide();
+          this.adminService.devicesPage  = new Object(); 
+          this.router.navigate(['/devices']);
+        }else{
+          this.adminService.uploadDevtypeImage(this.file,res['type']).subscribe(
+            (res) => {
+              this.spinner.hide();
+              this.adminService.devicesPage  = new Object(); 
+              this.router.navigate(['/devices']);
+            },
+            (err) => {
+              console.log(err);
+              alert('Error! Please Try again.')
+              this.spinner.hide();
+            })
+        }
       }else{
-        this.adminService.uploadDevtypeImage(this.file).subscribe(
-          (res) => {
-            this.spinner.hide();
-            this.adminService.devicesPage  = new Object(); 
-            this.router.navigate(['/devices']);
-          },
-          (err) => {
-            console.log(err);
-            alert('Error! Please Try again.')
-            this.spinner.hide();
-          })
+        alert('Error! Please Try again.')
+        this.spinner.hide();
       }  
     },
     (err)=>{
