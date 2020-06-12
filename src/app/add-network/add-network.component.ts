@@ -35,7 +35,7 @@ export class AddNetworkComponent implements OnInit {
     this.adminService.addNetwork(this.network).subscribe(res => {
       console.log(res)
       console.log(res['carrier_no']);
-      if (res['carrierno']>=0){
+      if (res['carrier_no']>=0){
         if (this.imagePath==null){
           this.spinner.hide();
           this.adminService.networksPage  = new Object(); 
@@ -80,7 +80,7 @@ acceptImage(image){
   reader.readAsDataURL(file);
 }
 
-goToNetwork(){
+goToNetworks(){
   this.router.navigate(['/networks']);
   }
 

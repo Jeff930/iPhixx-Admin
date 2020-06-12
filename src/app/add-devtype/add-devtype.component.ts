@@ -41,7 +41,7 @@ export class AddDevtypeComponent implements OnInit {
           this.adminService.devicesPage  = new Object(); 
           this.router.navigate(['/devices']);
         }else{
-          this.adminService.uploadDevtypeImage(this.file,res['type']).subscribe(
+          this.adminService.uploadDevtypeImage(this.imagePath,res['type']).subscribe(
             (res) => {
               this.spinner.hide();
               this.adminService.devicesPage  = new Object(); 
