@@ -522,19 +522,23 @@ return false;
      body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
  }
 
-uploadDevtypeImage(image) {
-  const body = new FormData()
-  .append('image', image);
+uploadDevtypeImage(image, type) : Observable<any>{
+  console.log(image);
+  let body = new FormData()
+  body.append('image', image);
+  body.append('type',type)
 
   return this.http.post('https://admin.iphixx.com/api/v1/bookings/upload-devtype-image/', body)
 }
 
-uploadModelImage(image) {
-  const body = new HttpParams()
-  .set('image', image);
+uploadModelImage(image,model_name) {
+  console.log(image);
+  let body = new FormData()
+  body.append('image', image);
+  body.append('model_name',model_name)
 
   return this.http.post('https://admin.iphixx.com/api/v1/bookings/upload-model-image/', 
-  body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
+  body)
 }
 
 uploadBrandImage(image,brand_name): Observable<any>{
