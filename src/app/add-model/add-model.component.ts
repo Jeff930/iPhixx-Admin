@@ -15,6 +15,7 @@ export class AddModelComponent implements OnInit {
     devicebrand_id:0,
     model_name:"",
     model_number:"",
+    device_file:'',
     screenrep_price:null,
     microphone_price:null,
     earrep_price:null,
@@ -33,6 +34,7 @@ export class AddModelComponent implements OnInit {
     harddrive_rep:null
   };
 
+  imagePath;
   devtypes;
   brands;
   id;
@@ -86,6 +88,19 @@ export class AddModelComponent implements OnInit {
   
     goToDevices(){
       this.router.navigate(['/devices']);
+    }
+
+    acceptImage(image){
+      console.log(image);
+      var file:File = image.files[0];
+      const reader = new FileReader();
+      console.log(file);
+      reader.addEventListener('load', (event: any) => {
+        this.imagePath = event.target.result;
+        console.log(this.imagePath);
+       });
+    
+      reader.readAsDataURL(file);
     }
   
     addModel(){
