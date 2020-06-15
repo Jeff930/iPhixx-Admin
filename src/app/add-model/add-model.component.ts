@@ -107,14 +107,30 @@ export class AddModelComponent implements OnInit {
       console.log(this.device);
       this.adminService.addModel(this.device).subscribe(res => {
         console.log(res);
-        if (res){
-          this.router.navigate(['/devices']);
+        if (res['devicemodel_id']>=0){
+          if (this.imagePath==null){
+            this.spinner.hide();
+            this.adminService.devicesPage  = new Object(); 
+            this.router.navigate(['/devices']);  
+          }else{
+            this.adminService.uploadModelImage(this.imagePath,res['model_name'],this.getBrand(this.device.devicebrand_id)).subscribe(
+              (res) => {
+                this.spinner.hide();
+                this.adminService.devicesPage  = new Object(); 
+                this.router.navigate(['/devices']);
+              },
+              (err) => {
+                console.log(err);
+                alert('Error! Please Try again.')
+                this.spinner.hide();
+              })
+          }  
         }else{
-          alert('Error! Please Try again.');
-        }
+          alert('Error! Please Try again.')
+          this.spinner.hide();
+        }  
       },err=>{
         alert('Error! Please Try again.');
       });
     }
-  
   }
