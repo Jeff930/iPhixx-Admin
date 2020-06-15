@@ -531,11 +531,12 @@ uploadDevtypeImage(image, type) : Observable<any>{
   return this.http.post('https://admin.iphixx.com/api/v1/bookings/upload-devtype-image/', body)
 }
 
-uploadModelImage(image,model_name) {
+uploadModelImage(image,model_name,brand) {
   console.log(image);
   let body = new FormData()
   body.append('image', image);
   body.append('model_name',model_name)
+  body.append('device_brand',brand)
 
   return this.http.post('https://admin.iphixx.com/api/v1/bookings/upload-model-image/', body)
 }
