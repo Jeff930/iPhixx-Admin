@@ -20,6 +20,7 @@ export class AddNetworkComponent implements OnInit {
   }
 
   imagePath=null;
+  showError=false;
 
   network = { 
     network_name: '',
@@ -32,38 +33,41 @@ export class AddNetworkComponent implements OnInit {
     console.log("called");
     console.log(this.network);
     this.spinner.show();
-    this.adminService.addNetwork(this.network).subscribe(res => {
-      console.log(res)
-      console.log(res['carrier_no']);
-      if (res['carrier_no']>=0){
-        if (this.imagePath==null){
+    if (this.imagePath==null){
+      this.showError = true;
+    }else{
+      this.adminService.addNetwork(this.network).subscribe(res => {
+        console.log(res)
+        console.log(res['carrier_no']);
+        if (res['carrier_no']>=0){
+          if (this.imagePath==null){
+            this.showError = true;
+          }else{
+            this.adminService.uploadNetworkImage(this.imagePath,res['carrier_name']).subscribe(
+              (res) => {
+                this.showError = false;
+                this.spinner.hide();
+                this.adminService.networksPage  = new Object(); 
+                this.router.navigate(['/networks']);
+              },
+              (err) => {
+                console.log(err);
+                alert('Error! Please Try again.')
+                this.spinner.hide();
+              })
+            }  
+          }else{
+            alert('Error! Please Try again.')
+            this.spinner.hide();
+          }  
+        },
+        (err)=>{
+          console.log(err);
+          alert('Error! Please Try again.')
           this.spinner.hide();
-          this.adminService.networksPage  = new Object(); 
-          this.router.navigate(['/networks']);  
-        }else{
-          this.adminService.uploadNetworkImage(this.imagePath,res['carrier_name']).subscribe(
-            (res) => {
-              this.spinner.hide();
-              this.adminService.networksPage  = new Object(); 
-              this.router.navigate(['/networks']);
-            },
-            (err) => {
-              console.log(err);
-              alert('Error! Please Try again.')
-              this.spinner.hide();
-            })
-        }  
-      }else{
-        alert('Error! Please Try again.')
-        this.spinner.hide();
-      }  
-    },
-    (err)=>{
-       console.log(err);
-       alert('Error! Please Try again.')
-       this.spinner.hide();
+        }
+      )
     }
-  )
 }
 
 acceptImage(image){
