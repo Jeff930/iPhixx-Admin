@@ -17,6 +17,10 @@ export class EditDevtypeComponent implements OnInit {
     type :'',
   };
 
+  devtype_file:'';
+  imagePath=null;
+  file:File;
+
   id ;
 
   constructor(private route: ActivatedRoute,
@@ -51,6 +55,18 @@ export class EditDevtypeComponent implements OnInit {
 	)
   }
   
+  acceptImage(image){
+    console.log(image);
+    this.file = image.files[0];
+    const reader = new FileReader();
+    console.log(this.file);
+    reader.addEventListener('load', (event: any) => {
+      this.imagePath = event.target.result;
+      console.log(this.imagePath);
+     });
+  
+    reader.readAsDataURL(this.file);
+  }
 
   goToDevices(){
     this.router.navigate(['/devices']);
