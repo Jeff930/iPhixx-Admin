@@ -36,38 +36,42 @@ export class AddBrandComponent implements OnInit {
       console.log("called");
       console.log(this.brand);
       this.spinner.show();
-      this.adminService.addBrand(this.brand).subscribe(res => {
-        console.log(res);
-        console.log(res['devicebrand_id']);
-        if (res['devicebrand_id']>=0){
-          if (this.imagePath==null){
-            this.showError = true;
+      if (this.imagePath==null){
+        this.showError = true;
+      }else{
+        this.adminService.addBrand(this.brand).subscribe(res => {
+          console.log(res);
+          console.log(res['devicebrand_id']);
+          if (res['devicebrand_id']>=0){
+            if (this.imagePath==null){
+              this.showError = true;
+            }else{
+              this.adminService.uploadBrandImage(this.file,res['device_brand']).subscribe(
+                (res) => {
+                  this.showError = false;
+                  console.log(res);
+                  this.spinner.hide();
+                  this.adminService.brandsPage  = new Object(); 
+                  this.router.navigate(['/devices']);
+                },
+                (err) => {
+                  console.log(err);
+                  alert('Error! Please Try again.')
+                  this.spinner.hide();
+                })
+            }  
           }else{
-            this.adminService.uploadBrandImage(this.file,res['device_brand']).subscribe(
-              (res) => {
-                this.showError = false;
-                console.log(res);
-                this.spinner.hide();
-                this.adminService.brandsPage  = new Object(); 
-                this.router.navigate(['/devices']);
-              },
-              (err) => {
-                console.log(err);
-                alert('Error! Please Try again.')
-                this.spinner.hide();
-              })
-          }  
-        }else{
+            alert('Error! Please Try again.')
+            this.spinner.hide();
+          }
+        },
+        (err)=>{
+          console.log(err);
           alert('Error! Please Try again.')
           this.spinner.hide();
         }
-      },
-      (err)=>{
-         console.log(err);
-         alert('Error! Please Try again.')
-         this.spinner.hide();
-      }
-    )
+      )
+    }
   }
   
   acceptImage(image){
