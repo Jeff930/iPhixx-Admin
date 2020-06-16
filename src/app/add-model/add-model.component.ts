@@ -38,6 +38,7 @@ export class AddModelComponent implements OnInit {
   devtypes;
   brands;
   id;
+  showError=false;
 
   constructor(private route: ActivatedRoute,
     private router: Router , public adminService : AdminService,
@@ -105,32 +106,35 @@ export class AddModelComponent implements OnInit {
   
     addModel(){
       console.log(this.device);
-      this.adminService.addModel(this.device).subscribe(res => {
-        console.log(res);
-        if (res['devicemodel_id']>=0){
-          if (this.imagePath==null){
-            this.spinner.hide();
-            this.adminService.devicesPage  = new Object(); 
-            this.router.navigate(['/devices']);  
-          }else{
-            this.adminService.uploadModelImage(this.imagePath,res['model_name'],this.getBrand(this.device.devicebrand_id)).subscribe(
-              (res) => {
-                this.spinner.hide();
-                this.adminService.devicesPage  = new Object(); 
-                this.router.navigate(['/devices']);
-              },
-              (err) => {
-                console.log(err);
-                alert('Error! Please Try again.')
-                this.spinner.hide();
-              })
-          }  
-        }else{
-          alert('Error! Please Try again.')
-          this.spinner.hide();
-        }  
-      },err=>{
-        alert('Error! Please Try again.');
-      });
+      if (this.imagePath==null){
+        this.showError=true;
+      }else{
+        this.adminService.addModel(this.device).subscribe(res => {
+          console.log(res);
+          if (res['devicemodel_id']>=0){
+            if (this.imagePath==null){
+              this.showError=true;
+            }else{
+              this.adminService.uploadModelImage(this.imagePath,res['model_name'],this.getBrand(this.device.devicebrand_id)).subscribe(
+                (res) => {
+                  this.showError=false;
+                  this.spinner.hide();
+                  this.adminService.devicesPage  = new Object(); 
+                  this.router.navigate(['/devices']);
+                },
+                (err) => {
+                  console.log(err);
+                  alert('Error! Please Try again.')
+                  this.spinner.hide();
+                })
+              }  
+            }else{
+              alert('Error! Please Try again.')
+              this.spinner.hide();
+            }  
+        },err=>{
+          alert('Error! Please Try again.');
+        });
+      }
     }
   }
