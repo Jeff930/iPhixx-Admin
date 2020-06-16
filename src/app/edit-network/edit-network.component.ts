@@ -17,6 +17,9 @@ export class EditNetworkComponent implements OnInit {
     carrier_name :'',
   };
 
+  network_file;
+  imagePath=null;
+
   id;
 
   constructor(private route: ActivatedRoute,
@@ -49,6 +52,20 @@ export class EditNetworkComponent implements OnInit {
 	   		this.spinner.hide();
 	  	}
 	)
+  }
+  
+  acceptImage(image){
+    console.log(image);
+    const file: File = image.files[0];
+    const reader = new FileReader();
+    console.log(file);
+    reader.addEventListener('load', (event: any) => {
+      this.imagePath = event.target.result;
+      console.log(this.imagePath);
+     
+     });
+  
+    reader.readAsDataURL(file);
   }
 
   goToNetworks(){
