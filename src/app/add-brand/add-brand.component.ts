@@ -27,7 +27,7 @@ export class AddBrandComponent implements OnInit {
 
     imagePath=null;
     file:File;
-  
+    showError=false;
     id;
   
     ngOnInit() {} 
@@ -41,12 +41,11 @@ export class AddBrandComponent implements OnInit {
         console.log(res['devicebrand_id']);
         if (res['devicebrand_id']>=0){
           if (this.imagePath==null){
-            this.spinner.hide();
-            this.adminService.brandsPage  = new Object(); 
-            this.router.navigate(['/devices']);
+            this.showError = true;
           }else{
             this.adminService.uploadBrandImage(this.file,res['device_brand']).subscribe(
               (res) => {
+                this.showError = false;
                 console.log(res);
                 this.spinner.hide();
                 this.adminService.brandsPage  = new Object(); 
