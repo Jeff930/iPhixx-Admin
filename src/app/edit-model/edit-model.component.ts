@@ -22,7 +22,10 @@ export class EditModelComponent implements OnInit {
 
   devtypes;
   brands;
-  id ;
+  id;
+  imagePath=null;
+  file:File;
+
 
   constructor(private route: ActivatedRoute,
     private router: Router , public adminService : AdminService,
@@ -60,6 +63,19 @@ export class EditModelComponent implements OnInit {
            this.spinner.hide();
         }
     )
+    }
+
+    acceptImage(image){
+      console.log(image);
+      this.file = image.files[0];
+      const reader = new FileReader();
+      console.log(this.file);
+      reader.addEventListener('load', (event: any) => {
+        this.imagePath = event.target.result;
+        console.log(this.imagePath);
+       });
+    
+      reader.readAsDataURL(this.file);
     }
     
   
