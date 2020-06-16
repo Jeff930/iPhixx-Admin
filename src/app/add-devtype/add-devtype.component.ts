@@ -22,6 +22,7 @@ export class AddDevtypeComponent implements OnInit {
 
   imagePath=null;
   file:File;
+  showError=false;
   
   devtype = { 
     devtype_name: '',
@@ -32,38 +33,41 @@ export class AddDevtypeComponent implements OnInit {
     console.log("called");
     console.log(this.devtype);
     this.spinner.show();
-    this.adminService.addDevtype(this.devtype).subscribe(res => {
-      console.log(res);
-      console.log(res['devtype_id']);
-      if (res['devtype_id']>=0){
-        if (this.imagePath==null){
-          this.spinner.hide();
-          this.adminService.devicesPage  = new Object(); 
-          this.router.navigate(['/devices']);
-        }else{
-          this.adminService.uploadDevtypeImage(this.imagePath,res['type']).subscribe(
-            (res) => {
-              this.spinner.hide();
-              this.adminService.devicesPage  = new Object(); 
-              this.router.navigate(['/devices']);
-            },
-            (err) => {
-              console.log(err);
-              alert('Error! Please Try again.')
-              this.spinner.hide();
-            })
-        }
-      }else{
-        alert('Error! Please Try again.')
-        this.spinner.hide();
-      }  
-    },
-    (err)=>{
-       console.log(err);
-       alert('Error! Please Try again.')
-       this.spinner.hide();
-    }
-  )
+    if (this.imagePath==null){
+      this.showError = true;
+    }else{
+      this.adminService.addDevtype(this.devtype).subscribe(res => {
+        console.log(res);
+        console.log(res['devtype_id']);
+        if (res['devtype_id']>=0){
+          if (this.imagePath==null){
+            this.showError = true;
+          }else{
+            this.adminService.uploadDevtypeImage(this.imagePath,res['type']).subscribe(
+              (res) => {
+                this.showError = false;
+                this.spinner.hide();
+                this.adminService.devicesPage  = new Object(); 
+                this.router.navigate(['/devices']);
+              },
+              (err) => {
+                console.log(err);
+                alert('Error! Please Try again.')
+                this.spinner.hide();
+              })
+            }
+          }else{
+            alert('Error! Please Try again.')
+            this.spinner.hide();
+          }  
+        },
+          (err)=>{
+            console.log(err);
+            alert('Error! Please Try again.')
+            this.spinner.hide();
+          }
+        )
+      }
 }
 
 acceptImage(image){
