@@ -80,9 +80,9 @@
 
 														 <a (click)="editPrice(device.devicemodel_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-pencil"></span>Update Prices</a>
 
-														 <a (click)="disableModel(device.devicemodel_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-pencil"></span>Deactivate</a>
+														 <a (click)="disableModel(device.devicemodel_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-pencil"></span>Disable</a>
 													
-														 <a (click)="enableModel(device.devicemodel_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-pencil"></span>Activate</a>
+														 <a (click)="enableModel(device.devicemodel_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-pencil"></span>Enable</a>
 														  </div>
 
 													</sat-popover>
@@ -157,8 +157,10 @@
 													  <div class="list-group">
 														
 														  <a (click)="editType(devtype.devtype_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-pencil"></span>Edit Type</a>
-														  
+
+														  <a (click)="disableType(devtype.devtype_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-pencil"></span>Disable</a>
 													
+														  <a (click)="enableType(devtype.devtype_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-pencil"></span>Enable</a>
 														 
 														  </div>
 
