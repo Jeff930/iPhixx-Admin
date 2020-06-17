@@ -78,9 +78,11 @@
 														
 														 <a (click)="editModel(device.devicemodel_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-pencil"></span>Edit Model</a>
 
-														  <a (click)="editPrice(device.devicemodel_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-pencil"></span>Update Prices</a>
+														 <a (click)="editPrice(device.devicemodel_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-pencil"></span>Update Prices</a>
+
+														 <a (click)="disableModel(device.devicemodel_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-pencil"></span>Deactivate</a>
 													
-														 
+														 <a (click)="enableModel(device.devicemodel_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-pencil"></span>Activate</a>
 														  </div>
 
 													</sat-popover>
@@ -155,6 +157,7 @@
 													  <div class="list-group">
 														
 														  <a (click)="editType(devtype.devtype_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-pencil"></span>Edit Type</a>
+														  
 													
 														 
 														  </div>
