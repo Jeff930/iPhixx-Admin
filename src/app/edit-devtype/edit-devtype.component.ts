@@ -16,6 +16,7 @@ export class EditDevtypeComponent implements OnInit {
   	devtype_id: '',
     type :'',
   };
+  device_file:'';
 
   devtype_file:'';
   imagePath=null;
@@ -42,10 +43,24 @@ export class EditDevtypeComponent implements OnInit {
   updateDevtype(){
   	this.spinner.show();
     this.adminService.updateDevtype(this.devtype).subscribe(res => {
-			console.log(res)
-			this.spinner.hide();
-			this.adminService.devtypesPage  = new Object(); 
-	  		this.router.navigate(['/devices']);
+        this.router.navigate(['/devices']);
+        if (this.imagePath==null){
+          console.log(res)
+			    this.spinner.hide();
+			    this.adminService.devtypesPage  = new Object(); 
+        }else{
+          this.adminService.uploadDevtypeImage(this.imagePath,res['type']).subscribe(
+            (res) => {
+              this.spinner.hide();
+              this.adminService.devicesPage  = new Object(); 
+              this.router.navigate(['/devices']);
+            },
+            (err) => {
+              console.log(err);
+              alert('Error! Please Try again.')
+              this.spinner.hide();
+            })
+          }
 		},
 	 	(err)=>{
 	   		console.log(err);
