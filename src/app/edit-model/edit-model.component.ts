@@ -52,10 +52,24 @@ export class EditModelComponent implements OnInit {
     updateDevice(){
       this.spinner.show();
       this.adminService.updateDevice(this.device).subscribe(res => {
-        console.log(res)
+        if (this.imagePath==null){
+          console.log(res)
         this.spinner.hide();
         this.adminService.devicesPage  = new Object(); 
           this.router.navigate(['/devices']);
+        }else{
+          this.adminService.uploadModelImage(this.imagePath,res['model_name'],this.device.devicebrand_id).subscribe(
+            (res) => {
+              this.spinner.hide();
+              this.adminService.devicesPage  = new Object(); 
+              this.router.navigate(['/devices']);
+            },
+            (err) => {
+              console.log(err);
+              alert('Error! Please Try again.')
+              this.spinner.hide();
+            })
+          }  
       },
        (err)=>{
            console.log(err);
