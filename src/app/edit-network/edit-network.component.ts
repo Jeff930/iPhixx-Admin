@@ -41,10 +41,24 @@ export class EditNetworkComponent implements OnInit {
   updateNetwork(){
   	this.spinner.show();
     this.adminService.updateNetwork(this.network).subscribe(res => {
-			console.log(res)
+      if (this.imagePath==null){
+        console.log(res)
 			this.spinner.hide();
 			this.adminService.networksPage  = new Object(); 
 	  		this.router.navigate(['/networks']);
+      }else{
+        this.adminService.uploadNetworkImage(this.imagePath,res['carrier_name']).subscribe(
+          (res) => {
+            this.spinner.hide();
+            this.adminService.networksPage  = new Object(); 
+            this.router.navigate(['/networks']);
+          },
+          (err) => {
+            console.log(err);
+            alert('Error! Please Try again.')
+            this.spinner.hide();
+          })
+        }  
 		},
 	 	(err)=>{
 	   		console.log(err);
