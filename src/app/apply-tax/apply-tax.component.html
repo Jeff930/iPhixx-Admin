@@ -1,0 +1,39 @@
+<!-- <ngx-smart-modal #confirmPayment identifier="confirmPayment" (onOpen)="assignData()" (onClose)="" (onDismiss)=""> -->		
+<ngx-smart-modal #applyTax identifier="applyTax" (onOpen)="assignData()">
+			<div class="panel">
+								<div class="panel-heading">
+									<h3 class="panel-title">Payment Confirmation</h3>
+								</div>
+								<div class="panel-body">
+									<p class="panel-title">Please review the following details before marking it as paid.</p>
+								<br>
+								<form>
+									<div>
+										 <div *ngIf="confirmPayment.hasData()">
+										    <label for="exampleInputEmail1">Invoice No.</label>
+										    <p class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Device Type">{{invoice?.invoice_no}}</p>
+										  </div>
+
+										  <div>
+										    <label for="exampleInputEmail1">Customer Name</label>
+										    <p class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Device Type">{{invoice?.customer_fname}} {{invoice?.customer_lname}}</p>
+										  </div>
+
+										  <div>
+										    <label for="exampleInputEmail1">Total</label>
+										    <p class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Device Type">{{invoice?.total_price}}</p>
+										  </div>
+
+										 <!--  <div>
+										    <label for="exampleInputEmail13">Please input your PIN to confirm</label>
+										    <input class="form-control" id="exampleInputEmail13" aria-describedby="emailHelp" placeholder="Device Model">
+										  </div>		 -->	
+									</div>
+								</form>
+								</div>
+								<div class="panel-body">
+									<button (click)="confirmPayment.close()" type="submit" class="btn btn-lg btn-primary update">Back</button>
+									<button (click)="updatePaymentStatus(invoice.invoice_no)" type="submit" class="btn btn-lg btn-primary update">Confirm</button>
+								</div>
+					</div>
+</ngx-smart-modal>
