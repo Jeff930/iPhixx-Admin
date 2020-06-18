@@ -14,13 +14,17 @@
       </div>
       <div class="panel-body">
         <form *ngIf="saved">
-          <div class="col-lg-12 ">
+          <div class="col-lg-6 ">
 
             <div class="form-group">
               <label for="exampleInputEmail1">Tax Name</label>
               <input [ngModelOptions]="{standalone: true}" [(ngModel)]="taxName" type="text" class="form-control" id="exampleInputEmail1"
                 aria-describedby="emailHelp" placeholder=" {{ tax.tax_name }}">
             </div>
+
+          </div>
+
+          <div class="col-lg-6 ">
 
             <div class="form-group">
               <label for="exampleInputEmail1">Tax Value</label>
