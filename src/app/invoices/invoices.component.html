@@ -9,7 +9,7 @@
 	type = "pacman"
 ></ngx-spinner>
 <app-confirm-payment></app-confirm-payment>
-
+<app-apply-tax></app-apply-tax>
 <div class="main">
 	<div class="main-content">
 		<div class="container-fluid">
@@ -61,9 +61,6 @@
 									           Invoice No.
 									        </th>
 									        <th>
-									           Customer Name
-									        </th>
-									        <th>
 									           Creation Date
 									        </th>
 									        <th>
@@ -73,7 +70,13 @@
 									           Payment Status
 									        </th>
 									        <th>
-									           Total Value
+									           VAT Exclusive
+									        </th>
+									        <th>
+									           Tax Rate
+									        </th>
+									        <th>
+									           Total Price
 									        </th>
 									        <th>
 									            Action
@@ -89,11 +92,12 @@
 									        <td>{{item.city | uppercase}}</td>
 									        <td>{{item.city | uppercase}}</td> -->
 									        	<td>{{ invoice.invoice_no }}</td>
-									        	<td>{{ invoice.customer_fname }} {{ invoice.customer_lname }}</td>
 												<td>{{ invoice.unsettled_Timestamp }}</td>
 												<td>{{ check(invoice.settled_Timestamp) }}</td>
 												<td>{{ invoice.invoice_status }}</td>
 												<td>€{{ invoice.total_price }}</td>
+												<td></td>
+												<td>€</td>
 												<td>
 
 													<!-- <button (click)="ngxSmartModalService.getModal('myModal').open()" class="btn btn-default btn-sm">
@@ -112,6 +116,8 @@
 
 													<sat-popover #contactPopover hasBackdrop verticalAlign="below">
 													  	<div class="list-group">
+													  		<a (click)="sample(invoice)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-ok"></span>    Apply Tax</a>
+
 													  		<a (click)="sample(invoice)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-ok"></span>     Mark as Paid</a>
 													  	
 															<a (click)="viewInvoice(invoice.invoice_no)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-eye-open"> </span>       View Invoice </a>		 
