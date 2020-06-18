@@ -22,6 +22,7 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { TimelineComponent } from './timeline/timeline.component';
 import { FilterComponent } from './filter/filter.component';
 import { ConfirmPaymentComponent } from './confirm-payment/confirm-payment.component';
+import { ApplyTaxComponent } from './apply-tax/apply-tax.component';
 import { FilterByInvoiceComponent } from './filter-by-invoice/filter-by-invoice.component';
 import { FilterByDateComponent } from './filter-by-date/filter-by-date.component';
 import { FilterByTypeComponent } from './filter-by-type/filter-by-type.component';
@@ -78,6 +79,7 @@ import { NetworksComponent } from './networks/networks.component';
     InventoryComponent,
     ViewCustomerComponent,
     ConfirmPaymentComponent,
+    ApplyTaxComponent,
     EditTaxComponent,
     LogisticsComponent,
     SettingsComponent,
