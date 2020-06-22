@@ -66,9 +66,7 @@ export class InvoicesComponent implements OnInit {
   this.spinner.hide();
 }
 
-ngAfterViewInit(){
-
-}
+ngAfterViewInit(){}
 
 goToPage(number){
   console.log(number);
@@ -244,9 +242,14 @@ saveTax() {
         return data;
     }
 
-    sample(invoice){
+    confirmPayment(invoice){
       this.adminService.invoiceDetails = invoice;
       this.NgxSmartModalService.getModal('confirmPayment').open();
+    }
+
+    applyTax(invoice){
+      this.adminService.invoiceDetails = invoice;
+      this.NgxSmartModalService.getModal('applyTax').open();
     }
 
 }
