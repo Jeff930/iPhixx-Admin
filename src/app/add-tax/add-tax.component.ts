@@ -31,9 +31,11 @@ export class AddTaxComponent implements OnInit {
 
   ngOnInit() {
   }
-  goToBooking() {
+
+  goToInvoices() {
     this.router.navigate(['/invoices']);
   }
+
   saveTax() {
     this.spinner.show();
     this.tax = {
@@ -44,12 +46,11 @@ export class AddTaxComponent implements OnInit {
     this.adminService.addTax(this.tax).subscribe( res => {
       console.log(res);
       this.spinner.hide();
-      alert('Tax saved');
-      this.saved = false;
+      this.router.navigate(['/invoices']);
     }, err => {
-      this.spinner.hide();
       console.log(err);
-      alert('Tax not saved');
+      alert('Error! Please Try again.')
+      this.spinner.hide();
     });
   }
 }
