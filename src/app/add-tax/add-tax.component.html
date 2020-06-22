@@ -14,29 +14,36 @@
       </div>
       <div class="panel-body">
         <form *ngIf="saved">
-          <div class="col-lg-12 ">
+          <div class="col-lg-6 ">
 
             <div class="form-group">
               <label for="exampleInputEmail1">Tax Name</label>
               <input [ngModelOptions]="{standalone: true}" [(ngModel)]="taxName" type="text" class="form-control" id="exampleInputEmail1"
-                aria-describedby="emailHelp" placeholder="tax name">
+                aria-describedby="emailHelp" placeholder="Tax Name">
             </div>
 
+         </div>
+          <div class="col-lg-6 ">
+
             <div class="form-group">
-              <label for="exampleInputEmail1">Tax Value</label>
-              <input [ngModelOptions]="{standalone: true}" [(ngModel)]="taxValue" type="text" class="form-control" id="exampleInputEmail1"
-                aria-describedby="emailHelp" placeholder="tax value">
+              <label for="exampleInputEmail1">Tax Value(%)</label>
+              <input [ngModelOptions]="{standalone: true}" [(ngModel)]="taxValue" type="number" class="form-control" id="exampleInputEmail1"
+                aria-describedby="emailHelp" placeholder="Tax Value">
             </div>
           </div>
-          <div class="col saved">
+          <!-- <div class="col saved">
             <button (click)="saveTax()" type="submit" class="btn btn-lg btn-primary update">Add</button>
             <button (click)="goToBooking()" type="submit" class="btn btn-lg btn-primary update">Back</button>
-          </div>
+          </div> -->
+          <div class="col-lg-12 margin-top" >
+			<button (click)="saveTax()" type="submit" class="btn btn-lg btn-primary update">Save Changes</button>
+			<button (click)="goToInvoices()" type="submit" class="btn btn-lg btn-primary update cancel">Cancel</button>
+		</div>
         </form>
-        <div class="col-lg-12 saved" *ngIf="!saved">
+        <!-- <div class="col-lg-12 saved" *ngIf="!saved">
           <h2>Tax Saved</h2>
           <button (click)="goToBooking()" type="submit" class="btn btn-lg btn-primary update">Go back to Invoices</button>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
