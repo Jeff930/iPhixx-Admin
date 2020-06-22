@@ -116,9 +116,9 @@
 
 													<sat-popover #contactPopover hasBackdrop verticalAlign="below">
 													  	<div class="list-group">
-													  		<a (click)="sample(invoice)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-ok"></span>    Apply Tax</a>
+													  		<a (click)="applyTax(invoice)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-equalizer"></span>    Apply Tax</a>
 
-													  		<a (click)="sample(invoice)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-ok"></span>     Mark as Paid</a>
+													  		<a (click)="confirmPayment(invoice)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-ok"></span>     Mark as Paid</a>
 													  	
 															<a (click)="viewInvoice(invoice.invoice_no)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-eye-open"> </span>       View Invoice </a>		 
 														</div>
