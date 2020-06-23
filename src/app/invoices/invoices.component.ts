@@ -252,4 +252,11 @@ saveTax() {
       this.NgxSmartModalService.getModal('applyTax').open();
     }
 
+    getTax(name, value){
+      if (name == null || value == null){
+        return "N/A";
+      }else{
+        return name + " ( " + value + " )";
+      }
+    }
 }
