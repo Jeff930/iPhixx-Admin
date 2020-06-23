@@ -848,6 +848,17 @@ editOwner(owner) {
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
 
+applyTax(invoice_id, tax_id) {
+  console.log(invoice_id , tax_id);
+
+  const body = new HttpParams()
+   .set('invoice_id', invoice_id)
+   .set('tax', tax_id)
+
+  return this.http.put('http://admin.iphixx.com/api/v1/bookings/apply-tax/'+ invoice_id,
+    body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
+}
+
 deactivateAgent(agentId) {
   return this.http.put('https://admin.iphixx.com/api/v1/bookings/deactivate-agent/'+ agentId,{});
 }
