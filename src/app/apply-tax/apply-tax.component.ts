@@ -43,17 +43,21 @@ export class ApplyTaxComponent {
     this.total = parseFloat(this.totalTax) + parseFloat(this.invoice.total_price); 
   }
 
-  applyTax(){
+  applyInvoiceTax(){
     this.spinner.show();
-    this.adminService.applyTax(this.invoice.invoice_no, this.taxes[this.selectedTax].tax_value).subscribe(res=>{
-      console.log(res);
-      location.reload();
-    },
-    err => {
-      console.log(err);
-      this.spinner.hide();
-      this.ngxSmartModalService.close('applyTax');
-    }
+    this.adminService.applyTax(this.invoice.invoice_no, this.taxes[this.selectedTax].tax_id).subscribe(
+      res => {
+        console.log(res);
+        this.spinner.hide();
+        alert("Tax Successfully Applied!");
+        location.reload();
+      },
+      err => {
+        console.log(err);
+        this.spinner.hide();
+        alert("Applying Tax Failed!")
+        this.ngxSmartModalService.close('applyTax');
+      }
     )
   }
 
