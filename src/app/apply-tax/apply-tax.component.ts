@@ -37,9 +37,24 @@ export class ApplyTaxComponent {
 
   calculateTotal(event){
     console.log(event);
+    this.selectedTax = event;
     this.totalTax = this.invoice.total_price * (this.taxes[event].tax_value / 100);
     console.log(this.totalTax);
     this.total = parseFloat(this.totalTax) + parseFloat(this.invoice.total_price); 
+  }
+
+  applyTax(){
+    this.spinner.show();
+    this.adminService.applyTax(this.invoice.invoice_no, this.taxes[this.selectedTax].tax_value).subscribe(res=>{
+      console.log(res);
+      location.reload();
+    },
+    err => {
+      console.log(err);
+      this.spinner.hide();
+      this.ngxSmartModalService.close('applyTax');
+    }
+    )
   }
 
   updatePaymentStatus(id){
