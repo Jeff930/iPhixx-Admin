@@ -256,7 +256,16 @@ saveTax() {
       if (name == null || value == null){
         return "N/A";
       }else{
-        return name + " ( " + value + " )";
+        return name + " ( " + value + " % )";
+      }
+    }
+
+    getTotal(totalprice, tax){
+      if (tax == null){
+        return "N/A";
+      }else{
+        let value = parseInt(totalprice) + (totalprice * (tax / 100)); 
+        return value;
       }
     }
 }
