@@ -86,6 +86,12 @@ export interface LocationList {
   location_name: any;
 }
 
+export interface TaxList {
+	tax_id: any;
+  tax_name: any;
+  tax_value: any;
+}
+
 export interface DevtypeList {
 	devtype_id: any;
   type: any;
@@ -406,6 +412,10 @@ return false;
 
   getLocationList() {
     return this.http.get<LocationList>('https://admin.iphixx.com/api/v1/bookings/list-locations');
+  }
+
+  getTaxList() {
+    return this.http.get<TaxList>('https://admin.iphixx.com/api/v1/bookings/list-taxes');
   }
 
   getBrandList() {
