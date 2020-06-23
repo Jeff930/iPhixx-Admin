@@ -16,30 +16,26 @@
 
 										  <div>
 										    <label for="exampleInputEmail1">VAT Excluded</label>
-										    <p class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Device Type">{{invoice?.total_price}}</p>
+										    <p class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Device Type">€ {{invoice?.total_price}}</p>
 										  </div>
 
 										  <div>
-										    <label for="exampleInputEmail1">Tax Rate</label>
-										    <p class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Tax Rate"></p>
+										  	<label for="exampleInputEmail1">Tax Rate</label>
+										  	<select [ngModelOptions]="{standalone: true}" class="form-control" (change)="calculateTotal($event.target.value)" [(ngModel)] = "selectedTax" aria-describedby="emailHelp">
+										    	<option [value]="i" *ngFor="let tax of taxes;let i = index">{{tax.tax_name}} ( {{tax.tax_value}}% )</option>
+										    </select>
 										  </div>
 
 										  <div>
 										    <label for="exampleInputEmail1">Total Price</label>
-										    <p class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Tax Rate"></p>
+										    <p class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Tax Rate">€ {{total}}</p>
 										  </div>
-
-
-										 <!--  <div>
-										    <label for="exampleInputEmail13">Please input your PIN to confirm</label>
-										    <input class="form-control" id="exampleInputEmail13" aria-describedby="emailHelp" placeholder="Device Model">
-										  </div>		 -->	
 									</div>
 								</form>
 								</div>
 								<div class="panel-body">
 									<button (click)="applyTax.close()" type="submit" class="btn btn-lg btn-primary update">Back</button>
-									<button (click)="applyTax(invoice.invoice_no)" type="submit" class="btn btn-lg btn-primary update">Confirm</button>
+									<button (click)="applyTax()" type="submit" class="btn btn-lg btn-primary update">Confirm</button>
 								</div>
 					</div>
 </ngx-smart-modal>
