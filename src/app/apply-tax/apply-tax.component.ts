@@ -12,15 +12,34 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class ApplyTaxComponent {
 
   invoice;
+  taxes;
+  selectedTax;
+  totalTax;
+  total;
 
-  constructor(private spinner: NgxSpinnerService,public ngxSmartModalService: NgxSmartModalService, public adminService : AdminService) {
-    
+  constructor(private spinner: NgxSpinnerService,public ngxSmartModalService: NgxSmartModalService, public adminService : AdminService) {  
+  }
+
+  ngOnInit(){
+    this.adminService.getTaxList().subscribe(
+      res =>{
+        this.taxes = res;
+        console.log(this.taxes);
+      }
+    )
   }
 
   assignData(){
     this.invoice = this.adminService.invoiceDetails;
     this.ngxSmartModalService.setModalData(this.invoice, 'applyTax');
     console.log(this.invoice);  
+  }
+
+  calculateTotal(event){
+    console.log(event);
+    this.totalTax = this.invoice.total_price * (this.taxes[event].tax_value / 100);
+    console.log(this.totalTax);
+    this.total = parseFloat(this.totalTax) + parseFloat(this.invoice.total_price); 
   }
 
   updatePaymentStatus(id){
