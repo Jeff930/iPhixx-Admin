@@ -853,7 +853,7 @@ applyTax(invoice_id, tax_id) {
 
   const body = new HttpParams()
    .set('invoice_id', invoice_id)
-   .set('tax', tax_id)
+   .set('tax_id', tax_id)
 
   return this.http.put('http://admin.iphixx.com/api/v1/bookings/apply-tax/'+ invoice_id,
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
