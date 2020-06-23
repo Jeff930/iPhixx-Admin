@@ -36,10 +36,10 @@ export class EditTaxComponent implements OnInit {
         console.log(res);
         this.taxes = res;
         console.log(this.taxes);
-        this.tax = {
-          tax_name: this.taxes[0].tax_name,
-          tax_value: this.taxes[0].tax_value
-        };
+      
+          this.taxName= this.taxes[0].tax_name;
+          this.taxValue= this.taxes[0].tax_value;
+        
       });
     });
   }
@@ -57,7 +57,7 @@ export class EditTaxComponent implements OnInit {
     } else {
       this.adminService.updateTax(this.id , _tax).subscribe( res=> {
         console.log(res);
-        alert('Updated Tax');
+        alert('Tax Updated Successfully!');
         this.router.navigate(['/invoices']);
       }, err => {
         console.log(err);

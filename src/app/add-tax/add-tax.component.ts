@@ -46,6 +46,7 @@ export class AddTaxComponent implements OnInit {
     this.adminService.addTax(this.tax).subscribe( res => {
       console.log(res);
       this.spinner.hide();
+      alert('Tax Created Successfully!');
       this.router.navigate(['/invoices']);
     }, err => {
       console.log(err);
