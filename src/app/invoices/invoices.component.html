@@ -96,8 +96,8 @@
 												<td>{{ check(invoice.settled_Timestamp) }}</td>
 												<td>{{ invoice.invoice_status }}</td>
 												<td>€{{ invoice.total_price }}</td>
-												<td></td>
-												<td>€</td>
+												<td>{{ getTax(invoice.tax_name, invoice.tax_value)}}</td>
+												<td>€ {{getTotal(invoice.total_price, invoice.tax_value)}}</td>
 												<td>
 
 													<!-- <button (click)="ngxSmartModalService.getModal('myModal').open()" class="btn btn-default btn-sm">
