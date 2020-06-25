@@ -60,8 +60,8 @@
 													  <div class="list-group">
 														
 														  <a (click)="editAgent(agent.agent_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-pencil"></span>Edit</a>
-														  <a (click)="deactivateAgent(agent.agent_id )" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-remove"></span>Deactivate</a>
-														  <a (click)="ActivateAgent(agent.agent_id )" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-remove"></span>Activate</a>
+														  <a *ngIf="agent.agent_status == 1" (click)="deactivateAgent(agent.agent_id )" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-remove"></span>Deactivate</a>
+														  <a *ngIf="agent.agent_status == 0" (click)="activateAgent(agent.agent_id )" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-ok"></span>Activate</a>
 														 
 														 
 														  </div>
