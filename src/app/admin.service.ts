@@ -327,7 +327,8 @@ export class AdminService implements CanActivate  {
     devices: [],
     networks: [],
     logistics: [],
-    locations:[]
+    locations:[],
+    locationList:[]
   };
   notif = '';
   from = '';

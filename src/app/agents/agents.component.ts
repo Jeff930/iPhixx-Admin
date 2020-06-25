@@ -16,12 +16,21 @@ export class AgentsComponent implements OnInit {
   agentspages : any;
   agentspageActive : number;
   pager: any = 'agents';
+  locations;
 
   constructor( public adminService : AdminService , private spinner: NgxSpinnerService , public router : Router ) { 
 
   }
 
   ngOnInit() {
+	this.adminService.getLocationList().subscribe(
+		res=>{
+		  this.locations = res;
+		  console.log(this.locations);
+		  this.adminService.global.locationList = this.locations;
+		});
+
+
       this.agentspageActive = this.adminService.agentspageActive;
       this.adminService.agentsPage['page'+this.agentspageActive ] ? this.agents = this.adminService.agentsPage['page'+this.agentspageActive ] : '';
       this.adminService.agentspages ? this.agentspages = this.adminService.agentspages : '';
@@ -41,10 +50,11 @@ export class AgentsComponent implements OnInit {
 
   		console.log(this.agents)
   		this.spinner.hide();
-  		this.adminService.global.agents = this.agents;	
-
+		  this.adminService.global.agents = this.agents;	
+		  
+		 
   	})
-  	}
+	  }
   }
 
   goToPage(number){
@@ -68,9 +78,6 @@ export class AgentsComponent implements OnInit {
 	}
 
   NextPage(){
-
-
-
   	if(this.agentspageActive !== this.agentspages.length){
   		this.agentspageActive = this.agentspageActive+1;
 		this.adminService.agentspageActive = this.agentspageActive;
@@ -156,6 +163,20 @@ export class AgentsComponent implements OnInit {
 			this.spinner.hide();
 	  }
   )
+}
+
+getLocation(id){
+	//console.log(id);
+	var locations = this.adminService.global.locationList;
+	//console.log(locations);
+	//console.log(locations.length);
+	for (var i=1;i<=locations.length;i++){
+		console.log(id,locations[id-1].location_id);
+		if (id == locations[i-1].location_id){
+			//console.log(id,locations[id].location_id);
+			return locations[i-1].location_name;
+		}
+	}
 }
 
 }
