@@ -129,7 +129,8 @@ export class AgentsComponent implements OnInit {
 	  console.log(id);
       this.adminService.deactivateAgent(id).subscribe(res=>{
       	// this.spinner.hide();
-      	console.log(res);
+		  console.log(res);
+		  alert("Agent Successfully Deactivated!");
       	this.adminService.agentsPage  = new Object(); 
       	location.reload();
     	},
@@ -137,24 +138,24 @@ export class AgentsComponent implements OnInit {
       		alert('Error! Please Try again.')
       		this.spinner.hide();
     	}
-    )
- //  	$.ajax({
-	//   type: "DELETE",
-	//   url: 'https://iphixx.repairshopr.com/api/v1/agents/'+id+'?api_key=b60db6c6-2740-48c0-a0fa-34a49ecf6b3f',
-	 
-	//   success: (res) => {
-	//   	this.spinner.hide();
-	//   	console.log(res);
-	//   	this.adminService.agentsPage  = new Object(); 
-	//   	// this.router.navigate(['/agents']);
-	//   },
-	//   error:(err)=>{
-	//    console.log(err);
-	//    alert('Error! Please Try again.')
-	//    this.spinner.hide();
-	//   }
-	  
-	// });
+	)
   }
+
+  activateAgent(id){
+	this.spinner.show();
+	console.log(id);
+	this.adminService.activateAgent(id).subscribe(res=>{
+		// this.spinner.hide();
+		console.log(res);
+		alert("Agent Successfully Activated!");
+		this.adminService.agentsPage  = new Object(); 
+		location.reload();
+	  },
+	  err =>{
+			alert('Error! Please Try again.')
+			this.spinner.hide();
+	  }
+  )
+}
 
 }

@@ -863,6 +863,10 @@ deactivateAgent(agentId) {
   return this.http.put('https://admin.iphixx.com/api/v1/bookings/deactivate-agent/'+ agentId,{});
 }
 
+activateAgent(agentId) {
+  return this.http.put('https://admin.iphixx.com/api/v1/bookings/activate-agent/'+ agentId,{});
+}
+
 transferLead(id){
   return this.http.put('https://admin.iphixx.com/api/v1/bookings/transfer-lead/'+id, {});
 }
