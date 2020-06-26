@@ -131,7 +131,7 @@ disableNetwork(id){
       // this.spinner.hide();
     console.log(res);
     alert("Network Successfully Removed!");
-      this.adminService.agentsPage  = new Object(); 
+      this.adminService.networksPage  = new Object(); 
       location.reload();
     },
     err =>{
@@ -148,7 +148,7 @@ enableNetwork(id){
       // this.spinner.hide();
     console.log(res);
     alert("Network Successfully Activated!");
-      this.adminService.agentsPage  = new Object(); 
+      this.adminService.networksPage  = new Object(); 
       location.reload();
     },
     err =>{

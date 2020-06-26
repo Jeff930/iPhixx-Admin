@@ -158,9 +158,9 @@
 														
 														  <a (click)="editType(devtype.devtype_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-pencil"></span>Edit Type</a>
 
-														  <a (click)="disableType(devtype.devtype_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-remove"></span>Disable Type</a>
-													
-														  <a (click)="enableType(devtype.devtype_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-ok"></span>Enable Type</a>
+														  <a *ngIf="devtype.active == 1" (click)="disableType(devtype.devtype_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-remove"></span>Remove Type</a>
+
+														 <!--  <a (click)="enableType(devtype.devtype_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-ok"></span>Enable Type</a> -->
 														 
 														  </div>
 

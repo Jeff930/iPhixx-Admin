@@ -884,6 +884,14 @@ activateModel(modelId) {
   return this.http.put('https://admin.iphixx.com/api/v1/bookings/enable-model/'+ modelId,{});
 }
 
+deactivateType(typeId) {
+  return this.http.put('https://admin.iphixx.com/api/v1/bookings/disable-type/'+ typeId,{});
+}
+
+activateType(typeId) {
+  return this.http.put('https://admin.iphixx.com/api/v1/bookings/enable-type/'+ typeId,{});
+}
+
 transferLead(id){
   return this.http.put('https://admin.iphixx.com/api/v1/bookings/transfer-lead/'+id, {});
 }

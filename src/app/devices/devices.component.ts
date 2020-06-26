@@ -427,7 +427,24 @@ goToAddBrand(){
 		// this.spinner.hide();
 	  console.log(res);
 	  alert("Model Successfully Removed!");
-		this.adminService.agentsPage  = new Object(); 
+		this.adminService.devicesPage  = new Object(); 
+		location.reload();
+	  },
+	  err =>{
+		  alert('Error! Please Try again.')
+		  this.spinner.hide();
+	  }
+  )
+  }
+
+  disableType(id){
+	this.spinner.show();
+	console.log(id);
+	  this.adminService.deactivateType(id).subscribe(res=>{
+		// this.spinner.hide();
+	  console.log(res);
+	  alert("Device Type Successfully Removed!");
+		this.adminService.devtypesPage  = new Object(); 
 		location.reload();
 	  },
 	  err =>{
