@@ -418,23 +418,23 @@ goToAddBrand(){
 
     }
     )
- //  	$.ajax({
-	//   type: "DELETE",
-	//   url: 'https://iphixx.repairshopr.com/api/v1/devices/'+id+'?api_key=b60db6c6-2740-48c0-a0fa-34a49ecf6b3f',
-	 
-	//   success: (res) => {
-	//   	this.spinner.hide();
-	//   	console.log(res);
-	//   	this.adminService.devicesPage  = new Object(); 
-	//   	// this.router.navigate(['/devices']);
-	//   },
-	//   error:(err)=>{
-	//    console.log(err);
-	//    alert('Error! Please Try again.')
-	//    this.spinner.hide();
-	//   }
-	  
-	// });
+  }
+
+  disableModel(id){
+	this.spinner.show();
+	console.log(id);
+	  this.adminService.deactivateModel(id).subscribe(res=>{
+		// this.spinner.hide();
+	  console.log(res);
+	  alert("Model Successfully Removed!");
+		this.adminService.agentsPage  = new Object(); 
+		location.reload();
+	  },
+	  err =>{
+		  alert('Error! Please Try again.')
+		  this.spinner.hide();
+	  }
+  )
   }
 
 }

@@ -80,10 +80,10 @@
 
 														 <a (click)="editPrice(device.devicemodel_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-pencil"></span>Update Prices</a>
 
-														 <a (click)="disableModel(device.devicemodel_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-remove"></span>Disable Model</a>
+														 <a *ngIf="device.active == 1" (click)="disableModel(device.devicemodel_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-remove"></span>Remove Model</a>
 													
-														 <a (click)="enableModel(device.devicemodel_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-ok"></span>Enable Model</a>
-														  </div>
+														<!--  <a (click)="enableModel(device.devicemodel_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-ok"></span>Enable Model</a> -->
+														</div>
 
 													</sat-popover>
 															        								

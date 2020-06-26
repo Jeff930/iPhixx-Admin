@@ -876,6 +876,14 @@ activateNetwork(networkId) {
   return this.http.put('https://admin.iphixx.com/api/v1/bookings/enable-network/'+ networkId,{});
 }
 
+deactivateModel(modelId) {
+  return this.http.put('https://admin.iphixx.com/api/v1/bookings/disable-model/'+ modelId,{});
+}
+
+activateModel(modelId) {
+  return this.http.put('https://admin.iphixx.com/api/v1/bookings/enable-model/'+ modelId,{});
+}
+
 transferLead(id){
   return this.http.put('https://admin.iphixx.com/api/v1/bookings/transfer-lead/'+id, {});
 }
