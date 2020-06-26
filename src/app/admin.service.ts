@@ -868,6 +868,14 @@ activateAgent(agentId) {
   return this.http.put('https://admin.iphixx.com/api/v1/bookings/activate-agent/'+ agentId,{});
 }
 
+deactivateNetwork(networkId) {
+  return this.http.put('https://admin.iphixx.com/api/v1/bookings/disable-network/'+ networkId,{});
+}
+
+activateNetwork(networkId) {
+  return this.http.put('https://admin.iphixx.com/api/v1/bookings/enable-network/'+ networkId,{});
+}
+
 transferLead(id){
   return this.http.put('https://admin.iphixx.com/api/v1/bookings/transfer-lead/'+id, {});
 }

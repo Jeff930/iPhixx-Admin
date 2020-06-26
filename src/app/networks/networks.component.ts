@@ -117,4 +117,28 @@ goToAddNetwork(){
 	this.router.navigate(['/add-network']);
 }
 
+getStatus(i){
+  if (i == 0)
+    return "Deactivated";
+  else 
+    return "Activated";
+}
+
+disableNetwork(id){
+  this.spinner.show();
+  console.log(id);
+    this.adminService.deactivateNetwork(id).subscribe(res=>{
+      // this.spinner.hide();
+    console.log(res);
+    alert("Agent Successfully Deactivated!");
+      this.adminService.agentsPage  = new Object(); 
+      location.reload();
+    },
+    err =>{
+        alert('Error! Please Try again.')
+        this.spinner.hide();
+    }
+)
+}
+
 }
