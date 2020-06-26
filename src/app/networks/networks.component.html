@@ -36,6 +36,7 @@
 											<tr>
 												<th>Network No</th>
 												<th>Network Name</th>
+												<th>Status</th>
 												<th></th>
 											</tr>
 										</thead>
@@ -43,6 +44,7 @@
 											<tr *ngFor="let network of networks ; let i = index">
 												<td>{{ network.carrier_no }}</td>
 												<td>{{ network.carrier_name}}</td>
+												<td>{{ getStatus(network.active)}}</td>
 												<td>
 
 													<button  [satPopoverAnchorFor]="contactPopover" (click)="contactPopover.toggle()" class="btn btn-default btn-sm">
@@ -56,10 +58,10 @@
 														  <a (click)="editNetwork(network.carrier_no , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-pencil"></span>Edit Network</a>		 
 														
 
-														  <a (click)="disableNetwork(network.carrier_no , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-remove"></span>Disable Network</a>		 
+														  <a *ngIf="network.active == 1" (click)="disableNetwork(network.carrier_no , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-remove"></span>Disable Network</a>		 
 														
 
-														  <a (click)="enableNetwork(network.carrier_no , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-ok"></span>Enable Network</a>		 
+														  <a *ngIf="network.active == 0" (click)="enableNetwork(network.carrier_no , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-ok"></span>Enable Network</a>		 
 														
 														</div>
 
