@@ -454,4 +454,21 @@ goToAddBrand(){
   )
   }
 
+  disableBrand(id){
+	this.spinner.show();
+	console.log(id);
+	  this.adminService.deactivateBrand(id).subscribe(res=>{
+		// this.spinner.hide();
+	  console.log(res);
+	  alert("Brand Successfully Removed!");
+		this.adminService.brandsPage  = new Object(); 
+		location.reload();
+	  },
+	  err =>{
+		  alert('Error! Please Try again.')
+		  this.spinner.hide();
+	  }
+  )
+  }
+
 }

@@ -892,6 +892,14 @@ activateType(typeId) {
   return this.http.put('https://admin.iphixx.com/api/v1/bookings/enable-type/'+ typeId,{});
 }
 
+deactivateBrand(brandId) {
+  return this.http.put('https://admin.iphixx.com/api/v1/bookings/disable-brand/'+ brandId,{});
+}
+
+activateBrand(brandId) {
+  return this.http.put('https://admin.iphixx.com/api/v1/bookings/enable-brand/'+ brandId,{});
+}
+
 transferLead(id){
   return this.http.put('https://admin.iphixx.com/api/v1/bookings/transfer-lead/'+id, {});
 }

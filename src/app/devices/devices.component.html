@@ -237,9 +237,10 @@
 														
 														  <a (click)="editBrand(brand.devicebrand_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-pencil"></span>Edit Brand</a>
 
-														  <a (click)="disableBrand(brand.devicebrand_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-remove"></span>Disable Brand</a>
+														  <a *ngIf="brand.active == 1" (click)="disableBrand(brand.devicebrand_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-remove"></span>Disable Brand</a>
 
-														  <a (click)="enableBrand(brand.devicebrand_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-ok"></span>Enable Brand</a>
+
+														 <!--  <a (click)="enableBrand(brand.devicebrand_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-ok"></span>Enable Brand</a> -->
 													
 														 
 														  </div>
