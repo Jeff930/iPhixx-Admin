@@ -130,7 +130,24 @@ disableNetwork(id){
     this.adminService.deactivateNetwork(id).subscribe(res=>{
       // this.spinner.hide();
     console.log(res);
-    alert("Agent Successfully Deactivated!");
+    alert("Network Successfully Removed!");
+      this.adminService.agentsPage  = new Object(); 
+      location.reload();
+    },
+    err =>{
+        alert('Error! Please Try again.')
+        this.spinner.hide();
+    }
+)
+}
+
+enableNetwork(id){
+  this.spinner.show();
+  console.log(id);
+    this.adminService.activateNetwork(id).subscribe(res=>{
+      // this.spinner.hide();
+    console.log(res);
+    alert("Network Successfully Activated!");
       this.adminService.agentsPage  = new Object(); 
       location.reload();
     },
