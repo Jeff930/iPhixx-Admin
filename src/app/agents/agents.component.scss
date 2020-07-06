@@ -18,7 +18,6 @@ th{
 }
 
 .new-customer{
-	
 	background-color: #00AAFF !important;
     padding: 12px  !important;
     color: #fff;
@@ -34,9 +33,11 @@ th{
 .center{
 	margin-left:40%;
 }
+
 .table tr:nth-child(even) {
 	background-color: rgba(128, 128, 128, 0.1);
 }
+
 .addCustomer {
 	font-family: Helvetica;
 	button {
@@ -56,18 +57,17 @@ th{
 			transform: scale(1.02);
 		}
 }
-// .panel {
-// 	hr {
-// 		width: 50%;
-// 		height: 2px;
-// 		background-color: rgba(5, 142, 221, 0.5);
-// 		border-radius: 25px;
-// 	}
-// }
+
+.navigate{
+	margin-bottom:25px;
+	font-size: 15px;
+}
+
 .panel-heading {
    background: rgba(128, 128, 128, 0.5) !important; 
    padding-bottom: 0px !important;
 }
+
 .sub-menu {
 	h4 {
 	font-family: Helvetica;
@@ -79,4 +79,5 @@ th{
     padding: 10px;
     border-radius: 5px 5px  0px 0px;
   }
+
 }
