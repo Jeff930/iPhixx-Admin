@@ -82,54 +82,23 @@
 
 														 <a *ngIf="device.active == 1" (click)="disableModel(device.devicemodel_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-remove"></span>Remove Model</a>
 													
-														<!--  <a (click)="enableModel(device.devicemodel_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-ok"></span>Enable Model</a> -->
 														</div>
-
-													</sat-popover>
-															        								
+													</sat-popover>      								
 												</td>
-					    
-											
-											</tr>
-											
+					    				</tr>	
 										</tbody>
-										  <tfoot>
-									    <tr>
-									        <td colspan="5">
-									        	<ul *ngIf="devicespages.length <= 5" class="pagination center">
-
-									        		<li (click) = "PreviosDevicesPage()"  class="page-item {{ devicespageActive == 1 ? 'disabled' : ''}}"><a class="page-link" style="cursor: pointer">«</a>
-									        		</li>
-
-									        		<li *ngFor="let page of devicespages ; let i = index" (click)="goToDevicesPage(i+1)" class="page-item {{ i+1 == devicespageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">{{i+1}}</a>
-									        		</li>
+										 <tfoot>
+									    	<tr>
+									        	<td colspan="12" class="top-space">
+									        		<button class="btn btn-lg btn-primary update navigate {{devicespageActive == 1 ? 'disabled' : ''}}" (click) = "PreviosDevicesPage()">Previous</button>
 									        		
-									        		<li (click) = "NextDevicesPage()" class="page-item"><a class="page-link" style="cursor: pointer">»</a>
-									        		</li>
-
-									        	</ul>
-
-									        	<ul *ngIf="devicespages.length > 5" class="pagination center">
-
-									        		<li (click) = "PreviosDevicesPage()"  class="page-item {{ devicespageActive == 1 ? 'disabled' : ''}}"><a class="page-link" style="cursor: pointer">«</a>
-									        		</li>
-
-									        		<li class="page-item {{ i+1 == devicespageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">..</a>
-									        		</li>
-
-									        		<li *ngFor="let page of devicespages ; let i = index" (click)="goToDevicesPage(i+1)" class="page-item {{ i+1 == devicespageActive ? 'active' : '' }}"  ><a *ngIf="i<=4" class="page-link"  style="cursor: pointer">{{i+1}}</a>
-									        		</li>
-
-									        		<li  class="page-item {{ i+1 == devicespageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">..</a>
-									        		</li>
+									        		<select [(ngModel)] = "devicespageActive" class="btn btn-lg btn-primary update navigate">
+										    			<option [value]="devicespageActive" *ngFor="let page of devicespages ; let i = index">{{i+1}}</option>
+										    		</select>
 									        		
-									        		<li (click) = "NextDevicesPage()" class="page-item"><a class="page-link" style="cursor: pointer">»</a>
-									        		</li>
-
-									        	</ul>
-									         <!--    <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator> -->
-									        </td>
-									    </tr>
+									        		<button class="btn btn-lg btn-primary update navigate {{ devicespageActive == devicespages.length ? 'disabled' : ''}}" (click) = "NextDevicesPage()">Next</button>
+									        	</td>
+									    	</tr>
 									    </tfoot>
 									</table>
 
@@ -160,8 +129,6 @@
 
 														  <a *ngIf="devtype.active == 1" (click)="disableType(devtype.devtype_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-remove"></span>Remove Type</a>
 
-														 <!--  <a (click)="enableType(devtype.devtype_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-ok"></span>Enable Type</a> -->
-														 
 														  </div>
 
 													</sat-popover>
@@ -172,43 +139,18 @@
 											</tr>
 											
 										</tbody>
-										  <tfoot>
-									    <tr>
-									        <td colspan="5">
-									        	<ul *ngIf="devtypespages.length <= 5" class="pagination center">
-
-									        		<li (click) = "PreviosDevtypesPage()"  class="page-item {{ devtypespageActive == 1 ? 'disabled' : ''}}"><a class="page-link" style="cursor: pointer">«</a>
-									        		</li>
-
-									        		<li *ngFor="let page of devtypespages ; let i = index" (click)="goToDevtypesPage(i+1)" class="page-item {{ i+1 == devtypespageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">{{i+1}}</a>
-									        		</li>
+										 <tfoot>
+									    	<tr>
+									        	<td colspan="12" class="top-space">
+									        		<button class="btn btn-lg btn-primary update navigate {{devtypespageActive == 1 ? 'disabled' : ''}}" (click) = "PreviosDevtypesPage()">Previous</button>
 									        		
-									        		<li (click) = "NextDevtypesPage()" class="page-item"><a class="page-link" style="cursor: pointer">»</a>
-									        		</li>
-
-									        	</ul>
-
-									        	<ul *ngIf="devtypespages.length > 5" class="pagination center">
-
-									        		<li (click) = "PreviosDevtypesPage()"  class="page-item {{ devicespageActive == 1 ? 'disabled' : ''}}"><a class="page-link" style="cursor: pointer">«</a>
-									        		</li>
-
-									        		<li class="page-item {{ i+1 == devicespageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">..</a>
-									        		</li>
-
-									        		<li *ngFor="let page of devicespages ; let i = index" (click)="goToDevtypesPage(i+1)" class="page-item {{ i+1 == devicespageActive ? 'active' : '' }}"  ><a *ngIf="i<=4" class="page-link"  style="cursor: pointer">{{i+1}}</a>
-									        		</li>
-
-									        		<li  class="page-item {{ i+1 == devicespageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">..</a>
-									        		</li>
+									        		<select [(ngModel)] = "devtypespageActive" class="btn btn-lg btn-primary update navigate">
+										    			<option [value]="devtypespageActive" *ngFor="let page of devtypespages ; let i = index">{{i+1}}</option>
+										    		</select>
 									        		
-									        		<li (click) = "NextDevtypesPage()" class="page-item"><a class="page-link" style="cursor: pointer">»</a>
-									        		</li>
-
-									        	</ul>
-									         <!--    <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator> -->
-									        </td>
-									    </tr>
+									        		<button class="btn btn-lg btn-primary update navigate {{ devtypespageActive == devtypespages.length ? 'disabled' : ''}}" (click) = "NextDevtypesPage()">Next</button>
+									        	</td>
+									    	</tr>
 									    </tfoot>
 									</table>
 
@@ -253,43 +195,18 @@
 											</tr>
 											
 										</tbody>
-										  <tfoot>
-									    <tr>
-									        <td colspan="5">
-									        	<ul *ngIf="brandspages.length <= 5" class="pagination center">
-
-									        		<li (click) = "PreviosBrandsPage()"  class="page-item {{ brandspageActive == 1 ? 'disabled' : ''}}"><a class="page-link" style="cursor: pointer">«</a>
-									        		</li>
-
-									        		<li *ngFor="let page of brandspages ; let i = index" (click)="goToBrandsPage(i+1)" class="page-item {{ i+1 == brandspageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">{{i+1}}</a>
-									        		</li>
+										<tfoot>
+									    	<tr>
+									        	<td colspan="12" class="top-space">
+									        		<button class="btn btn-lg btn-primary update navigate {{brandspageActive == 1 ? 'disabled' : ''}}" (click) = "PreviosBrandsPage()">Previous</button>
 									        		
-									        		<li (click) = "NextBrandsPage()" class="page-item"><a class="page-link" style="cursor: pointer">»</a>
-									        		</li>
-
-									        	</ul>
-
-									        	<ul *ngIf="brandspages.length > 5" class="pagination center">
-
-									        		<li (click) = "PreviosBrandsPage()"  class="page-item {{ brandspageActive == 1 ? 'disabled' : ''}}"><a class="page-link" style="cursor: pointer">«</a>
-									        		</li>
-
-									        		<li class="page-item {{ i+1 == brandspageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">..</a>
-									        		</li>
-
-									        		<li *ngFor="let page of brandspages ; let i = index" (click)="goToBrandsPage(i+1)" class="page-item {{ i+1 == brandspageActive ? 'active' : '' }}"  ><a *ngIf="i<=4" class="page-link"  style="cursor: pointer">{{i+1}}</a>
-									        		</li>
-
-									        		<li  class="page-item {{ i+1 == brandspageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">..</a>
-									        		</li>
+									        		<select [(ngModel)] = "brandspageActive" class="btn btn-lg btn-primary update navigate">
+										    			<option [value]="brandspageActive" *ngFor="let page of brandspages ; let i = index">{{i+1}}</option>
+										    		</select>
 									        		
-									        		<li (click) = "NextBrandsPage()" class="page-item"><a class="page-link" style="cursor: pointer">»</a>
-									        		</li>
-
-									        	</ul>
-									         <!--    <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator> -->
-									        </td>
-									    </tr>
+									        		<button class="btn btn-lg btn-primary update navigate {{ brandspageActive == brandspages.length ? 'disabled' : ''}}" (click) = "NextBrandsPage()">Next</button>
+									        	</td>
+									    	</tr>
 									    </tfoot>
 									</table>
 

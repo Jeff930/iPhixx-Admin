@@ -10,30 +10,27 @@ import { Router , ActivatedRoute  } from '@angular/router';
   styleUrls: ['./customers.component.scss']
 })
 export class CustomersComponent implements OnInit {
-	pager = 'customers';
-  customers = []; 	
-  customersPage  = new Object();	
-  customerspages : any;
- customerspageActive : number;
+pager = 'customers';
+customers = []; 	
+customersPage  = new Object();	
+customerspages : any;
+customerspageActive : number;
   constructor( public adminService : AdminService , private spinner: NgxSpinnerService , public router : Router ) { 
-
   }
 
   ngOnInit() {
-
-  	// $('[data-toggle="popover"]').popover();
-
       this.customerspageActive = this.adminService.customerspageActive;
       this.adminService.customersPage['page'+this.customerspageActive ] ? this.customers = this.adminService.customersPage['page'+this.customerspageActive ] : '';
-      this.adminService.customerspages ? this.customerspages = this.adminService.customerspages : '';
-
+	  this.adminService.customerspages ? this.customerspages = this.adminService.customerspages : '';
+	  
   	if (this.customers.length == 0) {
   		this.customerspageActive = 1;
   		this.adminService.customerspageActive = this.customerspageActive;
   		this.spinner.show();
   		this.adminService.getCustomers().subscribe( ( res ) => {
-  	  console.log(res);
-  		this.customerspages = Array(res.total_page);
+  	  	console.log(res);
+		this.customerspages = Array(res.total_page);
+		console.log(this.customerspages);  
   		this.adminService.customerspages = this.customerspages;
   	
   		this.adminService.customersPage['page'+1 ] = res.customers;
@@ -59,7 +56,6 @@ export class CustomersComponent implements OnInit {
 		this.adminService.customerspageActive = this.customerspageActive;
 		this.spinner.show();
 		if(this.adminService.customersPage['page'+number ]){
-
 	  		this.customers = this.adminService.customersPage['page'+number ];
 	  		this.spinner.hide();
 		}
@@ -85,9 +81,6 @@ export class CustomersComponent implements OnInit {
 	}
 
   NextPage(){
-
-
-
   	if(this.customerspageActive !== this.customerspages.length){
   		this.customerspageActive = this.customerspageActive+1;
 		this.adminService.customerspageActive = this.customerspageActive;
@@ -114,7 +107,6 @@ export class CustomersComponent implements OnInit {
 		this.adminService.customerspageActive = this.customerspageActive;
 		this.spinner.show();
 		if(this.adminService.customersPage['page'+this.customerspageActive ]){
-
 	  		this.customers = this.adminService.customersPage['page'+this.customerspageActive ];
 	  		this.spinner.hide();
 		}
@@ -153,25 +145,7 @@ export class CustomersComponent implements OnInit {
       alert('Error! Please Try again.')
       this.spinner.hide();
 
-    }
-    )
- //  	$.ajax({
-	//   type: "DELETE",
-	//   url: 'https://iphixx.repairshopr.com/api/v1/customers/'+id+'?api_key=b60db6c6-2740-48c0-a0fa-34a49ecf6b3f',
-	 
-	//   success: (res) => {
-	//   	this.spinner.hide();
-	//   	console.log(res);
-	//   	this.adminService.customersPage  = new Object(); 
-	//   	// this.router.navigate(['/customers']);
-	//   },
-	//   error:(err)=>{
-	//    console.log(err);
-	//    alert('Error! Please Try again.')
-	//    this.spinner.hide();
-	//   }
-	  
-	// });
+    })
   }
 
 }
