@@ -363,7 +363,8 @@ return false;
     return this.totalCustomers;
   }
 
-  getLeads(page =  1) {
+  getLeads(page) {
+      console.log(page);
       return this.http.get<Leads>('https://admin.iphixx.com/api/v1/bookings/?page=' + page);
   }
 
@@ -379,35 +380,35 @@ return false;
     return this.http.get<Agents>('https://admin.iphixx.com/api/v1/bookings/agents/?page=' + page);
   }
 
-  getDevtypes(page = 1) {
+  getDevtypes(page) {
     return this.http.get<Devtypes>('https://admin.iphixx.com/api/v1/bookings/devtypes/?page=' + page);
   }
 
-  getDevices(page = 1) {
+  getDevices(page) {
     return this.http.get<Devices>('https://admin.iphixx.com/api/v1/bookings/all-devices/?page=' + page);
   }
 
-  getBrands(page = 1) {
+  getBrands(page) {
     return this.http.get<Brands>('https://admin.iphixx.com/api/v1/bookings/brands/?page=' + page);
   }
 
-  getNetworks(page = 1) {
+  getNetworks(page) {
     return this.http.get<Networks>('https://admin.iphixx.com/api/v1/bookings/networks/?page=' + page);
   }
 
-  getInvoices(page =  1) {
+  getInvoices(page) {
     return this.http.get<Invoices>('https://admin.iphixx.com/api/v1/bookings/invoices/?page=' + page);
   }
 
-  getLocations(page =  1) {
+  getLocations(page) {
     return this.http.get<Locations>('https://admin.iphixx.com/api/v1/bookings/locations/?page=' + page);
   }
 
-  getTickets(page =  1) {
+  getTickets(page) {
     return this.http.get<Tickets>('https://admin.iphixx.com/api/v1/bookings/tickets/?page=' + page);
   }
 
-  getLogistics(page =  1) {
+  getLogistics(page) {
     return this.http.get<Logistics>('https://admin.iphixx.com/api/v1/bookings/logistics/?page=' + page);
   }
 
