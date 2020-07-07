@@ -36,7 +36,6 @@ export class NetworksComponent implements OnInit {
     this.adminService.networksPage['page'+1 ] = res.networks;
 
     this.networks = this.adminService.networksPage['page'+1 ];
-
     console.log(this.networks)
     this.spinner.hide();
     this.adminService.global.networks = this.networks;	

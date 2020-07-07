@@ -118,105 +118,20 @@
 													<!-- <td><button (click) = "updateBooking(lead.id)" class="btn btn-primary">Update Status</button></td> -->
 												</tr>
 											</tbody>
-											<tfoot>
-												<tr>
-													<td colspan="5">
-														<ul class="pagination center">
-										
-															<li (click)="PreviosPage()" class="page-item {{ pageActive == 1 ? 'disabled' : ''}}">
-																<a class="page-link" style="cursor: pointer">«</a>
-															</li>
-															<li *ngFor="let page of pages ; let i = index" (click)="goToPage(i+1)" class="page-item {{ i+1 == pageActive ? 'active' : '' }}">
-																<a class="page-link" style="cursor: pointer">{{i+1}}</a>
-															</li>
-															<!-- <li class="page-item"><a class="page-link" style="cursor: pointer">2</a></li>
-																			        		 -->
-															<li (click)="NextPage()" class="page-item">
-																<a class="page-link" style="cursor: pointer">»</a>
-															</li>
-										
-														</ul>
-														<!--    <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator> -->
-													</td>
-												</tr>
-											</tfoot>
-										</table>
-									<!-- <table class="table table-hover ">
-									    <thead>
-									    <tr>
-									    	<th>
-									           Ticket No
-									        </th>
-									        <th>
-									           Customer Name
-									        </th>
-									        <th>
-									           Email
-									        </th>
-									        <th>
-									           Phone
-									        </th>
-									        <th>
-									           Repair
-											</th>
-											<th>
-												Location
-											</th>
-									        <th>
-												Action
-									        </th>
-
-									    </tr>
-									    </thead>
-									    <tbody>
-										<tr *ngFor="let ticket of tickets; let i = index" [hidden]="location !== ticket.location && location" [ngStyle] = "{'background-color': !location ? '' : 'white'} " >
-									    
-									        	<td>{{ ticket.ticket_no }}</td>
-												<td>{{ ticket.customer_fname }} {{ ticket.customer_lname }}</td>
-												<td>{{ ticket.email }}</td>
-												<td>{{ ticket.phone }}</td>
-												<td> Broket Screen </td>
-												<td>{{ ticket.location }}</td>
-												<td>
-
-														<button [satPopoverAnchorFor]="contactPopover" (click)="contactPopover.toggle()" class="btn btn-default btn-sm">
-															<span class="glyphicon glyphicon-option-horizontal"></span>
-														</button>
-
-
-
-													<sat-popover #contactPopover hasBackdrop verticalAlign="below">
-													  <div class="list-group">
-														  <a (click)="editBooking('1', ticket.ticket_no )" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-pencil"></span>  Edit</a>
-														  <a (click)="deleteBooking(ticket.ticket_no)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-remove"></span>Delete</a>
-														  </div>
-
-													</sat-popover>
-															        								
-												</td>
-											
-									    </tr>
-									    </tbody>
-									    <tfoot>
-									    <tr>
-									        <td colspan="6" >
-									        	<ul class="pagination center">
-
-									        		<li (click) = "PreviosPage()"  class="page-item {{ ticketPageActive == 1 ? 'disabled' : ''}}"><a class="no-border page-link" style="cursor: pointer">«</a>
-									        		</li>
-									        		<li *ngFor="let page of ticketPages ; let i = index" (click)="goToPage(i+1)" class="page-item {{ i+1 == ticketPageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">{{i+1}}</a>
-									        		</li>
-									        	
-									        		<li (click) = "NextPage()" class="page-item"><a class="no-border page-link" style="cursor: pointer">»</a>
-									        		</li>
-
-									        	</ul>
-									         
-									        </td>
-									    </tr>
+									     <tfoot>
+									    	<tr>
+									        	<td colspan="12" class="top-space">
+									        		<button class="btn btn-lg btn-primary update navigate {{ ticketpageActive == 1 ? 'disabled' : ''}}" (click) = "PreviosPage()">Previous</button>
+									        		
+									        		<select [(ngModel)] = "ticketpageActive" class="btn btn-lg btn-primary update navigate">
+										    			<option [value]="ticketpageActive" *ngFor="let page of ticketPages ; let i = index">{{i+1}}</option>
+										    		</select>
+									        		
+									        		<button class="btn btn-lg btn-primary update navigate {{ ticketpageActive == ticketPages.length ? 'disabled' : ''}}" (click) = "NextPage()">Next</button>
+									        	</td>
+									    	</tr>
 									    </tfoot>
-									</table> -->
-										
+									</table>
 									</div>
 								</div>
 							</div>
