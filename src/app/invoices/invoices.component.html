@@ -131,13 +131,13 @@
 									     <tfoot>
 									    	<tr>
 									        	<td colspan="12" class="top-space">
-									        		<button class="btn btn-lg btn-primary update navigate {{ invoicespageActive == 1 ? 'disabled' : ''}}" (click) = "PreviosPage()">Previous</button>
+									        		<button class="btn btn-lg btn-primary update navigate {{ invoicePageActive == 1 ? 'disabled' : ''}}" (click) = "PreviosPage()">Previous</button>
 									        		
-									        		<select [(ngModel)] = "invoicespageActive" class="btn btn-lg btn-primary update navigate">
-										    			<option [value]="invoicespageActive" *ngFor="let invoicespageActive of invoicespages ; let i = index">{{i+1}}</option>
+									        		<select [(ngModel)] = "currentPage" (change)="goToPage($event.target.value)" class="btn btn-lg btn-primary update navigate">
+										    			<option [value]="i" *ngFor="let invoicePageActive of invoicespages ; let i = index">{{i+1}}</option>
 										    		</select>
 									        		
-									        		<button class="btn btn-lg btn-primary update navigate {{ invoicespageActive == invoicespages.length ? 'disabled' : ''}}" (click) = "NextPage()">Next</button>
+									        		<button class="btn btn-lg btn-primary update navigate {{ invoicePageActive == invoicespages.length ? 'disabled' : ''}}" (click) = "NextPage()">Next</button>
 									        	</td>
 									    	</tr>
 									    </tfoot>
