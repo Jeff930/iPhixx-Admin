@@ -15,6 +15,8 @@ customers = [];
 customersPage  = new Object();	
 customerspages : any;
 customerspageActive : number;
+currentPage:number;
+
   constructor( public adminService : AdminService , private spinner: NgxSpinnerService , public router : Router ) { 
   }
 
@@ -24,10 +26,11 @@ customerspageActive : number;
 	  this.adminService.customerspages ? this.customerspages = this.adminService.customerspages : '';
 	  
   	if (this.customers.length == 0) {
+		this.currentPage = 0;
   		this.customerspageActive = 1;
   		this.adminService.customerspageActive = this.customerspageActive;
   		this.spinner.show();
-  		this.adminService.getCustomers().subscribe( ( res ) => {
+  		this.adminService.getCustomers(1).subscribe( ( res ) => {
   	  	console.log(res);
 		this.customerspages = Array(res.total_page);
 		console.log(this.customerspages);  
@@ -50,8 +53,10 @@ customerspageActive : number;
 
   }
 
-  goToPage(number){
-		console.log(number);
+  goToPage(i){
+		console.log(i);
+		this.currentPage = i;
+		var number = parseInt(i)+1;
 		this.customerspageActive = number;
 		this.adminService.customerspageActive = this.customerspageActive;
 		this.spinner.show();
@@ -81,6 +86,7 @@ customerspageActive : number;
 	}
 
   NextPage(){
+	this.currentPage = this.currentPage + 1;
   	if(this.customerspageActive !== this.customerspages.length){
   		this.customerspageActive = this.customerspageActive+1;
 		this.adminService.customerspageActive = this.customerspageActive;
@@ -102,6 +108,7 @@ customerspageActive : number;
   }
 
   PreviosPage(){
+	this.currentPage = this.currentPage - 1;
   	if(this.customerspageActive !== 1){
   		this.customerspageActive = this.customerspageActive-1;
 		this.adminService.customerspageActive = this.customerspageActive;

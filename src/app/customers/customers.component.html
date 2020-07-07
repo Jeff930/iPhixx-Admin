@@ -71,8 +71,8 @@
 									        	<td colspan="12" class="top-space">
 									        		<button class="btn btn-lg btn-primary update navigate {{customerspageActive == 1 ? 'disabled' : ''}}" (click) = "PreviosPage()">Previous</button>
 									        		
-									        		<select [(ngModel)] = "customerspageActive" class="btn btn-lg btn-primary update navigate">
-										    			<option [value]="customerspageActive" *ngFor="let page of customerspages ; let i = index">{{i+1}}</option>
+									        		<select [(ngModel)] = "currentPage" (change)="goToPage($event.target.value)" class="btn btn-lg btn-primary update navigate">
+										    			<option [value]="i" *ngFor="let page of customerspages ; let i = index">{{i+1}}</option>
 										    		</select>
 									        		
 									        		<button class="btn btn-lg btn-primary update navigate {{ customerspageActive == customerspages.length ? 'disabled' : ''}}" (click) = "NextPage()">Next</button>
