@@ -17,6 +17,7 @@ export class LeadsComponent implements OnInit {
   leadsPage  = new Object();
   pages : any;
   pageActive : number;
+  currentPage:number;
 
   constructor( public adminService : AdminService , private spinner: NgxSpinnerService,public router : Router, public alert:AlertsService ) { 
   		
@@ -29,10 +30,11 @@ export class LeadsComponent implements OnInit {
   ngOnInit() {
 	this.alert.setMessage("sample",'error');
   	if (this.leads.length == 0) {
+		this.currentPage = 0;
   		this.pageActive = 1;
   		this.adminService.pageActive = this.pageActive;
   		this.spinner.show();
-  		this.adminService.getLeads().subscribe( ( res ) => {
+  		this.adminService.getLeads(1).subscribe( ( res ) => {
 		console.log("this res:"+ JSON.stringify(res));
 		this.pages = Array(res.total_page);
   		this.adminService.pages = this.pages;
@@ -48,27 +50,32 @@ export class LeadsComponent implements OnInit {
   	}
   }
 
-	goToPage(number){
-		console.log(number);
+	goToPage(i){
+		console.log(i);
+		this.currentPage = i;
+		var number = parseInt(i)+1;
 		this.pageActive = number;
 		this.adminService.pageActive = this.pageActive;
 		this.spinner.show();
-		if(this.adminService.leadsPage['page' + number ]) {
-
-	  		this.leads = this.adminService.leadsPage['page' + number ];
-	  		this.spinner.hide();
-		}
-		else{
-  		this.adminService.getLeads(number).subscribe( ( res ) => {
-  		this.adminService.leadsPage['page'+number ] = res.bookings;
-  		this.leads = this.adminService.leadsPage['page'+number ];
+		console.log(this.pageActive);
+		// if(this.adminService.leadsPage['page' + number ]) {
+	  	// 	this.leads = this.adminService.leadsPage['page' + number ];
+	  	// 	this.spinner.hide();
+		// }
+		// else{
+  		this.adminService.getLeads(this.pageActive).subscribe( ( res ) => {
+		console.log(res);
+  		this.adminService.leadsPage['page'+ number ] = res.bookings;
+  		this.leads = this.adminService.leadsPage['page'+ number ];
   		this.spinner.hide();
   		this.adminService.global.leads = this.leads;	
   		console.log(this.adminService.leadsPage)
-  	})}
+	  })
+//}
 	}
 
   NextPage(){
+	this.currentPage = this.currentPage + 1;
   	if(this.pageActive !== this.pages.length){
   		this.pageActive = this.pageActive+1;
 		this.adminService.pageActive = this.pageActive;
@@ -90,6 +97,7 @@ export class LeadsComponent implements OnInit {
   }
 
   PreviosPage(){
+	this.currentPage = this.currentPage - 1;
   	if(this.pageActive !== 1){
   		this.pageActive = this.pageActive-1;
 		this.adminService.pageActive = this.pageActive;
