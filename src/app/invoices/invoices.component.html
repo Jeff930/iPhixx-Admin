@@ -128,24 +128,18 @@
 												</td>
 									    </tr>
 									    </tbody>
-									    <tfoot>
-									    <tr>
-									        <td colspan="6">
-									        	<ul class="pagination center">
-
-									        		<li (click) = "PreviosPage()"  class="page-item {{ invoicePageActive == 1 ? 'disabled' : ''}}"><a class="page-link" style="cursor: pointer">«</a>
-									        		</li>
-									        		<li *ngFor="let page of invoicespages ; let i = index" (click)="goToPage(i+1)" class="page-item {{ i+1 == invoicePageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">{{i+1}}</a>
-									        		</li>
-									        		<!-- <li class="page-item"><a class="page-link" style="cursor: pointer">2</a></li>
-									        		 -->
-									        		<li (click) = "NextPage()" class="page-item"><a class="page-link" style="cursor: pointer">»</a>
-									        		</li>
-
-									        	</ul>
-									         <!--    <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator> -->
-									        </td>
-									    </tr>
+									     <tfoot>
+									    	<tr>
+									        	<td colspan="12" class="top-space">
+									        		<button class="btn btn-lg btn-primary update navigate {{ invoicespageActive == 1 ? 'disabled' : ''}}" (click) = "PreviosPage()">Previous</button>
+									        		
+									        		<select [(ngModel)] = "invoicespageActive" class="btn btn-lg btn-primary update navigate">
+										    			<option [value]="invoicespageActive" *ngFor="let invoicespageActive of invoicespages ; let i = index">{{i+1}}</option>
+										    		</select>
+									        		
+									        		<button class="btn btn-lg btn-primary update navigate {{ invoicespageActive == invoicespages.length ? 'disabled' : ''}}" (click) = "NextPage()">Next</button>
+									        	</td>
+									    	</tr>
 									    </tfoot>
 									</table>
 									<!--Tax Rates-->
