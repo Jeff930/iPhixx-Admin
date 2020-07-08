@@ -18,6 +18,7 @@ export class InventoryComponent implements OnInit {
   inventoryPageActive : number;
   pager = 'products';
   pagerSecond = 'phone';
+  currentPage:number;
   pagerThird;
   models;
   allModels: any;
@@ -30,6 +31,9 @@ export class InventoryComponent implements OnInit {
 }
 
   ngOnInit() {
+    this.inventoryPageActive = this.adminService.networkspageActive;
+    this.adminService.inventoryPage['page'+this.inventoryPageActive ] ? this.inventory = this.adminService.inventoryPage['page'+this.inventoryPageActive ] : '';
+    this.adminService.inventoryPages ? this.inventoryPages = this.adminService.inventoryPages : '';
   //   this.route.paramMap.subscribe((params: ParamMap) => {
   //     if (params.get('page') !== 'invt') {
   //       this.pager = 'categories';
@@ -45,9 +49,10 @@ export class InventoryComponent implements OnInit {
 
     if (this.inventory.length == 0) {
       this.spinner.show();
+      this.currentPage = 0;
     this.inventoryPageActive = 1;
     this.adminService.inventoryPageActive = this.inventoryPageActive;
-    this.adminService.getInventory().subscribe( ( res ) => {
+    this.adminService.getInventory(1).subscribe( ( res ) => {
   console.log("this res:"+ JSON.stringify(res));
   this.inventoryPages = Array(res.total_page);
     this.adminService.inventoryPages = this.inventoryPages;
@@ -64,17 +69,14 @@ export class InventoryComponent implements OnInit {
 
 }
 
-ngAfterViewInit() {
-  
-}
-
-goToPage(number){
-  console.log(number);
+goToPage(i){
+  console.log("called");
+  this.currentPage = i;
+	var number = parseInt(i)+1;
   this.inventoryPageActive = number;
   this.adminService.inventoryPageActive = this.inventoryPageActive;
   this.spinner.show();
   if(this.adminService.inventoryPage['page'+number ]){
-
       this.inventory = this.adminService.inventoryPage['page'+number ];
       this.spinner.hide();
   }
@@ -89,9 +91,7 @@ goToPage(number){
 }
 
 NextPage(){
-
-
-
+  this.currentPage = this.currentPage + 1;
   if(this.inventoryPageActive !== this.inventoryPages.length){
     this.inventoryPageActive = this.inventoryPageActive+1;
   this.adminService.inventoryPageActive = this.inventoryPageActive;
@@ -113,6 +113,7 @@ NextPage(){
 }
 
 PreviosPage(){
+  this.currentPage = this.currentPage - 1;
   if(this.inventoryPageActive !== 1){
     this.inventoryPageActive = this.inventoryPageActive-1;
   this.adminService.inventoryPageActive = this.inventoryPageActive;
