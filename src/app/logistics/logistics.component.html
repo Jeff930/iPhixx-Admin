@@ -9,23 +9,13 @@
       <div class="col-lg-12">
         <!-- TABLE HOVER -->
         <div class="panel panel-headline">
-          <div class="panel-heading">
-            <h3 class="panel-title">Logistics</h3>
-            <!-- <div class="form-group col-lg-8">
-              <label for="selections">Select Location:</label>
-              <select class="form-control" [(ngModel)]="location" id="selections">
-                <option> </option>
-                <option>Iphixx Booking</option>
-                <option>Joyce of Wexford</option>
-              </select>
-            </div>
-            <div class="addCustomer  align-items-end">
-              <button type="button" class="btn" (click)="editBooking('','')">
-                <i class="lnr lnr-plus-circle"></i>
-                New Booking
-              </button>
-            </div> -->
-          </div>
+                <div class="panel-heading">
+                  <div class="sub-menu">
+                    <h4 (click)= "openPager('logistics')" [ngStyle]="{'color':pager === 'logistics' ? '#2980b9' : 'black', 'background': pager === 'logistics' ? '#ffffff' : 'none'}">Logs</h4>
+                  </div>
+                  
+                </div>
+
           <div class="panel-body">
                 <div class="table-responsive">
                   <table class="table table-hover ">
