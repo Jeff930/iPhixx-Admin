@@ -52,8 +52,8 @@ import { EditNetworkComponent } from './edit-network/edit-network.component';
 
 const routes: Routes = [
 
-  { path: 'admin', component: DashboardComponent , canActivate : [AdminService] },
-  { path: 'login', component: LoginComponent },
+  { path: 'admin', component: DashboardComponent ,  },
+  { path: 'login', component: LoginComponent, canActivate : [AdminService] },
   { path: 'leads', component: LeadsComponent },
   { path: 'customers', component: CustomersComponent },
   { path: 'edit-customer/:id', component: EditCustomerComponent },
@@ -101,7 +101,7 @@ const routes: Routes = [
   //   data: { title: 'Device' }
   // },
   { path: '',
-    redirectTo: '/admin',
+    redirectTo: '/leads',
     pathMatch: 'full'
   },
   { path: '**', component: DashboardComponent }
