@@ -16,6 +16,9 @@ export class LogisticsComponent implements OnInit {
   logisticsPage = new Object();
   logisticPageActive: number;
   location;
+  currentPage: number;
+  pager = 'logistics';
+
   constructor(public adminService : AdminService , private spinner: NgxSpinnerService,public router : Router) {
 
     this.logisticPageActive = this.adminService.logisticPageActive;
@@ -25,7 +28,12 @@ export class LogisticsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.logisticPageActive = this.adminService.logisticPageActive;
+    this.adminService.logisticsPage['page'+this.logisticPageActive ] ? this.logistics = this.adminService.logisticsPage['page'+this.logisticPageActive ] : '';
+    this.adminService.logisticPages ? this.logisticPages = this.adminService.logisticPages : '';
+
     if (this.logistics.length === 0) {
+      this.currentPage = 0;
       this.logisticPageActive = 1;
       this.adminService.logisticPageActive = this.logisticPageActive;
       this.spinner.show();
@@ -44,8 +52,9 @@ export class LogisticsComponent implements OnInit {
       });
     }
   }
-  goToPage(number) {
-    console.log(number);
+  goToPage(i) {
+    this.currentPage = i;
+		var number = parseInt(i)+1;
     this.logisticPageActive = number;
     this.adminService.logisticPageActive = this.logisticPageActive;
     this.spinner.show();
@@ -65,9 +74,7 @@ export class LogisticsComponent implements OnInit {
   }
 
   NextPage() {
-
-
-
+    this.currentPage = this.currentPage + 1;
     if (this.logisticPageActive !== this.logisticPages.length) {
       this.logisticPageActive = this.logisticPageActive + 1;
       this.adminService.logisticPageActive = this.logisticPageActive;
@@ -90,6 +97,7 @@ export class LogisticsComponent implements OnInit {
   }
 
   PreviosPage() {
+    this.currentPage = this.currentPage - 1;
     if (this.logisticPageActive !== 1) {
       this.logisticPageActive = this.logisticPageActive - 1;
       this.adminService.logisticPageActive = this.logisticPageActive;
