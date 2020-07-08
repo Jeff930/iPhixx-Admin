@@ -2,9 +2,33 @@
 	font-family: Helvetica;
 	font-weight: bold;
 }
+
 .center{
   margin-left:45%;
 }
+
+ tr:nth-child(even) {
+	background-color: rgba(128, 128, 128, 0.1) !important; 
+} 
+
+.panel-heading {
+   background: rgba(128, 128, 128, 0.5) !important; 
+   padding-bottom: 0px !important;
+}
+
+.sub-menu {
+	h4 {
+	font-family: Helvetica;
+	font-weight: bold !important;
+    font-size: 2rem !important;
+	cursor: pointer;
+    display: inline-block;
+    margin-bottom: -5px !important;
+    padding: 10px;
+    border-radius: 5px 5px  0px 0px;
+  }
+ }
+
 .form-group  {
   width: 15%;
   float: right;
@@ -13,21 +37,26 @@
   float: right;
   right: 200px;
 }
+
 .panel-body {
   width: 100% !important;
 }
+
 .table tr:nth-child(even) {
 	background-color: rgba(128, 128, 128, 0.1);
 }
+
 .table tr {
 	font-family: Helvetica;
   text-align: center;
 }
+
 .table th {
 	font-family: Helvetica;
   color : #337ab7;
   text-align: center;
 }
+
 .addCustomer {
 	font-family: Helvetica;
 	position: relative;
@@ -48,10 +77,17 @@
 			transform: scale(1.02);
 		}
 }
+
 .pagination {
 	margin: 0 auto;
 	text-align: center;
 }
+
+.navigate{
+	margin-bottom:25px;
+	font-size: 15px;
+}
+
 @media (max-width: 768px ) {
   .form-group {
     width: 20%;
