@@ -75,19 +75,19 @@
 									    <tfoot>
 									    	<tr>
 									        	<td colspan="12" class="top-space">
-									        		<button class="btn btn-lg btn-primary update navigate {{ inventoryPage == 1 ? 'disabled' : ''}}" (click) = "PreviosPage()">Previous</button>
+									        		<button class="btn btn-lg btn-primary update navigate {{ inventoryPageActive == 1 ? 'disabled' : ''}}" (click) = "PreviosPage()">Previous</button>
 									        		
-									        		<select [(ngModel)] = "inventoryPage" class="btn btn-lg btn-primary update navigate">
-										    			<option [value]="inventoryPage" *ngFor="let page of inventoryPages ; let i = index">{{i+1}}</option>
+									        		<select [(ngModel)] = "currentPage" (change)="goToPage($event.target.value)" class="btn btn-lg btn-primary update navigate">
+										    			<option [value]="i" *ngFor="let page of inventoryPages;let i = index">{{i+1}}</option>
 										    		</select>
 									        		
-									        		<button class="btn btn-lg btn-primary update navigate {{ inventoryPage == inventoryPages.length ? 'disabled' : ''}}" (click) = "NextPage()">Next</button>
+									        		<button class="btn btn-lg btn-primary update navigate {{ inventoryPageActive == inventoryPages.length ? 'disabled' : ''}}" (click) = "NextPage()">Next</button>
 									        	</td>
 									    	</tr>
 									    </tfoot>
 									</table>
 									<!--SALES-->
-									<div class="product-sales-content" *ngIf = "pager === 'sales'">
+									<!-- <div class="product-sales-content" *ngIf = "pager === 'sales'">
 										<h2>Most Popular Repairs</h2>
 										<div class="sales-overview">
 											<div class="row">
@@ -131,9 +131,9 @@
 												</div>
 											</div>
 										</div>
-									</div>
+									</div> -->
 										<!--Categories-->
-											<table class="table table-hover" *ngIf="pager === 'categories'">
+											<!-- <table class="table table-hover" *ngIf="pager === 'categories'">
 												<div class="sub-menu">
 													<h4 (click)="openSecondPager('phone')" [ngStyle]="{'color': pagerSecond === 'phone' ? '#2980b9' : 'black', 'background': pagerSecond === 'phone' ? 'rgba(127, 127, 127, 0.3)' : '#ffffff', 'border-bottom': pagerSecond === 'phone' ? 'none' : '1px solid rgba(0, 0, 0, 0.5)'}"class="panel-title">Phone</h4>
 													<h4 (click)="openSecondPager('tablet')" [ngStyle]="{'color': pagerSecond === 'tablet' ? '#2980b9' : 'black', 'background': pagerSecond === 'tablet' ? 'rgba(127, 127, 127, 0.3)' :  '#ffffff', 'border-bottom': pagerSecond === 'tablet' ? 'none' : '1px solid rgba(0, 0, 0, 0.5)'}" class="panel-title">Tablet</h4>
@@ -196,7 +196,7 @@
 														
 													</div>
 										</table>
-									</table>
+									</table> -->
 									</div>
 								</div>
 							</div>
