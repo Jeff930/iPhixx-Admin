@@ -428,7 +428,7 @@ return false;
     return this.http.get<DevtypeList>('https://admin.iphixx.com/api/v1/bookings/list-devtypes');
   }
 
-  getInventory(page =  1) {
+  getInventory(page) {
   	return this.http.get<Inventory>('https://admin.iphixx.com/api/v1/bookings/inventory/?page=' + page);
   }
 
