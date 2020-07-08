@@ -29,7 +29,7 @@ export class LogisticsComponent implements OnInit {
       this.logisticPageActive = 1;
       this.adminService.logisticPageActive = this.logisticPageActive;
       this.spinner.show();
-      this.adminService.getLogistics().subscribe((res) => {
+      this.adminService.getLogistics(1).subscribe((res) => {
         console.log('this res:'  + JSON.stringify(res));
         this.logisticPages = Array(res.total_page);
         this.adminService.logisticPages = this.logisticPages;

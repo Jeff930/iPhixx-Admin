@@ -35,7 +35,7 @@ export class FilterByInvoiceComponent implements OnInit {
     this.notifs=this.adminService.notifs;
     if (this.leads.length == 0) {
   		
-  		this.adminService.getLeads().subscribe( ( res ) => {
+  		this.adminService.getLeads(1).subscribe( ( res ) => {
   			this.spinner.show();
   		
   		this.adminService.leadsPage['page'+1 ] = res.bookings;

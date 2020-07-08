@@ -84,7 +84,6 @@ export class AgentsComponent implements OnInit {
 		this.adminService.agentspageActive = this.agentspageActive;
 		this.spinner.show();
 		if(this.adminService.agentsPage['page'+this.agentspageActive ]){
-
 	  		this.agents = this.adminService.agentsPage['page'+this.agentspageActive ];
 	  		this.spinner.hide();
 		}

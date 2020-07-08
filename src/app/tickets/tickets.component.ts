@@ -31,7 +31,7 @@ export class TicketsComponent implements OnInit {
 			this.ticketPageActive = 1;
 			this.adminService.ticketPageActive = this.ticketPageActive;
 			this.spinner.show();
-			this.adminService.getTickets().subscribe((res) => {
+			this.adminService.getTickets(1).subscribe((res) => {
 				console.log("this res:" + JSON.stringify(res));
 				this.ticketPages = Array(res.total_page);
 				console.log(Array(res.total_page));
