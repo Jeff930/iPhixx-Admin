@@ -92,8 +92,8 @@
 									        	<td colspan="12" class="top-space">
 									        		<button class="btn btn-lg btn-primary update navigate {{devicespageActive == 1 ? 'disabled' : ''}}" (click) = "PreviosDevicesPage()">Previous</button>
 									        		
-									        		<select [(ngModel)] = "devicespageActive" class="btn btn-lg btn-primary update navigate">
-										    			<option [value]="devicespageActive" *ngFor="let page of devicespages ; let i = index">{{i+1}}</option>
+									        		<select [(ngModel)] = "currentDevicePage" (change)="goToDevicesPage($event.target.value)" class="btn btn-lg btn-primary update navigate">
+										    			<option [value]="i" *ngFor="let page of devicespages ; let i = index">{{i+1}}</option>
 										    		</select>
 									        		
 									        		<button class="btn btn-lg btn-primary update navigate {{ devicespageActive == devicespages.length ? 'disabled' : ''}}" (click) = "NextDevicesPage()">Next</button>
@@ -144,8 +144,8 @@
 									        	<td colspan="12" class="top-space">
 									        		<button class="btn btn-lg btn-primary update navigate {{devtypespageActive == 1 ? 'disabled' : ''}}" (click) = "PreviosDevtypesPage()">Previous</button>
 									        		
-									        		<select [(ngModel)] = "devtypespageActive" class="btn btn-lg btn-primary update navigate">
-										    			<option [value]="devtypespageActive" *ngFor="let page of devtypespages ; let i = index">{{i+1}}</option>
+									        		<select [(ngModel)] = "currentDevtypePage" (change)="goToDevtypesPage($event.target.value)" class="btn btn-lg btn-primary update navigate">
+										    			<option [value]="i" *ngFor="let page of devtypespages ; let i = index">{{i+1}}</option>
 										    		</select>
 									        		
 									        		<button class="btn btn-lg btn-primary update navigate {{ devtypespageActive == devtypespages.length ? 'disabled' : ''}}" (click) = "NextDevtypesPage()">Next</button>
@@ -200,8 +200,8 @@
 									        	<td colspan="12" class="top-space">
 									        		<button class="btn btn-lg btn-primary update navigate {{brandspageActive == 1 ? 'disabled' : ''}}" (click) = "PreviosBrandsPage()">Previous</button>
 									        		
-									        		<select [(ngModel)] = "brandspageActive" class="btn btn-lg btn-primary update navigate">
-										    			<option [value]="brandspageActive" *ngFor="let page of brandspages ; let i = index">{{i+1}}</option>
+									        		<select [(ngModel)] = "currentBrandPage" (change)="goToBrandsPage($event.target.value)" class="btn btn-lg btn-primary update navigate">
+										    			<option [value]="i" *ngFor="let page of brandspages ; let i = index">{{i+1}}</option>
 										    		</select>
 									        		
 									        		<button class="btn btn-lg btn-primary update navigate {{ brandspageActive == brandspages.length ? 'disabled' : ''}}" (click) = "NextBrandsPage()">Next</button>
