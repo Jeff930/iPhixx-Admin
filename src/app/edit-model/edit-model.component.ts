@@ -45,8 +45,20 @@ export class EditModelComponent implements OnInit {
         this.devtypes = res;
         this.adminService.getBrandList().subscribe(res => {
           this.brands = res;
+          this.getImagePath();
         });
       });
+    }
+
+    getImagePath(){
+      for (let i=0;i<this.brands.length;i++){
+        console.log(this.device.devicebrand_id);
+        console.log("brands",this.brands[i].devicebrand_id);
+        if (this.brands[i].devicebrand_id == this.device.devicebrand_id){
+          this.imagePath = 'https://admin.iphixx.com/images/models/'+ this.brands[i].device_brand+'/'+ this.device.model_name +'.jpg';
+          console.log(this.imagePath);
+        }
+      }
     }
 
     updateDevice(){
