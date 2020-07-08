@@ -58,6 +58,7 @@ import { BrandsComponent } from './brands/brands.component';
 import { AddNetworkComponent } from './add-network/add-network.component';
 import { EditNetworkComponent } from './edit-network/edit-network.component';
 import { NetworksComponent } from './networks/networks.component';
+import { ProfileComponent } from './profile/profile.component';
 
 // import { NotificationComponent } from './notification/notification.component';
 
@@ -108,7 +109,8 @@ import { NetworksComponent } from './networks/networks.component';
     BrandsComponent,
     AddNetworkComponent,
     EditNetworkComponent,
-    NetworksComponent
+    NetworksComponent,
+    ProfileComponent
 
   ],
   imports: [
