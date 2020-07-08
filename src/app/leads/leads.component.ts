@@ -20,15 +20,18 @@ export class LeadsComponent implements OnInit {
   currentPage:number;
 
   constructor( public adminService : AdminService , private spinner: NgxSpinnerService,public router : Router, public alert:AlertsService ) { 
-  		
+
   		this.pageActive = this.adminService.pageActive;
   		this.adminService.leadsPage['page'+this.pageActive ] ? this.leads = this.adminService.leadsPage['page'+this.pageActive ] : '';
   		this.pages = this.adminService.pages;
 
   }
 
+  ngAfterViewInit(){
+	
+	}
+
   ngOnInit() {
-	this.alert.setMessage("sample",'error');
   	if (this.leads.length == 0) {
 		this.currentPage = 0;
   		this.pageActive = 1;
