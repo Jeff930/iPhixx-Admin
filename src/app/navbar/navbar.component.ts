@@ -43,6 +43,7 @@ export class NavbarComponent implements OnInit {
   }
 
   logout() {
+    console.log("called");
     if (localStorage.getItem('isChecked')) {
       this.userCreds = JSON.parse(localStorage.getItem('remeberCreds'));
       console.log(this.userCreds);
