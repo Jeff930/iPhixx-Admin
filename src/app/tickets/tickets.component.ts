@@ -18,16 +18,16 @@ export class TicketsComponent implements OnInit {
 	ticketPages: any;
 	ticketPageActive: number;
 	location;
+	currentPage: number;
 	constructor(public adminService: AdminService, private spinner: NgxSpinnerService, public router: Router) {
-
 		this.ticketPageActive = this.adminService.ticketPageActive;
 		this.adminService.ticketsPage['page' + this.ticketPageActive] ? this.tickets = this.adminService.ticketsPage['page' + this.ticketPageActive] : '';
 		this.ticketPages = this.adminService.ticketPages;
-
 	}
 
 	ngOnInit() {
 		if (this.tickets.length == 0) {
+			this.currentPage = 0;
 			this.ticketPageActive = 1;
 			this.adminService.ticketPageActive = this.ticketPageActive;
 			this.spinner.show();
@@ -49,8 +49,9 @@ export class TicketsComponent implements OnInit {
 		}
 	}
 
-	goToPage(number) {
-		console.log(number);
+	goToPage(i) {
+		this.currentPage = i;
+		var number = parseInt(i)+1;
 		this.ticketPageActive = number;
 		this.adminService.ticketPageActive = this.ticketPageActive;
 		this.spinner.show();
@@ -71,6 +72,7 @@ export class TicketsComponent implements OnInit {
 	}
 
 	NextPage() {
+		this.currentPage = this.currentPage + 1;
 		if (this.ticketPageActive !== this.ticketPages.length) {
 			this.ticketPageActive = this.ticketPageActive + 1;
 			this.adminService.ticketPageActive = this.ticketPageActive;
@@ -93,6 +95,7 @@ export class TicketsComponent implements OnInit {
 	}
 
 	PreviosPage() {
+		this.currentPage = this.currentPage - 1;
 		if (this.ticketPageActive !== 1) {
 			this.ticketPageActive = this.ticketPageActive - 1;
 			this.adminService.ticketPageActive = this.ticketPageActive;
