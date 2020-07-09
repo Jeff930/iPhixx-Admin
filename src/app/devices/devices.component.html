@@ -159,6 +159,7 @@
 											<tr>
 												<th>Brand ID</th>
 												<th>Brand Name</th>
+												<td>Device Type</td>
 												<th></th>
 											</tr>
 										</thead>
@@ -167,6 +168,7 @@
 												
 												<td>{{ brand.devicebrand_id }}</td>
 												<td>{{ brand.device_brand }}</td>
+												<td>{{ getType(brand.devtype_id) }}</td>
 												<td>
 
 													<button  [satPopoverAnchorFor]="contactPopover" (click)="contactPopover.toggle()" class="btn btn-default btn-sm">
