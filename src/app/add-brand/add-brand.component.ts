@@ -22,15 +22,21 @@ export class AddBrandComponent implements OnInit {
   
     brand = { 
       brand_name: '',
-      brand_file:''
+      brand_file:'',
+      device_type:''
     };
 
     imagePath=null;
     file:File;
     showError=false;
+    devtypes;
     id;
   
-    ngOnInit() {} 
+    ngOnInit() {
+      this.adminService.getDevtypeList().subscribe(res => {
+        this.devtypes = res;
+      });
+    } 
   
     addBrand(){
       console.log("called");
