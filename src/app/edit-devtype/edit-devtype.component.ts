@@ -35,9 +35,15 @@ export class EditDevtypeComponent implements OnInit {
           console.log(res);
           if (res) {
               this.devtype = res;
+              this.getImagePath();
           }
          });
     });
+  }
+
+  getImagePath(){
+    this.imagePath = 'https://admin.iphixx.com/images/devtypes/'+ this.devtype.type +'.jpg';
+    console.log(this.imagePath);  
   }
 
   updateDevtype(){
