@@ -14,11 +14,12 @@ export class EditBrandComponent implements OnInit {
 
   brand = { 
   	devicebrand_id: '',
-    device_brand :''
+    device_brand :'',
+    devtype_id:''
   };
 
   brand_file:'';
-
+  devtypes;
   imagePath=null;
   file:File;
 
@@ -35,9 +36,24 @@ export class EditBrandComponent implements OnInit {
           console.log(res);
           if (res) {
               this.brand = res;
+              this.adminService.getDevtypeList().subscribe(res => {
+                this.devtypes = res;
+                this.getImagePath();
+              });
           }
          });
     });
+  }
+
+  getImagePath(){
+    for (let i=0;i<this.devtypes.length;i++){
+      console.log(this.brand.devtype_id);
+      console.log("type",this.devtypes[i].type);
+      if (this.devtypes[i].devtype_id == this.brand.devtype_id){
+        this.imagePath = 'https://admin.iphixx.com/images/brands/'+ this.devtypes[i].type+'/'+ this.brand.device_brand +'.jpg';
+        console.log(this.imagePath);
+      }
+    }
   }
 
   updateBrand(){
