@@ -155,6 +155,7 @@ export interface Stock {
 export interface Brand {
   devicebrand_id: any;
   device_brand: any;
+  devtype_id: any;
 }
 
 export interface Network {
@@ -609,8 +610,8 @@ addDevtype(devtype) {
 
 addBrand(brand) {
   const body = new HttpParams()
-  .set('brand_name', brand.brand_name);
-
+  .set('brand_name', brand.brand_name)
+  .set('devtype_id', brand.device_type);
   return this.http.post('https://admin.iphixx.com/api/v1/bookings/add-brand/', 
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
