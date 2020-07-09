@@ -33,9 +33,15 @@ export class EditNetworkComponent implements OnInit {
           console.log(res);
           if (res) {
               this.network = res;
+              this.getImagePath();
           }
          });
     });
+  }
+
+  getImagePath(){
+    this.imagePath = 'https://admin.iphixx.com/images/networks/'+ this.network.carrier_name +'.jpg';
+    console.log(this.imagePath);  
   }
 
   updateNetwork(){
