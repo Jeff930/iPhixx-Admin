@@ -49,12 +49,13 @@ import { EditModelComponent } from './edit-model/edit-model.component';
 import { NetworksComponent } from './networks/networks.component';
 import { AddNetworkComponent } from './add-network/add-network.component';
 import { EditNetworkComponent } from './edit-network/edit-network.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
 
   { path: 'admin', component: DashboardComponent ,  },
-  { path: 'login', component: LoginComponent, canActivate : [AdminService] },
-  { path: 'leads', component: LeadsComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'leads', component: LeadsComponent, canActivate : [AdminService] },
   { path: 'customers', component: CustomersComponent },
   { path: 'edit-customer/:id', component: EditCustomerComponent },
   { path: 'edit-booking/:id/:page', component: EditBookingComponent },
@@ -94,6 +95,7 @@ const routes: Routes = [
   { path: 'networks', component: NetworksComponent },
   { path: 'add-network', component: AddNetworkComponent },
   { path: 'edit-network/:id', component: EditNetworkComponent },
+  { path: 'profile/:id', component: ProfileComponent },
   // { path: 'admin', component: DashboardComponent },
   // {
   //   path: 'device',
@@ -147,6 +149,6 @@ export const routingComponents = [
                                   DevicesComponent,
                                   EditPriceComponent,
                                   EditLaptopPriceComponent,
-                                  RestockComponent
-
+                                  RestockComponent,
+                                  ProfileComponent
                                  ]
