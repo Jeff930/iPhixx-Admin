@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
         console.log(res);
         console.log(res['agent'][0]);
         if (res['agent'][0]!=undefined){
-          localStorage.setItem('authenticated' , 'true');
+          localStorage.setItem('authenticated' , JSON.stringify(res['agent'][0]));
           this.router.navigateByUrl(this.return);
         }else{
           this.alert.setMessage('No matching account found','error');
