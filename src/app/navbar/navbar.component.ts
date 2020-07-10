@@ -48,14 +48,18 @@ export class NavbarComponent implements OnInit {
       this.userCreds = JSON.parse(localStorage.getItem('remeberCreds'));
       console.log(this.userCreds);
     }
-  localStorage.clear();
-  console.log(this.userCreds);
-  if (this.userCreds.email !== '') {
-    console.log('checking');
-    localStorage.setItem('isChecked', 't');
-    localStorage.setItem('remeberCreds', JSON.stringify(this.userCreds));
-  }
-  this.router.navigate(['/login']);
+    localStorage.clear();
+    console.log(this.userCreds);
+    if (this.userCreds.email !== '') {
+      console.log('checking');
+      localStorage.setItem('isChecked', 't');
+      localStorage.setItem('remeberCreds', JSON.stringify(this.userCreds));
+    }
+    this.router.navigate(['/login']);
   }
 
+  goToProfile(){
+    console.log(JSON.parse(localStorage.getItem("authenticated")).agent_id);
+    this.router.navigate(['/profile', JSON.parse(localStorage.getItem("authenticated")).agent_id]);
+  }
 }
