@@ -21,6 +21,8 @@ export class NavbarComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.user = JSON.parse(localStorage.getItem('authenticated')).agent_username;
+    console.log(this.user);
       $('.btn-toggle-fullwidth').on('click', function() {
     if (!$('body').hasClass('layout-fullwidth')) {
       $('body').addClass('layout-fullwidth');
