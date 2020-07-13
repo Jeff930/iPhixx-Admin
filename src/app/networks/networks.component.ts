@@ -16,7 +16,6 @@ export class NetworksComponent implements OnInit {
   networkspages : any;
   networkspageActive : number;
   pager: any = 'networks';
-  currentPage:number;
 
   constructor(public adminService : AdminService , private spinner: NgxSpinnerService , public router : Router) { }
 
@@ -26,7 +25,7 @@ export class NetworksComponent implements OnInit {
     this.adminService.networkspages ? this.networkspages = this.adminService.networkspages : '';
 
   if (this.networks.length == 0) {
-    this.currentPage = 0;
+    this.adminService.currentNetworksPage = 0;
     this.networkspageActive = 1;
     this.adminService.networkspageActive = this.networkspageActive;
     this.spinner.show();
@@ -47,7 +46,7 @@ export class NetworksComponent implements OnInit {
 }
 
 goToPage(i){
-  this.currentPage = i;
+  this.adminService.currentNetworksPage = i;
 	var number = parseInt(i)+1;
   this.networkspageActive = number;
   this.adminService.networkspageActive = this.networkspageActive;
@@ -68,7 +67,7 @@ goToPage(i){
 }
 
 NextPage(){
-  this.currentPage = this.currentPage + 1;
+  this.adminService.currentNetworksPage = this.adminService.currentNetworksPage + 1;
   if(this.networkspageActive !== this.networkspages.length){
     this.networkspageActive = this.networkspageActive+1;
   this.adminService.networkspageActive = this.networkspageActive;
@@ -90,7 +89,7 @@ NextPage(){
 }
 
 PreviosPage(){
-  this.currentPage = this.currentPage - 1;
+  this.adminService.currentNetworksPage = this.adminService.currentNetworksPage - 1;
   if(this.networkspageActive !== 1){
     this.networkspageActive = this.networkspageActive-1;
   this.adminService.networkspageActive = this.networkspageActive;
