@@ -59,6 +59,7 @@ import { AddNetworkComponent } from './add-network/add-network.component';
 import { EditNetworkComponent } from './edit-network/edit-network.component';
 import { NetworksComponent } from './networks/networks.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 // import { NotificationComponent } from './notification/notification.component';
 
@@ -110,7 +111,8 @@ import { ProfileComponent } from './profile/profile.component';
     AddNetworkComponent,
     EditNetworkComponent,
     NetworksComponent,
-    ProfileComponent
+    ProfileComponent,
+    ChangePasswordComponent
 
   ],
   imports: [
