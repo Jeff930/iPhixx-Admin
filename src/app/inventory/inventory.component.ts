@@ -49,7 +49,7 @@ export class InventoryComponent implements OnInit {
 
     if (this.inventory.length == 0) {
       this.spinner.show();
-      this.currentPage = 0;
+      this.adminService. currentInventoryPage = 0;
     this.inventoryPageActive = 1;
     this.adminService.inventoryPageActive = this.inventoryPageActive;
     this.adminService.getInventory(1).subscribe( ( res ) => {
@@ -71,7 +71,7 @@ export class InventoryComponent implements OnInit {
 
 goToPage(i){
   console.log("called");
-  this.currentPage = i;
+  this.adminService. currentInventoryPage = i;
 	var number = parseInt(i)+1;
   this.inventoryPageActive = number;
   this.adminService.inventoryPageActive = this.inventoryPageActive;
@@ -91,7 +91,7 @@ goToPage(i){
 }
 
 NextPage(){
-  this.currentPage = this.currentPage + 1;
+  this.adminService. currentInventoryPage = this.adminService. currentInventoryPage + 1;
   if(this.inventoryPageActive !== this.inventoryPages.length){
     this.inventoryPageActive = this.inventoryPageActive+1;
   this.adminService.inventoryPageActive = this.inventoryPageActive;
@@ -113,7 +113,7 @@ NextPage(){
 }
 
 PreviosPage(){
-  this.currentPage = this.currentPage - 1;
+  this.adminService. currentInventoryPage = this.adminService. currentInventoryPage - 1;
   if(this.inventoryPageActive !== 1){
     this.inventoryPageActive = this.inventoryPageActive-1;
   this.adminService.inventoryPageActive = this.inventoryPageActive;
