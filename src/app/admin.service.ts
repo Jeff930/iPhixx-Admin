@@ -246,7 +246,7 @@ export class AdminService implements CanActivate  {
   //
   totalCustomers;
 // User
-    user: any;
+  user: any;
 // leads rquirements
   pages: any;
   leadsPage  = new Object();
@@ -303,6 +303,18 @@ export class AdminService implements CanActivate  {
   logisticPages: any;
   logisticsPage  = new Object();
   logisticPageActive: number;
+
+  currentLeadsPage:number;
+  currentCustomersPage:number;
+  currentAgentsPage:number;
+  currentDevicesPage:number;
+  currentDevtypesPage:number;
+  currentNetworksPage:number;
+  currentBrandsPage:number;
+  currentInvoicesPage:number;
+  currentTicketsPage:number;
+  currentInventoryPage:number;
+  currentLogisticsPage:number;
 
   invoiceDetails:any;
 
