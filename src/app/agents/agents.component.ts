@@ -15,7 +15,6 @@ export class AgentsComponent implements OnInit {
   agentsPage  = new Object();	
   agentspages : any;
   agentspageActive : number;
-  currentPage : number;
   pager: any = 'agents';
   locations;
 
@@ -37,7 +36,7 @@ export class AgentsComponent implements OnInit {
       this.adminService.agentspages ? this.agentspages = this.adminService.agentspages : '';
 
   	if (this.agents.length == 0) {
-		this.currentPage = 0;
+		this.adminService.currentAgentsPage = 0;
   		this.agentspageActive = 1;
   		this.adminService.agentspageActive = this.agentspageActive;
   		this.spinner.show();
@@ -58,7 +57,7 @@ export class AgentsComponent implements OnInit {
   }
 
   goToPage(i){
-		this.currentPage = i;
+		this.adminService.currentAgentsPage = i;
 		var number = parseInt(i)+1;
 		this.agentspageActive = number;
 		this.adminService.agentspageActive = this.agentspageActive;
@@ -78,7 +77,7 @@ export class AgentsComponent implements OnInit {
 	}
 
   NextPage(){
-	this.currentPage = this.currentPage + 1;
+	this.adminService.currentAgentsPage = this.adminService.currentAgentsPage + 1;
   	if(this.agentspageActive !== this.agentspages.length){
   		this.agentspageActive = this.agentspageActive+1;
 		this.adminService.agentspageActive = this.agentspageActive;
@@ -99,7 +98,7 @@ export class AgentsComponent implements OnInit {
   }
 
   PreviosPage(){
-	this.currentPage = this.currentPage - 1;
+	this.adminService.currentAgentsPage = this.adminService.currentAgentsPage - 1;
   	if(this.agentspageActive !== 1){
   		this.agentspageActive = this.agentspageActive-1;
 		this.adminService.agentspageActive = this.agentspageActive;
