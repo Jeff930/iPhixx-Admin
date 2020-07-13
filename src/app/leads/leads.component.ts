@@ -17,7 +17,6 @@ export class LeadsComponent implements OnInit {
   leadsPage  = new Object();
   pages : any;
   pageActive : number;
-  currentPage:number;
 
   constructor( public adminService : AdminService , private spinner: NgxSpinnerService,public router : Router, public alert:AlertsService ) { 
 
@@ -33,7 +32,7 @@ export class LeadsComponent implements OnInit {
 
   ngOnInit() {
   	if (this.leads.length == 0) {
-		this.currentPage = 0;
+		this.adminService.currentLeadsPage = 0;
   		this.pageActive = 1;
   		this.adminService.pageActive = this.pageActive;
   		this.spinner.show();
@@ -55,7 +54,7 @@ export class LeadsComponent implements OnInit {
 
 	goToPage(i){
 		console.log(i);
-		this.currentPage = i;
+		this.adminService.currentLeadsPage = i;
 		var number = parseInt(i)+1;
 		this.pageActive = number;
 		this.adminService.pageActive = this.pageActive;
@@ -78,7 +77,7 @@ export class LeadsComponent implements OnInit {
 	}
 
   NextPage(){
-	this.currentPage = this.currentPage + 1;
+	this.adminService.currentLeadsPage = this.adminService.currentLeadsPage + 1;
   	if(this.pageActive !== this.pages.length){
   		this.pageActive = this.pageActive+1;
 		this.adminService.pageActive = this.pageActive;
@@ -100,7 +99,7 @@ export class LeadsComponent implements OnInit {
   }
 
   PreviosPage(){
-	this.currentPage = this.currentPage - 1;
+	this.adminService.currentLeadsPage = this.adminService.currentLeadsPage - 1;
   	if(this.pageActive !== 1){
   		this.pageActive = this.pageActive-1;
 		this.adminService.pageActive = this.pageActive;
