@@ -1,4 +1,9 @@
+import * as $ from 'jquery';
 import { Component, OnInit } from '@angular/core';
+import { Router , ActivatedRoute , ParamMap  } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
+import { AdminService } from '../admin.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +12,104 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  title;
+  locations: any;
+	
+  constructor(  private route: ActivatedRoute,
+  private router: Router , public adminService : AdminService,
+  public spinner : NgxSpinnerService) { 
+  	//this.adminService.get().subscribe( res => console.log(res))
+ 
+   }
+
+  agent = { 
+  	agent_fname: '',
+	agent_lname :'',
+	agent_username:'',
+  	email : '',
+  	phone : '',
+  	address :'',
+  	location_id : '',
+  	// state : '',
+  	// zip : '',
+  	id : 0,
+  	// password : '',
+  };
+
+  id ;
 
   ngOnInit() {
+  		this.route.paramMap.subscribe((params: ParamMap) => {
+	  		this.id = parseInt(params.get('id'));
+	  		this.adminService.getAgent(this.id).subscribe(res => {
+				console.log(res);
+				if (res) {
+					this.agent = res;
+					this.adminService.getLocationList().subscribe( ( res ) => {
+						console.log(res);
+						this.locations = res;
+					  })
+				}
+	  		});
+ 		// console.log(this.adminService.agentsPage['page'+this.adminService.agentspageActive ][this.id])
+ 		// this.agent = this.adminService.agentsPage['page'+this.adminService.agentspageActive ][this.id];
+    	});
+   	
+  } 
+  
+  updateAgent(){
+		this.title="Edit Agent";
+		this.agent.id
+  		this.spinner.show();
+ 
+
+		this.adminService.updateAgent(this.agent).subscribe(res => {
+			console.log(res)
+			this.spinner.hide();
+			this.adminService.agentsPage  = new Object(); 
+	  		this.router.navigate(['/leads']);
+		},
+	 	(err)=>{
+	   		console.log(err);
+	   		alert('Error! Please Try again.')
+	   		this.spinner.hide();
+	  	}
+	)
+  }
+
+  newAgent(){
+	console.log("called");
+	console.log(this.agent);
+	this.spinner.show();
+	this.adminService.addAgent(this.agent).subscribe(res => {
+	console.log("this" + res)
+		this.spinner.hide();
+		this.adminService.agentsPage  = new Object(); 
+	  	this.router.navigate(['/leads']);
+	},
+	 (err)=>{
+	   console.log(err);
+	   alert('Error! Please Try again.')
+	   this.spinner.hide();
+	  }
+	)
+}
+
+  actionAgent(){
+  	if(this.adminService.customersAction == 'update'){
+			this.title="Edit Agent";
+			console.log(this.title);
+  		this.updateAgent();
+  	}
+  	else{
+			this.title="New Agent";
+			console.log(this.title);
+  		this.newAgent();
+  	}
+  }
+
+  goToAgent(){
+	this.router.navigate(['/leads']);
   }
 
 }
