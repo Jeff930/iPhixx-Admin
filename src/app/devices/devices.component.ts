@@ -27,9 +27,8 @@ export class DevicesComponent implements OnInit {
   brandspages : any;
   brandspageActive : number;
 
-  currentDevicePage : number;
-  currentDevtypePage : number;
-  currentBrandPage : number;
+   : number;
+   : number;
 
   constructor( public adminService : AdminService , private spinner: NgxSpinnerService , public router : Router ) { 
 
@@ -41,7 +40,7 @@ export class DevicesComponent implements OnInit {
       this.adminService.devicespages ? this.devicespages = this.adminService.devicespages : '';
 
   	if (this.devices.length == 0) {
-		this.currentDevicePage = 0;
+		this.adminService. currentDevicesPage = 0;
   		this.devicespageActive = 1;
   		this.adminService.devicespageActive = this.devicespageActive;
   		this.spinner.show();
@@ -69,7 +68,7 @@ export class DevicesComponent implements OnInit {
 
 	console.log(this.devtypes.length);
   	if (this.devtypes.length == 0) {
-		this.currentDevtypePage = 0;
+		this.adminService. currentDevtypesPage = 0;
   		this.devtypespageActive = 1;
   		this.adminService.devtypespageActive = this.devtypespageActive;
   		this.spinner.show();
@@ -96,7 +95,7 @@ export class DevicesComponent implements OnInit {
 
 	console.log(this.brands.length);
   	if (this.brands.length == 0) {
-		this.currentBrandPage = 0;
+		this.adminService. currentBrandsPage = 0;
   		this.brandspageActive = 1;
   		this.adminService.brandspageActive = this.brandspageActive;
   		this.spinner.show();
@@ -137,7 +136,7 @@ export class DevicesComponent implements OnInit {
   }
 
   goToDevicesPage(i){
-	this.currentDevicePage = i;
+	this.adminService. currentDevicesPage = i;
 	var number = parseInt(i)+1;
 		this.devicespageActive = number;
 		this.adminService.devicespageActive = this.devicespageActive;
@@ -158,7 +157,7 @@ export class DevicesComponent implements OnInit {
 	}
 
   NextDevicesPage(){
-	this.currentDevicePage = this.currentDevicePage + 1;
+	this.adminService. currentDevicesPage = this.adminService. currentDevicesPage + 1;
   	if(this.devicespageActive !== this.devicespages.length){
   		this.devicespageActive = this.devicespageActive+1;
 		this.adminService.devicespageActive = this.devicespageActive;
@@ -180,7 +179,7 @@ export class DevicesComponent implements OnInit {
   }
 
   PreviosDevicesPage(){
-	this.currentDevicePage = this.currentDevicePage - 1;
+	this.adminService. currentDevicesPage = this.adminService. currentDevicesPage - 1;
   	if(this.devicespageActive !== 1){
   		this.devicespageActive = this.devicespageActive-1;
 		this.adminService.devicespageActive = this.devicespageActive;
@@ -202,7 +201,7 @@ export class DevicesComponent implements OnInit {
   }
 
   goToDevtypesPage(i){
-	this.currentDevtypePage = i;
+	this.adminService. currentDevtypesPage = i;
 	var number = parseInt(i)+1;
 	this.devtypespageActive = number;
 	this.adminService.devtypespageActive = this.devtypespageActive;
@@ -223,7 +222,7 @@ export class DevicesComponent implements OnInit {
 }
 
 NextDevtypesPage(){
-	this.currentDevtypePage = this.currentDevtypePage + 1;
+	this.adminService. currentDevtypesPage = this.adminService. currentDevtypesPage + 1;
   if(this.devtypespageActive !== this.devtypespages.length){
 	  this.devtypespageActive = this.devtypespageActive+1;
 	this.adminService.devtypespageActive = this.devtypespageActive;
@@ -245,7 +244,7 @@ NextDevtypesPage(){
 }
 
 PreviosDevtypesPage(){
-	this.currentDevtypePage = this.currentDevtypePage - 1;
+	this.adminService. currentDevtypesPage = this.adminService. currentDevtypesPage - 1;
   if(this.devtypespageActive !== 1){
 	  this.devtypespageActive = this.devtypespageActive-1;
 	this.adminService.devtypespageActive = this.devtypespageActive;
@@ -267,7 +266,7 @@ PreviosDevtypesPage(){
 }
 
 goToBrandsPage(i){
-	this.currentBrandPage = i;
+	this.adminService. currentBrandsPage = i;
 	var number = parseInt(i)+1;
 	this.brandspageActive = number;
 	this.adminService.brandspageActive = this.brandspageActive;
@@ -288,7 +287,7 @@ goToBrandsPage(i){
 }
 
 NextBrandsPage(){
-	this.currentBrandPage = this.currentBrandPage + 1;
+	this.adminService. currentBrandsPage = this.adminService. currentBrandsPage + 1;
   if(this.brandspageActive !== this.brandspages.length){
 	  this.brandspageActive = this.brandspageActive+1;
 	this.adminService.brandspageActive = this.brandspageActive;
@@ -310,7 +309,7 @@ NextBrandsPage(){
 }
 
 PreviosBrandsPage(){
-	this.currentBrandPage = this.currentBrandPage - 1;
+	this.adminService. currentBrandsPage = this.adminService. currentBrandsPage - 1;
   if(this.brandspageActive !== 1){
 	  this.brandspageActive = this.brandspageActive-1;
 	this.adminService.brandspageActive = this.brandspageActive;
