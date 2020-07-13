@@ -123,7 +123,7 @@
 									        	<td colspan="12" class="top-space">
 									        		<button class="btn btn-lg btn-primary update navigate {{ ticketPageActive == 1 ? 'disabled' : ''}}" (click) = "PreviosPage()">Previous</button>
 									        		
-									        		<select [(ngModel)] = "currentPage" (change)="goToPage($event.target.value)" class="btn btn-lg btn-primary update navigate">
+									        		<select [(ngModel)] = "adminService.currentTicketsPage" (change)="goToPage($event.target.value)" class="btn btn-lg btn-primary update navigate">
 										    			<option [value]="i" *ngFor="let page of ticketPages ; let i = index">{{i+1}}</option>
 										    		</select>
 									        		
