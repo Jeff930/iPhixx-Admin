@@ -16,7 +16,6 @@ export class LogisticsComponent implements OnInit {
   logisticsPage = new Object();
   logisticPageActive: number;
   location;
-  currentPage: number;
   pager = 'logistics';
 
   constructor(public adminService : AdminService , private spinner: NgxSpinnerService,public router : Router) {
@@ -33,7 +32,7 @@ export class LogisticsComponent implements OnInit {
     this.adminService.logisticPages ? this.logisticPages = this.adminService.logisticPages : '';
 
     if (this.logistics.length === 0) {
-      this.currentPage = 0;
+      this.adminService. currentLogisticsPage = 0;
       this.logisticPageActive = 1;
       this.adminService.logisticPageActive = this.logisticPageActive;
       this.spinner.show();
@@ -53,7 +52,7 @@ export class LogisticsComponent implements OnInit {
     }
   }
   goToPage(i) {
-    this.currentPage = i;
+    this.adminService. currentLogisticsPage = i;
 		var number = parseInt(i)+1;
     this.logisticPageActive = number;
     this.adminService.logisticPageActive = this.logisticPageActive;
@@ -74,7 +73,7 @@ export class LogisticsComponent implements OnInit {
   }
 
   NextPage() {
-    this.currentPage = this.currentPage + 1;
+    this.adminService. currentLogisticsPage = this.adminService. currentLogisticsPage + 1;
     if (this.logisticPageActive !== this.logisticPages.length) {
       this.logisticPageActive = this.logisticPageActive + 1;
       this.adminService.logisticPageActive = this.logisticPageActive;
@@ -97,7 +96,7 @@ export class LogisticsComponent implements OnInit {
   }
 
   PreviosPage() {
-    this.currentPage = this.currentPage - 1;
+    this.adminService. currentLogisticsPage = this.adminService. currentLogisticsPage - 1;
     if (this.logisticPageActive !== 1) {
       this.logisticPageActive = this.logisticPageActive - 1;
       this.adminService.logisticPageActive = this.logisticPageActive;

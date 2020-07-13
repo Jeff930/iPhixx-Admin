@@ -92,13 +92,13 @@
                     <tfoot>
                         <tr>
                             <td colspan="12" class="top-space">
-                              <button class="btn btn-lg btn-primary update navigate {{ logisticsPageActive == 1 ? 'disabled' : ''}}" (click) = "PreviosPage()">Previous</button>
+                              <button class="btn btn-lg btn-primary update navigate {{ logisticPageActive == 1 ? 'disabled' : ''}}" (click) = "PreviosPage()">Previous</button>
                               
-                              <select [(ngModel)] = "currentPage" (change)="goToPage($event.target.value)" class="btn btn-lg btn-primary update navigate">
+                              <select [(ngModel)] = "adminService.currentLogisticsPage" (change)="goToPage($event.target.value)" class="btn btn-lg btn-primary update navigate">
                               <option [value]="i" *ngFor="let page of logisticPages ; let i = index">{{i+1}}</option>
                             </select>
                               
-                              <button class="btn btn-lg btn-primary update navigate {{ logisticsPageActive == logisticPages.length ? 'disabled' : ''}}" (click) = "NextPage()">Next</button>
+                              <button class="btn btn-lg btn-primary update navigate {{ logisticPageActive == logisticPages.length ? 'disabled' : ''}}" (click) = "NextPage()">Next</button>
                             </td>
                         </tr>
                       </tfoot>
