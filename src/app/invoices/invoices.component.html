@@ -120,7 +120,7 @@
 
 													  		<a (click)="confirmPayment(invoice)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-ok"></span>     Mark as Paid</a>
 													  	
-															<a (click)="viewInvoice(invoice.invoice_no)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-eye-open"> </span>       View Invoice </a>		 
+															<a (click)="viewInvoice(invoice.invoice_no)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-eye-open"> </span>       View Details </a>		 
 														</div>
 
 													</sat-popover>
@@ -133,7 +133,7 @@
 									        	<td colspan="12" class="top-space">
 									        		<button class="btn btn-lg btn-primary update navigate {{ invoicePageActive == 1 ? 'disabled' : ''}}" (click) = "PreviosPage()">Previous</button>
 									        		
-									        		<select [(ngModel)] = "currentPage" (change)="goToPage($event.target.value)" class="btn btn-lg btn-primary update navigate">
+									        		<select [(ngModel)] = "adminService.currentInvoicesPage" (change)="goToPage($event.target.value)" class="btn btn-lg btn-primary update navigate">
 										    			<option [value]="i" *ngFor="let invoicePageActive of invoicespages ; let i = index">{{i+1}}</option>
 										    		</select>
 									        		

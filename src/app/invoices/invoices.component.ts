@@ -27,7 +27,6 @@ export class InvoicesComponent implements OnInit {
   invoicespages : any;
   invoicePageActive : number;
   pager: any = 'invoices';
-  currentPage:number;
   
   closeResult: string;
   constructor( public NgxSmartModalService: NgxSmartModalService,public adminService : AdminService , private spinner: NgxSpinnerService,public router : Router ) {
@@ -48,7 +47,7 @@ export class InvoicesComponent implements OnInit {
     console.log(this.taxes);
   });
   if (this.invoices.length == 0) {
-    this.currentPage = 0;
+    this.adminService.currentInvoicesPage = 0;
     this.invoicePageActive = 1;
     this.adminService.invoicePageActive = this.invoicePageActive;
     this.adminService.getInvoices(1).subscribe( ( res ) => {
@@ -73,7 +72,7 @@ ngAfterViewInit(){}
 
 goToPage(i){
   console.log(i);
-		this.currentPage = i;
+		this.adminService.currentInvoicesPage = i;
 		var number = parseInt(i)+1;
   this.invoicePageActive = number;
   this.adminService.invoicePageActive = this.invoicePageActive;
@@ -94,7 +93,7 @@ goToPage(i){
 }
 
 NextPage(){
-  this.currentPage = this.currentPage + 1;
+  this.adminService.currentInvoicesPage = this.adminService.currentInvoicesPage + 1;
   if(this.invoicePageActive !== this.invoicespages.length){
     this.invoicePageActive = this.invoicePageActive+1;
   this.adminService.invoicePageActive = this.invoicePageActive;
@@ -116,7 +115,7 @@ NextPage(){
 }
 
 PreviosPage(){
-  this.currentPage = this.currentPage - 1;
+  this.adminService.currentInvoicesPage = this.adminService.currentInvoicesPage - 1;
   if(this.invoicePageActive !== 1){
     this.invoicePageActive = this.invoicePageActive-1;
   this.adminService.invoicePageActive = this.invoicePageActive;
