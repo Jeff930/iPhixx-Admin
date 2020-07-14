@@ -179,4 +179,11 @@ getLocation(id){
 	}
 }
 
+getStatus(id){
+	if (id == 0)
+		return 'Disabled';
+	else 
+		return 'Enabled';
+}
+
 }
