@@ -27,9 +27,6 @@ export class DevicesComponent implements OnInit {
   brandspages : any;
   brandspageActive : number;
 
-   : number;
-   : number;
-
   constructor( public adminService : AdminService , private spinner: NgxSpinnerService , public router : Router ) { 
 
   }
