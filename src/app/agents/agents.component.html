@@ -39,6 +39,7 @@
 												<th>Username</th>
 												<th>Store Assigned</th>
 												<th>Email Address</th>
+												<th>Agent Status</th>
 												<th></th>
 											</tr>
 										</thead>
@@ -49,6 +50,7 @@
 												<td>{{ agent.agent_username }}</td>
 												<td>{{ getLocation(agent.location_id) }}</td>
 												<td>{{ agent.agent_email}}</td>
+												<td>{{ getStatus(agent.agent_status)}}</td>
 												<td>
 
 													<button  [satPopoverAnchorFor]="contactPopover" (click)="contactPopover.toggle()" class="btn btn-default btn-sm">
