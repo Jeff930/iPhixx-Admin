@@ -60,6 +60,7 @@ import { EditNetworkComponent } from './edit-network/edit-network.component';
 import { NetworksComponent } from './networks/networks.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { AddItemComponent } from './add-item/add-item.component';
 
 // import { NotificationComponent } from './notification/notification.component';
 
@@ -112,7 +113,8 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     EditNetworkComponent,
     NetworksComponent,
     ProfileComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    AddItemComponent
 
   ],
   imports: [

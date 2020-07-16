@@ -50,6 +50,7 @@ import { NetworksComponent } from './networks/networks.component';
 import { AddNetworkComponent } from './add-network/add-network.component';
 import { EditNetworkComponent } from './edit-network/edit-network.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AddItemComponent } from './add-item/add-item.component';
 
 const routes: Routes = [
 
@@ -96,6 +97,7 @@ const routes: Routes = [
   { path: 'add-network', component: AddNetworkComponent },
   { path: 'edit-network/:id', component: EditNetworkComponent },
   { path: 'profile/:id', component: ProfileComponent },
+  { path: 'add-item', component: AddItemComponent },
   // { path: 'admin', component: DashboardComponent },
   // {
   //   path: 'device',
@@ -106,7 +108,7 @@ const routes: Routes = [
     redirectTo: '/leads',
     pathMatch: 'full'
   },
-  { path: '**', component: DashboardComponent }
+  { path: '**', component: LeadsComponent }
 ];
 
 @NgModule({
@@ -150,5 +152,6 @@ export const routingComponents = [
                                   EditPriceComponent,
                                   EditLaptopPriceComponent,
                                   RestockComponent,
-                                  ProfileComponent
+                                  ProfileComponent,
+                                  AddItemComponent
                                  ]
