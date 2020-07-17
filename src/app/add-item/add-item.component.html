@@ -1,3 +1,47 @@
-<p>
-  add-item works!
-</p>
+<app-navbar > </app-navbar>
+<app-sidebar > </app-sidebar>
+<app-footer > </app-footer>
+<ngx-spinner
+	bdColor = "rgba(51, 51, 51, 0.8)"
+	size = "medium"
+	color = "#fff"
+	type = "pacman"
+></ngx-spinner>
+	<div class="main">
+		<div class="main-content">
+			<div class="panel">
+				<div class="panel-heading">
+					<h3 class="panel-title">Add Inventory Item</h3>
+				</div>
+						<div class="panel-body">								
+									<div class="col-lg-6 ">
+										  <div class="form-group">
+										    <label for="exampleInputEmail1">Device Brand</label>
+										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] = "item.device_brand"  type="text" class="form-control" id="fullname" aria-describedby="emailHelp" placeholder="Device Brand">
+										  </div>
+
+										  <div class="form-group">
+										    <label for="exampleInputEmail1">Device Model</label>
+										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] = "item.model_name"  type="text" class="form-control" id="fullname" aria-describedby="emailHelp" placeholder="Device Model">
+										  </div>							 
+									</div>
+									<div class="col-lg-6 ">
+										<div class="form-group">
+										    <label for="exampleInputEmail1">Repair Part</label>
+										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] = "agent.agent_lname"  type="text" class="form-control" id="fullname" aria-describedby="emailHelp" placeholder="Repair Part">
+										  </div>	
+
+										 <div class="form-group">
+										    <label for="exampleInputEmail13">Quantity</label>
+										    <input [ngModelOptions]="{standalone: true}" [(ngModel)] ="agent.email" type="email" class="form-control" id="exampleInputEmail13" aria-describedby="emailHelp" placeholder="Quantity">
+										  </div>										  						
+									</div>
+									<div class="col-lg-12">
+										<button (click)="addItem()" type="submit" class="btn btn-lg btn-primary update">Save Changes</button>
+										<button (click)="goToInventory()" type="submit" class="btn btn-lg btn-primary update cancel">Cancel</button>
+									</div>
+
+							</div>
+					</div>
+			</div>
+	</div>
