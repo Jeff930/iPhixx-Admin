@@ -64,4 +64,9 @@ export class NavbarComponent implements OnInit {
     console.log(JSON.parse(localStorage.getItem("authenticated")).agent_id);
     this.router.navigate(['/profile', JSON.parse(localStorage.getItem("authenticated")).agent_id]);
   }
+
+  goToPassword(){
+    console.log(JSON.parse(localStorage.getItem("authenticated")).agent_id);
+    this.router.navigate(['/change-password', JSON.parse(localStorage.getItem("authenticated")).agent_id]);
+  }
 }

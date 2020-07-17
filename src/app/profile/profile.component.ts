@@ -30,10 +30,7 @@ export class ProfileComponent implements OnInit {
   	phone : '',
   	address :'',
   	location_id : '',
-  	// state : '',
-  	// zip : '',
-  	id : 0,
-  	// password : '',
+  	id : 0
   };
 
   id ;
@@ -51,18 +48,13 @@ export class ProfileComponent implements OnInit {
 					  })
 				}
 	  		});
- 		// console.log(this.adminService.agentsPage['page'+this.adminService.agentspageActive ][this.id])
- 		// this.agent = this.adminService.agentsPage['page'+this.adminService.agentspageActive ][this.id];
     	});
    	
   } 
   
   updateAgent(){
-		this.title="Edit Agent";
 		this.agent.id
   		this.spinner.show();
- 
-
 		this.adminService.updateAgent(this.agent).subscribe(res => {
 			console.log(res)
 			this.spinner.hide();
@@ -75,37 +67,6 @@ export class ProfileComponent implements OnInit {
 	   		this.spinner.hide();
 	  	}
 	)
-  }
-
-  newAgent(){
-	console.log("called");
-	console.log(this.agent);
-	this.spinner.show();
-	this.adminService.addAgent(this.agent).subscribe(res => {
-	console.log("this" + res)
-		this.spinner.hide();
-		this.adminService.agentsPage  = new Object(); 
-	  	this.router.navigate(['/leads']);
-	},
-	 (err)=>{
-	   console.log(err);
-	   alert('Error! Please Try again.')
-	   this.spinner.hide();
-	  }
-	)
-}
-
-  actionAgent(){
-  	if(this.adminService.customersAction == 'update'){
-			this.title="Edit Agent";
-			console.log(this.title);
-  		this.updateAgent();
-  	}
-  	else{
-			this.title="New Agent";
-			console.log(this.title);
-  		this.newAgent();
-  	}
   }
 
   goToAgent(){
