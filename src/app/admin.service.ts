@@ -120,6 +120,16 @@ export interface Invoice {
   location_id: any;
 }
 
+export interface Ticket {
+  customer_fname: any;
+  customer_lname: any;
+  email: any;
+  birthdate: any;
+  phone: any;
+  location_id: any;
+}
+
+
 export interface Location {
   location_id: any;
   location_name: any;
@@ -315,6 +325,7 @@ export class AdminService implements CanActivate  {
   currentTicketsPage:number;
   currentInventoryPage:number;
   currentLogisticsPage:number;
+  currentLocationsPage:number;
 
   invoiceDetails:any;
 
@@ -384,6 +395,7 @@ return false;
   getTax() {
       return this.http.get<Leads>('https://admin.iphixx.com/api/v1/bookings/tax');
   }
+
   getCustomers(page =  1) {
    return this.http.get<Customers>('https://admin.iphixx.com/api/v1/customers/?page=' + page);
 
@@ -453,10 +465,6 @@ return false;
     return this.http.get<Invoice>('https://admin.iphixx.com/api/v1/bookings/invoice/' + id);
   }
 
-  getLocation(id) {
-    return this.http.get<Location>('https://admin.iphixx.com/api/v1/bookings/invoice/' + id);
-  }
-
   getLogistic(id) {
     return this.http.get<Logistic>('https://admin.iphixx.com/api/v1/bookings/logistic/' + id);
   }
@@ -465,12 +473,16 @@ return false;
     return this.http.get<Agent>('https://admin.iphixx.com/api/v1/bookings/agent/' + id);
   }
 
+  getLocation(id) {
+    return this.http.get<Location>('https://admin.iphixx.com/api/v1/bookings/location/' + id);
+  }
+
   getStock(id){
     return this.http.get<Stock>('https://admin.iphixx.com/api/v1/bookings/stock/' + id);
   }
 
   getTicket(id) {
-    return this.http.get<Customer>('https://admin.iphixx.com/api/v1/bookings/ticket/' + id);
+    return this.http.get<Ticket>('https://admin.iphixx.com/api/v1/bookings/ticket/' + id);
   }
 
   getDevtype(id) {
@@ -755,6 +767,29 @@ updateAgent(agent) {
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
 
+updateLocation(agent) {
+  console.log(agent);
+  const body = new HttpParams()
+   .set('agent_fname', agent.agent_fname)
+   .set('agent_lname', agent.agent_lname)
+   .set('agent_username', agent.agent_username)
+   .set('agent_email', agent.agent_email)
+   .set('agent_phone', agent.agent_phone)
+   .set('location_id','1')
+  return this.http.put('http://admin.iphixx.com/api/v1/bookings/update-agent/'+agent.agent_id,
+    body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
+}
+
+updatePassword(password) {
+  console.log(password);
+  const body = new HttpParams()
+   .set('current_password', password.current_password)
+   .set('new_password', password.new_password)
+   .set('confirm_password', password.confirm_password)
+  return this.http.put('http://admin.iphixx.com/api/v1/bookings/update-password/'+password.password_id,
+    body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
+}
+
 updateStock(stock) {
   console.log(stock);
   const body = new HttpParams()
@@ -880,6 +915,14 @@ deactivateAgent(agentId) {
 
 activateAgent(agentId) {
   return this.http.put('https://admin.iphixx.com/api/v1/bookings/activate-agent/'+ agentId,{});
+}
+
+deactivateLocation(locationId) {
+  return this.http.put('https://admin.iphixx.com/api/v1/bookings/deactivate-location/'+ locationId,{});
+}
+
+activateLocation(locationId) {
+  return this.http.put('https://admin.iphixx.com/api/v1/bookings/activate-location/'+ locationId,{});
 }
 
 deactivateNetwork(networkId) {
