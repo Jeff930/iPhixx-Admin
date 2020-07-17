@@ -24,6 +24,7 @@ export class LocationComponent implements OnInit {
     this.adminService.locationspages ? this.locationspages = this.adminService.locationspages : '';
 
   if (this.locations.length == 0) {
+    this.adminService.currentLocationsPage = 0;
     this.locationspageActive = 1;
     this.adminService.locationspageActive = this.locationspageActive;
     this.spinner.show();
@@ -44,8 +45,11 @@ export class LocationComponent implements OnInit {
   }
 }
 
-goToPage(number){
-  console.log(number);
+goToPage(i){
+  console.log(i);
+		this.adminService.currentLocationsPage = i;
+		var number = parseInt(i)+1;
+		this.locationspageActive = number;
   this.locationspageActive = number;
   this.adminService.locationspageActive = this.locationspageActive;
   this.spinner.show();
@@ -65,9 +69,7 @@ goToPage(number){
 }
 
 NextPage(){
-
-
-
+  this.adminService.currentLocationsPage = this.adminService.currentLocationsPage + 1;
   if(this.locationspageActive !== this.locationspages.length){
     this.locationspageActive = this.locationspageActive+1;
   this.adminService.locationspageActive = this.locationspageActive;
@@ -89,12 +91,12 @@ NextPage(){
 }
 
 PreviosPage(){
+  this.adminService.currentLocationsPage = this.adminService.currentLocationsPage - 1;
   if(this.locationspageActive !== 1){
     this.locationspageActive = this.locationspageActive-1;
   this.adminService.locationspageActive = this.locationspageActive;
   this.spinner.show();
   if(this.adminService.locationsPage['page'+this.locationspageActive ]){
-
       this.locations = this.adminService.locationsPage['page'+this.locationspageActive ];
       this.spinner.hide();
   }
@@ -109,22 +111,20 @@ PreviosPage(){
   }	
 }
 
-editAgent(id , index){
+editLocation(id , index){
   console.log(id);
-  this.adminService.agentsAction = 'update';
-  this.router.navigate(['/edit-agent' , id]);
+  this.router.navigate(['/edit-location', id]);
 }
 
-newAgent(){
+newLocation(){
   console.log("called");
-  this.adminService.agentsAction = 'new';
-  this.router.navigate(['/add-agent']);
+  this.router.navigate(['/add-location']);
 }
 
-deactivateAgent(id){
+deactivateLocation(id){
   this.spinner.show();
   console.log(id);
-    this.adminService.deactivateAgent(id).subscribe(res=>{
+    this.adminService.deactivateLocation(id).subscribe(res=>{
       // this.spinner.hide();
       console.log(res);
       this.adminService.locationsPage  = new Object(); 
@@ -134,24 +134,22 @@ deactivateAgent(id){
         alert('Error! Please Try again.')
         this.spinner.hide();
     }
-  )
-//  	$.ajax({
-//   type: "DELETE",
-//   url: 'https://iphixx.repairshopr.com/api/v1/locations/'+id+'?api_key=b60db6c6-2740-48c0-a0fa-34a49ecf6b3f',
- 
-//   success: (res) => {
-//   	this.spinner.hide();
-//   	console.log(res);
-//   	this.adminService.locationsPage  = new Object(); 
-//   	// this.router.navigate(['/locations']);
-//   },
-//   error:(err)=>{
-//    console.log(err);
-//    alert('Error! Please Try again.')
-//    this.spinner.hide();
-//   }
-  
-// });
-}
+  )}
 
+  activateLocation(id){
+    this.spinner.show();
+    console.log(id);
+    this.adminService.activateLocation(id).subscribe(res=>{
+      // this.spinner.hide();
+      console.log(res);
+      alert("Location Successfully Activated!");
+      this.adminService.locationsPage  = new Object(); 
+      location.reload();
+      },
+      err =>{
+        alert('Error! Please Try again.')
+        this.spinner.hide();
+      }
+    )
+  }
 }
