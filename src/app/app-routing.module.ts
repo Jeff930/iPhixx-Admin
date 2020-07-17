@@ -51,6 +51,10 @@ import { AddNetworkComponent } from './add-network/add-network.component';
 import { EditNetworkComponent } from './edit-network/edit-network.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AddItemComponent } from './add-item/add-item.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { LocationComponent } from './location/location.component';
+import { AddLocationComponent } from './add-location/add-location.component';
+import { EditLocationComponent } from './edit-location/edit-location.component';
 
 const routes: Routes = [
 
@@ -98,6 +102,10 @@ const routes: Routes = [
   { path: 'edit-network/:id', component: EditNetworkComponent },
   { path: 'profile/:id', component: ProfileComponent },
   { path: 'add-item', component: AddItemComponent },
+  { path: 'change-password/:id', component: ChangePasswordComponent },
+  { path: 'add-location', component: AddLocationComponent },
+  { path: 'edit-Location/:id', component: EditLocationComponent },
+  { path: 'location', component: LocationComponent },
   // { path: 'admin', component: DashboardComponent },
   // {
   //   path: 'device',
@@ -153,5 +161,8 @@ export const routingComponents = [
                                   EditLaptopPriceComponent,
                                   RestockComponent,
                                   ProfileComponent,
-                                  AddItemComponent
+                                  AddItemComponent,
+                                  AddLocationComponent,
+                                  EditLocationComponent,
+                                  LocationComponent
                                  ]
