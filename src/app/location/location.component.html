@@ -22,7 +22,7 @@
 										<!-- <h4 (click)= "openPager('manages')" [ngStyle]="{'color': pager === 'manages' ? '#2980b9' : 'black', 'background': pager === 'manages' ? '#ffffff' : 'none'}" class="panel-title">Manage Roles</h4> -->
 									</div>
 									<div class="addCustomer  align-items-end">
-										<button type="button" class="btn" (click)="newAgent()" >
+										<button type="button" class="btn" (click)="newLocation()" >
 											<i class="lnr lnr-plus-circle"></i>
 												Add Location
 										</button>
@@ -36,7 +36,7 @@
 											<tr>
 												<th>Location ID</th>
 												<th>Location Name</th>
-												<th>Company Name</th>
+												<th>Location Email</th>
 												<th>Location Address</th>
 												<th>Main Contact</th>
 												<th></th>
@@ -46,8 +46,8 @@
 											<tr *ngFor="let location of locations ; let i = index">
 												<td>{{ location.location_id }}</td>
 												<td>{{ location.location_name }}</td>
-												<td>{{ location.company_name }}</td>
-												<td>{{ location.location_address }}</td>
+												<td>{{ location.location_email }}</td>
+												<td>{{ location.address }}</td>
 												<td>{{ location.main_contact}}</td>
 												<td>
 
@@ -59,7 +59,8 @@
 													<sat-popover #contactPopover hasBackdrop verticalAlign="below">
 														<div class="list-group">
 															<a (click)="editLocation(location_id , i)" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-pencil"></span>Edit Location</a>
-															<a (click)="deactivateLocation(location.location_id )" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-remove"></span>Deactivate</a>
+															<a (click)="deactivateLocation(location.location_id )" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-remove"></span>Disable</a>
+															<a (click)="enableLocation(location.location_id )" class="list-group-item list-group-item-action"><span class="margin-icon glyphicon glyphicon-remove"></span>Enable</a>
 														</div>
 													</sat-popover>												        
 												</td>
@@ -67,15 +68,14 @@
 										</tbody>
 										<tfoot>
 									    	<tr>
-									        	<td colspan="5">
-									        		<ul class="pagination center">
-									        			<li (click) = "PreviosPage()"  class="page-item {{ locationspageActive == 1 ? 'disabled' : ''}}"><a class="page-link" style="cursor: pointer">«</a>
-									        			</li>
-									        			<li *ngFor="let page of locationspages ; let i = index" (click)="goToPage(i+1)" class="page-item {{ i+1 == locationspageActive ? 'active' : '' }}"  ><a class="page-link"  style="cursor: pointer">{{i+1}}</a>
-									        			</li>
-									        			<li (click) = "NextPage()" class="page-item"><a class="page-link" style="cursor: pointer">»</a>
-									        			</li>
-									        		</ul>
+									        	<td colspan="12" class="top-space">
+									        		<button class="btn btn-lg btn-primary update navigate {{locationspageActive == 1 ? 'disabled' : ''}}" (click) = "PreviosPage()">Previous</button>
+									        		
+									        		<select [(ngModel)] = "adminService.currentLocationsPage" (change)="goToPage($event.target.value)" class="btn btn-lg btn-primary update navigate">
+										    			<option [value]="i" *ngFor="let page of locationspages ; let i = index">{{i+1}}</option>
+										    		</select>
+									        		
+									        		<button class="btn btn-lg btn-primary update navigate {{ locationspageActive == locationspages.length ? 'disabled' : ''}}" (click) = "NextPage()">Next</button>
 									        	</td>
 									    	</tr>
 									    </tfoot>

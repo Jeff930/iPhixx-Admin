@@ -138,6 +138,10 @@ restock(id){
   this.router.navigate(['/restock',id]);
 }
 
+newItem(){
+  this.router.navigate(['/add-item']);
+}
+
   openPager(page) {
     switch (page) {
       case 'inventory':
