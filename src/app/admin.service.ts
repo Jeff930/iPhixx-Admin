@@ -15,12 +15,6 @@ export interface Customers {
   page: any;
 }
 
-export interface Locations {
-  locations : Array<any>;
-  total_page : any;
-  page: any;
-}
-
 export interface Agents {
   agents: Array<any>;
   total_page: any;
@@ -136,6 +130,7 @@ export interface Location {
   company_name: any;
   location_address:any;
   main_contact: any;
+  created_at:any,
 }
 
 export interface Logistic {
@@ -682,18 +677,15 @@ addRepairOption(repair) {
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
 
-addLocation(agent) {
-  console.log(agent);
+addLocation(location) {
+  console.log(location);
   const body = new HttpParams()
-   .set('agent_fname', agent.agent_fname)
-   .set('agent_lname', agent.agent_lname)
-   .set('agent_username', agent.agent_username)
-   .set('email', agent.email)
-   .set('password', agent.password)
-   .set('phone', agent.phone)
-   .set('address', agent.address)
+   .set('location_name', location.location_name)
+   .set('location_email', location.email)
+   .set('main_contact', location.contact)
+   .set('address', location.address)
 
-   return this.http.post('http://admin.iphixx.com/api/v1/bookings/add-agent',
+   return this.http.post('http://admin.iphixx.com/api/v1/bookings/add-location',
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
 
