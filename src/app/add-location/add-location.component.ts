@@ -19,6 +19,9 @@ export class AddLocationComponent implements OnInit {
   
     location = { 
       location_name: '',
+      address: '',
+      email: '',
+      contact: ''
     };
   
     id ;
