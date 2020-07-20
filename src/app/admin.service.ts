@@ -780,13 +780,19 @@ updateLocation(agent) {
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
 
-updatePassword(password) {
+updatePassword(password,agent_id) {
   console.log(password);
   const body = new HttpParams()
-   .set('current_password', password.current_password)
-   .set('new_password', password.new_password)
-   .set('confirm_password', password.confirm_password)
-  return this.http.put('http://admin.iphixx.com/api/v1/bookings/update-password/'+password.password_id,
+   .set('new_password', password)
+  return this.http.put('http://admin.iphixx.com/api/v1/bookings/change-password/'+agent_id,
+    body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
+}
+
+checkPassword(password,agent_id) {
+  console.log(password);
+  const body = new HttpParams()
+   .set('current_password', password)
+  return this.http.post('http://admin.iphixx.com/api/v1/bookings/check-password/'+agent_id,
     body.toString(), { headers : { 'Content-Type' : 'application/x-www-form-urlencoded' } ,params : {  } })
 }
 
