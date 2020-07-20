@@ -3,7 +3,7 @@ import { Router , ActivatedRoute  } from '@angular/router';
 import { Agents, AdminService } from '../admin.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AlertsService } from 'angular-alert-module';
-
+import {Md5} from 'ts-md5/dist/md5';
 
 @Component({
   selector: 'app-login',
@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-      this.adminservice.loginAgent(this.getStartedForm.get('email').value,this.getStartedForm.get('password').value)
+      this.adminservice.loginAgent(this.getStartedForm.get('email').value,Md5.hashStr(this.getStartedForm.get('password').value))
       .subscribe(res=>{
         console.log(res);
         console.log(res['agent'][0]);
