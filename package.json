@@ -24,7 +24,7 @@
     "@angular/router": "^6.1.0",
     "@ncstate/sat-popover": "^2.1.1",
     "@ng-bootstrap/ng-bootstrap": "^4.2.1",
-    "angular": "^1.7.5",
+    "angular": "^1.8.0",
     "angular-6-datatable": "^0.8.0",
     "angular-alert-module": "^2.0.3",
     "angular-material": "^1.1.13",
